@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>jQuery UI Tabs</title>
+	<link type="text/css" href="tab/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script type="text/javascript" src="jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="tab/jquery-ui-1.8.4.custom.min.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		$("#tabs").tabs();
+	});
+	</script>
+</head>
+<body  onpaste='return false;'>
+
+<div class="demo">
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">jQuery</a></li>
+        <li><a href="#tabs-2">Ajax</a></li>
+		<li><a href="#tabs-3">Java Script</a></li>
+	</ul>
+	<div id="tabs-1">
+<p>jQuery is a cross-browser JavaScript library designed to simplify the client-side scripting of HTML.It was released in January 2006 at BarCamp NYC by John Resig. Used by over 31% of the 10,000 most visited websites, jQuery is the most popular JavaScript library in use today.
+jQuery is free, open source software, dual-licensed under the MIT License and the GNU General Public License, Version jQuery's syntax is designed to make it easier to navigate a document, select DOM elements, create animations, handle events, and develop Ajax applications. jQuery also provides capabilities for developers to create plugins on top of the JavaScript library. Using these facilities, developers are able to create abstractions for low-level interaction and animation, advanced effects and high-level, theme-able widgets. This contributes to the creation of powerful and dynamic web pages.</p>
+	</div>
+	<div id="tabs-2">
+<p>Ajax is a group of interrelated web development techniques used on the client-side to create interactive web applications. With Ajax, web applications can retrieve data from the server  asynchronously in the background without interfering with the display and behavior of the existing page. The use of Ajax techniques has led to an increase in interactive or dynamic interfaces on web pages. Data is usually retrieved using the XMLHttpRequest object. Despite the name, the use of XML is not actually required, nor do the requests need to be asynchronous.</p>
+</div>
+<div id="tabs-3">
+<p>JavaScript is an implementation of the ECMAScript language standard and is typically used to enable programmatic access to computational objects within a host environment. It can be characterized as a prototype-based object-oriented[5] scripting language that is dynamic, weakly typed and has first-class functions. It is also considered a functional programming language like Scheme and OCaml because it has closures and supports higher-order functions.</p>
+	</div>
+</div>
+
+</div>
+<font color="#FF4500">
+<p>Click tabs to See Content of Title</p>
+</font>
+
+</body>
+</html>

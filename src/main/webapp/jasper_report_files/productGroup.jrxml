@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="productGroup" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FAEBD7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFE4BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFF8EF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="productGroup">
+		<queryString language="SQL">
+			<![CDATA[SELECT (@c:=@c+1) SNO,pg.CHR_NAME,IF(pg.CHR_CONFIGURATION='Y','Yes','NO') FROM  inv_m_productgroup pg,(SELECT @c:=0) c ORDER BY pg.CHR_NAME;]]>
+		</queryString>
+		<field name="SNO" class="java.lang.Long"/>
+		<field name="CHR_NAME" class="java.lang.String"/>
+		<field name="IF(pg.CHR_CONFIGURATION=&apos;Y&apos;,&apos;Yes&apos;,&apos;NO&apos;)" class="java.lang.String"/>
+		<group name="CHR_NAME">
+			<groupExpression><![CDATA[$F{CHR_NAME}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT (@c:=@c+1) SNO,pg.CHR_NAME,IF(pg.CHR_CONFIGURATION='Y','Yes','NO') FROM  inv_m_productgroup pg,(SELECT @c:=0) c ORDER BY pg.CHR_NAME;]]>
+	</queryString>
+	<field name="SNO" class="java.lang.Long"/>
+	<field name="CHR_NAME" class="java.lang.String"/>
+	<field name="IF(pg.CHR_CONFIGURATION=&apos;Y&apos;,&apos;Yes&apos;,&apos;NO&apos;)" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="45" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="225" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="107" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="84" y="0" width="58" height="52"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="productGroup">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="47">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="46" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[S.NO ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="36" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="34" height="34"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.Long"><![CDATA[$F{SNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="168">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="168" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[NAME ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="36" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="14" y="0" width="154" height="34"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="103">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="103" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[CONFIGURATION ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="36" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="15" y="0" width="88" height="34"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{IF(pg.CHR_CONFIGURATION='Y','Yes','NO')}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

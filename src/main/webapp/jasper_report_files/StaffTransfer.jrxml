@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StaffTransfer" language="groovy" pageWidth="2755" pageHeight="842" columnWidth="2715" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FAEBD7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFE4BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFF8EF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="StaffTranfer">
+		<queryString language="SQL">
+			<![CDATA[SELECT (@c:=@c+1) SNO,a.CHR_EMPID ,a.CHR_STAFFNAME, FUN_GET_COMPANY(b.INT_FROM_COMPANYID) fromcompany ,
+ FUN_GET_COMPANY(b.INT_TO_COMPANYID) tocompany, FUN_GET_BRANCH(b.INT_FROM_BRANCHID) frombranch,
+ FUN_GET_BRANCH(b.INT_TO_BRANCHID) tobranch, FUN_GET_DEPARTNAME(b.INT_FROM_DEPARTID) fromdepart,
+ FUN_GET_DEPARTNAME(b.INT_TO_DEPARTID) todepart, FUN_GET_DESIGNAME(b.INT_FROM_DESIGID) fromdesig ,
+ FUN_GET_DESIGNAME(b.INT_TO_DESIGID) todesig, FUN_GET_OFFICENAME(b.INT_TO_OFFICEID) fromoffice,
+ FUN_GET_OFFICENAME(b.INT_TO_OFFICEID) tooffice, FUN_GET_LOCATION(b.INT_FROM_LOCATIONID) fromlocation,
+ FUN_GET_LOCATION (b.INT_TO_LOCATIONID) tolocation, FUN_GET_CATEGORYNAME(b.INT_FROM_CATEGORY) fromcategory,
+ FUN_GET_CATEGORYNAME(b.INT_TO_CATEGORY) tocategory,
+ IF(b.INT_FROMATTENDANCECYCLE='1','1-31','20th-19th') fromcycle,
+ IF(b.INT_ATTENDANCECYCLE='1','1-31','20th-19th') tocycle,
+ FIND_A_EMPLOYEE_ID_NAME(b.CHR_FROM_REPTO) fromreporting,
+ FIND_A_EMPLOYEE_ID_NAME(b.CHR_TO_REPTO) toreporting, DATE_FORMAT(b.DT_TRANSFERDATE,'%d-%b-%Y'),
+ DATE_FORMAT(b.DT_RELEAVINGFROM,'%d-%b-%Y'), b.CHR_REASON
+ FROM com_m_staff a, pay_m_emp_transfer b,(SELECT @c:=0) t WHERE a.CHR_EMPID =b.CHR_EMPID
+ ORDER BY a.CHR_STAFFNAME]]>
+		</queryString>
+		<field name="SNO" class="java.lang.Long"/>
+		<field name="CHR_EMPID" class="java.lang.String"/>
+		<field name="CHR_STAFFNAME" class="java.lang.String"/>
+		<field name="fromcompany" class="java.lang.String"/>
+		<field name="tocompany" class="java.lang.String"/>
+		<field name="frombranch" class="java.lang.String"/>
+		<field name="tobranch" class="java.lang.String"/>
+		<field name="fromdepart" class="java.lang.String"/>
+		<field name="todepart" class="java.lang.String"/>
+		<field name="fromdesig" class="java.lang.String"/>
+		<field name="todesig" class="java.lang.String"/>
+		<field name="fromoffice" class="java.lang.String"/>
+		<field name="tooffice" class="java.lang.String"/>
+		<field name="fromlocation" class="java.lang.String"/>
+		<field name="tolocation" class="java.lang.String"/>
+		<field name="fromcategory" class="java.lang.String"/>
+		<field name="tocategory" class="java.lang.String"/>
+		<field name="fromcycle" class="java.lang.String"/>
+		<field name="tocycle" class="java.lang.String"/>
+		<field name="fromreporting" class="java.lang.String"/>
+		<field name="toreporting" class="java.lang.String"/>
+		<field name="DATE_FORMAT(b.DT_TRANSFERDATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+		<field name="DATE_FORMAT(b.DT_RELEAVINGFROM,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+		<field name="CHR_REASON" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT (@c:=@c+1) SNO,a.CHR_EMPID ,a.CHR_STAFFNAME, FUN_GET_COMPANY(b.INT_FROM_COMPANYID) fromcompany ,
+ FUN_GET_COMPANY(b.INT_TO_COMPANYID) tocompany, FUN_GET_BRANCH(b.INT_FROM_BRANCHID) frombranch,
+ FUN_GET_BRANCH(b.INT_TO_BRANCHID) tobranch, FUN_GET_DEPARTNAME(b.INT_FROM_DEPARTID) fromdepart,
+ FUN_GET_DEPARTNAME(b.INT_TO_DEPARTID) todepart, FUN_GET_DESIGNAME(b.INT_FROM_DESIGID) fromdesig ,
+ FUN_GET_DESIGNAME(b.INT_TO_DESIGID) todesig, FUN_GET_OFFICENAME(b.INT_TO_OFFICEID) fromoffice,
+ FUN_GET_OFFICENAME(b.INT_TO_OFFICEID) tooffice, FUN_GET_LOCATION(b.INT_FROM_LOCATIONID) fromlocation,
+ FUN_GET_LOCATION (b.INT_TO_LOCATIONID) tolocation, FUN_GET_CATEGORYNAME(b.INT_FROM_CATEGORY) fromcategory,
+ FUN_GET_CATEGORYNAME(b.INT_TO_CATEGORY) tocategory,
+ IF(b.INT_FROMATTENDANCECYCLE='1','1-31','20th-19th') fromcycle,
+ IF(b.INT_ATTENDANCECYCLE='1','1-31','20th-19th') tocycle,
+ FIND_A_EMPLOYEE_ID_NAME(b.CHR_FROM_REPTO) fromreporting,
+ FIND_A_EMPLOYEE_ID_NAME(b.CHR_TO_REPTO) toreporting, DATE_FORMAT(b.DT_TRANSFERDATE,'%d-%b-%Y'),
+ DATE_FORMAT(b.DT_RELEAVINGFROM,'%d-%b-%Y'), b.CHR_REASON
+ FROM com_m_staff a, pay_m_emp_transfer b,(SELECT @c:=0) t WHERE a.CHR_EMPID =b.CHR_EMPID
+ ORDER BY a.CHR_STAFFNAME]]>
+	</queryString>
+	<field name="SNO" class="java.lang.Long"/>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="fromcompany" class="java.lang.String"/>
+	<field name="tocompany" class="java.lang.String"/>
+	<field name="frombranch" class="java.lang.String"/>
+	<field name="tobranch" class="java.lang.String"/>
+	<field name="fromdepart" class="java.lang.String"/>
+	<field name="todepart" class="java.lang.String"/>
+	<field name="fromdesig" class="java.lang.String"/>
+	<field name="todesig" class="java.lang.String"/>
+	<field name="fromoffice" class="java.lang.String"/>
+	<field name="tooffice" class="java.lang.String"/>
+	<field name="fromlocation" class="java.lang.String"/>
+	<field name="tolocation" class="java.lang.String"/>
+	<field name="fromcategory" class="java.lang.String"/>
+	<field name="tocategory" class="java.lang.String"/>
+	<field name="fromcycle" class="java.lang.String"/>
+	<field name="tocycle" class="java.lang.String"/>
+	<field name="fromreporting" class="java.lang.String"/>
+	<field name="toreporting" class="java.lang.String"/>
+	<field name="DATE_FORMAT(b.DT_TRANSFERDATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="DATE_FORMAT(b.DT_RELEAVINGFROM,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="CHR_REASON" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="17" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="215" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="0" width="360" height="140"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="StaffTranfer">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="58">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="58" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[S.NO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="15" y="0" width="43" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.Long"><![CDATA[$F{SNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="144">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="144" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[EMPID]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="14" y="0" width="130" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EMPID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="125">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="125" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[STAFF]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="14" y="0" width="111" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_STAFFNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="105">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="105" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[FROMCOMPANY]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="0" width="95" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{fromcompany}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="111">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="111" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOCOMPANY]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="0" width="101" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{tocompany}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="109">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="109" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[FROMBRANCH]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="97" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{frombranch}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="120" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOBRANCH]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="0" width="110" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{tobranch}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="115">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="115" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[FROMDEPARTMENT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="0" width="105" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{fromdepart}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="117">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="117" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="false"/>
+								</textElement>
+								<text><![CDATA[TODEPARTMENT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="14" y="0" width="103" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{todepart}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="125">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="125" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[FROMDESIGNATION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="113" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{fromdesig}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="129">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="129" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TODESIGNATION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="13" y="0" width="116" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{todesig}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[FROMOFFICE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="14" y="0" width="96" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{fromoffice}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOOFFICE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="0" width="100" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{tooffice}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="119">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="119" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[FROMLOCATION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="107" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{fromlocation}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="115">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="115" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOLOCATION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="103" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{tolocation}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="120" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[FROMCATEGEORY]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="108" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{fromcategory}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="94">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="94" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOCATEGEORY]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="0" width="84" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{tocategory}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[FROMCYCLE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="78" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{fromcycle}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOCYCLE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="78" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{tocycle}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="106">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="106" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[FROMREPORTING]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="13" y="0" width="93" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{fromreporting}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOREPORTING]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="0" width="80" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{toreporting}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="108">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="108" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TRANSFERDATE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="11" y="0" width="97" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{DATE_FORMAT(b.DT_TRANSFERDATE,'%d-%b-%Y')}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="103">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="103" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[RELEAVINGDATE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="11" y="0" width="92" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{DATE_FORMAT(b.DT_RELEAVINGFROM,'%d-%b-%Y')}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="101">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="101" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[REASON]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="11" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

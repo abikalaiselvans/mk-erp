@@ -1,0 +1,12 @@
+STEPS TO RUN THE PROGRAM
+
+Step1: Save the all the .java files in JDK/BIN folder.
+Step2: Open the Command prompt and compile the files using the steps below.
+Step3: Type "javac ChatServer.java" to compile the server class.
+Step4: Type "javac Sketcher.java" to compile the Client class.
+Step5: Type "java ChatServer <port number>" to run the server.
+Step6: Type "java Sketcher <hostname>:<port number>" to run the client.
+
+<host name> is the host name of the computer that is to be connected.
+<port number> is any number for e.g. 999 that will be used to create a logical socket.
+

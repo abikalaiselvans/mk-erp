@@ -1,0 +1,36 @@
+<%!
+/*
+ * Sample Plain Old Java Object.
+ */
+public class SimplePOJO {
+
+	public String firstName;
+	private String lastName;
+	private int id;
+	private java.sql.Date birthDay;
+	  
+	public SimplePOJO(String firstName, String lastName, int id, java.sql.Date birthDay)
+	{
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.id = id;
+		this.birthDay = birthDay;
+	}
+	  
+	public String getLastName()
+	{
+		return lastName;
+	}
+	  
+	public int getId()
+	{
+		return id;
+	}
+	
+	public java.sql.Date getBirthDay()
+	{
+		return birthDay;
+	}
+}
+
+%>

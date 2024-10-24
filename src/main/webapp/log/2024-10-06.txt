@@ -1,0 +1,1350 @@
+Logfile created2024-10-06
+com.mysql.jdbc.JDBC4PreparedStatement@4e25f0fd: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100055'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Msl2017'
+Attendance auto marking
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100055'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100055'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100055'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100055'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100055'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100055'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100055'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-10-07.txt
+Logfile created

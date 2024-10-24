@@ -1,0 +1,338 @@
+<style>
+.body {
+	color: #262626;
+}
+
+.calcBlackBtn,.calcGreyBtn,.calcBigBtn,.calcCancBtn,.calcMemBtn,.calcBackBtn
+	{
+	border: none;
+	width: 25px;
+	height: 20px;
+	font-size: 11px;
+	color: #fff;
+}
+
+.calcBackBtn {
+	background: url(calc_back_btn.gif) no-repeat;
+}
+
+.calcBlackBtn {
+	background: url(calc_black_btn.gif) no-repeat;
+}
+
+.calcGreyBtn {
+	background: url(calc_grey_btn.gif) no-repeat;
+}
+
+.calcCancBtn {
+	background: url(calc_canc_btn.gif) no-repeat;
+	text-align: center;
+}
+
+.calcMemBtn {
+	background: url(calc_mem_btn.gif) no-repeat;
+}
+</style>
+<script language="JavaScript" type="text/javascript">
+ <!-- Begin
+var Memory = 0;
+var Number1 = "";
+var Number2 = "";
+var NewNumber = "blank";
+var opvalue = "";
+
+function Display(displaynumber) {
+document.calculator.answer.value = displaynumber;
+}
+
+function MemoryClear() {
+Memory = 0;
+//document.calculator.mem.value = "";
+document.calculator.mem.style.color = "#BBB";
+}
+
+function MemoryRecall(answer) {
+if(NewNumber != "blank") {
+Number2 += answer;
+} else {
+Number1 = answer;
+}
+NewNumber = "blank";
+Display(answer);
+}
+
+function MemorySubtract(answer) {
+Memory = Memory - eval(answer);
+}
+
+function MemoryAdd(answer) {
+Memory = Memory + eval(answer);
+document.calculator.mem.style.color = "#000";
+//document.calculator.mem.value = "M";
+NewNumber = "blank";
+}
+
+function ClearCalc() {
+Number1 = "";
+Number2 = "";
+NewNumber = "blank";
+Display("");
+}
+
+function Backspace(answer) {
+answerlength = answer.length;
+answer = answer.substring(0, answerlength - 1);
+if (Number2 != "") {
+Number2 = answer.toString();
+Display(Number2);
+} else {
+Number1 = answer.toString();
+Display(Number1);
+   }
+}
+
+function CECalc() {
+Number2 = "";
+NewNumber = "yes";
+Display("");
+}
+
+function CheckNumber(answer) {
+if(answer == ".") {
+Number = document.calculator.answer.value;
+if(Number.indexOf(".") != -1) {
+answer = "";
+   }
+}
+if(NewNumber == "yes") {
+Number2 += answer;
+Display(Number2);
+}
+else {
+if(NewNumber == "blank") {
+Number1 = answer;
+Number2 = "";
+NewNumber = "no";
+}
+else {
+Number1 += answer;
+}
+Display(Number1);
+   }
+}
+function AddButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) + parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '+';
+Display(Number1);
+}
+function SubButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) - parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '-';
+Display(Number1);
+}
+function MultButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) * parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '*';
+Display(Number1);
+}
+function DivButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) / parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '/';
+Display(Number1);
+}
+function SqrtButton() {
+Number1 = Math.sqrt(Number1);
+NewNumber = "blank";
+Display(Number1);
+}
+function PercentButton() {
+if(NewNumber != "blank") {
+Number2 *= .01;
+NewNumber = "blank";
+Display(Number2);
+   }
+}
+function RecipButton() {
+Number1 = 1/Number1;
+NewNumber = "blank";
+Display(Number1);
+}
+function NegateButton() {
+Number1 = parseFloat(-Number1);
+NewNumber = "no";
+Display(Number1);
+}
+function EqualButton(x) {
+if(opvalue == '+') AddButton(0);
+if(opvalue == '-') SubButton(0);
+if(opvalue == '*') MultButton(0);
+if(opvalue == '/') DivButton(0);
+if (typeof(x)!="undefined" && typeof(parentField)!="undefined") 
+	if (x==0) if (getOpenerObj(parentField)) getOpenerObj(parentField).value=Number1
+Number2 = "";
+opvalue = "";
+}
+//  End -->
+</script>
+
+
+<title>CALCULATOR</title>
+</head>
+<body>
+<table width="100" height="200" border="0" cellspacing="1"
+	cellpadding="2">
+	<tr>
+		<td>
+		<table width="272" cellpadding=2 cellspacing=1 bgcolor='#ffffCC'>
+			<form name="calculator">
+			<tr style="height: 5">
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan=6>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="3" height="3">&nbsp;</td>
+						<td height="3">&nbsp;</td>
+						<td width="3" height="3">&nbsp;</td>
+					</tr>
+					<tr>
+						<td width="3">&nbsp;</td>
+						<td align="right">
+						<table width="80%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="10%"><input type="text" class="calcMem"
+									name="mem" size="2" value="M" readonly></td>
+								<td width="99%"><input type="text" class="calcResult"
+									name="answer" maxlength="30" onChange="CheckNumber(this.value)"
+									readonly autofocus></td>
+							</tr>
+						</table>
+						</td>
+						<td width="3">&nbsp;</td>
+					</tr>
+					<tr>
+						<td width="3" height="3">&nbsp;</td>
+						<td height="3">&nbsp;</td>
+						<td width="3" height="3">&nbsp;</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr style="height: 5">
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+				<td width="25" align="center"><input type="button" name="CE"
+					class="calcCancBtn" value="CE" onClick="CECalc(); return false;"></td>
+				<td width="25" align="center"><input type="reset" name="C"
+					class="calcCancBtn" value="C" onClick="ClearCalc(); return false;"></td>
+			</tr>
+			<tr>
+				<td width="25" align="center"><input type="button"
+					name="backspace" class="calcBackBtn" value=""
+					onClick="Backspace(document.calculator.answer.value); return false;"></td>
+				<td width="25" align="center"><input type="button" name="recip"
+					class="calcBlackBtn" value="1/x"
+					onClick="RecipButton(); return false;"></td>
+				<td width="25" align="center"><input type="button" name="sqrt"
+					class="calcBlackBtn" value="sqrt"
+					onClick="SqrtButton(); return false;"></td>
+				<td width="25" align="center"><input type="button"
+					name="negate" class="calcBlackBtn" value="+/-"
+					onClick="NegateButton(); return false;"></td>
+				<td width="25" align="center"><input type="button"
+					name="percent" class="calcBlackBtn" value="%"
+					onClick="PercentButton(); return false;"></td>
+			</tr>
+			<tr>
+				<td width="25" align="center"><input type="button" name="MC"
+					class="calcMemBtn" value="MC"
+					onClick="MemoryClear(); return false;"></td>
+				<td width="25" align="center"><input type="button" name="calc7"
+					class="calcGreyBtn" value="7"
+					onClick="CheckNumber('7'); return false;"></td>
+				<td width="25" align="center"><input type="button" name="calc8"
+					class="calcGreyBtn" value="8"
+					onClick="CheckNumber('8'); return false;"></td>
+				<td width="25" align="center"><input type="button" name="calc9"
+					class="calcGreyBtn" value="9"
+					onClick="CheckNumber('9'); return false;"></td>
+				<td width="25" align="center"><input type="button"
+					name="divide" class="calcBlackBtn" value="/"
+					onClick="DivButton(1); return false;"></td>
+			</tr>
+			<tr>
+				<td width="25" align="center"><input type="button" name="MR"
+					class="calcMemBtn" value="MR"
+					onClick="MemoryRecall(Memory); return false;"></td>
+				<td width="25" align="center"><input type="button" name="calc4"
+					class="calcGreyBtn" value="4"
+					onClick="CheckNumber('4'); return false;"></td>
+				<td width="25" align="center"><input type="button" name="calc5"
+					class="calcGreyBtn" value="5"
+					onClick="CheckNumber('5'); return false;"></td>
+				<td width="25" align="center"><input type="button" name="calc6"
+					class="calcGreyBtn" value="6"
+					onClick="CheckNumber('6'); return false;"></td>
+				<td width="25" align="center"><input type="button"
+					name="multiply" class="calcBlackBtn" value="x"
+					onClick="MultButton(1); return false;"></td>
+			</tr>
+			<tr>
+				<td width="25" align="center"><input type="button" name="MS"
+					class="calcMemBtn" value="M-"
+					onClick="MemorySubtract(document.calculator.answer.value); return false;"></td>
+				<td width="25" align="center"><input type="button" name="calc1"
+					class="calcGreyBtn" value="1"
+					onClick="CheckNumber('1'); return false;"></td>
+				<td width="25" align="center"><input type="button" name="calc2"
+					class="calcGreyBtn" value="2"
+					onClick="CheckNumber('2'); return false;"></td>
+				<td width="25" align="center"><input type="button" name="calc3"
+					class="calcGreyBtn" value="3"
+					onClick="CheckNumber('3'); return false;"></td>
+				<td width="25" align="center"><input type="button" name="minus"
+					class="calcBlackBtn" value="-"
+					onClick="SubButton(1); return false;"></td>
+			</tr>
+			<tr>
+				<td width="25" align="center"><input type="button" name="Mplus"
+					class="calcMemBtn" value="M+"
+					onClick="MemoryAdd(document.calculator.answer.value); return false;"></td>
+				<td width="25" align="center"><input type="button" name="calc0"
+					class="calcGreyBtn" value="0"
+					onClick="CheckNumber('0'); return false;"></td>
+				<td width="25" align="center"><input type="button" name="dot"
+					class="calcGreyBtn" value="."
+					onClick="CheckNumber('.'); return false;"></td>
+				<td width="25" align="center"><input type="button" name="equal"
+					class="calcBlackBtn" value="="
+					onClick="EqualButton(0); return false;"></td>
+				<td width="25" align="center"><input type="button" name="plus"
+					class="calcBlackBtn" value="+"
+					onClick="AddButton(1); return false;"></td>
+			</tr>
+			</form>
+		</table>
+		</td>
+	</tr>
+</table>
+</html>

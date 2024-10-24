@@ -1,0 +1,20 @@
+Medical Cutoff Formula for Maths Biology Group
+( Biology marks for 200 )    / 2 = 100  +
+( Physics marks for 200 )    / 4 =  50  +
+( Chemistry marks for 200 ) /4 =  50
+ Total is the Cutoff                 =  200
+
+Medical Cutoff Formula for Science Group
+(Botany marks for 200 )   /4    =      50   +
+(Zoology marks for 200 ) /4    =      50   +
+(Physics marks for 200 )   /4    =      50   +
+(Chemistry marks for 200 ) /4  =      50
+ Total is the Cutoff                     =      200
+ 
+ 
+Subjects	Total Marks	Cut-off Calculation	Cut-Off Marks
+Mathematics	200	200/2	100
+Physics	200	200/4	50
+Chemistry	200	200/4	50
+Engineering Cut-Off	200/200
+

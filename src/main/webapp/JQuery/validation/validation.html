@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+  p { margin:0; color:blue; }
+  div,p { margin-left:10px; }
+  span { color:red; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body  onpaste='return false;'>
+  <p>Type 'correct' to validate.</p>
+  <form action="javascript:alert('success!');">
+    <div>
+      <input type="text"  name="kalai"/>
+
+      <input type="submit" />
+    </div>
+  </form>
+  <span></span>
+<script>
+
+    $("form").submit(
+					function() 
+					{
+						   
+						  if ( checkNull("kalai","enter the name"))
+						  	 	return true;
+						  else
+      							return false;
+    				}
+				);
+				
+ 
+
+function checkNull(ctr,msg)
+{
+	 
+	alert($("#txtEmail").val());
+	var v = document.getElementById(ctr).value;
+	 
+	if( v == ""  || v == null)
+	{
+	   alert(msg);	
+	   document.getElementById(ctr).focus();
+	   return false;
+	}
+	else
+	   return true;
+}			
+</script>
+
+</body>
+</html>

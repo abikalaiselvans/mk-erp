@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Question" language="groovy" pageWidth="2035" pageHeight="842" columnWidth="1995" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FAEBD7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFE4BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFF8EF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="question">
+		<parameter name="testName" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT (@c:=@c+1) SNO, ttype.CHR_TESTNAME,
+quest.CHR_QUESTION,quest.CHR_ANSWER1,quest.CHR_ANSWER2,quest.CHR_ANSWER3,quest.CHR_ANSWER4
+FROM hrm_m_testtype ttype,hrm_m_testquestion quest,(SELECT @c:=0) t WHERE
+ttype.INT_TESTTYPEID=quest.INT_TESTTYPEID AND
+   CASE
+ WHEN  $P{testName} is null OR  $P{testName}=''
+THEN ttype.CHR_TESTNAME IN (SELECT CHR_TESTNAME FROM hrm_m_testtype)
+ELSE ttype.CHR_TESTNAME=$P{testName} END ;]]>
+		</queryString>
+		<field name="SNO" class="java.lang.Long"/>
+		<field name="CHR_TESTNAME" class="java.lang.String"/>
+		<field name="CHR_QUESTION" class="java.lang.String"/>
+		<field name="CHR_ANSWER1" class="java.lang.String"/>
+		<field name="CHR_ANSWER2" class="java.lang.String"/>
+		<field name="CHR_ANSWER3" class="java.lang.String"/>
+		<field name="CHR_ANSWER4" class="java.lang.String"/>
+		<group name="CHR_TESTNAME">
+			<groupExpression><![CDATA[$F{CHR_TESTNAME}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="testName" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT (@c:=@c+1) SNO, ttype.CHR_TESTNAME,
+quest.CHR_QUESTION,quest.CHR_ANSWER1,quest.CHR_ANSWER2,quest.CHR_ANSWER3,quest.CHR_ANSWER4
+FROM hrm_m_testtype ttype,hrm_m_testquestion quest,(SELECT @c:=0) t WHERE
+ttype.INT_TESTTYPEID=quest.INT_TESTTYPEID AND
+   CASE
+ WHEN  $P{testName} is null OR  $P{testName}=''
+THEN ttype.CHR_TESTNAME IN (SELECT CHR_TESTNAME FROM hrm_m_testtype)
+ELSE ttype.CHR_TESTNAME=$P{testName}  END ;]]>
+	</queryString>
+	<field name="SNO" class="java.lang.Long"/>
+	<field name="CHR_TESTNAME" class="java.lang.String"/>
+	<field name="CHR_QUESTION" class="java.lang.String"/>
+	<field name="CHR_ANSWER1" class="java.lang.String"/>
+	<field name="CHR_ANSWER2" class="java.lang.String"/>
+	<field name="CHR_ANSWER3" class="java.lang.String"/>
+	<field name="CHR_ANSWER4" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="215" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="91" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="0" width="360" height="49" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="question">
+						<datasetParameter name="testName">
+							<datasetParameterExpression><![CDATA[$P{testName}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="58">
+						<jr:columnHeader style="table_CH" height="39" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="58" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[S.NO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="57" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="11" y="0" width="47" height="49" isPrintWhenDetailOverflows="true"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.Long"><![CDATA[$F{SNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table_CH" height="39" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TESTNAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="57" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="8" y="3" width="79" height="46" isPrintWhenDetailOverflows="true"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_TESTNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="183">
+						<jr:columnHeader style="table_CH" height="39" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="181" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[QUESTION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="57" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="9" y="5" width="171" height="44" isPrintWhenDetailOverflows="true"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_QUESTION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table_CH" height="39" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[ANSWER1]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="57" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="7" y="9" width="80" height="40" isPrintWhenDetailOverflows="true"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_ANSWER1}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table_CH" height="39" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[ANSWER2]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="57" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="12" y="0" width="78" height="49" isPrintWhenDetailOverflows="true"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_ANSWER2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table_CH" height="39" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[ANSWER3]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="57" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="11" y="0" width="79" height="49" isPrintWhenDetailOverflows="true"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_ANSWER3}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table_CH" height="39" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[ANSWER4]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="57" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="11" y="0" width="79" height="49" isPrintWhenDetailOverflows="true"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_ANSWER4}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

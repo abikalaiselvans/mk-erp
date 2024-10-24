@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 April 2011 11:37:37 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping >
+    <class name="com.my.org.erp.bean.inventory.Wireless" table="inv_m_wireless" >
+        
+        <id name="rowid" type="java.lang.Integer">
+            <column name="INT_WIRELESSID" />
+        </id>
+        
+        <property name="name" type="string">
+            <column name="CHR_WIRELESS"  />
+        </property>
+        
+        <property name="desc" type="string">
+            <column name="CHR_DESC"  />
+        </property>
+        
+        <property name="userid" type="string">
+            <column name="CHR_USRNAME"  />
+        </property>
+        
+        <property name="userdate" type="java.util.Date">
+            <column name="DT_UPDATEDATE"  />
+        </property>
+        
+        <property name="status" type="string">
+            <column name="CHR_UPDATESTATUS"  />
+        </property>
+     </class>
+</hibernate-mapping>
+ 

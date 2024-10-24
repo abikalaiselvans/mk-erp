@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rept_JExitInterview" language="groovy" pageWidth="640" pageHeight="842" columnWidth="600" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="hImageExpression" class="java.lang.String"/>
+	<parameter name="fImageExpression" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT a.CHR_EMPID,b.CHR_STAFFNAME,date_format(DAT_INTERVIEWDATE,'%d-%b-%Y'),CHR_REASON1,
+CHR_REASON2,if(CHR_REASON3='Y','Yes','No'),CHR_REASON4,if(CHR_REASON5='Y','Yes','No'),if(CHR_REASON6='Y','Yes','No'),
+if(CHR_REASON7='Y','Yes','No'),if(CHR_REASON8='Y','Yes','No'),if(CHR_REASON9='Y','Yes','No'),CHR_REASON10,CHR_REASON11,
+CHR_REASON12,CHR_REASON13,CHR_REASON14,if(CHR_REASON15='Y','Yes','No'),if(CHR_REASON16='Y','Yes','No'),
+CHR_REASON17,CHR_REASON18,CHR_REASON19,CHR_REASON20 FROM
+pay_t_exitinterview a,com_m_staff b WHERE a.CHR_EMPID=b.CHR_EMPID AND INT_EXITID=2]]>
+	</queryString>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="date_format(DAT_INTERVIEWDATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="CHR_REASON1" class="java.lang.String"/>
+	<field name="CHR_REASON2" class="java.lang.String"/>
+	<field name="if(CHR_REASON3=&apos;Y&apos;,&apos;Yes&apos;,&apos;No&apos;)" class="java.lang.String"/>
+	<field name="CHR_REASON4" class="java.lang.String"/>
+	<field name="if(CHR_REASON5=&apos;Y&apos;,&apos;Yes&apos;,&apos;No&apos;)" class="java.lang.String"/>
+	<field name="if(CHR_REASON6=&apos;Y&apos;,&apos;Yes&apos;,&apos;No&apos;)" class="java.lang.String"/>
+	<field name="if(CHR_REASON7=&apos;Y&apos;,&apos;Yes&apos;,&apos;No&apos;)" class="java.lang.String"/>
+	<field name="if(CHR_REASON8=&apos;Y&apos;,&apos;Yes&apos;,&apos;No&apos;)" class="java.lang.String"/>
+	<field name="if(CHR_REASON9=&apos;Y&apos;,&apos;Yes&apos;,&apos;No&apos;)" class="java.lang.String"/>
+	<field name="CHR_REASON10" class="java.lang.String"/>
+	<field name="CHR_REASON11" class="java.lang.String"/>
+	<field name="CHR_REASON12" class="java.lang.String"/>
+	<field name="CHR_REASON13" class="java.lang.String"/>
+	<field name="CHR_REASON14" class="java.lang.String"/>
+	<field name="if(CHR_REASON15=&apos;Y&apos;,&apos;Yes&apos;,&apos;No&apos;)" class="java.lang.String"/>
+	<field name="if(CHR_REASON16=&apos;Y&apos;,&apos;Yes&apos;,&apos;No&apos;)" class="java.lang.String"/>
+	<field name="CHR_REASON17" class="java.lang.String"/>
+	<field name="CHR_REASON18" class="java.lang.String"/>
+	<field name="CHR_REASON19" class="java.lang.String"/>
+	<field name="CHR_REASON20" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="680" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="50" width="600" height="15"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[Exit Interview]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="507" y="65" width="33" height="15"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="540" y="65" width="60" height="15"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="113" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[1. What is your primary reason for leaving?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="143" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[2. Can this Organization do anything to encourage you to stay?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="173" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[3. Before deciding to leave, did you investigate a transfer within the Organization?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="203" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[4. Did anything trigger your decision to leave this organization?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="233" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[5. Have you receive adequate support to do your job? ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="263" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[6. Did any Organization policies or procedures (or any other obstacles) make your job more difficult?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="293" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[7. Did you receive enough training to do your job effectively?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="323" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[8. Did this Organization help you to fulfill your career goals?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="353" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[9. Are you happy with your pay, benefits?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="383" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[10. What does your new Organization offer that this Organization doesn't?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="413" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[11. What extra responsibility would you have welcome that you were not given?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="443" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[12. How would you describe the ‘culture’ or ‘feel’ of the Organization?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="473" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[13. What has been good / enjoyable / satisfy for you in your time with us?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="503" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[14. What has been frustrating / difficult / upsetting to you in your time with us?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="533" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[15. Would you consider working again for this Organization in the future?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="563" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[16. Would you recommend your friends to work in this Organization?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="593" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[17. What could your immediate supervisor do to improve his or her management style?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="620" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[18. What improvements do you think that can be made to improve customer service and relations?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="650" width="600" height="13"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[19. Any other comments?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="88" width="600" height="20"/>
+				<box leftPadding="0">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Candidate Id / Name: "+$F{CHR_EMPID}+" / "+$F{CHR_STAFFNAME}+"                   Interview Date: "+$F{date_format(DAT_INTERVIEWDATE,'%d-%b-%Y')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="126" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="156" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="186" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(CHR_REASON3='Y','Yes','No')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="216" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON4}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="246" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(CHR_REASON5='Y','Yes','No')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="276" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(CHR_REASON6='Y','Yes','No')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="306" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(CHR_REASON7='Y','Yes','No')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="336" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(CHR_REASON8='Y','Yes','No')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="366" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(CHR_REASON9='Y','Yes','No')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="396" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON10}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="426" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON11}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="456" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON12}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="486" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON13}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="516" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON14}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="546" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(CHR_REASON15='Y','Yes','No')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="576" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(CHR_REASON16='Y','Yes','No')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="606" width="600" height="14"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON17}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="633" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON18}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="663" width="600" height="17"/>
+				<box leftPadding="24">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REASON19}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{hImageExpression}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="65" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="15" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{fImageExpression}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="533" y="0" width="48" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="581" y="0" width="19" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

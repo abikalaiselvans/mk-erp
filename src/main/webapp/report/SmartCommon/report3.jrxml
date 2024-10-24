@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" language="groovy" pageWidth="3640" pageHeight="595" orientation="Landscape" columnWidth="3600" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="2898"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#00FFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1">
+		<queryString language="SQL">
+			<![CDATA[select * from att_t_register]]>
+		</queryString>
+		<field name="INT_RNO" class="java.lang.Long"/>
+		<field name="CHR_EMPID" class="java.lang.String"/>
+		<field name="CHR_MONTH" class="java.lang.String"/>
+		<field name="INT_YEAR" class="java.lang.Integer"/>
+		<field name="CHR_MORNING1" class="java.lang.String"/>
+		<field name="CHR_EVENING1" class="java.lang.String"/>
+		<field name="CHR_MORNING2" class="java.lang.String"/>
+		<field name="CHR_EVENING2" class="java.lang.String"/>
+		<field name="CHR_MORNING3" class="java.lang.String"/>
+		<field name="CHR_EVENING3" class="java.lang.String"/>
+		<field name="CHR_MORNING4" class="java.lang.String"/>
+		<field name="CHR_EVENING4" class="java.lang.String"/>
+		<field name="CHR_MORNING5" class="java.lang.String"/>
+		<field name="CHR_EVENING5" class="java.lang.String"/>
+		<field name="CHR_MORNING6" class="java.lang.String"/>
+		<field name="CHR_EVENING6" class="java.lang.String"/>
+		<field name="CHR_MORNING7" class="java.lang.String"/>
+		<field name="CHR_EVENING7" class="java.lang.String"/>
+		<field name="CHR_MORNING8" class="java.lang.String"/>
+		<field name="CHR_EVENING8" class="java.lang.String"/>
+		<field name="CHR_MORNING9" class="java.lang.String"/>
+		<field name="CHR_EVENING9" class="java.lang.String"/>
+		<field name="CHR_MORNING10" class="java.lang.String"/>
+		<field name="CHR_EVENING10" class="java.lang.String"/>
+		<field name="CHR_MORNING11" class="java.lang.String"/>
+		<field name="CHR_EVENING11" class="java.lang.String"/>
+		<field name="CHR_MORNING12" class="java.lang.String"/>
+		<field name="CHR_EVENING12" class="java.lang.String"/>
+		<field name="CHR_MORNING13" class="java.lang.String"/>
+		<field name="CHR_EVENING13" class="java.lang.String"/>
+		<field name="CHR_MORNING14" class="java.lang.String"/>
+		<field name="CHR_EVENING14" class="java.lang.String"/>
+		<field name="CHR_MORNING15" class="java.lang.String"/>
+		<field name="CHR_EVENING15" class="java.lang.String"/>
+		<field name="CHR_MORNING16" class="java.lang.String"/>
+		<field name="CHR_EVENING16" class="java.lang.String"/>
+		<field name="CHR_MORNING17" class="java.lang.String"/>
+		<field name="CHR_EVENING17" class="java.lang.String"/>
+		<field name="CHR_MORNING18" class="java.lang.String"/>
+		<field name="CHR_EVENING18" class="java.lang.String"/>
+		<field name="CHR_MORNING19" class="java.lang.String"/>
+		<field name="CHR_EVENING19" class="java.lang.String"/>
+		<field name="CHR_MORNING20" class="java.lang.String"/>
+		<field name="CHR_EVENING20" class="java.lang.String"/>
+		<field name="CHR_MORNING21" class="java.lang.String"/>
+		<field name="CHR_EVENING21" class="java.lang.String"/>
+		<field name="CHR_MORNING22" class="java.lang.String"/>
+		<field name="CHR_EVENING22" class="java.lang.String"/>
+		<field name="CHR_MORNING23" class="java.lang.String"/>
+		<field name="CHR_EVENING23" class="java.lang.String"/>
+		<field name="CHR_MORNING24" class="java.lang.String"/>
+		<field name="CHR_EVENING24" class="java.lang.String"/>
+		<field name="CHR_MORNING25" class="java.lang.String"/>
+		<field name="CHR_EVENING25" class="java.lang.String"/>
+		<field name="CHR_MORNING26" class="java.lang.String"/>
+		<field name="CHR_EVENING26" class="java.lang.String"/>
+		<field name="CHR_MORNING27" class="java.lang.String"/>
+		<field name="CHR_EVENING27" class="java.lang.String"/>
+		<field name="CHR_MORNING28" class="java.lang.String"/>
+		<field name="CHR_EVENING28" class="java.lang.String"/>
+		<field name="CHR_MORNING29" class="java.lang.String"/>
+		<field name="CHR_EVENING29" class="java.lang.String"/>
+		<field name="CHR_MORNING30" class="java.lang.String"/>
+		<field name="CHR_EVENING30" class="java.lang.String"/>
+		<field name="CHR_MORNING31" class="java.lang.String"/>
+		<field name="CHR_EVENING31" class="java.lang.String"/>
+		<field name="DOU_PRESENT" class="java.lang.Double"/>
+		<field name="DOU_ONDUTY" class="java.lang.Double"/>
+		<field name="DOU_SUNDAY" class="java.lang.Double"/>
+		<field name="DOU_HOLIDAY" class="java.lang.Double"/>
+		<field name="DOU_LEAVE" class="java.lang.Double"/>
+		<field name="DOU_ABSENT" class="java.lang.Double"/>
+		<field name="INT_LATE" class="java.lang.Integer"/>
+		<field name="INT_PERMISSION" class="java.lang.Integer"/>
+		<field name="DOU_EXTRADAYS" class="java.lang.Double"/>
+		<field name="DOU_EXTRAHOURS" class="java.lang.Double"/>
+		<field name="CHR_FLAG" class="java.lang.String"/>
+		<field name="DAT_RESET" class="java.sql.Timestamp"/>
+		<field name="DAT_EMPTY" class="java.sql.Timestamp"/>
+		<field name="DOU_TOTALDAYS" class="java.lang.Double"/>
+		<field name="DAT_CREATEDATE" class="java.sql.Timestamp"/>
+		<field name="DAT_MODIFIEDDATE" class="java.sql.Timestamp"/>
+		<field name="DAT_PROCESSDATE" class="java.sql.Timestamp"/>
+		<field name="DT_UPDATEDATE" class="java.sql.Date"/>
+		<field name="CHR_USRNAME" class="java.lang.String"/>
+		<field name="CHR_UPDATESTATUS" class="java.lang.String"/>
+		<group name="CHR_EMPID">
+			<groupExpression><![CDATA[$F{CHR_EMPID}]]></groupExpression>
+		</group>
+	</subDataset>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="200" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="0" width="3600" height="200"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 1">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:tableFooter style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30"/>
+						<jr:columnFooter style="table_CH" height="30"/>
+						<jr:detailCell style="table_TD" height="20"/>
+					</jr:column>
+					<jr:column width="90">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:tableFooter style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30"/>
+						<jr:columnFooter style="table_CH" height="30"/>
+						<jr:detailCell style="table_TD" height="20"/>
+					</jr:column>
+					<jr:column width="90">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:tableFooter style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30"/>
+						<jr:columnFooter style="table_CH" height="30"/>
+						<jr:detailCell style="table_TD" height="20"/>
+					</jr:column>
+					<jr:column width="90">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:tableFooter style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30"/>
+						<jr:columnFooter style="table_CH" height="30"/>
+						<jr:detailCell style="table_TD" height="20"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

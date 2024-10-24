@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Tomcat MySQL JNDI How-To</title>
+<style type="text/css">
+<!--
+body {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+pre {
+	font-family: "Courier New", Courier, mono;
+	font-size: 11px;
+}
+.small {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.sectionHeading {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+.subHeading {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+.step {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.titleHeading {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td><h3 class="titleHeading"><strong>How to Setup JSTL &amp; JNDI<br>
+    </strong><strong>for MySQL 4.x JDBC Connection Pooling<br>
+    with Tomcat 5.0 and 5.5 </strong></h3>    </td>
+  </tr>
+  <tr>
+    <td class="small">by Gregg Lagnese, <a href="http://www.microdeveloper.com/">MicroDeveloper, Inc.</a></td>
+  </tr>
+  <tr>
+    <td>March 8, 2005</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h5 class="sectionHeading">Preface</h5></td>
+  </tr>
+  <tr>
+    <td>This document outlines the step necessary to setup JSTL (JSP Tag
+ Libraries) &amp; JNDI resources on Tomcat for accessing MySQL 
+databases, versions 4.0 through 4.1.&nbsp; This paper uses JSTL merely 
+for convienience in the examples, however it proved to be the trickier 
+aspect in setup. If you are running a relatively current JDK you should 
+be fine. This setup was tested under OS X and Windows using JDK 1.4.2_05
+ and Tomcat 5.0.28 and Tomcat 5.5.7. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h5 class="sectionHeading">Nomenclature:</h5></td>
+  </tr>
+  <tr>
+    <td>&lt;name&gt; = where you substitute the necessary value </td>
+  </tr>
+  <tr>
+    <td>[name] = an optional element or parameter </td>
+  </tr>
+  <tr>
+    <td><p><strong><br>
+      Note</strong>: All examples are given in Unix path notation, use Windows notation where applicable.<br>
+&nbsp; </p></td>
+  </tr>
+  <tr>
+    <td><h5 class="sectionHeading"><strong>Section Index</strong></h5></td>
+  </tr>
+  <tr>
+    <td class="step"><p><a href="#Configuration">Configuration</a></p>    </td>
+  </tr>
+  <tr>
+    <td class="step"><a href="#Testing">Testing the changes</a></td>
+  </tr>
+  <tr>
+    <td class="step"><a href="#Troubleshooting">Troubleshooting</a></td>
+  </tr>
+  <tr>
+    <td class="step"><a href="#UserConnection">Making a User Dependent Connection</a> </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h4 class="sectionHeading"><a name="Configuration"></a>Configuration</h4></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h5 class="subHeading"><strong>Pre-requisite setup:</strong></h5></td>
+  </tr>
+  <tr>
+    <td>To begin with, you will need the following Jars (not zips) in your $CATALINA_BASE/&lt;5.x&gt;/common/lib directory.
+      <p>Note: You only need naming-common.jar with 5.0 implementations,
+ do not include it with 5.5 (or Tomcat will not start) because it is 
+already bundled in the other 5.5 version of the factory Jar.</p>
+      <pre>/usr/local/tomcat/5.5.7/common/lib
+<br>commons-collections-3.1.jar             <br>commons-dbcp-1.2.1.jar<br>commons-el.jar<br>commons-pool-1.2.jar
+jasper-compiler-jdt.jar<br>jasper-compiler.jar<br>jasper-runtime.jar<br>jsp-api.jar
+jstl.jar
+mysql-connector-java-3.1.8-bin.jar
+naming-java.jar
+naming-factory.jar
+naming-factory-dbcp.jar
+naming-resources.jar<br>servlet-api.jar</pre>
+      <br>
+For 5.0.x add this Jar:<br>
+<pre>naming-common.jar<br>
+</pre>
+<p>If you don't have some of these, you can get the entire <strong>5.5.7</strong> bundle here (less the naming-common.jar file).<br>
+      <a href="http://www.microdeveloper.com/dl/TC557Jars.tgz">Unix/Linux/Mac OS X</a><br>
+    <a href="http://www.microdeveloper.com/dl/TC557Jars.zip">Windows (Zip)</a></p>    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>The JSTL Jar file can be placed in your 
+&lt;CONTEXT_ROOT&gt;/WEB-INF/lib directory or globally deployed  with 
+the files above as shown. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h5 class="sectionHeading">Database Setup: </h5></td>
+  </tr>
+  <tr>
+    <td>Make sure you have MySQL setup already and that you can connect 
+to it remotely. This paper assumes you will be using the "test" database
+ with a user called "scott". Substitute your database and usernames 
+accordingly. I created a simple test table called messages with using 
+the following quick steps:<br>    </td>
+  </tr>
+  <tr>
+    <td><pre>glagnese:/ $ mysql -h mysql.microdeveloper.com -u scott -p
+
+Enter password: 
+<br>Welcome to the MySQL monitor.  Commands end with ; or \g.<br>Your MySQL connection id is 31 to server version: 4.1.9-nt-max</pre>
+        <pre>Type 'help;' or '\h' for help. Type '\c' to clear the buffer.</pre>
+        <pre>mysql&gt; connect test
+     Connection id: 32
+     Current database: test
+
+mysql&gt; create table messages (text_message varchar(50));<br>Query OK, 0 rows affected (0.31 sec)
+    </pre>
+        <pre>mysql&gt; insert into messages values ('hello world');<br>Query OK, 1 row affected (0.05 sec)</pre>
+        <pre>mysql&gt; insert into messages values ('Hello USA');<br>Query OK, 1 row affected (0.01 sec)</pre>
+        <pre>mysql&gt; insert into messages values ('Hello Next Door');
+     Query OK, 1 row affected (0.01 sec)</pre>
+        <pre>mysql&gt; insert into messages values ('Hello Me');
+     Query OK, 1 row affected (0.00 sec)</pre>
+        <pre>mysql&gt; commit;
+     Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; select * from messages;<br>+-----------------+<br>| text_message    |<br>+-----------------+<br>| hello world     |<br>| Hello USA       |<br>| Hello Next Door |<br>| Hello Me        |<br>+-----------------+<br>4 rows in set (0.00 sec)</pre>
+        <pre>mysql&gt; exit<br>Bye
+
+    </pre></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h5 class="sectionHeading">Steps to Implement:</h5></td>
+  </tr>
+  <tr>
+    <td class="step"><strong>1)</strong> Modify the <strong><em>server.xml</em></strong> file </td>
+  </tr>
+  <tr>
+    <td>In <em>&lt;CATALINA_HOME&gt;/conf/server.xml</em> between <font face="Courier New, Courier, mono">&lt;Host&gt;</font> and<font face="Courier New, Courier, mono"> &lt;/Host&gt;</font> add the following </td>
+  </tr>
+  <tr>
+    <td><pre>&lt;Context path="/dvdlib" docBase="dvdlib"       debug="5" reloadable="true" crossContext="true"&gt;
+       
+    &lt;Resource name="jdbc/&lt;alias&gt;" 
+       auth="Container"
+       type="javax.sql.DataSource"
+       maxActive="100" 
+       maxIdle="30" 
+       maxWait="10000"
+       username="dvdlib"
+       driverClassName="com.mysql.jdbc.Driver"
+       url="jdbc:mysql://&lt;server&gt;:&lt;port&gt;/&lt;database&gt;?autoReconnect=true"/&gt;
+         
+ &lt;/Context&gt;</pre>    </td>
+  </tr>
+  <tr>
+    <td><h5 class="subHeading"><em><strong>Example</strong></em></h5></td>
+  </tr>
+  <tr>
+    <td><pre>&lt;Engine defaultHost="localhost" name="Catalina"&gt;
+   &lt;Realm className="org.apache.catalina.realm.UserDatabaseRealm"/&gt;
+   &lt;Host
+       appBase="webapps"
+       name="localhost"&gt;
+   
+      &lt;Context path="/mydb" docBase="/mydb" debug="5" reloadable="true" crossContext="true"&gt;
+         &lt;Resource name="jdbc/test" 
+             auth="Container"
+             type="javax.sql.DataSource"
+             maxActive="100" 
+             maxIdle="30" 
+             maxWait="10000"
+             username="dvdlib"
+             driverClassName="com.mysql.jdbc.Driver"
+             url="jdbc:mysql://mysql.microdeveloper.com:3306/test?autoReconnect=true"/&gt;
+      &lt;/Context&gt;
+ 
+   &lt;/Host&gt;
+&lt;/Engine&gt;</pre>
+      <pre>&nbsp;</pre>    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font size="2"><strong>2)</strong> Modify the <strong><em><font color="#993300">Context's </font>web.xml</em></strong> file</font> </td>
+  </tr>
+  <tr>
+    <td>In the &lt;<em><strong>CONTEXT_HOME</strong></em>&gt;/WEB-INF/web.xml
+ after the &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt; tag add (or
+ change) the following. This must be version 2.4 (not 2.3) or the JSTL 
+will not work. </td>
+  </tr>
+  <tr>
+    <td><pre>&lt;web-app xmlns="http://java.sun.com/xml/ns/j2ee"<br>   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"<br>   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"<br>   version="2.4"&gt;</pre></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Then add a resource reference to the new datasource inside the web-app container in the same file. </td>
+  </tr>
+  <tr>
+    <td><pre>   &lt;description&gt;Your Description&lt;/description&gt;
+   &lt;resource-ref&gt;
+     &lt;description&gt;Connection Description&lt;/description&gt;
+     &lt;res-ref-name&gt;jdbc/&lt;alias&gt;&lt;/res-ref-name&gt;
+     &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;
+     &lt;res-auth&gt;Container&lt;/res-auth&gt;
+   &lt;/resource-ref&gt;</pre>  </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h5><em><strong>Example</strong></em></h5></td>
+  </tr>
+  <tr>
+    <td><pre><font face="Courier New, Courier, mono">&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>&lt;web-app xmlns="http://java.sun.com/xml/ns/j2ee"<br>   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"<br>   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"<br>   version="2.4"&gt;</font></pre>
+      <pre>   &lt;description&gt;This is a simple JSTL-JNDI test application&lt;/description&gt;
+   &lt;resource-ref&gt;
+     &lt;description&gt;MySQL Database Connection&lt;/description&gt;
+     &lt;res-ref-name&gt;jdbc/test&lt;/res-ref-name&gt;
+     &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;
+     &lt;res-auth&gt;Container&lt;/res-auth&gt;
+   &lt;/resource-ref&gt;
+&lt;/web-app&gt;</pre></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font size="2"><strong>3)</strong> Restart Tomcat </font> </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h4><a name="Testing"></a>Testing the Changes </h4></td>
+  </tr>
+  <tr>
+    <td><font size="2"><strong>4)</strong> Test that JSTL is working first. </font> </td>
+  </tr>
+  <tr>
+    <td>Create a simple JSP page that ensures JSTL is working before 
+proceeding. If this is not working, get it working first. Make sure the 
+JSTL jar is deployed and make sure the web.xml file is setup for 2.4. 
+That last element tripped me up several times. </td>
+  </tr>
+  <tr>
+    <td><pre>&lt;%@ page contentType="text/html" %&gt;<br>&lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %&gt;<br>&lt;html&gt;<br>  &lt;head&gt;<br>    &lt;title&gt;JSP is Easy&lt;/title&gt;<br>  &lt;/head&gt;<br>  &lt;body bgcolor="white"&gt;
+    &lt;h1&gt;JSP is as easy as ...&lt;/h1&gt;
+    &lt;%-- Calculate the sum of 1 + 2 + 3 dynamically --%&gt;
+    1 + 2 + 3 = &lt;c:out value="${1 + 2 + 3}" /&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+        <pre>&nbsp;</pre></td>
+  </tr>
+  <tr>
+    <td><h5><em><strong>Result</strong></em></h5></td>
+  </tr>
+  <tr>
+    <td>    </td>
+  </tr>
+  <tr>
+    <td><h1>JSP is as easy as ...</h1><font face="Times New Roman, Times, serif" size="2">1 + 2 + 3 = 6</font></td>
+  </tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr>
+    <td><font size="2"><strong>5)</strong> Create another JSP to test the JNDI connection with. </font> </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><pre>&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %&gt;<br>&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&gt;</pre>      
+      <pre>&lt;sql:query var="rs" dataSource="jdbc/mydb"&gt;
+  select text_message from messages
+&lt;/sql:query&gt;
+
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;DB Test&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h2&gt;Results&lt;/h2&gt;
+    &lt;c:forEach var="i" items="${rs.rows}"&gt;
+      Text Message: &lt;c:out value="${i.text_message}"/&gt;&lt;br&gt;
+    &lt;/c:forEach&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+    <pre>&nbsp;</pre></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h2>Results</h2>
+Text Message: hello world<br>
+Text Message: Hello USA<br>
+Text Message: Hello Next Door<br>
+Text Message: Hello Me<br>
+	  </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h4><a name="Troubleshooting"></a>Troubleshooting</h4></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font size="2"><strong>6)</strong> Check the database first</font></td>
+  </tr>
+  <tr>
+    <td><em><strong>Verify database connectivity</strong></em><br>
+a) Ping the server <br>
+b) Connect using the username and password in step 1<br>
+c) Verify the server and port</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font size="2"><strong>7)</strong> Driver error messages </font></td>
+  </tr>
+  <tr>
+    <td><p><strong>Driver errors usually look like (Cannot create JDBC driver of class '' for connect URL 'null'):</strong><br>
+        Place the mysql-connector-java-3.1.6-bin.jar file in the &lt;CATALINA_HOME&gt;\common\lib directory<br>
+        Do NOT place the JAR in your &lt;CONTEXT&gt;/WEB-INF/lib directory (this can cause problems) <br>
+        <em>If used with an IDE that auto-deploys, exclude the JAR from the deployment</em></p>
+    <p><strong>Error messages that 'jdbc' is an unknown context:</strong><br>
+    Verify that the alias and the database names are correct and that 
+you are using the alias in your calls. Check your alias and database 
+configurations in the web.xml and server.xml files. </p>
+    <p><strong>Make sure JSTL is working:</strong><br>
+Verify that JSTL is working properly by using the test page given above. Make sure the web.xml uses the 2.4 syntax.</p></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>This method has been tested on MySQL 4.1.9 and Tomcat 5.0.24 and
+ 5.5.7. It was tested using Netbeans 3.6, Netbeans 4.0, and  IntelliJ 
+4.5.</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong>Revision History </strong></td>
+  </tr>
+  <tr>
+    <td class="small">06.15.06.01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;glagnese&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Changed
+ the instructions for context specific installation rather than global 
+installation.</td>
+  </tr>
+  <tr>
+    <td class="small">03.08.05.01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;glagnese&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created.</td>
+  </tr>
+  <tr>
+    <td><hr noshade="noshade" size="1"></td>
+  </tr>
+  <tr>
+    <td class="small">Gregg Lagnese is an senior executive and developer
+ for MicroDeveloper, Inc. and has been developing software for Oracle 
+databases for more than 14 years.</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</tbody></table>
+<p><br>
+</p>
+
+
+</body></html>

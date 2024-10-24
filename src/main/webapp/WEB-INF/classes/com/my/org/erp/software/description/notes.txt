@@ -1,0 +1,18 @@
+Request Dispatcher is an Interface which is used to 
+dispatch the request or response from web resource to the another web resource.
+It contains mainly two methods..
+
+1)request.forward(req,res):This method is used forward the request 
+from one web resource to another resource. i.e from one servlet 
+to another servlet or from one web application to another web appliacation.
+
+2)response.include(req,res):This method is used include the response of one servlet
+ to another servlet
+
+NOTE: BY using Request Dispatcher we can forward or include the request or responses 
+with in the same server.
+
+request.sendRedirect(): BY using this we can orward or include the request or responses 
+across the different servers. In this the client gets a intimation
+ while redirecting the page but in the above process
+  the client will not get itimation

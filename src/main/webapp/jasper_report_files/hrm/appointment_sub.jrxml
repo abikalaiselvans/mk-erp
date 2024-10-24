@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="appointment_sub" language="groovy" pageWidth="743" pageHeight="913" columnWidth="703" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="4"/>
+	<property name="ireport.y" value="371"/>
+	<parameter name="empid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT staff.CHR_STAFFNAME, desig.CHR_DESIGNAME,staff.DT_DOJCOLLEGE,staff.INT_CTC,office.CHR_OFFICENAME
+
+FROM com_m_staff staff,com_m_desig desig, com_m_office office
+
+WHERE staff.INT_DESIGID=desig.INT_DESIGID AND
+staff.INT_OFFICEID=office.INT_OFFICEID AND staff.CHR_EMPID=$P{empid}]]>
+	</queryString>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="CHR_DESIGNAME" class="java.lang.String"/>
+	<field name="DT_DOJCOLLEGE" class="java.sql.Date"/>
+	<field name="INT_CTC" class="java.lang.Long"/>
+	<field name="CHR_OFFICENAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="873" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="288" width="469" height="81"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[After confirmation of your employment, notice of termination of employment will be one(1) month notice in writing or one(1) month salary in lieu of notice from either party. Notwithstanding the aforementioned, the Company shall be entitled to terminate your employment without notice, indemnities and compensation in any of the following events:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="369" width="469" height="77"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[1. If any information furnished or declaration given by you in regard to your employment to the Company is found to be false or any material information will fully suppressed, your appointment would be liable for termination without any notice or compensation.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="446" width="469" height="38"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[2. If you are, in the opinion of the Company, guilty of dishonesty, misconduct or negligence in the performance of your duties;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="484" width="469" height="38"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[3. If you have been found to have committed a serious breach or continual material breach of any of your duties or obligations;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="522" width="469" height="60"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[4. If you are found to have made illegal monetary profit or received any gratuities or other rewards, in cash or in kind, out of any of the Company's affairs or any of its subsidiaries or related companies.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="582" width="469" height="68"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[Upon termination of employment, you are entitled to return all the company property, which may be in your possession. It would be obligatory on your part to get a proper relieving letter from the Management before your services are deemed to be concluded.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="650" width="310" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RETIREMENT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="665" width="469" height="57"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[The retiring age is at fifty-Eight (58) years. In the absence of evidence of the exact date of birth the employee shall retire on 31st December of the year the employee attains fifty-Eight years of age.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="38" width="469" height="73"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[2. You will under no circumstances make available your services to any undertaking, or have any interest directly or indirectly in any other undertaking or activity which might interfere with the proper performance of your duties without first obtaining the written permission of the Company;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="469" height="38"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[1.    It is expected that you will discharge your assigned responsibilities with high standard of performance, quality, integrity, and discipline.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="111" width="469" height="104"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[3. You will not at any time during the continuance or after the termination of your services with the Company irrespective of any reason for such termination, make use or disclose to any party either for your own benefit or for the benefit of any party(individual, firm, company, any trade or business), the affairs and confidential information of the Company or any of its related companies of which you have knowledge or become aware during the course of your service with the Company;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="273" width="310" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TERMINATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="215" width="469" height="58"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[4. You will obey and comply with all reasonable orders and instructions given to you by the Company or its authorized agents and observe all standing and other rules and/or regulations now in force or from time to time approved by the Company. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="722" width="310" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RETIRALS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="737" width="469" height="37"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[You will participate in the Company Provident Fund Scheme and any other statutory compliance as applicable to your category of employees.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="789" width="469" height="24"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[You will be entitled to gratuity in accordance with the rules governing such payment.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="774" width="310" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRATUITY:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

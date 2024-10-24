@@ -1,0 +1,1098 @@
+Logfile created2024-07-21
+com.mysql.jdbc.JDBC4PreparedStatement@5d4a1c8c: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='ADMIN'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Athiban123'
+Attendance auto marking
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='ADMIN'
+Logined
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='ADMIN'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='ADMIN'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='ADMIN'
+Logined
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---An exception occurred processing [footer.jsp] at line [30]
+
+27: 	response.setDateHeader ("Expires", 0); //prevents caching 
+28: 	response.setHeader("Cache-Control","no-store"); //HTTP 1.1 
+29: 	System.out.println("=============="+"SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'");
+30: 	if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='"+session.getAttribute("USRID")+"'")[0][0]))
+31: 	{
+32: 		out.println("<center>");
+33: 		out.println("<font class='bolddeepred'>");
+
+
+Stacktrace:
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-22.txt
+Logfile created

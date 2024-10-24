@@ -1,0 +1,2398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Monthwise attendance register report" language="groovy" pageWidth="2619" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="2579" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="1801"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="year" class="java.lang.String">
+		<defaultValueExpression><![CDATA[2013]]></defaultValueExpression>
+	</parameter>
+	<parameter name="month" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="category" class="java.lang.String"/>
+	<parameter name="office" class="java.lang.String"/>
+	<parameter name="dept" class="java.lang.String"/>
+	<parameter name="hImageExpression" class="java.lang.String"/>
+	<parameter name="fImageExpression" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT a.CHR_EMPID,b.CHR_STAFFNAME, CHR_MORNING1,CHR_EVENING1, CHR_MORNING2,CHR_EVENING2, CHR_MORNING3,CHR_EVENING3, CHR_MORNING4,CHR_EVENING4, CHR_MORNING5,CHR_EVENING5, CHR_MORNING6,CHR_EVENING6, CHR_MORNING7,CHR_EVENING7, CHR_MORNING8,CHR_EVENING8, CHR_MORNING9,CHR_EVENING9, CHR_MORNING10,CHR_EVENING10, CHR_MORNING11,CHR_EVENING11, CHR_MORNING12,CHR_EVENING12, CHR_MORNING13,CHR_EVENING13, CHR_MORNING14,CHR_EVENING14, CHR_MORNING15,CHR_EVENING15, CHR_MORNING16,CHR_EVENING16, CHR_MORNING17,CHR_EVENING17, CHR_MORNING18,CHR_EVENING18, CHR_MORNING19,CHR_EVENING19, CHR_MORNING20,CHR_EVENING20, CHR_MORNING21,CHR_EVENING21, CHR_MORNING22,CHR_EVENING22, CHR_MORNING23,CHR_EVENING23, CHR_MORNING24,CHR_EVENING24, CHR_MORNING25,CHR_EVENING25, CHR_MORNING26,CHR_EVENING26, CHR_MORNING27,CHR_EVENING27, CHR_MORNING28,CHR_EVENING28, CHR_MORNING29,CHR_EVENING29, CHR_MORNING30,CHR_EVENING30, CHR_MORNING31,CHR_EVENING31,a.INT_RNO,a.CHR_MONTH,a.INT_YEAR FROM att_t_register a, com_m_staff b  WHERE a.CHR_EMPID = b.CHR_EMPID  AND a.CHR_EMPID='SUBADMIN'  AND a.INT_YEAR=2012]]>
+	</queryString>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="CHR_MORNING1" class="java.lang.String"/>
+	<field name="CHR_EVENING1" class="java.lang.String"/>
+	<field name="CHR_MORNING2" class="java.lang.String"/>
+	<field name="CHR_EVENING2" class="java.lang.String"/>
+	<field name="CHR_MORNING3" class="java.lang.String"/>
+	<field name="CHR_EVENING3" class="java.lang.String"/>
+	<field name="CHR_MORNING4" class="java.lang.String"/>
+	<field name="CHR_EVENING4" class="java.lang.String"/>
+	<field name="CHR_MORNING5" class="java.lang.String"/>
+	<field name="CHR_EVENING5" class="java.lang.String"/>
+	<field name="CHR_MORNING6" class="java.lang.String"/>
+	<field name="CHR_EVENING6" class="java.lang.String"/>
+	<field name="CHR_MORNING7" class="java.lang.String"/>
+	<field name="CHR_EVENING7" class="java.lang.String"/>
+	<field name="CHR_MORNING8" class="java.lang.String"/>
+	<field name="CHR_EVENING8" class="java.lang.String"/>
+	<field name="CHR_MORNING9" class="java.lang.String"/>
+	<field name="CHR_EVENING9" class="java.lang.String"/>
+	<field name="CHR_MORNING10" class="java.lang.String"/>
+	<field name="CHR_EVENING10" class="java.lang.String"/>
+	<field name="CHR_MORNING11" class="java.lang.String"/>
+	<field name="CHR_EVENING11" class="java.lang.String"/>
+	<field name="CHR_MORNING12" class="java.lang.String"/>
+	<field name="CHR_EVENING12" class="java.lang.String"/>
+	<field name="CHR_MORNING13" class="java.lang.String"/>
+	<field name="CHR_EVENING13" class="java.lang.String"/>
+	<field name="CHR_MORNING14" class="java.lang.String"/>
+	<field name="CHR_EVENING14" class="java.lang.String"/>
+	<field name="CHR_MORNING15" class="java.lang.String"/>
+	<field name="CHR_EVENING15" class="java.lang.String"/>
+	<field name="CHR_MORNING16" class="java.lang.String"/>
+	<field name="CHR_EVENING16" class="java.lang.String"/>
+	<field name="CHR_MORNING17" class="java.lang.String"/>
+	<field name="CHR_EVENING17" class="java.lang.String"/>
+	<field name="CHR_MORNING18" class="java.lang.String"/>
+	<field name="CHR_EVENING18" class="java.lang.String"/>
+	<field name="CHR_MORNING19" class="java.lang.String"/>
+	<field name="CHR_EVENING19" class="java.lang.String"/>
+	<field name="CHR_MORNING20" class="java.lang.String"/>
+	<field name="CHR_EVENING20" class="java.lang.String"/>
+	<field name="CHR_MORNING21" class="java.lang.String"/>
+	<field name="CHR_EVENING21" class="java.lang.String"/>
+	<field name="CHR_MORNING22" class="java.lang.String"/>
+	<field name="CHR_EVENING22" class="java.lang.String"/>
+	<field name="CHR_MORNING23" class="java.lang.String"/>
+	<field name="CHR_EVENING23" class="java.lang.String"/>
+	<field name="CHR_MORNING24" class="java.lang.String"/>
+	<field name="CHR_EVENING24" class="java.lang.String"/>
+	<field name="CHR_MORNING25" class="java.lang.String"/>
+	<field name="CHR_EVENING25" class="java.lang.String"/>
+	<field name="CHR_MORNING26" class="java.lang.String"/>
+	<field name="CHR_EVENING26" class="java.lang.String"/>
+	<field name="CHR_MORNING27" class="java.lang.String"/>
+	<field name="CHR_EVENING27" class="java.lang.String"/>
+	<field name="CHR_MORNING28" class="java.lang.String"/>
+	<field name="CHR_EVENING28" class="java.lang.String"/>
+	<field name="CHR_MORNING29" class="java.lang.String"/>
+	<field name="CHR_EVENING29" class="java.lang.String"/>
+	<field name="CHR_MORNING30" class="java.lang.String"/>
+	<field name="CHR_EVENING30" class="java.lang.String"/>
+	<field name="CHR_MORNING31" class="java.lang.String"/>
+	<field name="CHR_EVENING31" class="java.lang.String"/>
+	<field name="INT_RNO" class="java.lang.Long"/>
+	<field name="CHR_MONTH" class="java.lang.String"/>
+	<field name="INT_YEAR" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="65" width="2579" height="20" backcolor="#00CCCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Yearwise Staff Attendance Register ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="2520" y="90" width="60" height="15"/>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2487" y="90" width="33" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+			<image>
+				<reportElement x="980" y="0" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{hImageExpression}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="30" height="40"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[S. No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="540" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="620" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="660" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="660" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="740" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="740" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="780" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="820" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="820" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="860" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="900" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="900" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="940" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="980" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day12]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="980" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1020" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1060" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day13]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1060" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1100" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1140" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day14]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1140" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1180" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1260" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1220" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1220" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day15]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1300" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1340" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1300" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day16]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1380" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1420" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1380" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day17]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1460" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1500" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1460" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day18]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1540" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1580" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1540" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day19]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1620" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1660" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1620" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day20]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1700" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1740" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1700" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day21]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1780" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1820" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1780" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day22]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1860" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1900" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1860" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day23]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1940" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1980" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1940" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day24]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2020" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2060" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2020" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day25]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2100" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2140" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2100" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day26]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2180" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2220" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2180" y="50" width="80" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day27]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2260" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2300" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2260" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day28]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2340" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2380" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2340" y="50" width="80" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day29]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2420" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2460" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2420" y="50" width="80" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day30]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2500" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[MOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2540" y="70" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[EVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2500" y="50" width="80" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Day31]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="50" width="70" height="40"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Month]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="25" width="2580" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Employee Id / Name / Attendence Year : "+$F{CHR_EMPID}+" / "+$F{CHR_STAFFNAME}+" / "+$P{year}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="2580" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Office / Department / Category : "+$P{office}+" / "+$P{dept}+" / "+$P{category}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="30" height="13"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING1}.equals("SUN")?"Sunday":$F{CHR_MORNING1}.equals("PRE")?"Present":$F{CHR_MORNING1}.equals("ABS")?"Absent":$F{CHR_MORNING1}.equals("PER")?"Permission":$F{CHR_MORNING1}.equals("LEA")?"Leave":$F{CHR_MORNING1}.equals("OND")?"Onduty":$F{CHR_MORNING1}.equals("LAT")?"Late":$F{CHR_MORNING1}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING4}.equals("SUN")?"Sunday":$F{CHR_EVENING4}.equals("PRE")?"Present":$F{CHR_EVENING4}.equals("ABS")?"Absent":$F{CHR_EVENING4}.equals("PER")?"Permission":$F{CHR_EVENING4}.equals("LEA")?"Leave":$F{CHR_EVENING4}.equals("OND")?"Onduty":$F{CHR_EVENING4}.equals("LAT")?"Late":$F{CHR_EVENING4}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING4}.equals("SUN")?"Sunday":$F{CHR_MORNING4}.equals("PRE")?"Present":$F{CHR_MORNING4}.equals("ABS")?"Absent":$F{CHR_MORNING4}.equals("PER")?"Permission":$F{CHR_MORNING4}.equals("LEA")?"Leave":$F{CHR_MORNING4}.equals("OND")?"Onduty":$F{CHR_MORNING4}.equals("LAT")?"Late":$F{CHR_MORNING4}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING5}.equals("SUN")?"Sunday":$F{CHR_EVENING5}.equals("PRE")?"Present":$F{CHR_EVENING5}.equals("ABS")?"Absent":$F{CHR_EVENING5}.equals("PER")?"Permission":$F{CHR_EVENING5}.equals("LEA")?"Leave":$F{CHR_EVENING5}.equals("OND")?"Onduty":$F{CHR_EVENING5}.equals("LAT")?"Late":$F{CHR_EVENING5}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="540" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING6}.equals("SUN")?"Sunday":$F{CHR_EVENING6}.equals("PRE")?"Present":$F{CHR_EVENING6}.equals("ABS")?"Absent":$F{CHR_EVENING6}.equals("PER")?"Permission":$F{CHR_EVENING6}.equals("LEA")?"Leave":$F{CHR_EVENING6}.equals("OND")?"Onduty":$F{CHR_EVENING6}.equals("LAT")?"Late":$F{CHR_EVENING6}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING5}.equals("SUN")?"Sunday":$F{CHR_MORNING5}.equals("PRE")?"Present":$F{CHR_MORNING5}.equals("ABS")?"Absent":$F{CHR_MORNING5}.equals("PER")?"Permission":$F{CHR_MORNING5}.equals("LEA")?"Leave":$F{CHR_MORNING5}.equals("OND")?"Onduty":$F{CHR_MORNING5}.equals("LAT")?"Late":$F{CHR_MORNING5}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING6}.equals("SUN")?"Sunday":$F{CHR_MORNING6}.equals("PRE")?"Present":$F{CHR_MORNING6}.equals("ABS")?"Absent":$F{CHR_MORNING6}.equals("PER")?"Permission":$F{CHR_MORNING6}.equals("LEA")?"Leave":$F{CHR_MORNING6}.equals("OND")?"Onduty":$F{CHR_MORNING6}.equals("LAT")?"Late":$F{CHR_MORNING6}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="620" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING7}.equals("SUN")?"Sunday":$F{CHR_EVENING7}.equals("PRE")?"Present":$F{CHR_EVENING7}.equals("ABS")?"Absent":$F{CHR_EVENING7}.equals("PER")?"Permission":$F{CHR_EVENING7}.equals("LEA")?"Leave":$F{CHR_EVENING7}.equals("OND")?"Onduty":$F{CHR_EVENING7}.equals("LAT")?"Late":$F{CHR_EVENING7}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="700" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING8}.equals("SUN")?"Sunday":$F{CHR_EVENING8}.equals("PRE")?"Present":$F{CHR_EVENING8}.equals("ABS")?"Absent":$F{CHR_EVENING8}.equals("PER")?"Permission":$F{CHR_EVENING8}.equals("LEA")?"Leave":$F{CHR_EVENING8}.equals("OND")?"Onduty":$F{CHR_EVENING8}.equals("LAT")?"Late":$F{CHR_EVENING8}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING7}.equals("SUN")?"Sunday":$F{CHR_MORNING7}.equals("PRE")?"Present":$F{CHR_MORNING7}.equals("ABS")?"Absent":$F{CHR_MORNING7}.equals("PER")?"Permission":$F{CHR_MORNING7}.equals("LEA")?"Leave":$F{CHR_MORNING7}.equals("OND")?"Onduty":$F{CHR_MORNING7}.equals("LAT")?"Late":$F{CHR_MORNING7}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="660" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING8}.equals("SUN")?"Sunday":$F{CHR_MORNING8}.equals("PRE")?"Present":$F{CHR_MORNING8}.equals("ABS")?"Absent":$F{CHR_MORNING8}.equals("PER")?"Permission":$F{CHR_MORNING8}.equals("LEA")?"Leave":$F{CHR_MORNING8}.equals("OND")?"Onduty":$F{CHR_MORNING8}.equals("LAT")?"Late":$F{CHR_MORNING8}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="740" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING9}.equals("SUN")?"Sunday":$F{CHR_MORNING9}.equals("PRE")?"Present":$F{CHR_MORNING9}.equals("ABS")?"Absent":$F{CHR_MORNING9}.equals("PER")?"Permission":$F{CHR_MORNING9}.equals("LEA")?"Leave":$F{CHR_MORNING9}.equals("OND")?"Onduty":$F{CHR_MORNING9}.equals("LAT")?"Late":$F{CHR_MORNING9}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="780" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING9}.equals("SUN")?"Sunday":$F{CHR_EVENING9}.equals("PRE")?"Present":$F{CHR_EVENING9}.equals("ABS")?"Absent":$F{CHR_EVENING9}.equals("PER")?"Permission":$F{CHR_EVENING9}.equals("LEA")?"Leave":$F{CHR_EVENING9}.equals("OND")?"Onduty":$F{CHR_EVENING9}.equals("LAT")?"Late":$F{CHR_EVENING9}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="820" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING10}.equals("SUN")?"Sunday":$F{CHR_MORNING10}.equals("PRE")?"Present":$F{CHR_MORNING10}.equals("ABS")?"Absent":$F{CHR_MORNING10}.equals("PER")?"Permission":$F{CHR_MORNING10}.equals("LEA")?"Leave":$F{CHR_MORNING10}.equals("OND")?"Onduty":$F{CHR_MORNING10}.equals("LAT")?"Late":$F{CHR_MORNING10}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="860" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING10}.equals("SUN")?"Sunday":$F{CHR_EVENING10}.equals("PRE")?"Present":$F{CHR_EVENING10}.equals("ABS")?"Absent":$F{CHR_EVENING10}.equals("PER")?"Permission":$F{CHR_EVENING10}.equals("LEA")?"Leave":$F{CHR_EVENING10}.equals("OND")?"Onduty":$F{CHR_EVENING10}.equals("LAT")?"Late":$F{CHR_EVENING10}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="940" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING11}.equals("SUN")?"Sunday":$F{CHR_EVENING11}.equals("PRE")?"Present":$F{CHR_EVENING11}.equals("ABS")?"Absent":$F{CHR_EVENING11}.equals("PER")?"Permission":$F{CHR_EVENING11}.equals("LEA")?"Leave":$F{CHR_EVENING11}.equals("OND")?"Onduty":$F{CHR_EVENING11}.equals("LAT")?"Late":$F{CHR_EVENING11}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1020" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING12}.equals("SUN")?"Sunday":$F{CHR_EVENING12}.equals("PRE")?"Present":$F{CHR_EVENING12}.equals("ABS")?"Absent":$F{CHR_EVENING12}.equals("PER")?"Permission":$F{CHR_EVENING12}.equals("LEA")?"Leave":$F{CHR_EVENING12}.equals("OND")?"Onduty":$F{CHR_EVENING12}.equals("LAT")?"Late":$F{CHR_EVENING12}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="900" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING11}.equals("SUN")?"Sunday":$F{CHR_MORNING11}.equals("PRE")?"Present":$F{CHR_MORNING11}.equals("ABS")?"Absent":$F{CHR_MORNING11}.equals("PER")?"Permission":$F{CHR_MORNING11}.equals("LEA")?"Leave":$F{CHR_MORNING11}.equals("OND")?"Onduty":$F{CHR_MORNING11}.equals("LAT")?"Late":$F{CHR_MORNING11}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="980" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING12}.equals("SUN")?"Sunday":$F{CHR_MORNING12}.equals("PRE")?"Present":$F{CHR_MORNING12}.equals("ABS")?"Absent":$F{CHR_MORNING12}.equals("PER")?"Permission":$F{CHR_MORNING12}.equals("LEA")?"Leave":$F{CHR_MORNING12}.equals("OND")?"Onduty":$F{CHR_MORNING12}.equals("LAT")?"Late":$F{CHR_MORNING12}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1100" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING13}.equals("SUN")?"Sunday":$F{CHR_EVENING13}.equals("PRE")?"Present":$F{CHR_EVENING13}.equals("ABS")?"Absent":$F{CHR_EVENING13}.equals("PER")?"Permission":$F{CHR_EVENING13}.equals("LEA")?"Leave":$F{CHR_EVENING13}.equals("OND")?"Onduty":$F{CHR_EVENING13}.equals("LAT")?"Late":$F{CHR_EVENING13}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1060" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING13}.equals("SUN")?"Sunday":$F{CHR_MORNING13}.equals("PRE")?"Present":$F{CHR_MORNING13}.equals("ABS")?"Absent":$F{CHR_MORNING13}.equals("PER")?"Permission":$F{CHR_MORNING13}.equals("LEA")?"Leave":$F{CHR_MORNING13}.equals("OND")?"Onduty":$F{CHR_MORNING13}.equals("LAT")?"Late":$F{CHR_MORNING13}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1140" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING14}.equals("SUN")?"Sunday":$F{CHR_MORNING14}.equals("PRE")?"Present":$F{CHR_MORNING14}.equals("ABS")?"Absent":$F{CHR_MORNING14}.equals("PER")?"Permission":$F{CHR_MORNING14}.equals("LEA")?"Leave":$F{CHR_MORNING14}.equals("OND")?"Onduty":$F{CHR_MORNING14}.equals("LAT")?"Late":$F{CHR_MORNING14}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="70" height="13"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MONTH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING1}.equals("SUN")?"Sunday":$F{CHR_EVENING1}.equals("PRE")?"Present":$F{CHR_EVENING1}.equals("ABS")?"Absent":$F{CHR_EVENING1}.equals("PER")?"Permission":$F{CHR_EVENING1}.equals("LEA")?"Leave":$F{CHR_EVENING1}.equals("OND")?"Onduty":$F{CHR_EVENING1}.equals("LAT")?"Late":$F{CHR_EVENING1}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1180" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING14}.equals("SUN")?"Sunday":$F{CHR_EVENING14}.equals("PRE")?"Present":$F{CHR_EVENING1}.equals("ABS")?"Absent":$F{CHR_EVENING14}.equals("PER")?"Permission":$F{CHR_EVENING14}.equals("LEA")?"Leave":$F{CHR_EVENING14}.equals("OND")?"Onduty":$F{CHR_EVENING14}.equals("LAT")?"Late":$F{CHR_EVENING14}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1260" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING15}.equals("SUN")?"Sunday":$F{CHR_EVENING15}.equals("PRE")?"Present":$F{CHR_EVENING1}.equals("ABS")?"Absent":$F{CHR_EVENING15}.equals("PER")?"Permission":$F{CHR_EVENING15}.equals("LEA")?"Leave":$F{CHR_EVENING15}.equals("OND")?"Onduty":$F{CHR_EVENING15}.equals("LAT")?"Late":$F{CHR_EVENING15}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1340" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING16}.equals("SUN")?"Sunday":$F{CHR_EVENING16}.equals("PRE")?"Present":$F{CHR_EVENING16}.equals("ABS")?"Absent":$F{CHR_EVENING16}.equals("PER")?"Permission":$F{CHR_EVENING16}.equals("LEA")?"Leave":$F{CHR_EVENING16}.equals("OND")?"Onduty":$F{CHR_EVENING16}.equals("LAT")?"Late":$F{CHR_EVENING16}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1220" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING15}.equals("SUN")?"Sunday":$F{CHR_MORNING15}.equals("PRE")?"Present":$F{CHR_MORNING15}.equals("ABS")?"Absent":$F{CHR_MORNING15}.equals("PER")?"Permission":$F{CHR_MORNING15}.equals("LEA")?"Leave":$F{CHR_MORNING15}.equals("OND")?"Onduty":$F{CHR_MORNING15}.equals("LAT")?"Late":$F{CHR_MORNING15}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1300" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING16}.equals("SUN")?"Sunday":$F{CHR_MORNING16}.equals("PRE")?"Present":$F{CHR_MORNING16}.equals("ABS")?"Absent":$F{CHR_MORNING16}.equals("PER")?"Permission":$F{CHR_MORNING16}.equals("LEA")?"Leave":$F{CHR_MORNING16}.equals("OND")?"Onduty":$F{CHR_MORNING16}.equals("LAT")?"Late":$F{CHR_MORNING16}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1380" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING17}.equals("SUN")?"Sunday":$F{CHR_MORNING17}.equals("PRE")?"Present":$F{CHR_MORNING17}.equals("ABS")?"Absent":$F{CHR_MORNING17}.equals("PER")?"Permission":$F{CHR_MORNING17}.equals("LEA")?"Leave":$F{CHR_MORNING17}.equals("OND")?"Onduty":$F{CHR_MORNING17}.equals("LAT")?"Late":$F{CHR_MORNING17}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1420" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING17}.equals("SUN")?"Sunday":$F{CHR_EVENING17}.equals("PRE")?"Present":$F{CHR_EVENING17}.equals("ABS")?"Absent":$F{CHR_EVENING17}.equals("PER")?"Permission":$F{CHR_EVENING17}.equals("LEA")?"Leave":$F{CHR_EVENING17}.equals("OND")?"Onduty":$F{CHR_EVENING17}.equals("LAT")?"Late":$F{CHR_EVENING17}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1460" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING18}.equals("SUN")?"Sunday":$F{CHR_MORNING18}.equals("PRE")?"Present":$F{CHR_MORNING18}.equals("ABS")?"Absent":$F{CHR_MORNING18}.equals("PER")?"Permission":$F{CHR_MORNING18}.equals("LEA")?"Leave":$F{CHR_MORNING18}.equals("OND")?"Onduty":$F{CHR_MORNING18}.equals("LAT")?"Late":$F{CHR_MORNING18}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1500" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING18}.equals("SUN")?"Sunday":$F{CHR_EVENING18}.equals("PRE")?"Present":$F{CHR_EVENING18}.equals("ABS")?"Absent":$F{CHR_EVENING18}.equals("PER")?"Permission":$F{CHR_EVENING18}.equals("LEA")?"Leave":$F{CHR_EVENING18}.equals("OND")?"Onduty":$F{CHR_EVENING18}.equals("LAT")?"Late":$F{CHR_EVENING18}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1580" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING19}.equals("SUN")?"Sunday":$F{CHR_EVENING19}.equals("PRE")?"Present":$F{CHR_EVENING19}.equals("ABS")?"Absent":$F{CHR_EVENING19}.equals("PER")?"Permission":$F{CHR_EVENING19}.equals("LEA")?"Leave":$F{CHR_EVENING19}.equals("OND")?"Onduty":$F{CHR_EVENING19}.equals("LAT")?"Late":$F{CHR_EVENING19}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1660" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING20}.equals("SUN")?"Sunday":$F{CHR_EVENING20}.equals("PRE")?"Present":$F{CHR_EVENING20}.equals("ABS")?"Absent":$F{CHR_EVENING20}.equals("PER")?"Permission":$F{CHR_EVENING20}.equals("LEA")?"Leave":$F{CHR_EVENING20}.equals("OND")?"Onduty":$F{CHR_EVENING20}.equals("LAT")?"Late":$F{CHR_EVENING20}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1540" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING19}.equals("SUN")?"Sunday":$F{CHR_MORNING19}.equals("PRE")?"Present":$F{CHR_MORNING19}.equals("ABS")?"Absent":$F{CHR_MORNING19}.equals("PER")?"Permission":$F{CHR_MORNING19}.equals("LEA")?"Leave":$F{CHR_MORNING19}.equals("OND")?"Onduty":$F{CHR_MORNING19}.equals("LAT")?"Late":$F{CHR_MORNING19}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1620" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING20}.equals("SUN")?"Sunday":$F{CHR_MORNING20}.equals("PRE")?"Present":$F{CHR_MORNING20}.equals("ABS")?"Absent":$F{CHR_MORNING20}.equals("PER")?"Permission":$F{CHR_MORNING20}.equals("LEA")?"Leave":$F{CHR_MORNING20}.equals("OND")?"Onduty":$F{CHR_MORNING20}.equals("LAT")?"Late":$F{CHR_MORNING20}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1740" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING21}.equals("SUN")?"Sunday":$F{CHR_EVENING22}.equals("PRE")?"Present":$F{CHR_EVENING22}.equals("ABS")?"Absent":$F{CHR_EVENING22}.equals("PER")?"Permission":$F{CHR_EVENING22}.equals("LEA")?"Leave":$F{CHR_EVENING22}.equals("OND")?"Onduty":$F{CHR_EVENING22}.equals("LAT")?"Late":$F{CHR_EVENING22}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1700" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING21}.equals("SUN")?"Sunday":$F{CHR_MORNING21}.equals("PRE")?"Present":$F{CHR_MORNING21}.equals("ABS")?"Absent":$F{CHR_MORNING21}.equals("PER")?"Permission":$F{CHR_MORNING21}.equals("LEA")?"Leave":$F{CHR_MORNING21}.equals("OND")?"Onduty":$F{CHR_MORNING21}.equals("LAT")?"Late":$F{CHR_MORNING21}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1820" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING22}.equals("SUN")?"Sunday":$F{CHR_EVENING22}.equals("PRE")?"Present":$F{CHR_EVENING22}.equals("ABS")?"Absent":$F{CHR_EVENING22}.equals("PER")?"Permission":$F{CHR_EVENING22}.equals("LEA")?"Leave":$F{CHR_EVENING22}.equals("OND")?"Onduty":$F{CHR_EVENING22}.equals("LAT")?"Late":$F{CHR_EVENING22}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1780" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING22}.equals("SUN")?"Sunday":$F{CHR_MORNING22}.equals("PRE")?"Present":$F{CHR_MORNING22}.equals("ABS")?"Absent":$F{CHR_MORNING22}.equals("PER")?"Permission":$F{CHR_MORNING22}.equals("LEA")?"Leave":$F{CHR_MORNING22}.equals("OND")?"Onduty":$F{CHR_MORNING22}.equals("LAT")?"Late":$F{CHR_MORNING22}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1900" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING23}.equals("SUN")?"Sunday":$F{CHR_EVENING23}.equals("PRE")?"Present":$F{CHR_EVENING23}.equals("ABS")?"Absent":$F{CHR_EVENING23}.equals("PER")?"Permission":$F{CHR_EVENING23}.equals("LEA")?"Leave":$F{CHR_EVENING23}.equals("OND")?"Onduty":$F{CHR_EVENING23}.equals("LAT")?"Late":$F{CHR_EVENING23}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1980" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING24}.equals("SUN")?"Sunday":$F{CHR_EVENING24}.equals("PRE")?"Present":$F{CHR_EVENING24}.equals("ABS")?"Absent":$F{CHR_EVENING24}.equals("PER")?"Permission":$F{CHR_EVENING24}.equals("LEA")?"Leave":$F{CHR_EVENING24}.equals("OND")?"Onduty":$F{CHR_EVENING24}.equals("LAT")?"Late":$F{CHR_EVENING24}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1860" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING23}.equals("SUN")?"Sunday":$F{CHR_MORNING23}.equals("PRE")?"Present":$F{CHR_MORNING23}.equals("ABS")?"Absent":$F{CHR_MORNING23}.equals("PER")?"Permission":$F{CHR_MORNING23}.equals("LEA")?"Leave":$F{CHR_MORNING23}.equals("OND")?"Onduty":$F{CHR_MORNING23}.equals("LAT")?"Late":$F{CHR_MORNING23}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1940" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING24}.equals("SUN")?"Sunday":$F{CHR_MORNING24}.equals("PRE")?"Present":$F{CHR_MORNING24}.equals("ABS")?"Absent":$F{CHR_MORNING24}.equals("PER")?"Permission":$F{CHR_MORNING24}.equals("LEA")?"Leave":$F{CHR_MORNING24}.equals("OND")?"Onduty":$F{CHR_MORNING24}.equals("LAT")?"Late":$F{CHR_MORNING24}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2020" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING25}.equals("SUN")?"Sunday":$F{CHR_MORNING25}.equals("PRE")?"Present":$F{CHR_MORNING25}.equals("ABS")?"Absent":$F{CHR_MORNING25}.equals("PER")?"Permission":$F{CHR_MORNING25}.equals("LEA")?"Leave":$F{CHR_MORNING25}.equals("OND")?"Onduty":$F{CHR_MORNING25}.equals("LAT")?"Late":$F{CHR_MORNING25}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2060" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING25}.equals("SUN")?"Sunday":$F{CHR_EVENING25}.equals("PRE")?"Present":$F{CHR_EVENING25}.equals("ABS")?"Absent":$F{CHR_EVENING25}.equals("PER")?"Permission":$F{CHR_EVENING25}.equals("LEA")?"Leave":$F{CHR_EVENING25}.equals("OND")?"Onduty":$F{CHR_EVENING25}.equals("LAT")?"Late":$F{CHR_EVENING25}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2100" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING26}.equals("SUN")?"Sunday":$F{CHR_MORNING26}.equals("PRE")?"Present":$F{CHR_MORNING26}.equals("ABS")?"Absent":$F{CHR_MORNING26}.equals("PER")?"Permission":$F{CHR_MORNING26}.equals("LEA")?"Leave":$F{CHR_MORNING26}.equals("OND")?"Onduty":$F{CHR_MORNING26}.equals("LAT")?"Late":$F{CHR_MORNING26}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2140" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING26}.equals("SUN")?"Sunday":$F{CHR_EVENING26}.equals("PRE")?"Present":$F{CHR_EVENING26}.equals("ABS")?"Absent":$F{CHR_EVENING26}.equals("PER")?"Permission":$F{CHR_EVENING26}.equals("LEA")?"Leave":$F{CHR_EVENING26}.equals("OND")?"Onduty":$F{CHR_EVENING26}.equals("LAT")?"Late":$F{CHR_EVENING26}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2180" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING27}.equals("SUN")?"Sunday":$F{CHR_MORNING27}.equals("PRE")?"Present":$F{CHR_MORNING27}.equals("ABS")?"Absent":$F{CHR_MORNING27}.equals("PER")?"Permission":$F{CHR_MORNING27}.equals("LEA")?"Leave":$F{CHR_MORNING27}.equals("OND")?"Onduty":$F{CHR_MORNING27}.equals("LAT")?"Late":$F{CHR_MORNING27}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2220" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING27}.equals("SUN")?"Sunday":$F{CHR_EVENING27}.equals("PRE")?"Present":$F{CHR_EVENING27}.equals("ABS")?"Absent":$F{CHR_EVENING27}.equals("PER")?"Permission":$F{CHR_EVENING27}.equals("LEA")?"Leave":$F{CHR_EVENING27}.equals("OND")?"Onduty":$F{CHR_EVENING27}.equals("LAT")?"Late":$F{CHR_EVENING27}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2260" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING28}.equals("SUN")?"Sunday":$F{CHR_MORNING28}.equals("PRE")?"Present":$F{CHR_MORNING28}.equals("ABS")?"Absent":$F{CHR_MORNING28}.equals("PER")?"Permission":$F{CHR_MORNING28}.equals("LEA")?"Leave":$F{CHR_MORNING28}.equals("OND")?"Onduty":$F{CHR_MORNING28}.equals("LAT")?"Late":$F{CHR_MORNING28}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2300" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING28}.equals("SUN")?"Sunday":$F{CHR_EVENING28}.equals("PRE")?"Present":$F{CHR_EVENING28}.equals("ABS")?"Absent":$F{CHR_EVENING28}.equals("PER")?"Permission":$F{CHR_EVENING28}.equals("LEA")?"Leave":$F{CHR_EVENING28}.equals("OND")?"Onduty":$F{CHR_EVENING28}.equals("LAT")?"Late":$F{CHR_EVENING28}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2340" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING29}.equals("SUN")?"Sunday":$F{CHR_MORNING29}.equals("PRE")?"Present":$F{CHR_MORNING29}.equals("ABS")?"Absent":$F{CHR_MORNING29}.equals("PER")?"Permission":$F{CHR_MORNING29}.equals("LEA")?"Leave":$F{CHR_MORNING29}.equals("OND")?"Onduty":$F{CHR_MORNING29}.equals("LAT")?"Late":$F{CHR_MORNING29}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2380" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING29}.equals("SUN")?"Sunday":$F{CHR_EVENING29}.equals("PRE")?"Present":$F{CHR_EVENING29}.equals("ABS")?"Absent":$F{CHR_EVENING29}.equals("PER")?"Permission":$F{CHR_EVENING29}.equals("LEA")?"Leave":$F{CHR_EVENING29}.equals("OND")?"Onduty":$F{CHR_EVENING29}.equals("LAT")?"Late":$F{CHR_EVENING29}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2420" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING30}.equals("SUN")?"Sunday":$F{CHR_MORNING30}.equals("PRE")?"Present":$F{CHR_MORNING30}.equals("ABS")?"Absent":$F{CHR_MORNING30}.equals("PER")?"Permission":$F{CHR_MORNING30}.equals("LEA")?"Leave":$F{CHR_MORNING30}.equals("OND")?"Onduty":$F{CHR_MORNING30}.equals("LAT")?"Late":$F{CHR_MORNING30}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2460" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING30}.equals("SUN")?"Sunday":$F{CHR_EVENING30}.equals("PRE")?"Present":$F{CHR_EVENING30}.equals("ABS")?"Absent":$F{CHR_EVENING30}.equals("PER")?"Permission":$F{CHR_EVENING30}.equals("LEA")?"Leave":$F{CHR_EVENING30}.equals("OND")?"Onduty":$F{CHR_EVENING30}.equals("LAT")?"Late":$F{CHR_EVENING30}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING2}.equals("SUN")?"Sunday":$F{CHR_MORNING2}.equals("PRE")?"Present":$F{CHR_MORNING2}.equals("ABS")?"Absent":$F{CHR_MORNING2}.equals("PER")?"Permission":$F{CHR_MORNING2}.equals("LEA")?"Leave":$F{CHR_MORNING2}.equals("OND")?"Onduty":$F{CHR_MORNING2}.equals("LAT")?"Late":$F{CHR_MORNING2}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING2}.equals("SUN")?"Sunday":$F{CHR_EVENING2}.equals("PRE")?"Present":$F{CHR_EVENING2}.equals("ABS")?"Absent":$F{CHR_EVENING2}.equals("PER")?"Permission":$F{CHR_EVENING2}.equals("LEA")?"Leave":$F{CHR_EVENING2}.equals("OND")?"Onduty":$F{CHR_EVENING2}.equals("LAT")?"Late":$F{CHR_EVENING2}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING3}.equals("SUN")?"Sunday":$F{CHR_MORNING3}.equals("PRE")?"Present":$F{CHR_MORNING3}.equals("ABS")?"Absent":$F{CHR_MORNING3}.equals("PER")?"Permission":$F{CHR_MORNING3}.equals("LEA")?"Leave":$F{CHR_MORNING3}.equals("OND")?"Onduty":$F{CHR_MORNING3}.equals("LAT")?"Late":$F{CHR_MORNING3}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING3}.equals("SUN")?"Sunday":$F{CHR_EVENING3}.equals("PRE")?"Present":$F{CHR_EVENING3}.equals("ABS")?"Absent":$F{CHR_EVENING3}.equals("PER")?"Permission":$F{CHR_EVENING3}.equals("LEA")?"Leave":$F{CHR_EVENING3}.equals("OND")?"Onduty":$F{CHR_EVENING3}.equals("LAT")?"Late":$F{CHR_EVENING3}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2500" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MORNING31}.equals("SUN")?"Sunday":$F{CHR_MORNING30}.equals("PRE")?"Present":$F{CHR_MORNING31}.equals("ABS")?"Absent":$F{CHR_MORNING31}.equals("PER")?"Permission":$F{CHR_MORNING31}.equals("LEA")?"Leave":$F{CHR_MORNING31}.equals("OND")?"Onduty":$F{CHR_MORNING31}.equals("LAT")?"Late":$F{CHR_MORNING31}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2540" y="0" width="40" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EVENING31}.equals("SUN")?"Sunday":$F{CHR_EVENING31}.equals("PRE")?"Present":$F{CHR_EVENING31}.equals("ABS")?"Absent":$F{CHR_EVENING31}.equals("PER")?"Permission":$F{CHR_EVENING31}.equals("LEA")?"Leave":$F{CHR_EVENING31}.equals("OND")?"Onduty":$F{CHR_EVENING31}.equals("LAT")?"Late":$F{CHR_EVENING31}.equals("HOL")?"Holiday":"-"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="65" splitType="Stretch">
+			<image>
+				<reportElement x="980" y="15" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{fImageExpression}]]></imageExpression>
+			</image>
+			<textField evaluationTime="Report">
+				<reportElement x="2560" y="0" width="19" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2512" y="0" width="48" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

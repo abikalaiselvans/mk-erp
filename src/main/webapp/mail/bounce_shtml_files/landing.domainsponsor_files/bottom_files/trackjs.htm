@@ -1,0 +1,25 @@
+
+n=navigator;
+nap=n.appName;
+ver=n.appVersion;
+s="na";
+c="na";
+j="na";
+s=screen.width;
+
+if(nap.indexOf('Micros')>=0) { v = 'mi'; }
+else if(nap.indexOf('Netsc')>=0) { v = 'ne'; }
+else if(nap.indexOf('WebTV')>=0) { v = 'wt'; }
+else if(nap.indexOf('Oper')>=0) { v = 'op'; }
+else if(nap.indexOf('NetB')>=0) { v = 'nb'; }
+else if(nap.indexOf('AtHo')>=0) { v = 'at'; }
+else if(nap=='') { v = 'bk'; }
+else { v='zz'; }
+
+if (v != "Netscape") { c=screen.colorDepth; }
+else { c=screen.pixelDepth; }
+j=navigator.javaEnabled();
+
+// Fred - 1/6/2003 - Added utf (unique_24 cookie)
+
+self.document.write("<img src=\"http://track.domainsponsor.com/track.php?x=9^^^lycose.com^^^1^^^1^^^^^^en-us^^^http://landing.domainsponsor.com/bottom.phtml^^^", ""+s+"^^^", ""+c+"^^^", ""+v+"^^^", ""+ver+"^^^", "1^^^1^^^1^^^\" ", "width=1 height=1", ">");

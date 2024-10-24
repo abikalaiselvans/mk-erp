@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Qualification" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FAEBD7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFE4BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFF8EF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="qualification">
+		<queryString language="SQL">
+			<![CDATA[SELECT @count:=@count+1 SNO,q.CHR_QUALIFICATIONNAME,q.CHR_QUALIFICATIONDES  FROM  com_m_qualification q, (SELECT @count:=0) t ORDER BY q.CHR_QUALIFICATIONNAME;]]>
+		</queryString>
+		<field name="SNO" class="java.lang.Long"/>
+		<field name="CHR_QUALIFICATIONNAME" class="java.lang.String"/>
+		<field name="CHR_QUALIFICATIONDES" class="java.lang.String"/>
+		<group name="CHR_QUALIFICATIONNAME">
+			<groupExpression><![CDATA[$F{CHR_QUALIFICATIONNAME}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT @count:=@count+1 SNO,q.CHR_QUALIFICATIONNAME,q.CHR_QUALIFICATIONDES  FROM  com_m_qualification q, (SELECT @count:=0) t ORDER BY q.CHR_QUALIFICATIONNAME;]]>
+	</queryString>
+	<field name="SNO" class="java.lang.Long"/>
+	<field name="CHR_QUALIFICATIONNAME" class="java.lang.String"/>
+	<field name="CHR_QUALIFICATIONDES" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="222" y="0" width="100" height="16"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="58" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="85" y="0" width="48" height="46"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="qualification">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="50">
+						<jr:columnHeader style="table_CH" height="42" rowSpan="1">
+							<staticText>
+								<reportElement x="19" y="0" width="31" height="42"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[S.NO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="32" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="19" y="0" width="31" height="32"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+								<textFieldExpression class="java.lang.Long"><![CDATA[$F{SNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="144">
+						<jr:columnHeader style="table_CH" height="42" rowSpan="1">
+							<staticText>
+								<reportElement x="32" y="0" width="68" height="42"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[ NAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="32" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="14" y="2" width="130" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_QUALIFICATIONNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="171">
+						<jr:columnHeader style="table_CH" height="42" rowSpan="1">
+							<staticText>
+								<reportElement x="35" y="0" width="109" height="42"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[ DESCRIPTION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="32" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="14" y="0" width="157" height="32"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_QUALIFICATIONDES}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

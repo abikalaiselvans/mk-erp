@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rept_JForm_3APF" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Program Files\\Apache Software Foundation\\Tomcat 5.0\\webapps\\SmartCampus\\report\\SmartPayroll\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="company" class="java.lang.String"/>
+	<parameter name="street" class="java.lang.String"/>
+	<parameter name="city" class="java.lang.String"/>
+	<parameter name="state" class="java.lang.String"/>
+	<parameter name="pin" class="java.lang.String"/>
+	<parameter name="phone" class="java.lang.String"/>
+	<parameter name="customer" class="java.lang.String"/>
+	<parameter name="st1" class="java.lang.String"/>
+	<parameter name="st2" class="java.lang.String"/>
+	<parameter name="cusCity" class="java.lang.String"/>
+	<parameter name="cusState" class="java.lang.String"/>
+	<parameter name="cusDist" class="java.lang.String"/>
+	<parameter name="cusPin" class="java.lang.String"/>
+	<parameter name="cusPhone" class="java.lang.String"/>
+	<parameter name="tin" class="java.lang.String"/>
+	<parameter name="cst" class="java.lang.String"/>
+	<parameter name="shippingAddr" class="java.lang.String"/>
+	<parameter name="saleDt" class="java.lang.String"/>
+	<parameter name="otherRef" class="java.lang.String"/>
+	<parameter name="deliveryNote" class="java.lang.String"/>
+	<parameter name="despatchThrough" class="java.lang.String"/>
+	<parameter name="destination" class="java.lang.String"/>
+	<parameter name="termsOfDelivery" class="java.lang.String"/>
+	<parameter name="contactPerson" class="java.lang.String"/>
+	<parameter name="ContactNo" class="java.lang.String"/>
+	<parameter name="dcno" class="java.lang.String"/>
+	<parameter name="cusAddress" class="java.lang.String"/>
+	<parameter name="len" class="java.lang.String"/>
+	<parameter name="subreport1Parameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreport2Parameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="localTax" class="java.lang.String"/>
+	<parameter name="serviceTax" class="java.lang.String"/>
+	<parameter name="cusTIN" class="java.lang.String"/>
+	<parameter name="cusCST" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT if(CHR_TYPE='I','Item','Product') ptype, if(CHR_TYPE='I',(SELECT d.CHR_ITEMNAME FROM inv_m_item d WHERE d.CHR_ITEMID=a.CHR_ITEMID),(SELECT e.CHR_PRODUCTCODE  FROM inv_m_produtlist  e WHERE e.CHR_PRODUCTID=a.CHR_ITEMID)) pmodel,  if(a.CHR_TYPE='I',(SELECT d1.CHR_DES FROM inv_m_item d1 WHERE d1.CHR_ITEMID=a.CHR_ITEMID),(SELECT e1.CHR_PRODUCTDESC  FROM inv_m_produtlist  e1 WHERE e1.CHR_PRODUCTID=a.CHR_ITEMID)) pdesc,CHR_SERIALNO FROM inv_t_deliverychallanitemserial a WHERE a.CHR_DCNO='DC/201314000006/CHE/DAC']]>
+	</queryString>
+	<field name="ptype" class="java.lang.String"/>
+	<field name="pmodel" class="java.lang.String"/>
+	<field name="pdesc" class="java.lang.String"/>
+	<field name="CHR_SERIALNO" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="802"/>
+			</rectangle>
+		</band>
+	</background>
+	<title>
+		<band height="308" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="20" width="555" height="13"/>
+				<box leftPadding="5" rightPadding="5"/>
+				<textElement markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{company}.equals(null)?null:"<style isBold='true' pdfFontName='Helvetica-Bold'>"+$P{company}+"</style>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="33" width="555" height="13"/>
+				<box leftPadding="5" rightPadding="5"/>
+				<textElement markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{street}.equals(null)?null:"<style isBold='true' pdfFontName='Helvetica-Bold'>"+$P{street}+"</style>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="46" width="555" height="13"/>
+				<box leftPadding="5" rightPadding="5"/>
+				<textElement markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{city}.equals(null)?null:"<style isBold='true' pdfFontName='Helvetica-Bold'>"+$P{city}+"-"+$P{pin}+"</style>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="95" width="89" height="20"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>DC No</style>
+]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="95" width="236" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{dcno}.equals(null)?": ":":  "+$P{dcno}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="59" width="555" height="13"/>
+				<box leftPadding="5" rightPadding="5"/>
+				<textElement markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{state}.equals(null)?null:"<style isBold='true' pdfFontName='Helvetica-Bold'>"+$P{state}+"</style>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="115" width="89" height="30"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Customer Address</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="72" width="555" height="13"/>
+				<box leftPadding="5" rightPadding="5"/>
+				<textElement markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{phone}.equals(null)?null:"<style isBold='true' pdfFontName='Helvetica-Bold'>Phone : "+$P{phone}+"</style>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="95" width="110" height="20"/>
+				<box leftPadding="20"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Sale Date</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="95" width="120" height="20"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{saleDt}.equals(null)?": ":":  "+$P{saleDt}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="115" width="120" height="20"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{otherRef}.equals(null)?": ":":  "+$P{otherRef}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="115" width="110" height="20"/>
+				<box leftPadding="20"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Other Ref</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="135" width="120" height="20"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{deliveryNote}.equals(null)?": ":":  "+$P{deliveryNote}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="135" width="110" height="20"/>
+				<box leftPadding="20"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Delivery Note</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="155" width="120" height="20"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{despatchThrough}.equals(null)?": ":":  "+$P{despatchThrough}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="155" width="110" height="20"/>
+				<box leftPadding="20"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Despatch Through</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="175" width="120" height="20"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{destination}.equals(null)?": ":":  "+$P{destination}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="175" width="110" height="20"/>
+				<box leftPadding="20"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Destination</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="195" width="120" height="20"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{termsOfDelivery}.equals(null)?": ":":  "+$P{termsOfDelivery}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="195" width="110" height="20"/>
+				<box leftPadding="20"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Terms of Delivery</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="215" width="120" height="20"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{contactPerson}.equals(null)?": ":":  "+$P{contactPerson}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="215" width="110" height="20"/>
+				<box leftPadding="20"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Contact Person</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="235" width="120" height="20"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{ContactNo}.equals(null)?": ":":  "+$P{ContactNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="235" width="110" height="20"/>
+				<box leftPadding="20"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Contact No</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="175" width="89" height="30"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Shipping Address</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="175" width="236" height="60"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{shippingAddr}.equals(null)?": ":":  "+$P{shippingAddr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="235" width="89" height="20"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>TIN No</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="235" width="236" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{cusTIN}.equals(null)?": ":":  "+$P{cusTIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="255" width="89" height="20"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>CST No</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="255" width="236" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{cusCST}.equals(null)?": ":":  "+$P{cusCST}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Verdana" size="14"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>DELIVERY CHALLAN</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="115" width="236" height="60"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{cusAddress}.equals(null)?": ":":  "+$P{cusAddress}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="288" width="555" height="20"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<subreportParameter name="company"/>
+				<subreportParameter name="street"/>
+				<subreportParameter name="city"/>
+				<subreportParameter name="state"/>
+				<subreportParameter name="pin"/>
+				<subreportParameter name="phone"/>
+				<subreportParameter name="customer"/>
+				<subreportParameter name="st1"/>
+				<subreportParameter name="st2"/>
+				<subreportParameter name="cusCity"/>
+				<subreportParameter name="cusState"/>
+				<subreportParameter name="cusDist"/>
+				<subreportParameter name="cusPin"/>
+				<subreportParameter name="cusPhone"/>
+				<subreportParameter name="tin"/>
+				<subreportParameter name="cst"/>
+				<subreportParameter name="shippingAddr"/>
+				<subreportParameter name="saleDt"/>
+				<subreportParameter name="otherRef"/>
+				<subreportParameter name="deliveryNote"/>
+				<subreportParameter name="despatchThrough"/>
+				<subreportParameter name="destination"/>
+				<subreportParameter name="termsOfDelivery"/>
+				<subreportParameter name="contactPerson"/>
+				<subreportParameter name="ContactNo"/>
+				<subreportParameter name="dcno"/>
+				<subreportParameter name="cusAddress"/>
+				<subreportParameter name="len"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport1Parameter}]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="311" y="20" width="145" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Description</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="20" width="221" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Product Model</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="20" width="31" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>S.No.</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="20" width="94" height="20"/>
+				<box rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Serial Number</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="20" width="54" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Product Type</style>]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="456" y="0" width="94" height="25"/>
+				<box leftPadding="3" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_SERIALNO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="90" y="0" width="221" height="25"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{pmodel}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="311" y="0" width="145" height="25"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{pdesc}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="36" y="0" width="54" height="25"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ptype}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="5" y="0" width="31" height="25" isRemoveLineWhenBlank="true"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="158" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="60" width="215" height="20"/>
+				<box leftPadding="3">
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tin}.equals(null)?": ":":  "+$P{tin}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="40" width="215" height="20"/>
+				<box leftPadding="3">
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{cst}.equals(null)?": ":":  "+$P{cst}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="20" width="215" height="20"/>
+				<box leftPadding="3">
+					<topPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{localTax}.equals(null)?": ":":  "+$P{localTax}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="80" width="215" height="20"/>
+				<box leftPadding="3">
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{serviceTax}.equals(null)?": ":":  "+$P{serviceTax}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="120" width="320" height="35"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[             We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="325" y="20" width="225" height="20"/>
+				<box leftPadding="3" rightPadding="3">
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{company}.equals(null)?null:"For <style isBold='true' pdfFontName='Helvetica-Bold'>"+$P{company}+"</style>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="40" width="225" height="115"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Authorized Signatory</style>
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="20" width="105" height="20"/>
+				<box leftPadding="3">
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Local Tax No.</style>
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="40" width="105" height="20"/>
+				<box leftPadding="3" rightPadding="3">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>CST No.</style>
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="60" width="105" height="20"/>
+				<box leftPadding="3" rightPadding="3">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>TIN No.</style>
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="80" width="105" height="20"/>
+				<box leftPadding="3" rightPadding="3">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Service Tax No.</style>
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="100" width="320" height="20"/>
+				<box leftPadding="3" rightPadding="3">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Declaration :</style>
+
+]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,93 @@
+Description
+SmartXLS for Java is a high performance java excel component which can write, read, calculate Excel compatible files without the need for Microsoft Excel. It was entirely written in 100% pure java,and can run in any java runtime installed system. 
+top
+Features
+SmartXLS for Java provides the following features: 
+
+
+Document Features 
+•Open Excel files of different format types (Excel97~Excel2007)
+•XLSX reading / writing (Excel 2007 Open XML).
+•Load and Save CSV file
+•Load and Save Tab Delimited files
+•Protect a whole Workbook
+•Find and Replace data in a Workbook
+•Preserve Pictures, Charts, Macros and PivotTables in a Template file
+Worksheet Features 
+•Create and access Worksheet
+•Move a Worksheet to a specific location in the Workbook
+•Set a specific Worksheet as an active sheet
+•Hide or Unhide a Worksheet
+•Display or Hide Tabs, Scroll Bars, Gridlines & Row/Column Headers
+•Preview Page Breaks
+•Set Zoom Level for the Worksheet
+•Make selected data remain visible while scrolling using Freeze Panes
+•Unfreeze panes in the Worksheet
+•Protect Contents, Objects and Scenarios of a Worksheet
+•Unprotect a Worksheet
+•Set Page Orientation, Scaling, Paper Size, Print Quality etc.
+•Set Page Margins like Top, Left, Right, Bottom, etc.
+•Set Headers and Footers
+•Set Header and Footer Margins
+•Set Print Area, Print Title etc.
+•Page Breaks and Setting
+•Insert Horizontal and Vertical Page Breaks at a specified cell
+•Adjust Row Height according to your desire
+•Adjust Column Width as required
+•Insert or Delete Rows and Columns
+•Hide or Unhide Rows and Columns
+•Group or Ungroup Rows and Columns
+•Copy Rows and Columns
+•Access any Cell in the worksheet
+•Add data to desired Cells at runtime
+•Retrieve data from cells according to their data types
+•Create and Insert Range of Cells
+•Deleting Range of Cells
+•Clearing Contents in the Range
+•Find or Search specific data in Cells
+•Create or Access Named Ranges
+•Lock the Cells
+•Apply Auto-Filtering
+Formatting Features 
+•Apply different Styles on the Cells
+•Copy Styles
+•Apply Number Format Settings for the Cells
+•Format Cell as a Date
+•Custom Formatting of the Cells
+•Set Text Alignment
+•Set Text Rotation and Direction in the Cells
+•Shrink Text to fit in the Column
+•Merge multiple Cells into single one
+•Unmerge the Cells
+•Apply different kinds of Font Settings for the Cells
+•Apply different Colors to Cells, Fonts,Gridlines,Fill to Drawings.
+•Set Rich Text in a Single Cell
+•Apply different Border Settings on Cells
+•Apply different Background Patterns on Cells
+•Apply Format Settings on a Worksheet, Row or Column etc.
+•Apply Conditional Formatting on Cells.
+Charting & Graphics Features 
+•Supports most Chart Types like Column, Bar, Line, Pie, Scatter, Area, Doughnut, Radar etc.
+•Create Different kinds of Charts easily
+•Customize Charts by setting their different properties
+•Set Data for the Charts dynamically
+•Add Custom Charts to Worksheets using API
+•Add Pictures to Worksheets at runtime
+•AutoFilter range
+•Create ComBoxes and TextBoxes
+•Data Validation
+Advance Features 
+•Supports Formula Calculations using robust Formula Calculation Engine
+•Create and change Hyperlink(URL,File path,email etc.)
+•Create and Format Pivot Table
+•Change Source Data of a Pivot Table at runtime
+•Supports Add-Ins
+•Supports VBA
+•Supports Macros
+•Convert Excel file to PDF document
+Platforms Supported 
+•Writen in 100% pure java.
+•Desktop Application Support
+•Web Application Support
+•Linux goo
+•Unix 

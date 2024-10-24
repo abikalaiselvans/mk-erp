@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 April 2011 11:37:37 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping >
+    <class name="com.my.org.erp.bean.management.PettyCashIncome" table="mgt_t_pettycash_income" >
+        
+        <id name="rowid" type="java.lang.Integer">
+            <column name="INT_INCOMEID" />
+        </id>
+      
+        <property name="category" type="Integer">
+            <column name="INT_CATEGORYID"  />
+        </property>
+        
+        <property name="branch" type="Integer">
+            <column name="INT_BRANCHID"  />
+        </property>
+        
+         <property name="incomedate" type="java.util.Date">
+            <column name="DAT_INCOME"  />
+        </property>
+        
+        <property name="income" type="double">
+            <column name="DOU_AMOUNT"  />
+        </property>
+        
+        <property name="source" type="Integer">
+            <column name="INT_SOURCEID"  />
+        </property> 
+        <property name="desc" type="string">
+            <column name="CHR_DESC"  />
+        </property>
+        
+        <property name="userid" type="string">
+            <column name="CHR_USRNAME"  />
+        </property>
+        
+        <property name="userdate" type="java.util.Date">
+            <column name="DT_UPDATEDATE"  />
+        </property>
+        
+        <property name="status" type="string">
+            <column name="CHR_UPDATESTATUS"  />
+        </property>
+     </class>
+</hibernate-mapping>
+ 

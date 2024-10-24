@@ -1,0 +1,44 @@
+
+<link rel="stylesheet" type="text/css" href="msdropdown/dd.css" />
+<script type="text/javascript" src="msdropdown/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="msdropdown/js/uncompressed.jquery.dd.js"></script>
+
+</head>
+<body>
+<form name="frm" method="post" action="..">
+
+    <select name="websites3" id="websites3" style="width:200px;">
+	  <option value="0"   title="icons/export.jpg" selected="selected">Export Type</option> 		
+      <option value="csv" title="icons/csv.jpg">csv </option>
+      <option value="excel" title="icons/excel.jpg">excel </option>
+      <option value="html" title="icons/html.jpg">html </option>
+      <option value="pdf" title="icons/pdf.jpg">pdf </option>
+      <option value="rtf" title="icons/rtf.jpg">rtf </option>
+      <option value="txt" title="icons/txt.jpg">txt </option>
+      <option value="xml" title="icons/xml.jpg">xml </option>
+     
+    </select> 
+
+</form>
+
+<script language="javascript" type="text/javascript">
+
+
+$(document).ready(function() 
+{
+	try 
+	{
+		$("#websites3").msDropDown();
+		
+	} 
+	catch(e) 
+	{
+			
+	}
+}
+)
+		
+
+</script> 
+</body>
+</html>

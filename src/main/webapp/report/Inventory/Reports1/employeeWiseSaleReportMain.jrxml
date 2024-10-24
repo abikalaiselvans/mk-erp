@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="employeeWiseSaleReportMain" language="groovy" pageWidth="1144" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="1104" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="hImageExpression" class="java.lang.String"/>
+	<parameter name="fImageExpression" class="java.lang.String"/>
+	<parameter name="fromDt" class="java.lang.String"/>
+	<parameter name="toDt" class="java.lang.String"/>
+	<parameter name="dataLength" class="java.lang.String"/>
+	<parameter name="ref" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Program Files\\Apache Software Foundation\\Tomcat 5.0\\webapps\\SmartCampus\\report\\Inventory\\Reports1\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subreport1Parameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreport2Parameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreport3Parameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="dataLength1" class="java.lang.String"/>
+	<parameter name="dataLength2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT a.CHR_SALESNO,DATE_FORMAT(a.DAT_SALESDATE,'%d-%b-%Y'),a.DOU_TOTALAMOUNT,c.CHR_DIVICODE,a.CHR_REF,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID), a.CHR_OTHERREF ,d.DOU_PAMOUNT,d.DOU_SAMOUNT,d.DOU_CONTRIBUTION ,e.CHR_STAFFNAME ,a.DOU_AMOUNT FROM inv_t_directsales a , inv_m_customerinfo b, inv_m_division c , inv_t_contribution d ,com_m_staff e WHERE a.INT_CUSTOMERID= b.INT_CUSTOMERID AND e.CHR_EMPID = a.CHR_REF AND d.CHR_EMPID=a.CHR_REF AND a.INT_DIVIID = c.INT_DIVIID AND a.CHR_SALESNO = d.CHR_SALESNO AND a.CHR_REF='admin' AND a.DAT_SALESDATE >='2010-09-04' AND a.DAT_SALESDATE <='2013-09-04' ORDER BY a.CHR_REF]]>
+	</queryString>
+	<field name="CHR_SALESNO" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DAT_SALESDATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="DOU_TOTALAMOUNT" class="java.lang.Double"/>
+	<field name="CHR_DIVICODE" class="java.lang.String"/>
+	<field name="CHR_REF" class="java.lang.String"/>
+	<field name="FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID)" class="java.lang.String"/>
+	<field name="CHR_OTHERREF" class="java.lang.String"/>
+	<field name="DOU_PAMOUNT" class="java.lang.Double"/>
+	<field name="DOU_SAMOUNT" class="java.lang.Double"/>
+	<field name="DOU_CONTRIBUTION" class="java.lang.Double"/>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="DOU_AMOUNT" class="java.lang.Double"/>
+	<variable name="INT_QUALIFICATIONID_1" class="java.lang.Integer" resetType="Page" calculation="Count"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="178" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText" x="0" y="60" width="1104" height="20" backcolor="#00CCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Employeewise Sale Report]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField" x="0" y="117" width="1104" height="20"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Employee Name / Period :"+$P{ref}+" / "+$P{fromDt}+" to "+$P{toDt}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText" x="1021" y="92" width="33" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement key="textField" x="1054" y="92" width="50" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText" x="360" y="137" width="150" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[Reference]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="30" y="137" width="120" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[Invoice No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="510" y="137" width="200" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[Other Reference]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="900" y="137" width="64" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[Contribution]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="210" y="137" width="150" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[Division]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="964" y="137" width="70" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[Amount Without Tax]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="710" y="137" width="190" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[Customer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="150" y="137" width="60" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[Sale Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="0" y="137" width="30" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[S. No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="1034" y="137" width="70" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[Total Amount ]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="167" width="1104" height="11" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="hImageExpression"/>
+				<subreportParameter name="division"/>
+				<subreportParameter name="subreport2Parameter">
+					<subreportParameterExpression><![CDATA[$P{subreport2Parameter}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="toDt"/>
+				<subreportParameter name="cpy"/>
+				<subreportParameter name="ref"/>
+				<subreportParameter name="subreport1Parameter">
+					<subreportParameterExpression><![CDATA[$P{subreport1Parameter}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fromDt"/>
+				<subreportParameter name="customer"/>
+				<subreportParameter name="dataLength">
+					<subreportParameterExpression><![CDATA[$P{dataLength}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dataLength1">
+					<subreportParameterExpression><![CDATA[$P{dataLength1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fImageExpression"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreportParameter}]]></subreportExpression>
+			</subreport>
+			<image>
+				<reportElement key="image" x="249" y="0" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{hImageExpression}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="65" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="1037" y="0" width="48" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="false">
+				<reportElement key="textField" x="1085" y="0" width="19" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement key="image" x="249" y="15" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{fImageExpression}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="15" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="1104" height="15" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="division"/>
+				<subreportParameter name="hImageExpression"/>
+				<subreportParameter name="cpy"/>
+				<subreportParameter name="toDt"/>
+				<subreportParameter name="dataLength2">
+					<subreportParameterExpression><![CDATA[$P{dataLength2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ref"/>
+				<subreportParameter name="fromDt"/>
+				<subreportParameter name="customer"/>
+				<subreportParameter name="dataLength"/>
+				<subreportParameter name="fImageExpression"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport3Parameter}]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

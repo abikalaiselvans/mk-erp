@@ -1,0 +1,336 @@
+<!--CS_PAGE_BREAK-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"></head><body><h2>
+<csfield name="title"></csfield></h2>
+<csfield name="id_author" before="by " hrefaction="pub"><br>
+<csfield name="date">
+<!-- sidebar begins -->
+<!-- don't move sidebars -->
+<!-- sidebar ends -->
+<p>Software object pooling is not a new concept. There are many 
+scenarios where some type of object pooling technique is employed to 
+improve application performance, concurrency, and scalability. After 
+all, having your database code create a new <code>Connection</code> 
+object on every client request is an expensive process. Moreover, with 
+today's demanding applications, creating new connections for data access
+ from scratch, maintaining them, and tearing down the open connection 
+can lead to massive load on the server.</p>
+
+<p><em>Connection pooling</em> eliminates JDBC overhead. Further, object
+ pooling also helps to reduce the garbage collection load. In this 
+article, we'll look at an elegant way of creating a pool of open 
+database-connection objects in Tomcat, so that they are handy whenever 
+an application needs to access a DB resource.</p>
+
+<p>With Database Connection Pooling (DBCP), we can scale our 
+applications to handle increased load and deliver high performance 
+benefits. Using recycled database connection objects cuts the time taken
+ to re-instantiate and load frequently used objects, thus reducing 
+unnecessary overheads. Configuring a DB pool can be a daunting task, 
+because there has to be a way for different components within an 
+application to know about the available pooled objects, and a mechanism 
+to locate them. This is exactly where JNDI steps in, tying these 
+dependencies together.</p>
+
+<h3>JNDI to the Rescue</h3>
+
+<p>The Java Naming and Directory Interface (JNDI) has been at the core 
+of Java EE since its inception. JNDI offers a generic mechanism for Java
+ EE components to find other components, resources, or services 
+indirectly at runtime. The primary role of JNDI in a Java EE application
+ is to provide an <em>indirection layer</em>, so that components can 
+find required resources without being particularly aware of the 
+indirection. This indirection is almost transparent. JNDI helps in 
+holding applications together, but this coupling is very flexible, so 
+that apps can be easily reassembled. JNDI spares you from providing 
+direct references to the data source, JDBC driver class names, user 
+names and passwords, or any vendor-specific quirks of setting up 
+pooling. We just look up all of these dependencies at runtime through a 
+JNDI call. The developer, on the other hand, is ignorant of the external
+ resources.</p>
+
+<h3>Tomcat Configuration</h3>
+
+<p>Our approach to DBCP uses the <a href="http://jakarta.apache.org/commons/">Jakarta-Commons</a> database connection pool. But first, we need to configure the JNDI <code>DataSource</code> in Tomcat by adding a declaration for the resource to <em>server.xml</em> file, which resides inside the <em>/conf</em> directory of your Tomcat installation (indicated by the environment variable <code>CATALINA_HOME</code>). The JNDI <code>DataSource</code> is used as a <em>factory</em>
+ for connections. One of the major advantages of using a configuration 
+like this is that the characteristics of the pool can be changed without
+ affecting the application code. Our application's use of connection 
+pooling is almost transparent. The following code snippet shows us how 
+to configure the container to enable connection pooling.</p>
+
+<pre><code>&lt;Context path="/dbcp" docBase="dbcp" debug="5"
+reloadable="true" crossContext="true"&gt;
+
+&lt;Resource name="jdbc/TestDB" auth="Container"
+   type="javax.sql.DataSource" removeAbandoned="true"
+   removeAbandonedTimeout="30" maxActive="100"
+   maxIdle="30" maxWait="10000" username="kunal"
+   password="java_facier"
+   driverClassName="com.mysql.jdbc.Driver"
+   url="jdbc:mysql://localhost/dbcptest"/&gt;
+
+&lt;/Context&gt;</code></pre>
+
+<p>We can configure a maximum number of DB connections in the pool. Make
+ sure you choose a maximum connection count large enough to handle all 
+of your database connections--alternatively, you can set <code>0</code> 
+for no limit. Further, we can set the maximum number of idle database 
+connections to be retained in the pool. Set this value to <code>-1</code>
+ for no limit. The most optimal performance is attained when the pool in
+ its steady state contains just enough connections to service all 
+concurrent connection requests, without having to create new physical 
+database connections at runtime. We can also specify the maximum time 
+(in milliseconds) to wait for a database connection to become available,
+ which in this example is 10 seconds. An exception is thrown if this 
+timeout is exceeded. You can set this value to <code>-1</code> to wait indefinitely. Please make sure your connector driver, such as <em>mysql.jar</em>, is placed inside the <em>/common/lib</em> directory of your Tomcat installation.</p>
+
+<p>To achieve performance and high throughput, we also need to fine-tune
+ the container to work under heavy traffic. Here's how we'll configure 
+the <code>Connector</code> element for the <code>maxProcessors</code> and <code>acceptCount</code> parameters in the <em>server.xml</em> file:</p>
+
+<pre><code>&lt;!--  Configuring the request and response endpoints --&gt;
+&lt;Connector port="80" maxHttpHeaderSize="8192" maxProcessors="150"
+   maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+   enableLookups="false" redirectPort="8443" acceptCount="150"
+   connectionTimeout="20000" disableUploadTimeout="true" /&gt;</code></pre>
+
+<h3><a name="jndiref" id="jndiref"></a>Configuring JNDI Reference</h3>
+
+<p>In order for JNDI to resolve the reference, we have to insert a <code>&lt;resource-ref&gt;</code> tag into the <em>web.xml</em> deployment descriptor file. We first begin by setting a <code>&lt;listener&gt;</code> tag for registering a <code>ServletContextListener</code> as shown below:</p>
+
+<pre><code>
+&lt;listener&gt;
+        &lt;listener-class&gt; com.onjava.dbcp.DBCPoolingListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+
+&lt;!-- This component has a dependency on an external resource--&gt;
+ &lt;resource-ref&gt;
+      &lt;description&gt; DB Connection Pooling&lt;/description&gt;
+      &lt;res-ref-name&gt; jdbc/TestDB&lt;/res-ref-name&gt;
+      &lt;res-type&gt; javax.sql.DataSource&lt;/res-type&gt;
+      &lt;res-auth&gt; Container&lt;/res-auth&gt;
+  &lt;/resource-ref&gt;
+
+&lt;servlet&gt;
+        &lt;servlet-name&gt; EnrolledStudents&lt;/servlet-name&gt;
+        &lt;servlet-class&gt; com.onjava.dbcp.CourseEnrollmentServlet&lt;/servlet-class&gt;
+        &lt;load-on-startup&gt; 1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+        &lt;servlet-name&gt; EnrolledStudents&lt;/servlet-name&gt;
+        &lt;url-pattern&gt; /enrollment.do&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</code></pre>
+
+<p>This binding is vendor-specific, and every container has its own 
+mechanism for setting data sources. Please note that this is just a 
+declaration for dependency on an external resource, and doesn't create 
+the actual resource. Comprehending the tags is pretty straightforward: 
+this indicates to the container that the local reference name <em>jdbc/TestDB</em> should be set by the app deployer, and this should match with the resource name, as declared in <em>server.xml</em> file.</p>
+
+<csinclude record="b/804" template="b/article_sidebar2.view">
+
+<csinclude template="a/multipage_bottom.view">
+<!--CS_PAGE_INDEX-->
+<csinclude template="a/multipage_bottomb.view">
+<a href="http://onjava.com/onjava/2006/04/19/%3C%21--CS_NEXT_REF--%3E">
+<csinclude template="a/multipage_bottomc.view">
+
+<!--CS_PAGE_BREAK-->
+
+<csinclude template="a/multipage_top.view">
+<!--CS_PAGE_INDEX-->
+<csinclude template="a/multipage_topb.view">
+
+</csinclude></csinclude></csinclude></a><h3><a href="http://onjava.com/onjava/2006/04/19/%3C%21--CS_NEXT_REF--%3E"></a><a name="dbcp" id="dbcp"></a>Putting DBCP into Action</h3>
+
+<p>As our application first starts asking the pool for <code>Connection</code>
+ objects, they will be newly created, but when the application has 
+finished with an object, it's returned to the pool rather than 
+destroyed. This has huge performance benefits. Now, as the application 
+needs more <code>Connection</code> objects, the pool will be able to issue recycled objects that have previously been returned by the application.</p>
+
+<p>As an example, let's create a listener class to work with the pool. Our listener class implements the <code>ServletContextListener</code> interface; thus, it'll be initialized when the container starts and creates a <code>ServletContext</code> for this web app. Remember, there's only one <code>ServletContext</code> per web app. Any class implementing the <code>ServletContextListener</code>
+ interface is initialized when the container starts. This early 
+initialization cuts unnecessary overhead later, since it's ideal to have
+ a cached set of open database connection objects available when the 
+container starts rather than waiting for a client request. Inside the 
+listener class, we'll do the necessary JNDI lookup and then set the <code>DataSource</code> as a <code>ServletContext</code> attribute so that it's available to the entire web app. The following code snippet shows us how to extract <code>DataSource</code> through a JNDI call:</p>
+
+<pre><code>public class DBCPoolingListener implements
+ServletContextListener{
+ public void contextInitialized
+  (ServletContextEvent sce){
+
+  try {
+    // Obtain our environment naming context
+    Context envCtx = (Context) new InitialContext().
+    lookup("java:comp/env");
+
+    // Look up our data source
+    DataSource  ds = (DataSource) envCtx.lookup
+       ("jdbc/TestDB");
+
+    sce.getServletContext().setAttribute
+      ("DBCPool", ds);
+   } catch(NamingException e){ e.printStackTrace();
+  }
+ }
+ public void contextDestroyed(ServletContextEvent
+ sce){
+ }
+}</code></pre>
+
+<p>The component naming context is indicated by the prefix <code>java:comp/env/</code>.</p>
+
+<p>For the sake of simplicity, we'll create a simple servlet, 
+hard-coding the business logic and presentation. We'll use the JDBC 2.0 
+Standard Extension API, which specifies that a database service provider
+ can implement a pooling technique that can allow multiple <code>Connection</code> objects to be shared among several requesting clients. Here's how we'll extract <code>DataSource</code> from the <code>ServletContext</code> attribute and then establish a <code>Connection</code> to pooled DB connection objects.</p>
+
+<pre><code>public void init() throws ServletException {
+    try {
+ //Create a datasource for pooled connections.
+ datasource = (DataSource) getServletContext().
+ getAttribute("DBCPool");
+
+  //Register the driver for non-pooled connections.
+  Class.forName("com.mysql.jdbc.Driver").
+      newInstance();
+    }
+    catch (Exception e) {
+      throw new ServletException(e.getMessage());
+    }
+  }</code></pre>
+
+<p>The servlet is written to use either pooled or non-pooled database 
+connections, depending on the query string passed in its URL. The 
+servlet fetches a pooled connection object using Tomcat DBCP, and 
+non-pooled connections directly from MySQL connector.</p>
+
+<p>Here's an example of obtaining a <code>Connection</code> object. If the <code>pooledConnection</code> flag is set, it simply calls <code>getConnection()</code> on the <code>DataSource</code>. If not, it manually creates a new <code>Connection</code> object:</p>
+
+<pre><code>private synchronized Connection getConnection
+    (boolean pooledConnection)
+    throws SQLException {
+  if (pooledConnection) {
+     pooledCount++;
+
+    // Allocate and use a connection from the pool
+    return datasource.getConnection();
+  }
+  else {
+
+    nonPooledCount++;
+    Connection con = DriverManager.getConnection(
+      "jdbc:mysql://localhost/dbcptest","kunal",
+      "java_facier");
+    return con;   //return a newly created object
+    }
+  }</code></pre>
+
+<p>Having acquired a <code>Connection</code>, the servlet executes a 
+simple join between the course and enrollment tables, and then formats 
+and outputs the results as HTML. The example uses <code>PreparedStatement</code>
+ to pre-compile SQL and run it repeatedly. This eliminates the tedious 
+task of parsing and compiling the SQL query on every client request. 
+Pre-compilation improves performance and offers enhanced security by 
+preventing SQL injection attacks. For thread safety, we'll keep <code>Connection</code>, <code>PreparedStatement</code>, and <code>ResultSet</code> as local variables inside of the <code>doGet()</code> method.</p>
+
+<csinclude template="a/multipage_bottom.view">
+<!--CS_PAGE_INDEX-->
+<csinclude template="a/multipage_bottomb.view">
+<a href="http://onjava.com/onjava/2006/04/19/%3C%21--CS_NEXT_REF--%3E">
+<csinclude template="a/multipage_bottomc.view">
+
+<!--CS_PAGE_BREAK-->
+
+<csinclude template="a/multipage_top.view">
+<!--CS_PAGE_INDEX-->
+<csinclude template="a/multipage_topb.view">
+
+<p>Connections issued from the JNDI <code>DataSource</code> factory will
+ be returned to the pool when closed. Clients use a connection pool by 
+borrowing a connection object, using it, and then returning it to the 
+pool by closing it. We have to make sure that after we are done with the
+ <code>Connection</code>, we close it. If a <code>Connection</code> is 
+not closed, it will never be returned to the pool and become available 
+for reuse. Of course, that would tie up resources. The <code>finally</code> block guarantees that used <code>ResultSet</code>, <code>PreparedStatement</code>, and <code>Connection</code> objects are closed and prevents any connection pool leaks, as shown below:</p>
+
+<pre><code>
+finally {
+      try {if (rs != null) rs.close();} catch (SQLException e) {}
+      try {if (pstmt != null) pstmt.close();} catch (SQLException e) {}
+      try {if (connection != null) connection.close();} catch (SQLException e) {}
+    }</code></pre>
+
+<h3>Performance Measurement</h3>
+
+</csinclude></csinclude></csinclude></a><p><a href="http://onjava.com/onjava/2006/04/19/%3C%21--CS_NEXT_REF--%3E">Before
+ our application hits the ground running, we would like to stress test 
+the app, evaluate its performance, and compare the results between the 
+cached set of pooled connection objects and the non-pooling alternative.
+ For this, we'll rely on </a><a href="http://jakarta.apache.org/jmeter/index.html">JMeter</a>,
+ an open source tool for load testing with a drag-and-drop-style GUI. I 
+have written a test plan for stress testing the web app. I have set up 
+JMeter to stimulate 50 concurrent users, accessing a common servlet two 
+times without any interval. The results are pretty apparent after 
+looking at the JMeter graph results shown in Figures 1 and 2, below.</p>
+
+<p><a href="http://onjava.com/onjava/2006/04/19/graphics/pooling_test.jpg" target="_blank" onclick="PopImage('', this.href, '919', '692', 'Figure 1. Pooled DB Connections Deviation');return false;"><img src="database-connection-pooling-with-tomcat_files/pooling_test.gif" alt="Thumbnail, click for full-size image." border="0" height="339" width="450"></a><br>
+<em>Figure 1. Pooled DB connections deviation</em> (click for full-size image)</p>
+
+<p><a href="http://onjava.com/onjava/2006/04/19/graphics/non_pooling_test.jpg" target="_blank" onclick="PopImage('', this.href, '921', '689', 'Figure 2. Non-pooled DB Connections Deviation');return false;"><img src="database-connection-pooling-with-tomcat_files/non_pooling_test.gif" alt="Thumbnail, click for full-size image." border="0" height="337" width="450"></a><br>
+<em>Figure 2. Non-pooled DB connections deviation</em> (click for full-size image)</p>
+
+<p>After several test runs, it turned out that connection pooling is at 
+least four times faster than explicitly creating a DB connection object 
+from the ground up. Admittedly, to get more accurate results, JMeter 
+should run on a different machine. The ramp-up period, which describes 
+the amount of time for creating the total number of threads, should be 
+carefully chosen. It's not considered to be a good idea to set it to 
+zero if you have a large number of threads, because that would create 
+all of the threads at once and send out requests immediately. At the 
+same time, a higher ramp-up period is also not appropriate, as it might 
+underestimate the results.</p>
+
+<h3><a name="conclusion" id="conclusion"></a>Conclusion</h3>
+
+<p>Connection pooling is a technique used for sharing a cached set of 
+open database connections among several requesting clients. It doesn't 
+require you to modify your code significantly; rather, it provides 
+enhanced performance benefits. Object pooling should be used with care. 
+It does require additional overhead for such tasks as managing the state
+ of the object pool, issuing objects to the application, and recycling 
+used objects. Pooling is best suited for objects that have a short 
+lifetime. If you are already working in a rich Java EE environment, then
+ most likely you would be using an out-of-box connection pooling 
+facility provided by your app server, and your applications' use of 
+connection pooling is almost transparent.</p>
+
+<h3><a name="resources" id="resources"></a>Resources</h3>
+
+<ul>
+<li>Example <a href="http://onjava.com/onjava/2006/04/19/examples/dbcp.zip">source code</a> used in this article</li>
+
+<li><a href="http://jakarta.apache.org/commons/">Jakarta-Commons</a> home</li>
+
+<li>Sun's <a href="http://java.sun.com/products/jndi/tutorial/">JNDI tutorial</a></li>
+
+<li>Tomcat JNDI <code>DataSource</code> <a href="http://tomcat.apache.org/tomcat-5.0-doc/jndi-datasource-examples-howto.html">how-to document</a></li>
+
+<li>MySQL's official <a href="http://www.mysql.com/products/connector/j/">JDBC driver</a></li>
+
+<li><a href="http://www.oreillynet.com/pub/d/828">JDBC 2.0</a> tutorial</li>
+
+<li>Apache <a href="http://jakarta.apache.org/jmeter/index.html">JMeter</a></li>
+
+<li>Creating a <a href="http://www.onjava.com/pub/a/onjava/2003/01/15/jmeter.html">JMeter test plan</a></li>
+</ul>
+<p><i>
+<csfield name="id_author" after=" " hrefaction="pub">
+<csquery path="q/93" where="cs_rid = '{id_author}'"></csquery></csfield></i></p>
+
+<hr noshade="noshade" size="1">
+
+<p>Return to <a href="http://www.onjava.com/">ONJava.com</a>.</p></csinclude></csinclude></csinclude></csinclude></csinclude></csfield></csfield></body></html>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 April 2011 11:37:37 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping >
+    <class name="com.my.org.erp.bean.inventory.SpareCustomerAddress" table="inv_m_sparecustomeraddress" >
+        
+        <id name="rowid" type="java.lang.Integer">
+            <column name="INT_ADDRESSID" />
+        </id>
+      
+       <property name="customer" type="java.lang.Integer">
+            <column name="INT_CUSTOMERID" />
+        </property>
+        
+        <property name="cperson" type="string">
+            <column name="CHR_CONTACTPERSON"  />
+        </property>
+        
+        <property name="address1" type="string">
+            <column name="CHR_ADDRESS1"  />
+        </property>
+        
+        <property name="address2" type="string">
+            <column name="CHR_ADDRESS2"  />
+        </property>
+        
+        <property name="mobile" type="string">
+            <column name="CHR_PHONE1"  />
+        </property>
+        <property name="email" type="string">
+            <column name="CHR_EMAIL"  />
+        </property>
+  
+         <property name="country" type="java.lang.Integer">
+            <column name="INT_COUNTRYID" />
+        </property>
+        <property name="state" type="java.lang.Integer">
+            <column name="INT_STATEID" />
+        </property>
+        <property name="district" type="java.lang.Integer">
+            <column name="INT_DISTRICTID" />
+        </property>
+        <property name="city" type="java.lang.Integer">
+            <column name="INT_CITYID" />
+        </property>
+        <property name="pin" type="java.lang.Integer">
+            <column name="INT_PINCODE" />
+        </property>
+ 
+        <property name="userid" type="string">
+            <column name="CHR_USRNAME"  />
+        </property>
+        
+        <property name="userdate" type="java.util.Date">
+            <column name="DT_UPDATEDATE"  />
+        </property>
+        
+        <property name="status" type="string">
+            <column name="CHR_UPDATESTATUS"  />
+        </property>
+     </class>
+</hibernate-mapping>
+ 

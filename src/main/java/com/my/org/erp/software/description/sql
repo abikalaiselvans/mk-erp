@@ -1,0 +1,23 @@
+
+
+
+multiple if statement in UPDATE sql
+
+UPDATE com_m_staff 
+SET INT_SALARY = CASE WHEN INT_SALARY <= 1000 THEN  2000 ELSE  INT_SALARY END
+
+
+
+UPDATE com_m_staff 
+SET INT_SALARY = 
+    
+    CASE 
+         WHEN INT_SALARY <= 1000 THEN  2000
+         WHEN (INT_SALARY <= 2000) AND (INT_SALARY <= 1001) THEN  3000
+         ELSE  INT_SALARY END
+
+
+
+
+SELECT * FROM com_m_staff  ORDER BY CHR_STAFFNAME LIMIT 10500,5
+

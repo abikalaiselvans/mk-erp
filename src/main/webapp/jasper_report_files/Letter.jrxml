@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Letter" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="empid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="shortname" class="java.lang.String"/>
+	<parameter name="Organization" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT DATE_FORMAT(NOW(),'%d-%b-%Y'),CONCAT(FIND_A_SHORT_NAME(),'/REL/',YEAR(NOW()),
+if(month(now())<10,'0',''),MONTH(DATE(NOW())),'/',RIGHT(CONCAT('000000',c.INT_RESIGNID),6) ) refno,
+TIMESTAMPDIFF(MONTH, a.DT_DOJCOLLEGE, c.DT_TERM_DATE),a.CHR_EMPID,a.CHR_STAFFNAME,
+CONCAT( if(a.CHR_GENDER='Male','Mr. ', if(a.CHR_MARITALSTATUS ='M','Mrs.' ,'Ms.') ),' ',a.CHR_STAFFNAME) salute,
+d.CHR_OFFICENAME,
+DATE_FORMAT(a.DT_DOJCOLLEGE,'%d-%b-%Y'),
+DATE_FORMAT(c.DT_TERM_DATE,'%d-%b-%Y'),b.CHR_DESIGNAME,
+if(a.CHR_GENDER= 'Male' ,'Mr.' , (if(a.CHR_MARITALSTATUS ='M', 'Mrs.' ,'Ms.' )) ),
+if(a.CHR_GENDER= 'Male' ,'his' ,'her') , if(a.CHR_GENDER= 'Male' ,'he' ,'she'),
+if(a.CHR_GENDER= 'Male' ,'He' ,'She') firstCaps
+FROM com_m_staff a, com_m_desig b, pay_m_emp_termination c , com_m_office d
+WHERE a.CHR_EMPID =c.CHR_EMPID
+AND a.INT_DESIGID = b.INT_DESIGID
+AND a.INT_OFFICEID = d.INT_OFFICEID
+AND a.CHR_EMPID = $P{empid};]]>
+	</queryString>
+	<field name="DATE_FORMAT(NOW(),&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="refno" class="java.lang.String"/>
+	<field name="TIMESTAMPDIFF(MONTH, a.DT_DOJCOLLEGE, c.DT_TERM_DATE)" class="java.lang.Long"/>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="salute" class="java.lang.String"/>
+	<field name="CHR_OFFICENAME" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DT_DOJCOLLEGE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="DATE_FORMAT(c.DT_TERM_DATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="CHR_DESIGNAME" class="java.lang.String"/>
+	<field name="if(a.CHR_GENDER= &apos;Male&apos; ,&apos;Mr.&apos; , (if(a.CHR_MARITALSTATUS =&apos;M&apos;, &apos;Mrs.&apos; ,&apos;Ms.&apos; )) )" class="java.lang.String"/>
+	<field name="if(a.CHR_GENDER= &apos;Male&apos; ,&apos;his&apos; ,&apos;her&apos;)" class="java.lang.String"/>
+	<field name="if(a.CHR_GENDER= &apos;Male&apos; ,&apos;he&apos; ,&apos;she&apos;)" class="java.lang.String"/>
+	<field name="firstCaps" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="650" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="36" y="27" width="519" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATE_FORMAT(NOW(),'%d-%b-%Y')}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="36" y="41" width="519" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{refno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="83" width="57" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To,]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="36" y="98" width="519" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{salute}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="36" y="113" width="519" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_OFFICENAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="150" width="508" height="28" backcolor="#00CCCC"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sub : Relieving Order cum Experience Certificate]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="36" y="194" width="508" height="44"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
+					<font fontName="Arial" size="12"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Further to your resignation letter , we are pleased to inform you that you are relieved from your Service effective <b>"+$F{DATE_FORMAT(c.DT_TERM_DATE,'%d-%b-%Y')}+"</b>."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="243" width="508" height="80"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
+					<font fontName="Arial" size="12"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We also certify <b>"+$F{salute}+"</b>"+" was employed in our oranization as "+"\""+"<b>"+$F{CHR_DESIGNAME}+"</b>"+"\""+" from <b>"+$F{DATE_FORMAT(a.DT_DOJCOLLEGE,'%d-%b-%Y')}+"</b>"+" to <b>"+$F{DATE_FORMAT(c.DT_TERM_DATE,'%d-%b-%Y')}+"</b>."+" During "+$F{if(a.CHR_GENDER= 'Male' ,'his' ,'her')}+""+" tenure in our organization "+$F{if(a.CHR_GENDER= 'Male' ,'he' ,'she')}+""+" was found to be efficient, hardworking and sincere in delivering "+$F{if(a.CHR_GENDER= 'Male' ,'his' ,'her')}+""+" duties to the organization and "+$F{if(a.CHR_GENDER= 'Male' ,'his' ,'her')}+""+" conduct was very good."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="363" width="508" height="27" backcolor="#00CCCC"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[We wish you best of luck in the new assignment that you are taking up.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="333" width="508" height="25" backcolor="#00CCCC"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Wishing you all the very best.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="414" width="133" height="20" backcolor="#00CCCC"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Yours Faithfully,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="446" width="35" height="20" backcolor="#00CCCC"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[ For ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="541" width="351" height="20" backcolor="#00CCCC"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Authorized Signatory]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="71" y="451" width="425" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{Organization}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,148 @@
+/* CSS Document */
+body{padding:0px; margin:0px; background:url(images/mainbg.gif) 0 0 repeat-x #fff; color:#705D20; font:14px/18px Arial, Helvetica, sans-serif;}
+div, p, ul, h1, h2, h3, form, img{padding:0px; margin:0px;}
+ul{list-style-type:none;}
+
+a{ color:#fff; text-decoration:none;}
+a:hover{ color:#fff; text-decoration:underline;}
+
+
+#topPan{width:748px; height:100px; position:relative; margin:0 auto;} 
+
+#topHeaderPan {width:332px; height:231px; background:url(images/header.jpg) 0 100% no-repeat; position:relative;}
+#topHeaderPan img{width:191px; height:84px; display:block; position:absolute; top:120px; left:0px;}
+#topHeaderPan ul{width:298px; height:59px; position:absolute; top:31px; left:0px; padding:0px;}
+#topHeaderPan ul li{width:74px; height:59px; background:url(images/menu-div.gif) 100% 0 no-repeat; float:left;} 
+#topHeaderPan ul li a{width:73px; height:59px; display:block; background:url(images/topmenubg.gif) 0 0 repeat-x #fff; color:#88763D; text-align:center; font-size:13px; font-weight:bold; line-height:59px;}
+#topHeaderPan ul li a:hover{width:73px; height:59px; background:url(images/topleftmenu-hover.gif) 50% 100% no-repeat; text-decoration:none;}
+#topHeaderPan ul li.company{width:74px; height:59px; background:url(images/company-bg.gif) 0 0 no-repeat; text-decoration:none; text-align:center; line-height:59px;}
+#topHeaderPan ul li.client{width:74px; height:59px; background:none; float:left;} 
+
+#toprightPan{width:350px; height:73px; background:url(images/rightsidebg.jpg) 0 0 no-repeat; position:absolute; top:15px; right:-100px;}
+#toprightPan ul{width:320px; height:49px; display:block; margin:16px 0 0 16px;}
+#toprightPan ul li{width:104px; height:49px; border-right:1px dashed #C1B79A; float:left;}
+
+#toprightPan ul li.home{width:104px; height:20px; font-size:13px; font-weight:bold; text-align:center; background:url(images/icon1-normal.png) 50% 0 no-repeat ; color:#FFFFFF; padding:29px 0 0;}
+#toprightPan ul li.home a{width:104px; height:20px; font-size:13px; font-weight:bold; text-align:center; background:url(images/icon1-hover) 50% 0 no-repeat; color:#FFFFFF; padding:29px 0 0; text-decoration:none;}
+#toprightPan ul li.home a:hover{width:104px; height:20px; font-size:13px; font-weight:bold; text-align:center; background:url(images/icon1-hover) 50% 20% no-repeat; color:#00FF00; padding:29px 0 0; text-decoration:none;}
+
+
+#toprightPan ul li.about{width:104px; height:20px; font-size:13px; font-weight:bold; text-align:center; background:url(images/icon2-normal.png) 50% 0 no-repeat; color:#81BE28; padding:29px 0 0; text-decoration:none;}
+#toprightPan ul li.about a{width:104px; height:20px; font-size:13px; font-weight:bold; text-align:center; background:url(images/icon2-hover.png) 50% 0 no-repeat; color:#FFFFFF; padding:29px 0 0; text-decoration:none;}
+#toprightPan ul li.about a:hover{width:104px; height:20px; font-size:13px; font-weight:bold; text-align:center; background:url(images/icon2-hover.png) 50% 0 no-repeat; color:#00FF00; padding:29px 0 0; text-decoration:none;}
+
+#toprightPan ul li.contact{width:104px; height:20px; font-size:13px; font-weight:bold; text-align:center; background:url(images/icon3-normal.gif) 50% 20% no-repeat; color:#81BE28; border:none; padding:29px 0 0; text-decoration:none;}
+#toprightPan ul li.contact a{width:104px; height:20px; font-size:13px; font-weight:bold; text-align:center; background:url(images/icon3-hover.gif) 50% 20% no-repeat; color:#FFFFFF; padding:29px 0 0; text-decoration:none;}
+#toprightPan ul li.contact a:hover{width:104px; height:20px; font-size:13px; font-weight:bold; text-align:center; background:url(images/icon3-hover.gif) 50% 20% no-repeat; color:#00FF00; padding:29px 0 0; text-decoration:none;}
+
+
+/*----/TOP PANEL----*/
+
+/*----BODY PANEL----*/
+#bodyPan{width:748px; position:relative; margin:0 auto;}
+/*----BODY LEFT PANEL----*/
+#bodyleftPan{width:331px; float:left;}
+#bodyleftPan h2{width:196px; height:30px; font:30px/30px Georgia, "Times New Roman", Times, serif; background:#fff; color:#006EA6; margin:43px 0 0;}
+#bodyleftPan h3{width:196px; height:30px; font:30px/30px Georgia, "Times New Roman", Times, serif; background:#fff; color:#006EA6; margin:20px 0 0;}
+
+
+#bodyleftPan p{padding:14px 28px 0 0;}
+#bodyleftPan p.greentext{background:#fff; color:#5E9908; font-size:16px; font-weight:bold; padding:14px 0 0;}
+#bodyleftPan p.browntext{background:#fff; color:#705D20; font-size:24px; padding:10px 0 0;}
+
+#bodyleftPan ul{width:270px; height:24px; margin:20px 0 0;}
+#bodyleftPan ul li{width:118px; height:24px; float:left; margin:0 5px 0 0;}
+#bodyleftPan ul li.more{width:118px; height:24px; float:left;}
+#bodyleftPan ul li a{width:90px; height:24px; display:block; background:url(images/reedmore-bg.gif) 0 0 no-repeat #FEFEFE; color:#fff; font-size:13px; font-weight:bold; line-height:20px; padding:0 0 0 28px}
+#bodyleftPan ul li a:hover{background:url(images/reedmore-hover.gif) 0 0 no-repeat; text-decoration:none;}
+
+#bodyleftPan ul li.comment{width:98px; height:24px; background:url(images/commentbg.gif) 0 0 no-repeat #FEFEFE; color:#fff; font-size:13px; font-weight:bold; line-height:24px; text-decoration:none; float:left; padding:0 0 0 20px}
+
+
+/*----/BODY LEFT PANEL----*/
+/*----BODY RIGHT PANEL----*/
+#bodyrightPan{width:359px; float:left;margin-top:50px;}
+/*----Login Panel----*/
+#loginPan{width:359px; height:150px; background:url(images/formbg.gif) 0 0 repeat-y;}
+#loginPan h2{width:230px; height:81px; display:block; background:url(images/icon.gif) 0 50% no-repeat #fff; color:#5EA000; font:30px/80px Georgia, "Times New Roman", Times, serif; padding:0 0 0 64px; margin:0 0 0 18px;}
+#loginPan h2 span{background:#fff; color:#017FC0;}
+
+#loginPan form{width:321px; height:76px; background:#FCF6E6; color:#705D20; position:relative; border:1px dashed #BFB492; margin:0 0 0 18px; padding:6px 0 0;}
+#loginPan form label{width:91px; height:22px; display:block; float:left; padding: 0 0 0 20px; margin:9px 0 0;}
+#loginPan form input{width:130px; height:18px; font-size:12px; display:block; float:left; margin:9px 12px 0 0;}
+
+#loginPan form input.button{width:47px; height:28px; display:block; position:absolute; top:95px; right:129px; background:url(images/button.gif) 0 0 no-repeat #FCF6E6; border:none; color:#fff; margin:9px 0 0; font:16px/52px Georgia, "Times New Roman", Times, serif; text-align:center; padding:0px;}
+
+#loginPan ul{width:323px; height:25px; margin:6px 0 0 18px;}
+#loginPan ul li{width:166px; height:25px; float:left;}
+#loginPan ul li.nonregister{width:156px; height:25px; float:left; background:url(images/not-memberbg.gif) 0 0 no-repeat #FEFEFE; color:#fff; font-weight:bold; line-height:25px; text-align:center;}
+#loginPan ul li.register{width:165px; height:25px; float:left; background:url(images/new-registerbg.gif) 0 0 no-repeat #FEFEFE; color:#fff; font-weight:bold; line-height:25px; margin:0 0 0 1px;}
+#loginPan ul li.register a{width:141px; height:25px; display:block; background:url(images/arrow1.gif) 95% 60% no-repeat; text-decoration:none; padding:0 0 0 25px;}
+#loginPan ul li.register a:hover{background:url(images/arrow2.gif) 95% 60% no-repeat; text-decoration:none;}
+/*----/Login Panel----*/
+#bodyrightPan p.hours{width:323px; height:83px; margin:33px 0 33px 18px;}
+#bodyrightPan p.hours a{width:323px; height:83px; display:block; background:url(images/24hours.gif) 0 0; text-indent:-2000px;}
+#bodyrightPan p.hours a:hover{width:323px; height:83px; background:url(images/24hours.gif) 0 0; text-indent:-2000px;}
+/*----Login Panel----*/
+#loginBottomPan{width:359px; height:25px; background:url(images/form-bottombg.gif) 0 0 no-repeat;}
+
+/*----/Login Panel----*/
+
+
+/*----FOOTER PANEL----*/
+#footermainPan{background:url(images/footerbg.gif) 0 0 repeat-x #705D20; color:#fff; font:12px/22px "Trebuchet MS",Arial, Helvetica, sans-serif; clear:both; padding:20px 0 0;}
+
+
+
+ 
+.user 
+{
+	 
+	 
+	background: url('images/icon-user.gif') no-repeat top left;
+	border:1px solid;
+	border-radius:5px;
+	-moz-border-radius:5px; /* Firefox 3.6 and earlier */
+	text-align:center;
+	background-color:#CCCCCC;
+	height: 30px;
+
+}
+
+.pwd 
+{
+	 
+	background: url('images/icon-pwd.gif') no-repeat #fff center left;
+	border:1px solid;
+	border-radius:5px;
+	-moz-border-radius:5px; /* Firefox 3.6 and earlier */
+	text-align:center;
+	background-color:#CCCCCC;
+	height: 30px;
+}
+
+
+ .loginTable
+{
+	 
+ 
+	border:1px solid;
+	border-color:#0488C9;
+	border-radius:5px;
+	-moz-border-radius:5px; /* Firefox 3.6 and earlier */
+	text-align:center;
+	background-color:#0488C9;
+	height: 30px;
+	box-shadow: 3px 3px 3px #0488C9;
+	
+}
+
+.whiteHead
+{
+	font:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	margin: 0px 0 0px 0;
+	font-size:large;
+	font-weight: bold;
+	color: #fff;
+}

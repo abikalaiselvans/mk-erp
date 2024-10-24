@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+span { display:none; }
+div { display:none; }
+p { font-weight:bold; background-color:#fcd; }
+</style>
+<script src="jquery-1.4.2.js"></script>
+</head>
+<body  onpaste='return false;'>
+<button>Click this</button>
+<span>Want to move ahead?(Type'y' for yes & hit "Enter") </span>
+<div>
+<form>
+
+<input type="text" value="y/n"/>
+</form>
+</div>
+<p style="display:none;">It blinks for a while</p>
+
+<script>
+function clickIt() {
+$("span,div").show("normal");
+}
+$("button").click(clickIt); // can pass in function name
+$("form").submit(function () {
+if ($("input").val() == "y") {
+$("p").show(4000, function () {
+$(this).text("Welcome to final page");
+});
+}
+$("span,div").hide("normal");
+return false; // to stop the submit
+});
+
+</script>
+</body>
+</html>

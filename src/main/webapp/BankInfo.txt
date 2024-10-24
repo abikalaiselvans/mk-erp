@@ -1,0 +1,156 @@
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                     Bank Information Master Report                                                                                     
+                                                                                                                                                                                          Date23/09/2   
+    S. Bank Group Name     Branch Name       Branch Code              Address               City    District   State    Pin Code IFSC Code   Mobile     Fax           E-Mail            Web Site        
+    No                                                                                                                                                                                                  
+   1   CANARA BANK      TEYNAMPET         416              NO.563/1,      ANNA SALAI(G   Teynampet CHENNAI   TAMIL NADU  600018  CNRB000041                                         http://www.google   
+   2   THE TAMILNADU   ADAMBAKKAM         45               25/12          NEW COLONY MAINAdambakkamKANCHIPURATAMIL NADU  600088  TNSC000004                                                             
+   3   INDIAN BANK     ADYAR              000A002          91 FIRST MAIN  GANDHI NAGAR   Indira    CHENNAI   TAMIL NADU  600020  IDIB000A00                                                             
+   4   PUNJAB AND SIND ANNA SALAI         200              161,           MOUNT ROAD PB  Anna Road CHENNAI   TAMIL NADU  600002  PSIB000020                                                             
+                                                                                                                                                                                                        
+   5   DBS BANK LTD.   ANNA SALAI1        IN0826           806,           ANNA SALAI     Anna Road CHENNAI   TAMIL NADU  600002  DBSS0IN082                                                             
+   6   SYNDICATE BANK  ARMENIAN STREET    6000             69,            ARMENIAN STREETRipon     CHENNAI   TAMIL NADU  600003  SYNB000600                                                             
+   7   ANDHRA BANK     ASHOK NAGAR        19               A1, SENTHIL    I AVENUE,      AshoknagarCHENNAI   TAMIL NADU  600083  ANDB000001                                                             
+   8   INDUSLAND BANK  AVADI              BR321            12             VIVEKANANDHA STChepauk   CHENNAI   TAMIL NADU  600005  IFSC654321                                                             
+   9   BANK OF AMERICA BANK OF AMERICA,   CN6215           742,           ANNA SALAI,    Anna Road CHENNAI   TAMIL NADU  600002  BOFA0CN621                                                             
+   10  STATE BANK OF   BEACH              20242            45,            SECOND LINE    Chennai.  CHENNAI   TAMIL NADU  600001  SBHY002024                                                             
+                                                                                                                                                                                                        
+   11  STATE BANK OF   BESANT NAGAR       3274             E-18,          16TH CROSS STR BesantnagaCHENNAI   TAMIL NADU  600090  SBIN000327                                                             
+   12  POST OFFICE     BR3                BRPOSB123        1,             ANNA ROAD      Chennai.  CHENNAI   TAMIL NADU  600001  IFSCPOSB12                                                             
+   13  THE TUTICORIN   BR4                BRTMCOBL123      1,             ACHANKULAM     AchankulamTUTICORIN TAMIL NADU  628718  IFSCTMCOBL                                                             
+   14  THE VIRUDHUNAGARBRANCH1            BRVDCOBL123      1,             VIRUDUNAGAR    Pudupatti VIRUDHUNAGTAMIL NADU  626204  IFSCVDCOBL                                                             
+   15  UNION BANK OF   CHAMIERS ROAD      533238           67,            CHAMIERS ROAD  Chamiers  CHENNAI   TAMIL NADU  600018  UBIN053323                                                             
+                                                                                                                                                                                                        
+   16  CITI BANK       CHENNAI            3                2              CLUB HOUSE     Anna Road CHENNAI   TAMIL NADU  600002  CITI000000                                                             
+   17  STANDARD        CHENNAI  RRT,      36072            MYLAPORE-RAJA  29/30, DR.RADHAMylapore  CHENNAI   TAMIL NADU  600004  SCBL003607                                                             
+   18  DENA BANK       CHENNAI (GEORGE    620063           KADEL CHAMBERS,MINT STREET    Mannady   CHENNAI   TAMIL NADU  600001  BKDN062006                                                             
+   19  STATE BANK OF   CHENNAI (MAIN)     2                P.B.NO.7826,    ESPLANADE P.O.Broadway  CHENNAI   TAMIL NADU  600108  SBTR000000                                                             
+   20  ICICI BANK LTD. CHENNAI - CENOTAPH 1                NO:1,           CENOTAPH ROAD Eldams    CHENNAI   TAMIL NADU  600018  ICIC000000                                                             
+   21  FEDERAL BANK    CHENNAI - MOUNT    1100             S V S CLUB     ANNA SALAI,    Anna Road CHENNAI   TAMIL NADU  600002  FDRL000110                                                             
+                                                                                                                                                                                                        
+   22  KARUR VYSYA BANKCHENNAI - TEYNAMPET1102             KVB TOWERS, I  ANNA SALAI     Teynampet CHENNAI   TAMIL NADU  600018  KVBL000110                                                             
+   23  AXIS BANK       CHENNAI BRANCH     DFL457           ADDR           ADD2           AminjikaraCHENNAI   TAMIL NADU  600029  IFSC      8056030815411289543 mk@gmail.com         -                   
+   24  BANK OF TOKYO   CHENNAI BRANCH     CN3615           6TH FLOOR,     TEYNAMPET      Teynampet CHENNAI   TAMIL NADU  600018  BOTM0CN361                                                             
+   25  TAMILNAD        CHENNAI G.T.       20               194, ANNA      S.T.S. COMPLEX,MuthialpetCHENNAI   TAMIL NADU  600001  TMBL                                                                   
+   26  YES BANK LTD.   CHENNAI II         103              GROUND FLOOR   AND PART IST   Chennai.  CHENNAI   TAMIL NADU  600001  YESB000010                                                             
+                                                                                                                                                                                                        
+   27  SOUTH INDIAN    CHENNAI KELLYS     138              CHENNAI KELLYS PURUSAWLKAM    New Avadi CHENNAI   TAMIL NADU  600010  SIBL000013                                                             
+   28  LAKSHMI VILAS   CHENNAI MAIN       426              275,           THAMBU CHETTY  Seven     CHENNAI   TAMIL NADU  600001  LAVB000042                                                             
+   29  BANK OF INDIA   CHENNAI MID        8036             826,           TARAPORE       Chennai.  CHENNAI   TAMIL NADU  600001  BKID000803                                                             
+   30  CENTURION BANK  CHENNAI PARRYS     1029             189            THAMBU CHETTY  Chennai.  CHENNAI   TAMIL NADU  600001  CENT000102                                                             
+   31  TAMILNAD        CHENNAI TAMBARAM   146              33, SIVA       FIRST FLOOR    Tambaram  KANCHIPURATAMIL NADU  600045  TMBL000014                                                             
+   32  KARUR VYSYA BANKCHENNAI TRIPLICANE 1158             205,            TRIPLICANE    TiruvallikCHENNAI   TAMIL NADU  600005  KVBL000115                                                             
+                                                                                                                                                                                                        
+   33  STATE BANK OF   CHENNAI,WHITES ROAD176              WHITES ROAD,   CHENNAI        Anna Road CHENNAI   TAMIL NADU  600002  STBP000017                                                             
+   34  DEUTSCHE BANK   CHENNAI-           916CNN           KOTHARI         114 M.G. ROAD NungambakkCHENNAI   TAMIL NADU  600034  DEUT0916CN                                                             
+   35  CATHOLIC SYRIAN CHENNAI-1          58               3,             2ND LINE BEACH Chennai.  CHENNAI   TAMIL NADU  600001  CSBK000005                                                             
+   36  UTI BANK        CHENNAI-ADYAR      123456           NO:1,GANDHI ST,ADAMS ROAD     Govt      CHENNAI   TAMIL NADU  600001  IFSC123456                                                             
+   37  INDIAN OVERSEAS CHENNAI-ADYAR1     2                12              SARDAR PATEL  KasturibaiCHENNAI   TAMIL NADU  600020  IOBA000000                                                             
+                                                                                                                                                                                                        
+   38  KOTAK MAHINDRA  CHENNAI-KODAMBAKKAM466              1,             CHENNAI-KODAMBAChennai.  CHENNAI   TAMIL NADU  600001  KKBK000046                                                             
+   39  BN PARIBAS BANK CHENNAI2           9088             PRINCE         COLLEGE ROAD   Greams    CHENNAI   TAMIL NADU  600006  BNPA000908                                                             
+   40  BHARAT OVERSEAS ENNORE             BRBOB123         20,            BHARATHI NAGAR ChintadripCHENNAI   TAMIL NADU  600002  IFCBOB123                                                              
+   41  IDBI LTD.       GREAMS ROAD        5                37             P.M.TOWER,     Chennai.  CHENNAI   TAMIL NADU  600001  IBKL000000                                                             
+   42  THE TAMILNADU   HEADOFFICE         1                233,           N.S.C BOSE ROADChennai.  CHENNAI   TAMIL NADU  600001  TNSC000000                                                             
+   43  HDFC BANK LTD.  ITC CENTRE - ANNA  C0000004         759, ITC        OPP           Madras EleCHENNAI   TAMIL NADU  600002  HDFC000000                                                             
+                                                                                                                                                                                                        
+   44  a1              JKLH               908JJJJJJJJJJJJ  IOP            IOP            AkanambattCHITTOOR  ANDHRA      517124  KKKKKKKKKK                                                             
+   45  CATHOLIC SYRIAN KODAMBAKKOM1       198              49,            GOKULAM        KodambakkaCHENNAI   TAMIL NADU  600024  CSBK000019                                                             
+   46  THE KUMBAKONAM  KUMBAKONAM         280895           106,           SARANGAPANI EASKumbakonamTHANJAVUR TAMIL NADU  612001  CBIN028089                                                             
+   47  CENTRAL BANK OF M/S VELAMMAL       13081            M/S VELAMMAL   MOGAIPPAR      Mogappair TIRUVALLURTAMIL NADU  600037  CBIN001308                                                             
+   48  UNITED BANK OF  MADRAS             MDS801           117, POST BOX  ARMENIAN STREETChennai.  CHENNAI   TAMIL NADU  600001  UTBI0MDS80                                                             
+                                                                                                                                                                                                        
+   49  THE MADURAI     MADURAI            BRMDCC123        MADURAI COOP   NORTH VELI     Madurai   MADURAI   TAMIL NADU  625001  IFSCMDCC12                                                             
+                                                                                                                                                                                             Page 12    
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+
+
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                     Bank Information Master Report                                                                                     
+                                                                                                                                                                                          Date23/09/2   
+    S. Bank Group Name     Branch Name       Branch Code              Address               City    District   State    Pin Code IFSC Code   Mobile     Fax           E-Mail            Web Site        
+    No                                                                                                                                                                                                  
+   50  CENTRAL CO      MAMBALAM           BRCCOBL123       62/74,         WEST MAMBALAM  Mambalam  CHENNAI   TAMIL NADU  600033  IFSCCCOBL1                                                             
+   51  ORIENTAL BANK OFMOULIVAKKAM CHENNAI100581           D NO 5/88A,KUNRMAIN ROAD,MOULIChennai.  CHENNAI   TAMIL NADU  600001  ORBC010058                                                             
+   52  DHANLAXMI BANK  MOUNT ROAD         54               P.B.NO.359     OM SAKTHI TOWERAnna Road CHENNAI   TAMIL NADU  600002  DLXB000005                                                             
+   53  ALLAHABAD BANK  MOUNT ROAD BRANCH, 210218           41,            ANNA SALAI,    Anna Road CHENNAI   TAMIL NADU  600002  ALLA021021                                                             
+                                                                                                                                                                                                        
+   54  THE JAMMU AND   MOUNT ROAD1        0MADRAS          NEAR T.N.      MOUNT ROAD,    Anna Road CHENNAI   TAMIL NADU  600002  JAKA0MADRA                                                             
+   55  HSBC            MYLAPORE           600002           96             DR             Mylapore  CHENNAI   TAMIL NADU  600004  HSBC060000                                                             
+   56  AXIS BANK       MYLAPORE,          6                82,            DR             Mylapore  CHENNAI   TAMIL NADU  600004  UTIB000000                                                             
+   57  TDCC            NERKUNDRAM         BR12345          7,             NERU STREET    Perambur  CHENNAI   TAMIL NADU  600011  IFCTDCC123                                                             
+   58  NO BANK         NO BANK            BC123456         NO:481, 2 ND   NANDANAM       Nandanam  CHENNAI   TAMIL NADU  600035  IFSC123                                                                
+   59  DEVELOPMENT     NUNGABAKAM1        60               28A,           NUNGABAKAM,    NungambakkCHENNAI   TAMIL NADU  600034  DCBL000006                                                             
+                                                                                                                                                                                                        
+   60  LAKSHMI VILAS   NUNGAMBAKKAM       43                 175, VALLUVAR S.F.I.        NungambakkCHENNAI   TAMIL NADU  600034                                                                         
+   61  ABN AMRO BANK   NUNGAMBAKKAM       100313           19/1,          HADDOWS ROAD   Greams    CHENNAI   TAMIL NADU  600006  ABNA010031                                                             
+   62  RESERVE BANK OF PAD, CHENNAI       RBIS0CNPA01      PAD, RESERVE   RAJAJI SALAI   Chennai.  CHENNAI   TAMIL NADU  600001  RBIS0CNPA0                                                             
+   63  DHANLAXMI BANK  PALAKKAD           3                1 ST FLOOR     HAJEE COMPLEX, Chennai.  CHENNAI   TAMIL NADU  600001  DLXB000000                                                             
+   64  THE BANK OF     PANDY BAZAR        4660             OLD NO. 15/NEW PANDY BAZAR    Thygaraya CHENNAI   TAMIL NADU  600017  BRAJ000466                                                             
+                                                                                                                                                                                                        
+   65  STATE BANK OF   PARRYS             40154            231            NSC BOSE       Chennai.  CHENNAI   TAMIL NADU  600001  SBMY004015                                                             
+   66  KARNATAKA BANK  R A PURAM CHENNAI  150              77,            FREEN WAYS     Raja      CHENNAI   TAMIL NADU  600028  KARB000015                                                             
+   67  BANK OF BARODA  RAJAJI SALAI       NORTHB           28,            RAJAJI SALAI   Chennai.  CHENNAI   TAMIL NADU  600001  BARB0NORTH                                                             
+   68  STATE BANK OF   RAJAJI SALAI,      10286            UTI  HOUSE  29, RAJAJI  SALAI Chennai.  CHENNAI   TAMIL NADU  600001  SBBJ001028                                                             
+   69  PUNJAB NATIONAL RAJAJI SALAI,      30500            17,            RAJAJI SALAI   Mpt Ao    CHENNAI   TAMIL NADU  600001  PUNB003050                                                             
+   70  LAKSHMI VILAS   ROYAPURAM          433              130,           SURYA NARAYANA Rayapuram CHENNAI   TAMIL NADU  600013   LAVB00004                                                             
+                                                                                                                                                                                                        
+   71  INDUSIND BANK   T NAGAR, CHENNAI   328              5/6 OLD NO.3/2 T NAGAR,       Thygaraya CHENNAI   TAMIL NADU  600017  INDB000032                                                             
+   72  BANK OF         TAMBARAM           1418             NO.28, OLD     TAMBARAM       ChitlapakkKANCHIPURATAMIL NADU  600064  MAHB000141                                                             
+   73  TAMILNADU       THIRUVOTTIYUR HIGH BRTICOBL123      NO 253 BHAVANI THIRUVOTTIYUR  TiruvottiyTIRUVALLURTAMIL NADU  600019  IFSCTICOBL                                                             
+   74  CITY UNION BANK THIYAGARAYA NAGAR  1                19,            MAHALAKSHMI    Thygaraya CHENNAI   TAMIL NADU  600017  CIUB000000                                                             
+   75  THE             TIRUCHIRAPALLI MAIN280900           TIRUCHIRAPALLI TIRUCHIRAPALLI TiruchirapTIRUCHIRAPTAMIL NADU  620001  CBIN028090                                                             
+                                                                                                                                                                                                        
+   76  UCO BANK        UCO BANK ,CHENNAI  41               UCO BANK       THAMBU CHETTY  Chennai.  CHENNAI   TAMIL NADU  600001  UCBA000004                                                             
+   77  STATE BANK OF   VADAPALANI         10675            100,           FEET ROAD,     VadapalaniCHENNAI   TAMIL NADU  600026  SBIN001067                                                             
+   78  HDFC BANK LTD.  VALSARAVAKKAM      82               PLOT NO 8ARCOT VALSARAVAKKAM  ValasaravaTIRUVALLURTAMIL NADU  600087  HDFC000008                                                             
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                             Page 22    
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+
+

@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context displayName="SmartERP Application By Kalaiselvan" docBase="SmartCampus" path="" workDir="work\Catalina\localhost\_">
+  <Resource auth="Container" description="MySQL Database Connection" name="jdbc/test" type="javax.sql.DataSource"/>
+</Context>

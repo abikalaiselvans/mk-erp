@@ -1,0 +1,14 @@
+ol, li{
+	margin: 0;
+	padding: 0;
+}
+li { margin-left: 20px; }
+
+.red { background-color: red; }
+.blue { color: blue; }
+.green { color: green; }
+
+
+hover {
+	background-color: #fc7;
+}

@@ -1,0 +1,78 @@
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                 Customer Information Master Report                                                                                
+                                                                                                                                                                                                   
+                                                                                                                                                                                    Date18/05/201  
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+    S.  Group Name    Customer Name         Company                      Address               (Extn)Phone No1Extn)Phone No2    Fax	     Mobile1   Mobile2       Email        Web Site  Active /   
+    No                                                                                                                                                                                  Inactive   
+   1   BANK         GOPI             Mythra IT SOLUTION     DDD,,,Aberdeen bazar,SOUTH           (0)848484     (0)0            0          0        0                                      Active     
+                                                          ANDAMAN,ANDAMAN AND NICOBAR                                                                                                              
+   2   BANK         NIVASH           JPRAKASH             CHENNAI,,,Abiramapuram,CHENNAI,TAMIL (0)7845464317 (0)0            0          0        0                                      Active     
+                                                          NADU,INDIA,Pin:600018                                                                                                                    
+   3   CORPORATE    KALAISELVAN      MYTHRA TECHNOLOGY    NEW 11. OLD NO 6,DEVAKIAMMAL         (0)26640644   (0)0            0          1039379804                                      Active     
+                                                          STREET,,Shenoy Nagar,CHENNAI,TAMIL                                                                                                       
+                                                                                                                                                                                                   
+   4   BANK         NIVASH           NEAT IT SOLUTION     K.NATTAPATTI,,,USILAI,MADURAI,TAMIL  (0)9600872587 (0)0            0          0        0                                      Active     
+                                                          NADU,INDIA,Pin:625532                                                                                                                    
+   5   BANK         NIVASH           NEAT IT SOLUTION     MADURAI,,,USILAI,MADURAI,TAMIL       (0)9600872587 (0)0            0          0        0                                      Active     
+                                                          NADU,INDIA,Pin:625532                                                                                                                    
+   6   END USER     PRAKASH          RAJASHKUMAR          MADURAI,,,K.Pudur,MADURAI,TAMIL      (0)7845464317 (0)0            0          0        0                                      Active     
+                                                          NADU,INDIA,Pin:625007                                                                                                                    
+                                                                                                                                                                                                   
+   7   CORPORATE    RAJ              RAMKUMAR             VELLORE,,,Alandur(reopened           (0)546879463  (0)0            0          0        0                                      Active     
+                                                          W.e.f.6.6.05),KANCHIPURAM,TAMIL                                                                                                          
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                        Page 1  1  
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+
+

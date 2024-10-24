@@ -1,0 +1,2014 @@
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@5cc6898a: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='000001'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Amazing2023'
+Attendance auto marking
+com.mysql.jdbc.JDBC4PreparedStatement@1cba15f3: UPDATE com_m_staff a,att_t_register b    SET b.CHR_MORNING1 = 'PRE'   ,  b.CHR_EVENING1 = 'PRE'  WHERE a.CHR_EMPID = b.CHR_EMPID	 AND a.DAT_RESIGNDATE is null  AND b.CHR_MORNING1 = '0'  AND  b.CHR_EVENING1 = '0'  AND DT_DOJCOLLEGE <= NOW() AND a.CHR_TYPE !='T' 	 AND b.CHR_MONTH='July'  AND b.INT_YEAR='2024'	
+com.mysql.jdbc.JDBC4PreparedStatement@3a2d4214:  INSERT INTO att_m_automark (CHR_DATE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS)  VALUES(date_format(now(),'%Y-%m-%d') ,'ADMIN' ,date_format(now(),'%Y-%m-%d') ,'Y') 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Logined
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0189/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>CORROHEALTH INFOTECH PRIVATE LIMITED - UP</Customer></Amount>
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@5928f4c9: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','673','MSL0189/24-25', '22','34','HSBCN24181374223',DATE(NOW()), '2997200.00','2994660.00','2540','HSBCN24181374223\r\nDT. 29/06/24','MSLFEB2017000001','2024-06-29','000001',   DATE(NOW()),'Y','3','20240701063549','1' )
+com.mysql.jdbc.JDBC4PreparedStatement@10882d96: INSERT INTO inv_t_paymentcommitment (CHR_SALESNO,CHR_INVOICETYPE,DOU_ACTUALAMOUNT,DT_COMMITMENTDATE,DOU_COMMITMENTAMOUNT,CHR_STATUS)  VALUES('MSL0189/24-25','C','2997200.00','2024-07-06','2540','Y')
+com.mysql.jdbc.JDBC4PreparedStatement@6f0259e3:  UPDATE inv_t_directsales SET CHR_NOOFPAYMENTCOMMITMENT = (CHR_NOOFPAYMENTCOMMITMENT+1) WHERE CHR_SALESNO ='MSL0189/24-25' 
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. d9443c01a7336-1fac10d14b5sm53200265ad.27 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0190/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>CORROHEALTH INFOTECH PRIVATE LIMITED - TELANGANA</Customer></Amount>
+D:\ERP\JDBC.properties
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@5c422687: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','695','MSL0190/24-25', '22','34','HSBCN24181374244',DATE(NOW()), '2540000.00','2537460.00','2540','HSBCN24181374244\r\nDT. 29/06/24','MSLFEB2017000001','2024-06-29','000001',   DATE(NOW()),'Y','3','20240701063725','1' )
+com.mysql.jdbc.JDBC4PreparedStatement@16be2e83: INSERT INTO inv_t_paymentcommitment (CHR_SALESNO,CHR_INVOICETYPE,DOU_ACTUALAMOUNT,DT_COMMITMENTDATE,DOU_COMMITMENTAMOUNT,CHR_STATUS)  VALUES('MSL0190/24-25','C','2540000.00','2024-07-06','2540','Y')
+com.mysql.jdbc.JDBC4PreparedStatement@32c65f07:  UPDATE inv_t_directsales SET CHR_NOOFPAYMENTCOMMITMENT = (CHR_NOOFPAYMENTCOMMITMENT+1) WHERE CHR_SALESNO ='MSL0190/24-25' 
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. d9443c01a7336-1fac11d8cbbsm51937075ad.106 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0238/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>THE SCM SILK</Customer></Amount>
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@5810ba28: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','1319','MSL0238/24-25', '22','33','N181243120393968',DATE(NOW()), '70092.00','70092.00','0','N181243120393968\r\nDT. 29/06/24','MSLFEB2017000001','2024-06-29','000001',   DATE(NOW()),'Y','3','20240701063949','1' )
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. d2e1a72fcca58-70801e53ae0sm5255557b3a.23 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0275/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>TVS SRICHAKRA LTD</Customer></Amount>
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@3c970c96: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','41','MSL0275/24-25', '22','69','SBIN424181823641',DATE(NOW()), '4012.00','4012','0','SBIN424181823641\r\nDT. 29/06/24','MSLFEB2017000001','2024-06-29','000001',   DATE(NOW()),'Y','3','20240701064124','1' )
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. d9443c01a7336-1fac10d1ec1sm52048655ad.2 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0263/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>ALUMINIUM POWDER COMPANY LIMITED</Customer></Amount>
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@6a3d8588: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','804','MSL0263/24-25', '22','5','AXSK241810008185',DATE(NOW()), '80346.00','80346','0','AXSK241810008185\r\nDT. 29/06/24','MSLFEB2017000001','2024-06-29','000001',   DATE(NOW()),'Y','3','20240701064342','1' )
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. d9443c01a7336-1fac10d2060sm53663955ad.15 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0276/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>THANGAMAYIL JEWELLERY LIMITED</Customer></Amount>
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@6df42a0e: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','1257','MSL0276/24-25', '22','109','FBBT241814387756',DATE(NOW()), '27140.00','27140','0','FBBT241814387756\r\nDT. 29/06/24','MSLFEB2017000001','2024-06-29','000001',   DATE(NOW()),'Y','3','20240701064525','1' )
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. d9443c01a7336-1fac1535b6esm51796715ad.156 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0195/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>ALUMINIUM POWDER COMPANY LIMITED</Customer></Amount>
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@395fa60d: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','804','MSL0195/24-25', '22','5','AXSK241800007075',DATE(NOW()), '12626.00','12626','0','AXSK241800007075\r\nDT. 28/06/24','MSLFEB2017000001','2024-06-28','000001',   DATE(NOW()),'Y','3','20240701064705','1' )
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. 98e67ed59e1d1-2c91d3e7fe9sm5431843a91.50 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0231/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>KUMARAGURU COLLEGE OF TECHNOLOGY</Customer></Amount>
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0253/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>TAMILNAD MERCANTILE BANK LIMITED - ERODE - KMP TOWER</Customer></Amount>
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0206/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>68032.0</Balance><Customer>CORROHEALTH INFOTECH PRIVATE LIMITED - BLOCK 1B</Customer></Amount>
+D:\ERP\JDBC.properties
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@46dfb66b: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','638','MSL0206/24-25', '17','1','TDS @ 0.1%',DATE(NOW()), '68100.00','68','0','TDS @ 0.1%','MSLFEB2017000001','2024-06-26','000001',   DATE(NOW()),'Y','9','20240701064941','2' )
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. 41be03b00d2f7-72c6a31f5dfsm4152855a12.23 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0171/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>NETWORK AND SERVICES</Customer></Amount>
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0171/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>NETWORK AND SERVICES</Customer></Amount>
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0171/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>NETWORK AND SERVICES</Customer></Amount>
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0171/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>NETWORK AND SERVICES</Customer></Amount>
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Logined
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+LOGOUT ATION
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+LOGOUT ATION
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Cannot create a session after the response has been committed
+null
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@6a4d404f: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100014'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Charlesjean1'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100014'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100014'
+D:\ERP\JDBC.properties
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100014'
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+LOGOUT ATION
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@92e20b5: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100005'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Indian99'
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@3df35a6c: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100038'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Msl12345'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100038'
+Logined
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100038'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100038'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100038'
+Logined
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@57780616: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100007'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Rajan5629'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100007'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100007'
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@70eda80f: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100031'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Msl2017'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100031'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100031'
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100031'
+Logined
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100031'
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-04'),0) , MONTHNAME('2024-06-04'), YEAR('2024-06-04')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-04'
+0
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>0</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-04'),0) , MONTHNAME('2024-06-04'), YEAR('2024-06-04')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-04'
+0
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>0</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100031'
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-07'),0) , MONTHNAME('2024-06-07'), YEAR('2024-06-07')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-07'
+78
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>78</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100031'
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-07'),0) , MONTHNAME('2024-06-07'), YEAR('2024-06-07')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-07'
+78
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>78</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-24'),0) , MONTHNAME('2024-06-24'), YEAR('2024-06-24')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-24'
+1510
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1510</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-24'),0) , MONTHNAME('2024-06-24'), YEAR('2024-06-24')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-24'
+1510
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1510</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-24'),0) , MONTHNAME('2024-06-24'), YEAR('2024-06-24')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-24'
+1510
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1510</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-24'),0) , MONTHNAME('2024-06-24'), YEAR('2024-06-24')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-24'
+1510
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1510</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-10'),0) , MONTHNAME('2024-06-10'), YEAR('2024-06-10')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-10'
+174
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>174</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-24'),0) , MONTHNAME('2024-06-24'), YEAR('2024-06-24')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-24'
+1510
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1510</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-10'),0) , MONTHNAME('2024-06-10'), YEAR('2024-06-10')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-10'
+174
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>174</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-24'),0) , MONTHNAME('2024-06-24'), YEAR('2024-06-24')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-24'
+1510
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1510</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-24'),0) , MONTHNAME('2024-06-24'), YEAR('2024-06-24')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-24'
+1510
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1510</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-11'),0) , MONTHNAME('2024-06-11'), YEAR('2024-06-11')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-11'
+270
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>270</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-24'),0) , MONTHNAME('2024-06-24'), YEAR('2024-06-24')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-24'
+1510
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1510</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-11'),0) , MONTHNAME('2024-06-11'), YEAR('2024-06-11')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-11'
+270
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>270</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-17'),0) , MONTHNAME('2024-06-17'), YEAR('2024-06-17')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-17'
+367
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>367</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-25'),0) , MONTHNAME('2024-06-25'), YEAR('2024-06-25')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-25'
+1885
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1885</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-25'),0) , MONTHNAME('2024-06-25'), YEAR('2024-06-25')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-25'
+1885
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1885</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-25'),0) , MONTHNAME('2024-06-25'), YEAR('2024-06-25')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-25'
+1885
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1885</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-17'),0) , MONTHNAME('2024-06-17'), YEAR('2024-06-17')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-17'
+367
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>367</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-19'),0) , MONTHNAME('2024-06-19'), YEAR('2024-06-19')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-19'
+463
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>463</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-19'),0) , MONTHNAME('2024-06-19'), YEAR('2024-06-19')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-19'
+463
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>463</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100031'
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-07-01'),0) , MONTHNAME('2024-07-01'), YEAR('2024-07-01')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-07-01'
+0
+5000
+<Id><Flag>FALSE</Flag><CMonth>July</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>0</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-07-01'),0) , MONTHNAME('2024-07-01'), YEAR('2024-07-01')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-07-01'
+0
+5000
+<Id><Flag>FALSE</Flag><CMonth>July</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>0</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-28'),0) , MONTHNAME('2024-06-28'), YEAR('2024-06-28')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-28'
+1921
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1921</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-28'),0) , MONTHNAME('2024-06-28'), YEAR('2024-06-28')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-28'
+1921
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1921</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-20'),0) , MONTHNAME('2024-06-20'), YEAR('2024-06-20')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-20'
+567
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>567</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+D:\ERP\JDBC.properties
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-29'),0) , MONTHNAME('2024-06-29'), YEAR('2024-06-29')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-29'
+1947
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1947</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-21'),0) , MONTHNAME('2024-06-21'), YEAR('2024-06-21')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-21'
+697
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>697</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2021MSL100031', '2024-06-29'),0) , MONTHNAME('2024-06-29'), YEAR('2024-06-29')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2021MSL100031' AND DAT_CONDATE='2024-06-29'
+1947
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1947</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-21'),0) , MONTHNAME('2024-06-21'), YEAR('2024-06-21')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-21'
+697
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>697</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+LOGOUT ATION
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-22'),0) , MONTHNAME('2024-06-22'), YEAR('2024-06-22')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-22'
+827
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>827</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-22'),0) , MONTHNAME('2024-06-22'), YEAR('2024-06-22')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-22'
+827
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>827</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-24'),0) , MONTHNAME('2024-06-24'), YEAR('2024-06-24')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-24'
+957
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>957</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-24'),0) , MONTHNAME('2024-06-24'), YEAR('2024-06-24')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-24'
+957
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>957</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-07-01'),0) , MONTHNAME('2024-07-01'), YEAR('2024-07-01')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-07-01'
+0
+5000
+<Id><Flag>FALSE</Flag><CMonth>July</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>0</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-07-01'),0) , MONTHNAME('2024-07-01'), YEAR('2024-07-01')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-07-01'
+0
+5000
+<Id><Flag>FALSE</Flag><CMonth>July</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>0</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-07-01'),0) , MONTHNAME('2024-07-01'), YEAR('2024-07-01')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-07-01'
+0
+5000
+<Id><Flag>FALSE</Flag><CMonth>July</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>0</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-26'),0) , MONTHNAME('2024-06-26'), YEAR('2024-06-26')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-26'
+1157
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1157</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-27'),0) , MONTHNAME('2024-06-27'), YEAR('2024-06-27')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-27'
+1287
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1287</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-27'),0) , MONTHNAME('2024-06-27'), YEAR('2024-06-27')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-27'
+1287
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1287</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+D:\ERP\JDBC.properties
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-28'),0) , MONTHNAME('2024-06-28'), YEAR('2024-06-28')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-28'
+1417
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1417</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('NOV2017MSL100007', '2024-06-28'),0) , MONTHNAME('2024-06-28'), YEAR('2024-06-28')  FROM conveyance_t_conveyance WHERE CHR_EMPID='NOV2017MSL100007' AND DAT_CONDATE='2024-06-28'
+1417
+5000
+<Id><Flag>FALSE</Flag><CMonth>June</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>1417</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+D:\ERP\JDBC.properties
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100007'
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+Cannot create a session after the response has been committed
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@20218f9a: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='000001'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Amazing2023'
+D:\ERP\JDBC.properties
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Logined
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND month(a.DAT_ORDERDATE) = 07 AND DAY(a.DAT_ORDERDATE)=1 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND month(a.DAT_ORDERDATE) = 06 AND DAY(a.DAT_ORDERDATE)=1 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+
+
+<directPurchase><salId>2917</salId><salNo>TN/PO/12/002916/CHN/EUC</salNo><quoCust>ZACO COMPUTERS PVT LTD - MUMBAI</quoCust><salDate>01-Jun-2024</salDate><salTotal>18290.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>Y</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>ETHIRAJ S       </Entry><Taxtype>D</Taxtype><TaxtypeGST>IST</TaxtypeGST><usertype>F</usertype></directPurchase>
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND month(a.DAT_ORDERDATE) = 06 AND DAY(a.DAT_ORDERDATE)=31 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND month(a.DAT_ORDERDATE) = 06 AND DAY(a.DAT_ORDERDATE)=30 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND month(a.DAT_ORDERDATE) = 06 AND DAY(a.DAT_ORDERDATE)=29 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+
+
+<directPurchase><salId>3027</salId><salNo>TN/PO/12/003026/CHN/EUC</salNo><quoCust>COMPUTER WAVES</quoCust><salDate>29-Jun-2024</salDate><salTotal>23900.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>Y</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>ETHIRAJ S       </Entry><Taxtype>S</Taxtype><TaxtypeGST>GST</TaxtypeGST><usertype>F</usertype></directPurchase><directPurchase><salId>3028</salId><salNo>TN/PO/12/003027/MDU/EUC</salNo><quoCust>LAP SOLUTION</quoCust><salDate>29-Jun-2024</salDate><salTotal>2850.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>N</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>BALAMURUGAN T           </Entry><Taxtype>S</Taxtype><TaxtypeGST>GST</TaxtypeGST><usertype>F</usertype></directPurchase>
+D:\ERP\JDBC.properties
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND month(a.DAT_ORDERDATE) = 06 AND DAY(a.DAT_ORDERDATE)=28 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+
+
+<directPurchase><salId>3022</salId><salNo>TN/PO/12/003021/CBE/EUC</salNo><quoCust>V4 TECHNOLOGIES</quoCust><salDate>28-Jun-2024</salDate><salTotal>69030.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>Y</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>ETHIRAJ S       </Entry><Taxtype>S</Taxtype><TaxtypeGST>GST</TaxtypeGST><usertype>F</usertype></directPurchase><directPurchase><salId>3023</salId><salNo>TN/PO/12/003022/MDU/EUC</salNo><quoCust>LABDHI COMPUTERS</quoCust><salDate>28-Jun-2024</salDate><salTotal>160000.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>Y</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>ETHIRAJ S       </Entry><Taxtype>S</Taxtype><TaxtypeGST>GST</TaxtypeGST><usertype>F</usertype></directPurchase><directPurchase><salId>3024</salId><salNo>TN/PO/12/003023/CBE/EUC</salNo><quoCust>SHREE INFO SYSTEM SOLUTIONS PRIVATE LIMITED</quoCust><salDate>28-Jun-2024</salDate><salTotal>114224.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>Y</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>ETHIRAJ S       </Entry><Taxtype>S</Taxtype><TaxtypeGST>GST</TaxtypeGST><usertype>F</usertype></directPurchase><directPurchase><salId>3025</salId><salNo>TN/PO/12/003024/CHN/EUC</salNo><quoCust>SAVEX TECHNOLOGIES PRIVATE LIMITED - MAHARASHTRA</quoCust><salDate>28-Jun-2024</salDate><salTotal>108007.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>N</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>ETHIRAJ S       </Entry><Taxtype>D</Taxtype><TaxtypeGST>IST</TaxtypeGST><usertype>F</usertype></directPurchase><directPurchase><salId>3026</salId><salNo>TN/PO/12/003025/CHN/EUC</salNo><quoCust>LABDHI COMPUTERS</quoCust><salDate>28-Jun-2024</salDate><salTotal>4600.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>N</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>ETHIRAJ S       </Entry><Taxtype>S</Taxtype><TaxtypeGST>GST</TaxtypeGST><usertype>F</usertype></directPurchase>
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Cannot create a session after the response has been committed
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@1725bfa9: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100015'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'mano2208'
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+LOGOUT ATION
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@30d2ef09: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100015'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'mano2208'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100015'
+Logined
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100015'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100015'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100015'
+Logined
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+D:\ERP\JDBC.properties
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0281/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>FATHER INNACI JOHN</Customer></Amount>
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@8c789ef: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','1323','MSL0281/24-25', '25','1','MDU-CASH',DATE(NOW()), '6850.00','6850','0','Payment recd in cash in MDU','MSLFEB2017000001','2024-06-22','000001',   DATE(NOW()),'Y','6','20240701101734','1' )
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. 98e67ed59e1d1-2c91d3e7e4bsm5655416a91.52 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0189/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>2994660.0</Balance><Customer>CORROHEALTH INFOTECH PRIVATE LIMITED - UP</Customer></Amount>
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@6aff4677: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','673','MSL0189/24-25', '17','1','TDS @ 0.1%',DATE(NOW()), '2997200.00','2540','0','TDS @ 0.1% ','MSLFEB2017000001','2024-06-29','000001',   DATE(NOW()),'Y','9','20240701101939','2' )
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. d9443c01a7336-1fac10c6caesm54277575ad.32 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0290/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>0.0</Balance><Customer>DR. L SATISH</Customer></Amount>
+loadSalesPaymentBalance  branchId=================>1
+loadSalesPaymentBalance=================>SELECT SUM(DOU_PAIDAMOUNT) FROM   inv_t_customersalespayment   WHERE CHR_SALESORDERNO='MSL0190/24-25' 
+loadSalesPaymentBalance=================><Amount><Balance>2537460.0</Balance><Customer>CORROHEALTH INFOTECH PRIVATE LIMITED - TELANGANA</Customer></Amount>
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@81b3c5f: INSERT INTO   inv_t_customersalespayment  ( INT_BRANCHID,INT_CUSTOMERID,CHR_SALESORDERNO, INT_PAYMENTTERMID,CHR_BANKNAME,CHR_PAYNO,DAT_PAYMENTDATE, DOU_OPENDEBIT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT,CHR_REMARK,CHR_PAYEMENTCOLLECTEDBY,CHR_CHKDATE,CHR_USRNAME,   DT_UPDATEDATE,CHR_UPDATESTATUS,INT_DEPOSITID,INT_TRANSACTIONID,INT_TRANSACTIONTYPE ) VALUES   ( '1','695','MSL0190/24-25', '17','1','TDS @ 0.1%',DATE(NOW()), '2540000.00','2540','0','TDS @ 0.1%','MSLFEB2017000001','2024-06-29','000001',   DATE(NOW()),'Y','9','20240701102121','2' )
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 1
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. 41be03b00d2f7-72c6d3efeddsm4389270a12.88 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='000001'
+Sales Payment.jsp SQL:  SELECT a.CHR_SALESNO,a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),round(a.DOU_TOTALAMOUNT),a.CHR_PAYMENTSTATUS,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,  (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO),  (  round(a.DOU_TOTALAMOUNT) - (select ROUND(sum(DOU_PAIDAMOUNT)) from   inv_t_customersalespayment c where c.CHR_SALESORDERNO = a.CHR_SALESNO)    ),  a.INT_BRANCHID,a.INT_DIVIID,a.DAT_SALESDATE,    (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO )  FROM inv_t_directsales a ,inv_m_customerinfo b  WHERE a.INT_CUSTOMERID=b.INT_CUSTOMERID AND a.CHR_CANCEL='N'  AND  a.INT_BRANCHID =1  AND MONTH(a.DAT_SALESDATE) = 7 AND YEAR(a.DAT_SALESDATE) = 2024 ORDER BY a.INT_SALESID 
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+LOGOUT ATION
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+LOGOUT ATION
+D:\ERP\JDBC.properties
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@23def6ad: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100041'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Msl2017'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100041'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100041'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100041'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@6721b7d6: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='ADMIN'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Athiban123'
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='ADMIN'
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+Logined
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='ADMIN'
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='ADMIN'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='ADMIN'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='ADMIN'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='ADMIN'
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@5b42de80: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100025'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'msl2017'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100025'
+Logined
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100025'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100025'
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND a.INT_BRANCHID =3 AND month(a.DAT_ORDERDATE) = 07 AND DAY(a.DAT_ORDERDATE)=1 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100025'
+D:\ERP\JDBC.properties
+ select CHR_PRODUCTDESC,DOU_PURCHASEPRICE,DOU_SALESPRICE ,CHR_ITEMLIST,CHR_PTYPE,INT_TAXID from inv_m_produtlist WHERE CHR_PRODUCTID ='000809'
+ select CHR_PRODUCTDESC,DOU_PURCHASEPRICE,DOU_SALESPRICE ,CHR_ITEMLIST,CHR_PTYPE,INT_TAXID from inv_m_produtlist WHERE CHR_PRODUCTID ='000809'
+D:\ERP\JDBC.properties
+ select CHR_PRODUCTDESC,DOU_PURCHASEPRICE,DOU_SALESPRICE ,CHR_ITEMLIST,CHR_PTYPE,INT_TAXID from inv_m_produtlist WHERE CHR_PRODUCTID ='001041'
+ select CHR_PRODUCTDESC,DOU_PURCHASEPRICE,DOU_SALESPRICE ,CHR_ITEMLIST,CHR_PTYPE,INT_TAXID from inv_m_produtlist WHERE CHR_PRODUCTID ='001041'
+ select CHR_PRODUCTDESC,DOU_PURCHASEPRICE,DOU_SALESPRICE ,CHR_ITEMLIST,CHR_PTYPE,INT_TAXID from inv_m_produtlist WHERE CHR_PRODUCTID ='000808'
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@1821297c:  INSERT INTO inv_t_directpurchase ( DAT_ACTUALINWARD,INT_BRANCHID,CHR_PURCHASEORDERNO,INT_VENDORID,DAT_ORDERDATE,INT_PAYMENTTERMID,	CHR_DES,CHR_REF,INT_TAXID,DOU_AMOUNT,DOU_DISCOUNT,DOU_TAXAMOUNT,	DOU_TOTALAMOUNT,DOU_PAIDAMOUNT,CHR_USRNAME,	DT_UPDATEDATE,CHR_UPDATESTATUS ,CHR_POREQUESTNO,CHR_FLAG,INT_DIVIID,	CHR_VENDORPO,DOU_ROUNDED,DOU_BASEAMOUNT , CHR_BASEVALUE,CHR_GST_TYPE, 	DOU_FRIEGHT_CHARGE_BASE_AMOUNT,DOU_FRIEGHT_CHARGE_PERCENT, DOU_FRIEGHT_CHARGE) VALUES (NOW(),'3','TN/PO/12/003028/MDU/EUC','217','2024-06-29','13','Inward','APR2021MSL100025','1.0',424800.09,0.0,0.0,424800.0,'0','100025','2024-07-01 13:16:23','Y','WITHOUTPR','N','3','MICCR/24-25/723','-0.09','360000.08','Y','S','0.0','0.0','0.0')
+1,2,
+com.mysql.jdbc.JDBC4PreparedStatement@33f3e489:  INSERT INTO inv_t_directpurchaseitem (  INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_ITEMID,CHR_TYPE,CHR_DESC,INT_QUANTITY,INT_WARRANTY,  DOU_UNITPRICE,DOU_DISCOUNT,DOU_UNITDISCOUNT,INT_TAXID,DOU_TAX_PERCENTAGE,DOU_TAX_AMOUNT,DOU_TOTAL,INT_DIVIID,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS ) VALUES ('3','TN/PO/12/003028/MDU/EUC','001041','P','I5-12500, 12TH GEN / 8 GB / 512 SSD / W11PRO / WI-FI + BT - 3 YEARS WARRANTY','8','3','45000.00','0','0','35','18.00','64800','424800','3','100025',DATE(NOW()),'Y' )
+com.mysql.jdbc.JDBC4PreparedStatement@5beea8b0: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','001041','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '45000.00','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@77acffa: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','001041','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '45000.00','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@5724546: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','001041','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '45000.00','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@728c9e00: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','001041','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '45000.00','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@70bc086f: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','001041','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '45000.00','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@1ed5a78: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','001041','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '45000.00','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@6f42cda4: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','001041','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '45000.00','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@2eeab185: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','001041','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '45000.00','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@426e8b85:  INSERT INTO inv_t_directpurchaseitem (  INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_ITEMID,CHR_TYPE,CHR_DESC,INT_QUANTITY,INT_WARRANTY,  DOU_UNITPRICE,DOU_DISCOUNT,DOU_UNITDISCOUNT,INT_TAXID,DOU_TAX_PERCENTAGE,DOU_TAX_AMOUNT,DOU_TOTAL,INT_DIVIID,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS ) VALUES ('3','TN/PO/12/003028/MDU/EUC','000808','P','HP 19.5 VGA HDMI MONITOR - V20HD','8','3','0.01','0','0','35','18.00','0.01','0.09','3','100025',DATE(NOW()),'Y' )
+com.mysql.jdbc.JDBC4PreparedStatement@49faf69: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','000808','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '0.01','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@4b2f7a44: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','000808','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '0.01','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@5f217d9a: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','000808','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '0.01','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@4d438f4a: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','000808','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '0.01','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@5c75ffe9: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','000808','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '0.01','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@1a0a601: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','000808','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '0.01','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@1e2f8a04: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','000808','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '0.01','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+com.mysql.jdbc.JDBC4PreparedStatement@8350855: INSERT INTO inv_t_vendorgoodsreceived (DAT_ACTUALINWARD,INT_DIVIID,INT_BRANCHID,CHR_PURCHASEORDERNO,CHR_TYPE,CHR_ITEMID,CHR_RECIVEDID,DAT_RECIVEDDATE ,CHR_RECEIVEDMODE, DOU_UNITPRICE,CHR_USRNAME,DT_UPDATEDATE,CHR_UPDATESTATUS,CHR_POREQUESTNO ,CHR_BUYBACK_STOCK,CHR_WARRANTY   ) VALUES (  NOW(),'3','3','TN/PO/12/003028/MDU/EUC','P','000808','TN/PO/12/003028/MDU/EUC','2024-06-29' ,'D', '0.01','100025',DATE(NOW()),'Y','WITHOUTPR' ,'N' ,'3') 
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100025'
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+Logined
+Data source rejected establishment of connection,  message from server: "Too many connections"
+null
+------Cannot forward after response has been committed
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100025'
+D:\ERP\JDBC.properties
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100025'
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND a.INT_BRANCHID =3 AND month(a.DAT_ORDERDATE) = 07 AND DAY(a.DAT_ORDERDATE)=1 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND a.INT_BRANCHID =3 AND month(a.DAT_ORDERDATE) = 07 AND DAY(a.DAT_ORDERDATE)=29 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND a.INT_BRANCHID =3 AND month(a.DAT_ORDERDATE) = 06 AND DAY(a.DAT_ORDERDATE)=29 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+
+
+<directPurchase><salId>3028</salId><salNo>TN/PO/12/003027/MDU/EUC</salNo><quoCust>LAP SOLUTION</quoCust><salDate>29-Jun-2024</salDate><salTotal>2850.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>N</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>BALAMURUGAN T           </Entry><Taxtype>S</Taxtype><TaxtypeGST>GST</TaxtypeGST><usertype>A</usertype></directPurchase><directPurchase><salId>3029</salId><salNo>TN/PO/12/003028/MDU/EUC</salNo><quoCust>MRV INFOTECH INDIA PVT LTD</quoCust><salDate>29-Jun-2024</salDate><salTotal>424800.00</salTotal><PStatus>Pending</PStatus><Status>N</Status><SalesStatus>N</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>BALAMURUGAN T           </Entry><Taxtype>S</Taxtype><TaxtypeGST>GST</TaxtypeGST><usertype>A</usertype></directPurchase>
+Logined
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='1N1420046X' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '001041' AND CHR_TYPE = 'P' AND INT_ID = '35030'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='1N1420046W' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '001041' AND CHR_TYPE = 'P' AND INT_ID = '35031'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='1N142004C8' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '001041' AND CHR_TYPE = 'P' AND INT_ID = '35032'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='1N142004CX' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '001041' AND CHR_TYPE = 'P' AND INT_ID = '35033'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='1N1420048W' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '001041' AND CHR_TYPE = 'P' AND INT_ID = '35034'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='1N142004K1' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '001041' AND CHR_TYPE = 'P' AND INT_ID = '35035'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='1N142004M4' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '001041' AND CHR_TYPE = 'P' AND INT_ID = '35036'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='1N1420049Z' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '001041' AND CHR_TYPE = 'P' AND INT_ID = '35037'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='3CQ41101MZ' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '000808' AND CHR_TYPE = 'P' AND INT_ID = '35038'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='3CQ41101NS' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '000808' AND CHR_TYPE = 'P' AND INT_ID = '35039'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='3CQ41103QY' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '000808' AND CHR_TYPE = 'P' AND INT_ID = '35040'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='3CQ41103R6' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '000808' AND CHR_TYPE = 'P' AND INT_ID = '35041'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='3CQ41103RD' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '000808' AND CHR_TYPE = 'P' AND INT_ID = '35042'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='3CQ41103RX' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '000808' AND CHR_TYPE = 'P' AND INT_ID = '35043'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='3CQ41103RZ' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '000808' AND CHR_TYPE = 'P' AND INT_ID = '35044'
+com.mysql.jdbc.JDBC4PreparedStatement@6109db1b: UPDATE  inv_t_vendorgoodsreceived SET  CHR_SERIALNO ='3CQ41103TL' ,  CHR_WARRANTY ='3',  CHR_QUALITY ='Y' ,  CHR_PURCHASE_WARRANTY ='3' ,  DAT_PURCHASE_WARRANTY_START = '2024-06-29' ,   DAT_PURCHASE_WARRANTY_END  = ( SELECT DATE_FORMAT(DATE_ADD('2024-06-29', INTERVAL '3' YEAR),'%Y-%m-%d') ) ,   CHR_BUYBACK_STOCK= 'N'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC' AND CHR_ITEMID = '000808' AND CHR_TYPE = 'P' AND INT_ID = '35045'
+com.mysql.jdbc.JDBC4PreparedStatement@6025e8dd:  UPDATE inv_t_directpurchase SET  CHR_FLAG ='Y'  WHERE CHR_PURCHASEORDERNO ='TN/PO/12/003028/MDU/EUC'  AND  INT_BRANCHID =3
+ SELECT b.CHR_COMPANYNAME,a.CHR_BRANCHNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME,a.INT_PINCODE,a.CHR_PHONE,   a.CHR_FAX,a.CHR_EMAIL, a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_LOCALTAXNO,a.CHR_PANNO,  a.CHR_SERVICETAX ,d1.CHR_DISTRICT,a.CHR_CIN_NUMBER FROM com_m_branch a , com_m_company b ,com_m_country c, com_m_state d, com_m_district d1, com_m_city e  WHERE  a.INT_CITYID = e.INT_CITYID  AND a.INT_COUNTRYID = c.INT_COUNTRYID  AND a.INT_STATEID =d.INT_STATEID AND a.INT_DISTRICTID =d1.INT_DISTRICTID   AND a.INT_COMPANYID = b.INT_COMPANYID   AND a.INT_BRANCHID = 3
+Sending failed;
+  nested exception is:
+	class javax.mail.MessagingException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. d2e1a72fcca58-70838a9a188sm5655002b3a.131 - gsmtp
+
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100025'
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND a.INT_BRANCHID =3 AND month(a.DAT_ORDERDATE) = 07 AND DAY(a.DAT_ORDERDATE)=1 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND a.INT_BRANCHID =3 AND month(a.DAT_ORDERDATE) = 07 AND DAY(a.DAT_ORDERDATE)=29 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+-----0
+ SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') ,  a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL,  FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b  where   a.INT_VENDORID=b.INT_VENDORID  AND a.INT_BRANCHID =3 AND month(a.DAT_ORDERDATE) = 06 AND DAY(a.DAT_ORDERDATE)=29 AND year(a.DAT_ORDERDATE)=   2024 AND a.CHR_CANCEL = 'N'    order by a.INT_PURCHASEORDERID 
+
+
+<directPurchase><salId>3028</salId><salNo>TN/PO/12/003027/MDU/EUC</salNo><quoCust>LAP SOLUTION</quoCust><salDate>29-Jun-2024</salDate><salTotal>2850.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>N</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>BALAMURUGAN T           </Entry><Taxtype>S</Taxtype><TaxtypeGST>GST</TaxtypeGST><usertype>A</usertype></directPurchase><directPurchase><salId>3029</salId><salNo>TN/PO/12/003028/MDU/EUC</salNo><quoCust>MRV INFOTECH INDIA PVT LTD</quoCust><salDate>29-Jun-2024</salDate><salTotal>424800.00</salTotal><PStatus>Pending</PStatus><Status>Y</Status><SalesStatus>N</SalesStatus><PR>WITHOUTPR</PR><Cancel>N</Cancel><Division>CLIENT PRODUCTS</Division><Entry>BALAMURUGAN T           </Entry><Taxtype>S</Taxtype><TaxtypeGST>GST</TaxtypeGST><usertype>A</usertype></directPurchase>
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@e16a057: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100054'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'msl2017'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100054'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100054'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100054'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+null
+null
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+null
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+null
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+null
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-01.txt
+Logfile created
+Logfile created2024-07-01
+com.mysql.jdbc.JDBC4PreparedStatement@3b55a9c8: SELECT FUN_GET_PASSWORD(a.CHR_EMPID),a.CHR_TYPE,a.CHR_EMPID,a.CHR_USRNAME, b.CHR_STAFFNAME,b.INT_OFFICEID, c.CHR_OFFICENAME,b.INT_BRANCHID,b.CHR_EMAILID,b.CHR_MOBILE, b.CHR_PERMAILID,b.INT_DEPARTID,b.CHR_CATEGORY,a.INT_SESSIONTIME FROM m_user a ,com_m_staff b , com_m_office  c WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID = c.INT_OFFICEID AND b.CHR_TYPE !='T'  AND b.CHR_HOLD!='Y'  AND  a.CHR_USRNAME='100014'  AND FUN_GET_PASSWORD(a.CHR_EMPID) = 'Charlesjean1'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100014'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100014'
+D:\ERP\JDBC.properties
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100014'
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('JUL2019MSL100014', '2024-07-01'),0) , MONTHNAME('2024-07-01'), YEAR('2024-07-01')  FROM conveyance_t_conveyance WHERE CHR_EMPID='JUL2019MSL100014' AND DAT_CONDATE='2024-07-01'
+0
+5000
+<Id><Flag>FALSE</Flag><CMonth>July</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>0</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='100014'
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('JUL2019MSL100014', '2024-07-01'),0) , MONTHNAME('2024-07-01'), YEAR('2024-07-01')  FROM conveyance_t_conveyance WHERE CHR_EMPID='JUL2019MSL100014' AND DAT_CONDATE='2024-07-01'
+0
+5000
+<Id><Flag>FALSE</Flag><CMonth>July</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>0</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Conveyance
+SELECT count(*),  ROUND(FUN_GET_CONVEYANCE_LIMIT_CHECK('JUL2019MSL100014', '2024-07-01'),0) , MONTHNAME('2024-07-01'), YEAR('2024-07-01')  FROM conveyance_t_conveyance WHERE CHR_EMPID='JUL2019MSL100014' AND DAT_CONDATE='2024-07-01'
+0
+5000
+<Id><Flag>FALSE</Flag><CMonth>July</CMonth><CYear>2024</CYear><ConveyanceEntryAmount>0</ConveyanceEntryAmount><ConveyanceLimitAmount>5000</ConveyanceLimitAmount><LimitFlag>FALSE</LimitFlag></Id>
+Logined
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Cannot create a session after the response has been committed
+null
+==============SELECT CHR_ALERT_REQUIRED FROM m_user  WHERE CHR_USRNAME='null'
+---java.lang.ArrayIndexOutOfBoundsException
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+D:\ERP\JDBC.properties
+Cannot create a session after the response has been committed
+Logined
+f----true/true/true
+Path D:\ERP\webapps\LXpert\\
+CHR_SYSOUT Y
+D:\ERP\webapps\LXpert\\log/2024-07-02.txt
+Logfile created

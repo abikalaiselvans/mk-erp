@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Company" language="groovy" pageWidth="1728" pageHeight="595" orientation="Landscape" columnWidth="1684" leftMargin="20" rightMargin="24" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FAEBD7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFE4BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFF8EF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="company">
+		<queryString language="SQL">
+			<![CDATA[SELECT @count:=@count+1 SNO,a.CHR_COMPANYNAME,a.CHR_LEGALNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME ,c.CHR_COUNTRYNAME,
+CONCAT('PIN :',a.INT_PINCODE), a.CHR_AREACODE,a.CHR_PHONE,a.CHR_FAX,a.CHR_EMAIL,a.CHR_WEBSITE,
+a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_SERVICETAX, a.CHR_SHORTNAME,
+a.CHR_PANNO ,  a.CHR_PFNUMBER FROM com_m_company a,com_m_country c ,com_m_state d,  com_m_city e , (SELECT @count:=0) t
+WHERE a.INT_COUNTRYID = c.INT_COUNTRYID
+AND a.INT_STATEID =d.INT_STATEID
+AND a.INT_CITYID = e.INT_CITYID
+ORDER BY a.CHR_COMPANYNAME;]]>
+		</queryString>
+		<field name="SNO" class="java.lang.Long"/>
+		<field name="CHR_COMPANYNAME" class="java.lang.String"/>
+		<field name="CHR_LEGALNAME" class="java.lang.String"/>
+		<field name="CHR_STREET" class="java.lang.String"/>
+		<field name="CHR_CITYNAME" class="java.lang.String"/>
+		<field name="CHR_STATENAME" class="java.lang.String"/>
+		<field name="CHR_COUNTRYNAME" class="java.lang.String"/>
+		<field name="CONCAT(&apos;PIN :&apos;,a.INT_PINCODE)" class="java.lang.String"/>
+		<field name="CHR_AREACODE" class="java.lang.String"/>
+		<field name="CHR_PHONE" class="java.lang.String"/>
+		<field name="CHR_FAX" class="java.lang.String"/>
+		<field name="CHR_EMAIL" class="java.lang.String"/>
+		<field name="CHR_WEBSITE" class="java.lang.String"/>
+		<field name="CHR_TNGSTNO" class="java.lang.String"/>
+		<field name="CHR_CSTNO" class="java.lang.String"/>
+		<field name="CHR_REGNO" class="java.lang.String"/>
+		<field name="CHR_TINNO" class="java.lang.String"/>
+		<field name="CHR_SERVICETAX" class="java.lang.String"/>
+		<field name="CHR_SHORTNAME" class="java.lang.String"/>
+		<field name="CHR_PANNO" class="java.lang.String"/>
+		<field name="CHR_PFNUMBER" class="java.lang.String"/>
+		<group name="CHR_COMPANYNAME">
+			<groupExpression><![CDATA[$F{CHR_COMPANYNAME}]]></groupExpression>
+		</group>
+		<group name="CHR_STATENAME">
+			<groupExpression><![CDATA[$F{CHR_STATENAME}]]></groupExpression>
+		</group>
+		<group name="CHR_CITYNAME">
+			<groupExpression><![CDATA[$F{CHR_CITYNAME}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT @count:=@count+1 SNO,a.CHR_COMPANYNAME,a.CHR_LEGALNAME,a.CHR_STREET,e.CHR_CITYNAME,d.CHR_STATENAME ,c.CHR_COUNTRYNAME,
+CONCAT('PIN :',a.INT_PINCODE), a.CHR_AREACODE,a.CHR_PHONE,a.CHR_FAX,a.CHR_EMAIL,a.CHR_WEBSITE,
+a.CHR_TNGSTNO,a.CHR_CSTNO,a.CHR_REGNO,a.CHR_TINNO,a.CHR_SERVICETAX, a.CHR_SHORTNAME,
+a.CHR_PANNO ,  a.CHR_PFNUMBER FROM com_m_company a,com_m_country c ,com_m_state d,  com_m_city e , (SELECT @count:=0) t
+WHERE a.INT_COUNTRYID = c.INT_COUNTRYID
+AND a.INT_STATEID =d.INT_STATEID
+AND a.INT_CITYID = e.INT_CITYID
+ORDER BY a.CHR_COMPANYNAME;]]>
+	</queryString>
+	<field name="SNO" class="java.lang.Long"/>
+	<field name="CHR_COMPANYNAME" class="java.lang.String"/>
+	<field name="CHR_LEGALNAME" class="java.lang.String"/>
+	<field name="CHR_STREET" class="java.lang.String"/>
+	<field name="CHR_CITYNAME" class="java.lang.String"/>
+	<field name="CHR_STATENAME" class="java.lang.String"/>
+	<field name="CHR_COUNTRYNAME" class="java.lang.String"/>
+	<field name="CONCAT(&apos;PIN :&apos;,a.INT_PINCODE)" class="java.lang.String"/>
+	<field name="CHR_AREACODE" class="java.lang.String"/>
+	<field name="CHR_PHONE" class="java.lang.String"/>
+	<field name="CHR_FAX" class="java.lang.String"/>
+	<field name="CHR_EMAIL" class="java.lang.String"/>
+	<field name="CHR_WEBSITE" class="java.lang.String"/>
+	<field name="CHR_TNGSTNO" class="java.lang.String"/>
+	<field name="CHR_CSTNO" class="java.lang.String"/>
+	<field name="CHR_REGNO" class="java.lang.String"/>
+	<field name="CHR_TINNO" class="java.lang.String"/>
+	<field name="CHR_SERVICETAX" class="java.lang.String"/>
+	<field name="CHR_SHORTNAME" class="java.lang.String"/>
+	<field name="CHR_PANNO" class="java.lang.String"/>
+	<field name="CHR_PFNUMBER" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="46" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="55" y="0" width="52" height="45"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="company">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="38">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="12" y="0" width="25" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[S.NO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="25" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.Long"><![CDATA[$F{SNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="99">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="12" y="0" width="87" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[ NAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="87" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_COMPANYNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="92">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="11" y="0" width="81" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[LEGAL NAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="11" y="0" width="81" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_LEGALNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="96">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="18" y="0" width="78" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[STREET ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="18" y="0" width="78" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_STREET}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="13" y="0" width="82" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[CITY ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="83" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_CITYNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="83">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="17" y="0" width="65" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[STATE ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="17" y="1" width="65" height="31"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_STATENAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="113">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="11" y="0" width="102" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[COUNTRY ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="11" y="0" width="102" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_COUNTRYNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="71">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="13" y="0" width="54" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[PINCODE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="13" y="0" width="58" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CONCAT('PIN :',a.INT_PINCODE)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="82">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="13" y="1" width="69" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[AREA CODE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="13" y="0" width="69" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_AREACODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="61">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="12" y="0" width="45" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[PHONE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="0" width="45" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_PHONE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="49">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="16" y="0" width="33" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[FAX]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="14" y="0" width="35" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_FAX}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="12" y="0" width="48" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[EMAIL]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="4" width="48" height="28"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EMAIL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="14" y="0" width="66" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[WEBSITE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="14" y="0" width="66" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_WEBSITE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="65">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="12" y="0" width="50" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TNGSTNO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="12" y="2" width="50" height="30"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_TNGSTNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="17" y="0" width="42" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[CSTNO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="17" y="0" width="42" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_CSTNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="58">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="13" y="0" width="42" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[REGNO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="11" y="0" width="44" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_REGNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="57">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="17" y="1" width="37" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TINNO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="17" y="0" width="37" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_TINNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="83">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="13" y="0" width="70" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[SERVICETAX]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="16" y="1" width="67" height="31"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_SERVICETAX}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="92">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="18" y="0" width="74" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[SHORT NAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="13" y="0" width="79" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_SHORTNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="54">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="13" y="0" width="39" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[PANNO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="13" y="0" width="39" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_PANNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="75">
+						<jr:columnHeader style="table_CH" height="32" rowSpan="1">
+							<staticText>
+								<reportElement x="15" y="0" width="60" height="30"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[PFNUMBER]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="34" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="15" y="0" width="60" height="32"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_PFNUMBER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

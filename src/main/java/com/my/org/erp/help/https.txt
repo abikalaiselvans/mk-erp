@@ -1,0 +1,17 @@
+http://java.dzone.com/articles/setting-ssl-tomcat-5-minutes
+
+
+http://www.mkyong.com/tomcat/how-to-configure-tomcat-to-support-ssl-or-https/
+
+http://tomcat.apache.org/tomcat-6.0-doc/ssl-howto.html
+
+http://sysengineers.wordpress.com/2011/03/16/tomcat-automatic-redirect-https/
+
+http://ashrafhossain.wordpress.com/2010/11/23/how-to-redirect-all-http-requests-to-https-on-tomcat-by-default/
+
+http://java.dzone.com/articles/setting-ssl-tomcat-5-minutes
+
+http://www.sslshopper.com/tomcat-ssl-installation-instructions.html
+
+
+https://www.geocerts.com/install/tomcat

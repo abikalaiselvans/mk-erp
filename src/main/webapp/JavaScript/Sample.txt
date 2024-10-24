@@ -1,0 +1,21 @@
+Prevent resubmits
+
+Include object ID and modification timestamp in a form page, provide time of modification for all business objects in the Model. Use ID to look up business object in the persistent storage, and timestamp to distinguish double submit from a cached page.
+
+Consider applicability of tokens. A token allows to detect a double submit from a stale form page. Token is stored in the session before the form submitted for the first time; the same token value is planted on the HTTP form. When the form is submitted, the token value submitted as well. Application verifies that the token is present in the session, accepts input data, and removes token from the session. If a stale form is resubmitted, the form token would not have its session counterpart anymore. Tokens can be used as a pure web layer solution, Struts have built-in support for tokens.
+
+Model can deal with resubmission more reliably than tokens. If a form is used to add or delete data, apply input values to the Model directly. Properly designed Model would throw insert or delete exception. If a form is used for editing of existing object, compare timestamp on the form with timestamp in the database and do not accept input with timestamp earlier than persisted data.
+
+Controlling data with Model makes things easy. You can notify a user that the data being resubmitted is already in the database. "Thank you, stop clicking that button and refresh the page. The original input form has gone long ago, but your browser still keeps it in the cache."
+
+Prohibit caching of application pages. Insert
+
+<meta HTTP-EQUIV="Pragma" content="no-cache"> and
+<meta HTTP-EQUIV="Expires" content="-1">
+
+in your pages. A page would be considered expired right after it loaded from the server.
+
+
+response.setHeader("Pragma", "No-cache");
+response.setHeader("Cache-Control", "no-cache");
+response.setDateHeader("Expires", 1); 

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JApplication" language="groovy" pageWidth="3475" pageHeight="842" columnWidth="3435" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FAEBD7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFE4BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFF8EF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#73B0E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#CFDBE6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1"/>
+	<parameter name="location" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="grade" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="title" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="month" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="year" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT (@c:=@c+1),a.CHR_APPCODE,a.CHR_APPNAME,a.CHR_APPFATHER,DATE_FORMAT(a.DT_APPLICATIONDATE,'%d-%m-%Y'),
+  a.CHR_JOBGRADE,f.CHR_JOBCODE,f.CHR_JOBTITLE,a.CHR_GENDER,DATE_FORMAT(a.DT_DOB,'%d-%m-%Y'),g.CHR_GROUPNAME,
+  a.CHR_MARITALSTATUS,DATE_FORMAT(a.DT_WEDDATE,'%d-%m-%Y'), h.CHR_QUALIFICATIONNAME, CHR_EMAILID,CHR_MOBILE,
+  CHR_PASSPORT,CHR_PAN,CHR_BIKESTATUS,CHR_DRIVINGLIC,
+  CONCAT(CHR_PADD1,' ,',CHR_PADD2,' ,',e.CHR_CITYNAME,' ,',d.CHR_DISTRICT,' ,',c.CHR_STATENAME,' ,',b.CHR_COUNTRYNAME,' , PIN :',INT_PPIN,' ,',INT_PPHONE) add1,
+  CONCAT(CHR_CADD1,' ,',CHR_CADD2,' ,',e.CHR_CITYNAME,' ,',d.CHR_DISTRICT,' ,',c.CHR_STATENAME,' ,',b.CHR_COUNTRYNAME,' , PIN :',INT_CPIN,' ,',INT_CPHONE) add2
+  FROM hrm_m_application a ,com_m_country b,com_m_state c,com_m_district d,com_m_city e,hrm_m_jobdesign f,com_m_bloodgroup g,com_m_qualification h ,  (SELECT @c:=0) t
+  WHERE a.INT_PCOUNTRYID =b.INT_COUNTRYID AND a.INT_PSTATE=c.INT_STATEID
+  AND a.INT_PDISTRICTID=d.INT_DISTRICTID AND a.INT_PCITY=e.INT_CITYID
+  AND a.INT_CCOUNTRY =b.INT_COUNTRYID AND a.INT_CSTATE=c.INT_STATEID
+  AND a.INT_CDISTRICTID=d.INT_DISTRICTID AND a.INT_CCITY=e.INT_CITYID
+  AND a.INT_JOBID =f.INT_JOBID AND a.CHR_BG =g.INT_BLOODGROUPID
+   AND a.CHR_QUALIFICATION = h.INT_QUALIFICATIONID
+   AND a.CHR_MONTH ='January' AND a.INT_YEAR = 2015
+    ORDER BY a.CHR_APPNAME]]>
+	</queryString>
+	<field name="(@c:=@c+1)" class="java.lang.Long"/>
+	<field name="CHR_APPCODE" class="java.lang.String"/>
+	<field name="CHR_APPNAME" class="java.lang.String"/>
+	<field name="CHR_APPFATHER" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DT_APPLICATIONDATE,&apos;%d-%m-%Y&apos;)" class="java.lang.String"/>
+	<field name="CHR_JOBGRADE" class="java.lang.String"/>
+	<field name="CHR_JOBCODE" class="java.lang.String"/>
+	<field name="CHR_JOBTITLE" class="java.lang.String"/>
+	<field name="CHR_GENDER" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DT_DOB,&apos;%d-%m-%Y&apos;)" class="java.lang.String"/>
+	<field name="CHR_GROUPNAME" class="java.lang.String"/>
+	<field name="CHR_MARITALSTATUS" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DT_WEDDATE,&apos;%d-%m-%Y&apos;)" class="java.lang.String"/>
+	<field name="CHR_QUALIFICATIONNAME" class="java.lang.String"/>
+	<field name="CHR_EMAILID" class="java.lang.String"/>
+	<field name="CHR_MOBILE" class="java.lang.String"/>
+	<field name="CHR_PASSPORT" class="java.lang.String"/>
+	<field name="CHR_PAN" class="java.lang.String"/>
+	<field name="CHR_BIKESTATUS" class="java.lang.String"/>
+	<field name="CHR_DRIVINGLIC" class="java.lang.String"/>
+	<field name="add1" class="java.lang.Object"/>
+	<field name="add2" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="52" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="78" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="120" splitType="Stretch"/>
+	</summary>
+</jasperReport>

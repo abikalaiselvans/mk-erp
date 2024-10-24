@@ -1,0 +1,35 @@
+ <html>
+<head>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+  $("b1").click( function()
+  				 {
+    				$("p").hide();
+  				});
+
+  
+				
+});
+
+
+$(document).ready(function()
+{
+  $("b2").click( function()
+  				 {
+    				$("p").show();
+  				});
+
+});
+</script>
+</head>
+
+<body  onpaste='return false;'>
+<h2>This is a heading</h2>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+<button id="b1">Click me to hide</button>
+<button id="b2">Click me</button>
+</body>
+</html>

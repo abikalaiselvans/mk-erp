@@ -1,0 +1,11 @@
+out.println("<center><P  style=\"COLOR: indigo; FONT-FAMILY: monospace; FONT-SIZE: large; FONT-VARIANT: normal; FONT-WEIGHT: bold">\");
+out.println("CABIN AND PC ALLOCATION SYSTEM </P><center>");
+out.println("<center><P style=\"COLOR: royalblue; FONT-FAMILY: sans-serif; FONT-SIZE: medium; FONT-STYLE: normal; FONT-VARIANT: small-caps; FONT-WEIGHT: bold\" >");
+out.println("computer maintenance </P>");
+out.println("<P  style=\"COLOR: seagreen; FONT-FAMILY: cursive; FONT-SIZE: medium\">");
+out.println("Choose any of the following options</P>");
+out.println("<P><a href="">Want to modify computer details ?</a></P>");
+out.println("<P><a href="">Want to swap computer details ?</a></P>");
+out.println("<P><a href="">Want to view the details of the computer ?</a> </P>");
+out.println("<P><INPUT id=submit1 name=submit1 style=\"BACKGROUND-COLOR: skyblue\" type=submit value=BACK>");
+out.println("<INPUT id=submit2 name=submit2 style=\"BACKGROUND-COLOR: skyblue\" type=submit value=HOME></P></center>");

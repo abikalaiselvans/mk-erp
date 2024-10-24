@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-1.4.2.js" type="text/javascript"></script>
+</head>
+<body  onpaste='return false;'>
+<p>This will not appear in the browser</p>
+<a href="#">Click here to hide this link</a>
+<p>This is another paragraph , which will be hidden</p>
+<script>
+
+$("p").hide();
+$("a").click(function () {
+$(this).hide();
+return true;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>SMART</title>  
+<link rel="stylesheet" href="css/smart.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+ <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> 
+<link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css">
+<link rel="shortcut icon" href="css/images/erp3.jpg">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv-printshiv.js"></script>
+</head>
+<body>
+
+<div id="alertBox"></div>
+
+<div id="outerbox">
+	<div id="leftnavbar">
+		<div id="logo">
+			<button id="smartIcon">SMART&nbsp<img id="erp" src="css/images/erp3.jpg"></button>
+		</div>
+		<br>
+		<br>
+		<ul class="nav nav-pills nav-stacked customNavPill">
+  			<li role="presentation" class="active" id="homeNav" style="display:block;"><a data-toggle="tab" href="#home"><span class="icon_house"></span>&nbsp&nbspHome</a></li>
+  			<li role="presentation"><a href="#login" id="loginDiv"  data-toggle="tab"><span class="icon_key"></span>&nbsp&nbspLogin</a></li>
+  			<li role="presentation"><a  href="#career" id="registerNav" data-toggle="tab"><span class="icon_group"></span>&nbsp&nbspCareer</a></li>
+  			<li role="presentation"><a  href="#verify" id="verifyNav" data-toggle="tab"><span class="icon_menu-circle_alt"></span>&nbsp&nbspVerification</a></li>
+  			<li role="presentation"><a  href="#contact" id="contactNav" data-toggle="tab"><span class=" icon_phone"></span>&nbsp&nbspContact</a></li>  			
+		</ul>
+	</div>
+	<div id="centerDiv" class="container">
+	<div class="tab-content">
+		<div id="home" class="center tab-pane" >
+		</div>				
+		<div id="login" class="center tab-pane" >
+			<h1>Employee login</h1>
+			<input type="text" id="username" class="textBox form-control"  placeholder="User Name" autocomplete="off"  required><br>
+			<input type="password" id="password" class="form-control textBox" placeholder="Password" autocomplete="off" required>
+			<input type="submit" id="loginsubmit" value="Login"  style="outline: none;">
+			<a href="#" style="text-decoration:none;margin-left:10px;font-size:20px;">forgot password ?</a>
+		</div>
+		<div class="center tab-pane" id="career" style="padding-left: 250px; padding-top: 30px;">			
+		</div>	
+		<div class="center tab-pane" id="verify" style="padding-left: 250px; padding-top: 30px;">	
+			<div id="verification"></div>		
+		</div>	
+		<div class="center tab-pane" id="contact" style="padding-left: 250px; padding-top: 30px;">			
+		</div>		
+	</div>	
+	</div>
+</div>	
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+	
+$("#loginDiv").click(function(){		
+	
+	$("#login").fadeIn("slow");	
+	$("#login").addClass("activeContent");	
+	 
+	
+});
+
+ 
+$('#verification').load('Employee Verififcation.jsp', function(response, status, xhr) {
+    if (status == "error") {
+        var msg = "Sorry but there was an error: ";
+        alert(msg + xhr.status + " " + xhr.statusText);
+      }
+});
+});
+ 
+</script>
+</body>
+
+</html>
+

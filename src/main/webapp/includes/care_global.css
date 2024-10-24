@@ -1,0 +1,309 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	background:url(../Careimages/hdr_bg.gif) repeat-x;
+	font-size:12px;
+	color:#666;
+}
+#header, #content, #footer{
+	width:974px;
+	margin:auto;
+}
+h1{
+	font-size:18px;
+	color:#675AAC;
+	padding-bottom:5px;
+	width:100%;
+	border-bottom:1px dashed #666;
+}
+p{
+	line-height:20px;
+	
+}
+/******************************************** HEADER ****************************************************/
+#header{
+
+	height:110px;
+}
+.logo{
+	padding:35px 0px 0px 20px;
+	float:left;
+}
+.logo a{
+	outline:none;
+}
+#curvydate{background: transparent;width:180px;float:right;}
+
+.xtop, .curvbot {display:block; background:transparent; font-size:1px;}
+.xb1, .xb2, .xb3, .xb4 {display:block; overflow:hidden;}
+.xb1, .xb2, .xb3 {height:1px;}
+.xb2, .xb3, .xb4 {background:#ECECEC; border-left:1px solid #ECECEC; border-right:1px solid #ECECEC;}
+.xb1 {margin:0 5px; background:#ECECEC;}
+.xb2 {margin:0 3px; border-width:0 2px;}
+.xb3 {margin:0 2px;}
+.xb4 {height:2px; margin:0 1px;}
+
+.datecontent {display:block; background:#ECECEC; border:0 solid #ECECEC; border-width:0 1px;padding:2px; color:#666;text-align:center;}
+
+.hdr_right{
+	width:704px;
+	float:right;
+}
+
+#topnav{
+clear:both;
+padding-top:20px;
+}
+
+
+/************************* DROP DOWN *******************************/
+.selected
+{
+	color:#0187ce;	
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	}
+
+ul li {
+	position: relative;
+	float: left;
+	width:94px;
+	font-size:12px;
+	padding:5px;
+	font-weight:bold;
+}
+	ul li ul li{
+	font-size:12px;
+	padding:0px;}
+ul li ul {
+	position: absolute;
+	left: 0; /* Set 1px less than menu width */
+	top: auto;
+	display: none;
+	margin-left:5px;
+}
+
+/* Styles for Menu Items */
+ul li a {
+	display: block;
+	text-decoration: none;
+	color: #777;
+	padding:5px;
+	background: #fff; /* IE6 Bug */
+	}
+/* commented backslash mac hiding hack \*/ 
+* html ul li a {height:1%}
+/* end hack */ 
+
+/* this sets all hovered lists to red */
+li:hover a, li.over a,
+li:hover li:hover a, li.over li.over a,
+li:hover li:hover li:hover a, li.over li.over li.over a,
+li:hover li a:hover, li.over li a:hover,
+li:hover li:hover li:hover a:hover, li.over li li a:hover,
+li:hover li:hover li:hover li:hover a:hover, li.over li.over li.over li.over a:hover 
+{
+   color: #fff;
+   background-color:#0187ce;
+}
+
+/* set dropdown to default */
+li:hover li a, li.over li a,
+li:hover li:hover li a, li.over li.over li a,
+li:hover li:hover li:hover li a, li.over li.over li.over li a
+ {
+    color: #777;
+   background-color: #F6F6F6;
+}
+li ul li a { padding: 3px 5px; border-bottom:1px solid #DEDEDE; font-weight:normal;width:120px; } /* Sub Menu Styles */
+ul li:hover ul ul, ul li:hover ul ul ul, ul li.over ul ul, ul li.over ul ul ul {
+display:none;
+}
+
+ul li:hover ul,ul li li:hover ul,ul li li li:hover ul, ul li.over ul, ul li li.over ul,ul li li li.over ul {
+	display: block;
+}
+
+
+/***************************************** CONTENT *************************************/
+.homewidth{
+	width:70px;
+}
+#maincontent{
+	
+}
+.leftmaincontent, .rightmaincontent{
+	width:465px;
+
+	padding-top:15px;
+}
+.leftmaincontent{
+	float:left;
+	clear:both;
+	margin-right:20px;
+
+}
+.rightmaincontent{
+	float:right;
+	background:url(../Careimages/sep_middle.gif) no-repeat left;
+	padding-left:20px;
+}
+.leftmaincontent p{
+	margin:10px 0px 5px 0px;
+}
+#innermaincontent{
+	margin-top:10px;
+}
+#innermaincontent h1{
+	margin:5px 0px 10px 0px;
+}
+#innermaincontent p{
+	margin:5px 0px 10px 0px;
+}
+.leftnav{
+	width:200px;
+	float:left;
+	height:200px;
+}
+.rcontent{
+	float:right;
+	width:719px;
+	margin-right:10px;
+	padding-left:25px;
+	background:url(../Careimages/sep_middle.gif) no-repeat;
+}
+.about{
+	margin-bottom:15px;
+}
+#logo_div{
+	width:410px;
+	height:55px;
+	position:relative;
+	overflow:hidden;
+	margin:20px;
+	border:1px solid #ccc;
+	padding:5px;
+}
+.prod_box{
+	margin:10px 0px 10px 0px;
+	height:55px;
+}
+.boximage{
+	border:1px solid #CCC;
+	padding:3px;
+	width:97px;
+	float:left;
+	margin-right:10px;
+}
+.rbottomcont{
+	padding-top:10px;
+}
+.rbottomcont ul{
+	margin:10px;
+}
+.rbottomcont ul li{
+	line-height:23px;
+	width:100%;
+	font-weight:normal;
+}
+.milestones{
+	width:215px;
+	float:left;
+}
+.networks{
+	width:235px;
+	*width:230px;
+	float:right;
+
+}
+.bcolor{
+	color:#058ACC;
+}
+.vcolor{
+	color:#675AAC;
+}
+.proj{
+	margin-top:20px;
+	height:300px;
+}
+.subactive{
+	color:#000 !important;
+}
+.innerbox tr td{
+	text-align:center;
+	height:27px;
+	border-bottom:1px dashed #CCC;
+}
+table{
+	margin-bottom:20px;
+}
+.graph{
+	
+	float:left;
+}
+.leftnav{
+	
+}
+.leftnav ul li{
+	border-bottom:1px dashed #CCC;
+	padding-left:20px;
+	width:190px;
+}
+.leftnav ul li a{
+	outline:none;
+}
+.leftnav ul li a:hover{
+	background:#0187CE;
+	color:#FFF;
+}
+.more{
+	float:right;
+	
+}
+.more a{
+	color:#0187CE;
+	text-decoration:none;
+}
+.more a:hover{
+	color:#AAA;
+	text-decoration:underline;
+}
+.box{
+	float:left;
+	width:210px;
+	margin-right:20px;
+	
+}
+.box p{
+	margin:0px;
+	padding:0px;
+	
+}
+.contactbox{
+	height:120px;
+	border-bottom:1px dashed #ccc;
+	margin-bottom:20px;
+}
+/***************************************** FOOTER *********************************************/
+#footer{
+	height:40px;
+	border-top:2px solid #058ACC;
+	clear:both;
+	font-size:11px;
+}
+.foot_left{
+	float:left;
+	padding-left:20px;
+}
+.foot_right{
+	float:right;
+	padding-right:20px;
+}
+.foot_left, .foot_right{
+	margin-top:10px;
+}

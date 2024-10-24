@@ -1,0 +1,458 @@
+
+
+conveyance_m_advance
+Field added INT_DEPOSITID
+
+
+
+
+
+
+Vendor payments
+===============
+SELECT b.INT_PAYMENTID TRXN,  a.CHR_PURCHASEORDERNO VENDORREFNUMBER, a.CHR_VENDORPO VENDORPO ,CONCAT('CR-',a1.INT_VENDORID) LEDGERCODE, 
+a1.CHR_VENDORNAME 1STLEDGERNAMEPARTYLEDG,   
+a1.CHR_GSTNO VENDORGSTINNO  ,  c.CHR_DEPOSITNAME PAYMENTMODE, b.CHR_DDNUMBER PAYMENTREFNUMBER, 
+DATE_FORMAT(b.DAT_DDDATE,'%d-%b-%Y')  CHEQUE_DD_DATE,  DATE_FORMAT(b.DAT_PAYMENTDATE ,'%d-%b-%Y') ISSUE_ENTRYDATE ,
+b.CHR_PAYMENTDESC NARRATION, a.DOU_TOTALAMOUNT PO_NETAMOUNT,
+UPPER(c.CHR_DEPOSITNAME) 2NDLEDGERNAME,
+IF( b.INT_TRANSACTIONTYPE =1,'+','-') TTYPE,
+b.DOU_PAIDAMOUNT PAIDAMOUNT,  DATE_FORMAT(b.DT_UPDATEDATE ,'%d-%b-%Y') SYSTEM_ENTRYDATE, IF( b.INT_TRANSACTIONTYPE =1,'PY','JV')TRAN_TYPE
+FROM inv_t_directpurchase a, inv_m_vendorsinformation a1, inv_t_vendorpurchasepayment b, com_m_deposit_to c 
+WHERE a.CHR_CANCEL = 'N' AND a.CHR_FLAG='Y' AND a.CHR_PURCHASEORDERNO =b.CHR_PURCHASEORDERNO  AND a.INT_VENDORID = a1.INT_VENDORID 
+AND b.INT_BANKID =  c.INT_DEPOSITID
+AND b.DAT_PAYMENTDATE >='2022-04-01' AND b.DAT_PAYMENTDATE <='2022-07-31'
+ORDER BY b.INT_PAYMENTID, b.DAT_PAYMENTDATE
+ 
+
+Balasubramaniyan Amman 
+BTech
+
+
+ SELECT b.INT_PAYMENTID TRXN, a.CHR_SALESNO SALESINVOICENO, a.CHR_SALESNO SALESINVOICENO ,CONCAT('DR-',a1.INT_CUSTOMERGROUPID)  LEDGERCODE,
+ CONCAT(FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) ) 1STLEDGERNAMEPARTYLEDG,   a1.CHR_GSTNO CUSTOMERGSTINNO  , 
+c.CHR_BANKGROUPNAME PAYMENTMODE, b.CHR_PAYNO PAYMENTREFNUMBER, DATE_FORMAT(b.CHR_CHKDATE,'%d-%b-%Y')  CHEQUE_DD_DATE,  
+DATE_FORMAT(b.DAT_PAYMENTDATE ,'%d-%b-%Y') ISSUE_ENTRYDATE ,
+b.CHR_REMARK NARRATION,   a.DOU_TOTALAMOUNT INVOICE_NETAMOUNT,
+UPPER(d.CHR_DEPOSITNAME) 2NDLEDGERNAME,
+FUN_INV_GET_TRANSACTION_SYMBOL(b.INT_TRANSACTIONTYPE) TTYPE,
+ b.DOU_PAIDAMOUNT PAIDAMOUNT,  DATE_FORMAT(b.DT_UPDATEDATE ,'%d-%b-%Y') SYSTEM_ENTRYDATE, IF( b.INT_TRANSACTIONTYPE =1,'PY','JV') TRAN_TYPE
+FROM inv_t_directsales a, inv_m_customerinfo a1, inv_t_customersalespayment b, com_m_bankgroup c, com_m_deposit_to d   
+WHERE a.CHR_CANCEL = 'N'   AND a.CHR_SALESNO =b.CHR_SALESORDERNO  AND a.INT_CUSTOMERID = a1.INT_CUSTOMERID 
+AND b.CHR_BANKNAME =  c.INT_BANKGROUPID
+AND b.INT_DEPOSITID =  d.INT_DEPOSITID
+AND b.DAT_PAYMENTDATE >='2022-04-01' AND b.DAT_PAYMENTDATE <='2022-07-31'
+ORDER BY  b.INT_PAYMENTID, b.DAT_PAYMENTDATE
+
+
+
+
+
+
+indus bank  =    payment
+
+CREATE  FUNCTION `FUN_INV_GET_VENDORPAYMENT`(ponumber varchar(50)) RETURNS double(12,2)
+BEGIN
+      
+     DECLARE paidamount  double(12,2) DEFAULT 0;
+      
+     SELECT SUM(DOU_PAIDAMOUNT) into paidamount FROM inv_t_vendorpurchasepayment WHERE CHR_PURCHASEORDERNO = ponumber  GROUP BY CHR_PURCHASEORDERNO;
+   
+     RETURN paidamount;
+END;
+
+
+
+DROP TABLE IF EXISTS `inv_m_transactiontype`;
+CREATE TABLE `inv_m_transactiontype` (
+  `INT_TRANSACTIONTYPE` int(11) NOT NULL AUTO_INCREMENT,
+  `CHR_TRANSACTIONTYPE` varchar(50) DEFAULT NULL,
+  `CHR_SYMBOL` varchar(10) DEFAULT NULL,
+  `CHR_USRNAME` varchar(15) DEFAULT 'ADMIN',
+  `DT_UPDATEDATE` date DEFAULT '2010-12-25',
+  `CHR_UPDATESTATUS` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`INT_TRANSACTIONTYPE`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `inv_m_transactiontype` VALUES (1,'Receipts','+','ADMIN','2010-12-25','Y'),(2,'TDS','-','ADMIN','2010-12-25','Y'),(3,'Freight','-','ADMIN','2010-12-25','Y');
+
+
+DROP  FUNCTION `FUN_INV_GET_TRANSACTION_SYMBOL`
+CREATE  FUNCTION `FUN_INV_GET_TRANSACTION_SYMBOL`(ttype varchar(50)) RETURNS varchar(50)
+BEGIN
+      
+     DECLARE SYMBOL varchar(50) DEFAULT '';
+      
+     IF SYMBOL = 0 THEN
+         SELECT CHR_SYMBOL INTO SYMBOL FROM  inv_m_transactiontype  WHERE INT_TRANSACTIONTYPE= ttype;
+     END IF;
+   
+     RETURN SYMBOL;
+END;
+
+CREATE  FUNCTION `FUN_INV_GET_TRANSACTION_TYPE`(ttype varchar(50)) RETURNS varchar(50)
+BEGIN
+      
+     DECLARE SYMBOL varchar(50) DEFAULT '';
+      
+     IF SYMBOL = 0 THEN
+         SELECT CHR_TRANSACTIONTYPE INTO SYMBOL FROM  inv_m_transactiontype  WHERE INT_TRANSACTIONTYPE= ttype;
+     END IF;
+   
+     RETURN SYMBOL;
+END;
+
+====================================================================================================================================
+
+CHR_ACCOUNTTYPE field added to inv_m_customerinfo
+
+
+CREATE  FUNCTION FUN_INV_DIRECT_SALE_BEFORE_TAX_AMOUNT( salesno varchar(50)) RETURNS double
+BEGIN
+      
+     DECLARE taxamount double DEFAULT 0;
+     
+     select sum( (INT_QUANTITY * DOU_UNITPRICE)  -  DOU_UNITDISCOUNT ) into taxamount  from inv_t_swapsalesitem  WHERE CHR_SALESNO = salesno;
+     
+     RETURN taxamount;
+END;
+
+ 
+CREATE  FUNCTION `FUN_INV_GET_SALES_SERIALNUMBER_CONCATS`( iptype varchar(52) ,ipcode varchar(52),salesno varchar(52) ) RETURNS text 
+BEGIN
+     
+     DECLARE getserialnumbers text DEFAULT '';
+     DECLARE done INT DEFAULT FALSE; 
+     DECLARE getserial text DEFAULT ''; 
+      
+    DECLARE cur1 CURSOR FOR  SELECT CHR_SERIALNO FROM inv_t_swapsalesserialno WHERE CHR_SALESNO = salesno  AND CHR_TYPE =iptype AND CHR_ITEMID = ipcode ORDER By INT_ID;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    OPEN cur1;
+        read_loop:LOOP
+                  FETCH cur1 INTO getserial;
+                  IF done THEN
+                     LEAVE read_loop;
+                  END IF;
+                               
+                  SET getserialnumbers = CONCAT(getserialnumbers,getserial,',');
+        END LOOP;
+     CLOSE cur1;
+     RETURN getserialnumbers;
+END;
+
+Field added CHR_ROUNDEDCHECK inv_t_directsales
+
+DROP  FUNCTION `FUN_INV_GET_WARRANTY`
+CREATE  FUNCTION `FUN_INV_GET_WARRANTY`( warranty double(10,2) ) RETURNS varchar(50)
+BEGIN
+      
+     DECLARE wa varchar(50) DEFAULT '';
+      
+     IF warranty = 0 THEN
+         SET wa = 'No Warranty';
+     ELSEIF warranty = 0.3 THEN
+         SET wa = '3-Months Warranty';    
+     ELSEIF warranty = 0.6 THEN
+         SET wa = '6-Months Warranty';
+     ELSEIF warranty = 0.9 THEN
+         SET wa = '9-Months Warranty';
+     ELSE 
+        SET wa = CONCAT( (ROUND(warranty,0)*12), '-Months Warranty');  
+    
+     END IF;
+   
+     RETURN wa;
+END;
+
+
+CREATE  FUNCTION `FUN_INV_GET_WARRANTY_IN_YEAR`( warranty double(10,2) ) RETURNS varchar(50)
+BEGIN
+      
+     DECLARE wa varchar(50) DEFAULT '';
+      
+     IF warranty = 0 THEN
+         SET wa = 'No Warranty';
+     ELSEIF warranty = 0.3 THEN
+         SET wa = '3-Months Warranty';    
+     ELSEIF warranty = 0.6 THEN
+         SET wa = '6-Months Warranty';
+     ELSEIF warranty = 0.9 THEN
+         SET wa = '9-Months Warranty';
+     ELSE 
+        SET wa = CONCAT(  ROUND(warranty,0) , '-Years Warranty');  
+    
+     END IF;
+   
+     RETURN wa;
+END;
+===================================================================================================================================
+SELECT      a.CHR_SALESNO DOCNO, DATE_FORMAT(a.DAT_SALESDATE,'%d-%b-%Y') DOCDT, a.CHR_SALESNO INVNO, DATE_FORMAT(a.DAT_SALESDATE,'%d-%b-%Y') INVDT, CONCAT('GST Sales') VOCUHERTYPE,  
+ CONCAT('DR-',b.INT_CUSTOMERGROUPID) LEDGERCODE, CONCAT(FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) ) PARTYLEDGER,   b.CHR_GSTNO GSTINNO  ,
+b.CHR_ADDRESS1 ADDRESS1, b.CHR_ADDRESS2 ADDRESS2,  b.CHR_ADDRESS3 ADDRESS3,  g. CHR_CITYNAME CITY , f.CHR_DISTRICT DISTRICT,  e.CHR_STATENAME STATENAME, e.CHR_TINCODE STATECODE, b.INT_PINCODE PINCODE,
+  a.DOU_TOTALAMOUNT INVOICEVALUE,
+ FUN_INV_PRODUCTCODE(c.CHR_TYPE,c.CHR_ITEMID) ITEMNAME, FUN_INV_HSNCODE(c.CHR_TYPE,c.CHR_ITEMID) HSNCODE,
+ROUND(c.DOU_TAX_PERCENTAGE,0) GSTRATE, 	c.INT_QUANTITY QTY, 	FUN_INV_UNITS(c.CHR_TYPE,c.CHR_ITEMID) UOM,  	DOU_UNITPRICE RATE,
+c.DOU_UNITDISCOUNT DISCOUNT, 	((c.INT_QUANTITY*c.DOU_UNITPRICE) - c.DOU_UNITDISCOUNT) AMOUNT,
+CONCAT('GST Sales A/c')	SALESLEDGERNAME,
+
+CONCAT('') IGST, IF(a.CHR_GST_TYPE !='S', FUN_INV_DIRECT_SALE_TAX_AMOUNT(a.CHR_SALESNO , 'igst'),'') IGSTAMOUNT,
+CONCAT('') CGST, IF(a.CHR_GST_TYPE ='S',  FUN_INV_DIRECT_SALE_TAX_AMOUNT(a.CHR_SALESNO , 'cgst'),'') CGSTAMOUNT,
+ CONCAT('') SGST, IF(a.CHR_GST_TYPE ='S', FUN_INV_DIRECT_SALE_TAX_AMOUNT(a.CHR_SALESNO , 'sgst'), '' ) SGSTAMOUNT,
+ IF( a.DOU_TCS_AMOUNT >0 ,a.DOU_TCS_PERCENTAGE , '') TCS, a.DOU_TCS_AMOUNT TCSAMOUNT,
+ IF(a.DOU_TAXAMOUNT >0 , a.INT_TAXID , '') TDS, a.DOU_TAXAMOUNT TDSAMOUNT, 
+ a.DOU_FRIEGHT_CHARGE  FREIGHTCHARGE,
+CONCAT('') ADD_OR_LESS1, CONCAT('') ADD_OR_LESS, CONCAT('') ADD_OR_LESS,  
+a.DOU_ROUNDED ROUNDOFF, a.DOU_TOTALAMOUNT INVOICEVALUE_2,
+CONCAT('CORPORATE') COSTCAT,  REPLACE(RIGHT(a.CHR_SALESNO,7),'/','-') COSTCENTER, REPLACE(LEFT(a.CHR_DES,200),'\n','') NARRATION,
+SUBSTRING(c.CHR_DESC, 1, 50) PROD_DEC1 , SUBSTRING(c.CHR_DESC, 51, 50) PROD_DEC2 , SUBSTRING(c.CHR_DESC, 101, 50) PROD_DEC3 , SUBSTRING(c.CHR_DESC, 151, 50) PROD_DEC4 , 
+SUBSTRING(c.CHR_DESC, 200, 50) PROD_DEC5 , SUBSTRING(c.CHR_DESC, 201, 50) PROD_DEC6 , SUBSTRING(c.CHR_DESC, 251, 50) PROD_DEC7 , 
+FUN_INV_GET_SALES_SERIALNUMBER_CONCAT(a.CHR_SALESNO) SRNO_DETAILS, 
+IF(c.INT_WARRANTY >0 ,CONCAT(c.INT_WARRANTY,'-Years Warranty'),'No Warranty')WARRANTY_DETAILS,
+a.CHR_OTHERREF PO_REFERENCE, FIND_A_PAYMENT_TERM(a.INT_PAYMENTTERMID) PAYMENT_TERMS, a.CHR_DESPATCHTHRU DESPATCHED_THRU, a.CHR_DESTINATION DESTINATION,
+a.CHR_CONTACTDETAILS CONTACT_PERSON, a. CHR_CONTACTNO CONTACT_NO,
+CONCAT(FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) )CONSIGNEE_NAME, b.CHR_ADDRESS1 CONSIGNEE_ADDRESS1, b.CHR_ADDRESS2 CONSIGNEE_ADDRESS2,  
+b.CHR_ADDRESS3 CONSIGNEE_ADDRESS3,  g. CHR_CITYNAME CONSIGNEE_CITY , f.CHR_DISTRICT CONSIGNEE_DISTRICT,  e.CHR_STATENAME CONSIGNEE_STATENAME, 
+b.INT_PINCODE CONSIGNEE_PINCODE ,IF(a.CHR_GST_TYPE='S','STATE','CENTRAL') GSTTYPE,
+  
+FROM  inv_t_directsales a, inv_m_customerinfo b, inv_t_swapsalesitem c  ,inv_m_tax d , com_m_state  e , com_m_district f, com_m_city g  
+ WHERE  a.INT_CUSTOMERID = b.INT_CUSTOMERID       
+ AND a.CHR_SALESNO =c.CHR_SALESNO      
+ AND c.INT_TAXID = d.INT_TAXID  
+ AND b.INT_STATEID = e.INT_STATEID
+ AND b.INT_DISTRICTID = f.INT_DISTRICTID
+ AND b.INT_CITYID = g.INT_CITYID
+  AND a.CHR_CANCEL = 'N' 
+ AND a.INT_SALESSTATUS=1  
+ AND  a.DAT_SALESDATE  > '2022-04-01'
+ ORDER BY a.CHR_SALESNO  
+ 
+ 
+
+=========================================================================================================================
+CREATE  FUNCTION `FUN_INV_GET_SALES_SERIALNUMBER_CONCAT`( salesno varchar(52)  ) RETURNS text 
+BEGIN
+     
+     DECLARE getserialnumbers text DEFAULT '';
+     DECLARE done INT DEFAULT FALSE; 
+     DECLARE getserial text DEFAULT ''; 
+      
+    DECLARE cur1 CURSOR FOR  SELECT CHR_SERIALNO FROM inv_t_swapsalesserialno WHERE CHR_SALESNO = salesno ORDER By INT_ID;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    OPEN cur1;
+        read_loop:LOOP
+                  FETCH cur1 INTO getserial;
+                  IF done THEN
+                     LEAVE read_loop;
+                  END IF;
+                               
+                  SET getserialnumbers = CONCAT(getserialnumbers,getserial,',');
+        END LOOP;
+     CLOSE cur1;
+     RETURN getserialnumbers;
+END;
+
+
+=============================================================================================================================================
+Field added com_m_state CHR_TINCODE
+
+
+SELECT      a.CHR_SALESNO DocNo, a.CHR_SALESNO InvNo,  DATE_FORMAT(a.DAT_SALESDATE,'%d-%b-%Y') InvDt,   CONCAT('GST Sales') VocuherType,  
+ CONCAT('DR-',b.INT_CUSTOMERGROUPID) LedgerCode, CONCAT(FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) ) PartyLedger,   b.CHR_GSTNO GSTINNo  ,
+b.CHR_ADDRESS1 Address1, b.CHR_ADDRESS2 Address2,  b.CHR_ADDRESS3 Address3,  g. CHR_CITYNAME City , f.CHR_DISTRICT District,  e.CHR_STATENAME StateName, e.CHR_TINCODE Statecode, b.INT_PINCODE Pincode,
+  a.DOU_TOTALAMOUNT InvoiceValue,
+ FUN_INV_PRODUCTCODE(c.CHR_TYPE,c.CHR_ITEMID) ItemName, FUN_INV_HSNCODE(c.CHR_TYPE,c.CHR_ITEMID) HSNCode,
+ROUND(c.DOU_TAX_PERCENTAGE,0) GSTRate, 	c.INT_QUANTITY Qty, 	FUN_INV_UNITS(c.CHR_TYPE,c.CHR_ITEMID)UOM, 	DOU_UNITPRICE Rate,
+c.DOU_UNITDISCOUNT Discount, 	((c.INT_QUANTITY*c.DOU_UNITPRICE) - c.DOU_UNITDISCOUNT) Amount,
+CONCAT('GST Sales A/c')	SalesLedgerName,
+FUN_INV_DIRECT_SALE_TAX_AMOUNT(a.CHR_SALESNO , 'igst') IGSTAmount,
+FUN_INV_DIRECT_SALE_TAX_AMOUNT(a.CHR_SALESNO , 'cgst') CGSTAmount,
+FUN_INV_DIRECT_SALE_TAX_AMOUNT(a.CHR_SALESNO , 'sgst') SGSTAmount,
+a.DOU_TCS_PERCENTAGE TCS, a.DOU_TCS_AMOUNT TCSAmount,
+ a.INT_TAXID TDS, a.DOU_TAXAMOUNT TDSAmount, a.DOU_FRIEGHT_CHARGE  Freightcharge,
+a.DOU_ROUNDED Roundoff, a.DOU_TOTALAMOUNT InvoiceValue
+FROM  inv_t_directsales a, inv_m_customerinfo b, inv_t_swapsalesitem c  ,inv_m_tax d , com_m_state  e , com_m_district f, com_m_city g  
+ WHERE  a.INT_CUSTOMERID = b.INT_CUSTOMERID       
+ AND a.CHR_SALESNO =c.CHR_SALESNO      
+ AND c.INT_TAXID = d.INT_TAXID  
+ AND b.INT_STATEID = e.INT_STATEID
+ AND b.INT_DISTRICTID = f.INT_DISTRICTID
+ AND b.INT_CITYID = g.INT_CITYID
+ AND c.DOU_TAX_PERCENTAGE >0    
+ AND a.CHR_CANCEL = 'N' 
+ AND a.INT_SALESSTATUS=1  
+ AND  a.DAT_SALESDATE  > '2022-04-01'
+ ORDER BY a.CHR_SALESNO 
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `FUN_INV_DIRECT_SALE_TAX_AMOUNT`( salesno varchar(50), taxtype varchar(50) ) RETURNS double
+BEGIN
+      
+     DECLARE taxamount double DEFAULT 0;
+      
+     IF taxtype = 'igst' THEN
+        SELECT ROUND(SUM(a.DOU_TAX_AMOUNT)* b.DOU_IGST/100,2) into taxamount  FROM inv_t_swapsalesitem a , inv_m_tax b   
+        WHERE a.INT_TAXID = b.INT_TAXID AND a.CHR_SALESNO = salesno;
+     ELSEIF taxtype = 'cgst' THEN
+        SELECT ROUND(SUM(a.DOU_TAX_AMOUNT)* b.DOU_CGST/100,2) into taxamount  FROM inv_t_swapsalesitem a , inv_m_tax b   
+        WHERE a.INT_TAXID = b.INT_TAXID AND a.CHR_SALESNO = salesno;
+     ELSEIF taxtype = 'sgst' THEN
+        SELECT ROUND(SUM(a.DOU_TAX_AMOUNT)* b.DOU_SGST/100,2) into taxamount  FROM inv_t_swapsalesitem a , inv_m_tax b   
+        WHERE a.INT_TAXID = b.INT_TAXID AND a.CHR_SALESNO = salesno;
+     ELSEIF taxtype = 'taxamount' THEN
+        SELECT ROUND(SUM(DOU_TAX_AMOUNT),2) into taxamount  FROM inv_t_swapsalesitem a , inv_m_tax b   
+        WHERE a.INT_TAXID = b.INT_TAXID AND a.CHR_SALESNO = salesno;
+     END IF;
+   
+     RETURN taxamount;
+END;
+
+ CREATE  FUNCTION `FUN_INV_DIRECT_PURCHASE_TAX_AMOUNT`( purchaserefno varchar(50), taxtype varchar(50) ) RETURNS double
+BEGIN
+      
+     DECLARE taxamount double DEFAULT 0;
+      
+     IF taxtype = 'igst' THEN
+        SELECT ROUND(SUM(a.DOU_TAX_AMOUNT)* b.DOU_IGST/100,2) into taxamount  FROM inv_t_directpurchaseitem a , inv_m_tax b   
+        WHERE a.INT_TAXID = b.INT_TAXID AND a.CHR_PURCHASEORDERNO = purchaserefno;
+     ELSEIF taxtype = 'cgst' THEN
+        SELECT ROUND(SUM(a.DOU_TAX_AMOUNT)* b.DOU_CGST/100,2) into taxamount  FROM inv_t_directpurchaseitem a , inv_m_tax b   
+        WHERE a.INT_TAXID = b.INT_TAXID AND a.CHR_PURCHASEORDERNO = purchaserefno;
+     ELSEIF taxtype = 'sgst' THEN
+        SELECT ROUND(SUM(a.DOU_TAX_AMOUNT)* b.DOU_SGST/100,2) into taxamount  FROM inv_t_directpurchaseitem a , inv_m_tax b   
+        WHERE a.INT_TAXID = b.INT_TAXID AND a.CHR_PURCHASEORDERNO = purchaserefno;
+     ELSEIF taxtype = 'taxamount' THEN
+        SELECT ROUND(SUM(DOU_TAX_AMOUNT),2) into taxamount  FROM inv_t_directpurchaseitem a , inv_m_tax b   
+        WHERE a.INT_TAXID = b.INT_TAXID AND a.CHR_PURCHASEORDERNO = purchaserefno;
+     END IF;
+   
+     RETURN taxamount;
+END;
+
+===========================================================================================
+CHR_TCS,DOU_TCS_PERCENTAGE,DOU_TCS_AMOUNT,CHR_CLONE  inv_t_directsales
+
+DROP FUNCTION FUN_INV_DIRECT_SALESNUMBER;
+CREATE DEFINER=`root`@`localhost` FUNCTION `FUN_INV_DIRECT_SALESNUMBER`( branchid varchar(50), stateid varchar(50),  officeid varchar(50),  divisionid varchar(50) ) RETURNS varchar(50) CHARSET latin1
+BEGIN
+     DECLARE d VARCHAR(50) DEFAULT '';
+     DECLARE state VARCHAR(5) DEFAULT '';
+     DECLARE office VARCHAR(5) DEFAULT '';
+     DECLARE division VARCHAR(5) DEFAULT '';
+     DECLARE financeyear VARCHAR(5) DEFAULT '';
+     DECLARE cpyshortname VARCHAR(5) DEFAULT '';
+     DECLARE cyear int DEFAULT 0;
+     DECLARE cyear1 int DEFAULT 0;
+     DECLARE shortcyear1 int DEFAULT 0;
+     DECLARE cmonth int DEFAULT 0;
+     
+     SELECT  CHR_SHORTNAME  INTO state FROM com_m_state WHERE  INT_STATEID =stateid ;
+     SELECT  CHR_OFFICESHORTNAME INTO office  FROM  com_m_office  WHERE INT_OFFICEID= officeid;
+     SELECT CHR_DIVISHORTCODE INTO division  FROM inv_m_division WHERE INT_DIVIID=divisionid;
+     SELECT a.CHR_SHORTNAME INTO cpyshortname FROM com_m_company a , com_m_branch b WHERE a.INT_COMPANYID = b.INT_COMPANYID and  b.INT_BRANCHID = branchid;
+     
+     SELECT MONTH(NOW()) INTO cmonth;
+     IF cmonth < 4 THEN
+        select (year(now())-1) INTO cyear;
+     ELSE
+        select year(now())INTO cyear;
+     END IF;
+     
+     SELECT INT_FINANCIALYEARID  INTO cyear1 FROM  com_m_financialyear  
+     WHERE CHR_FINANCIALYEAR = (SELECT CONCAT(cyear,'-',(cyear+1)) );
+     
+     SELECT RIGHT((cyear+1),2) INTO shortcyear1;
+     SELECT RIGHT((cyear),2) INTO cyear;
+     
+     SELECT RIGHT(CONCAT('0000', (SELECT IF( (COUNT(*)>0 ) ,
+(MAX(INT_INVOICEID)+1),'1')    FROM inv_m_invoicegenerate WHERE INT_STATEID =stateid)),4)  INTO d ;
+     RETURN (SELECT CONCAT(cpyshortname,d ,'/',cyear,'-',shortcyear1));
+END;
+
+
+
+===========================================================================================
+CHR_GST_TYPE,,DOU_FRIEGHT_CHARGE_BASE_AMOUNT,DOU_FRIEGHT_CHARGE_PERCENT,
+inv_t_directpurchase field added 
+
+inv_t_swapsalesitem field INT_WARRANTY change int to double
+inv_t_directsales field added INT_SHIPPING_CUSTOMERID
+
+pay_m_basicsettings  field added 
+CHR_PAYSLIP_FOOTER
+
+m_inventorysetting field added 
+CHR_BANK_NAME,CHR_IFSCCODE,CHR_ACCOUNT_NO, CHR_FOOTER_CONTENT
+
+inv_t_directsales 
+Field added CHR_DISCOUNTBILL 
+==========================================================================================
+function created
+UPDATE inv_m_item  SET INT_UNITID = 1
+
+UPDATE inv_m_produtlist  SET INT_UNITID = 1
+
+
+CREATE  FUNCTION `FUN_INV_UNITS`(itype VARCHAR(50),icode VARCHAR(50)   ) RETURNS varchar(250) 
+BEGIN
+     DECLARE d VARCHAR(250) DEFAULT '';
+     DECLARE unit VARCHAR(250) DEFAULT '';
+     
+     SELECT IF(itype='I' ,(SELECT INT_UNITID FROM inv_m_item  WHERE CHR_ITEMID =icode) ,
+         (SELECT INT_UNITID FROM inv_m_produtlist  WHERE CHR_PRODUCTID =icode)
+        )  INTO unit;
+        
+     SELECT IF(LENGTH(CHR_SYMBOL)> 0,CHR_SYMBOL,'') INTO d  from inv_m_units  where INT_UNITID = unit;
+        
+     RETURN d;
+END
+
+
+==========================================================================================
+CHR_HSNCODE added to inv_t_servicebilling
+
+
+DROP  FUNCTION `FUN_ATT_GET_EXTRADAYS`
+
+
+ CREATE  FUNCTION `FUN_ATT_GET_EXTRADAYS`(empid varchar(25),dmonth varchar(25),dyear varchar(25)) RETURNS double(10,2)
+BEGIN
+     DECLARE extradays DOUBLE DEFAULT 0; 
+     DECLARE record char DEFAULT '0'; 
+     
+     SELECT COUNT(*) INTO record FROM att_t_extradays WHERE CHR_EMPID=empid 
+     AND  DATE_FORMAT( DT_EXTRADATE,'%M' )  = dmonth AND YEAR(DT_EXTRADATE) = dyear;
+     
+     IF  record != "0" THEN
+     
+     SELECT SUM(DOU_VALUE) INTO extradays FROM att_t_extradays WHERE CHR_EMPID=empid 
+     AND DATE_FORMAT( DT_EXTRADATE,'%M' )  = dmonth AND YEAR(DT_EXTRADATE) = dyear;
+    
+     END IF;
+     RETURN extradays;
+        
+END 
+
+DROP  FUNCTION `FIND_A_CURRENTMONTH_JOINNER`
+ 
+CREATE  FUNCTION `FIND_A_CURRENTMONTH_JOINNER`(empid varchar(20), iyear  varchar(20), imonth  varchar(20)) RETURNS varchar(1) CHARSET latin1
+BEGIN
+     
+     DECLARE d varchar(1) DEFAULT '0';
+     
+     SELECT count(*)INTO d from com_m_staff WHERE CHR_EMPID=empid  AND year(DT_DOJCOLLEGE)=iyear AND  DATE_FORMAT( DT_DOJCOLLEGE,'%M') =imonth;
+     RETURN d;
+END 
+
+DROP FUNCTION `FUN_ATT_GET_LEAVETAKEN`
+
+CREATE FUNCTION `FUN_ATT_GET_LEAVETAKEN`(leavetype varchar(100),empid varchar(100),dmonth varchar(100),dyear varchar(100) ) RETURNS double(10,2)
+BEGIN
+     
+     DECLARE leavetaken DOUBLE DEFAULT 0; 
+     
+     SELECT SUM(DOU_VALUE) INTO leavetaken FROM att_t_leave 
+     WHERE CHR_LEAVETYPE=leavetype AND CHR_EMPID=empid AND  DATE_FORMAT(DT_LDATE ,'%M' )  =dmonth 
+     AND YEAR(DT_LDATE) = dyear GROUP BY CHR_EMPID;
+      
+     RETURN leavetaken;
+END 

@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JApplication" language="groovy" pageWidth="3475" pageHeight="842" columnWidth="3435" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FAEBD7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFE4BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFF8EF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="application">
+		<parameter name="location" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="title" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="grade" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="month" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="year" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT  (@c:=@c+1)  SNO,
+app.CHR_APPCODE,app.CHR_APPNAME,
+app.CHR_APPFATHER, app.DT_APPLICATIONDATE,
+app.CHR_JOBGRADE,jd.CHR_JOBCODE,jd.CHR_JOBTITLE,
+app.CHR_GENDER,app.DT_DOB, bg.CHR_GROUPNAME,
+app.CHR_MARITALSTATUS,app.DT_WEDDATE,
+qual.CHR_QUALIFICATIONNAME, app.CHR_EMAILID,
+app.CHR_MOBILE, app.CHR_PASSPORT, app.CHR_PAN,
+app.CHR_BIKESTATUS, app.CHR_DRIVINGLIC,
+CONCAT(CONCAT(CONCAT(app.CHR_PADD1,app.CHR_PADD2) , city.CHR_CITYNAME), state.CHR_STATENAME) pAddress, CONCAT(CONCAT(CONCAT(app.CHR_CADD1,app.CHR_CADD2) , app.INT_CCITY), app.INT_CSTATE) cAddress
+
+FROM hrm_m_application app, hrm_m_jobdesign jd, COM_M_city city, COM_M_STATE state,(SELECT
+
+@c:=0) t, com_m_office office, com_m_bloodgroup bg,com_m_qualification qual
+ WHERE  app.INT_JOBID=jd.INT_JOBID AND
+CAST(app.CHR_QUALIFICATION AS UNSIGNED)=qual.INT_QUALIFICATIONID AND
+CAST(app.CHR_BG AS UNSIGNED)=bg.INT_BLOODGROUPID AND
+app.INT_YEAR=2014 AND app.INT_PCITY=city.INT_CITYID AND app.INT_OFFICEID=office.INT_OFFICEID
+AND app.INT_PSTATE=state.INT_STATEID  AND app.INT_CCITY=city.INT_CITYID AND state.INT_STATEID=app.INT_CSTATE  AND
+   CASE
+ WHEN  $P{location} is null OR  $P{location}=''
+THEN office.CHR_OFFICENAME IN (SELECT CHR_OFFICENAME FROM com_m_office
+ )
+ELSE office.CHR_OFFICENAME =$P{location}  END AND
+ CASE
+ WHEN  $P{grade}='Top' OR  $P{grade}='Middle' OR  $P{grade}='Bottom'
+THEN jd.chr_jobgrade=$P{grade}
+ELSE jd.chr_jobgrade IN ('Top','Middle','Bottom') END AND
+CASE
+ WHEN  $P{title} is null OR  $P{title}=''
+THEN jd.CHR_JOBTITLE IN (SELECT CHR_JOBTITLE FROM hrm_m_jobdesign
+ )
+ELSE jd.CHR_JobTITLE =$P{title}  END AND
+CASE
+ WHEN  $P{month} is null OR  $P{month}=''
+THEN app.CHR_MONTH IN ('January','February','March','April','May','June','July','August','September', 'October','November','December'
+ )
+ELSE app.CHR_MONTH =$P{month}  END AND app.INT_YEAR=$P{year}
+;]]>
+		</queryString>
+		<field name="SNO" class="java.lang.Long"/>
+		<field name="CHR_APPCODE" class="java.lang.String"/>
+		<field name="CHR_APPNAME" class="java.lang.String"/>
+		<field name="CHR_APPFATHER" class="java.lang.String"/>
+		<field name="DT_APPLICATIONDATE" class="java.sql.Date"/>
+		<field name="CHR_JOBGRADE" class="java.lang.String"/>
+		<field name="CHR_JOBCODE" class="java.lang.String"/>
+		<field name="CHR_JOBTITLE" class="java.lang.String"/>
+		<field name="CHR_GENDER" class="java.lang.String"/>
+		<field name="DT_DOB" class="java.sql.Date"/>
+		<field name="CHR_GROUPNAME" class="java.lang.String"/>
+		<field name="CHR_MARITALSTATUS" class="java.lang.String"/>
+		<field name="DT_WEDDATE" class="java.sql.Date"/>
+		<field name="CHR_QUALIFICATIONNAME" class="java.lang.String"/>
+		<field name="CHR_EMAILID" class="java.lang.String"/>
+		<field name="CHR_MOBILE" class="java.lang.String"/>
+		<field name="CHR_PASSPORT" class="java.lang.String"/>
+		<field name="CHR_PAN" class="java.lang.String"/>
+		<field name="CHR_BIKESTATUS" class="java.lang.String"/>
+		<field name="CHR_DRIVINGLIC" class="java.lang.String"/>
+		<field name="pAddress" class="java.lang.String"/>
+		<field name="cAddress" class="java.lang.String"/>
+		<group name="CHR_JOBGRADE">
+			<groupExpression><![CDATA[$F{CHR_JOBGRADE}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="New Dataset 1">
+		<queryString language="SQL">
+			<![CDATA[ SELECT  (@c:=@c+1)  SNO,app.CHR_APPCODE,app.CHR_APPNAME,app.CHR_APPFATHER,  app.DT_APPLICATIONDATE,app.CHR_JOBGRADE,jd.CHR_JOBCODE,jd.CHR_JOBTITLE,app.CHR_GENDER, app.DT_DOB, bg.CHR_GROUPNAME, app.CHR_MARITALSTATUS,app.DT_WEDDATE,qual.CHR_QUALIFICATIONNAME,  app.CHR_EMAILID,app.CHR_MOBILE, app.CHR_PASSPORT, app.CHR_PAN,app.CHR_BIKESTATUS,  app.CHR_DRIVINGLIC,CONCAT(CONCAT(CONCAT(app.CHR_PADD1,app.CHR_PADD2) , city.CHR_CITYNAME), state.CHR_STATENAME) pAddress, CONCAT(CONCAT(CONCAT(app.CHR_CADD1,app.CHR_CADD2) ,  app.INT_CCITY), app.INT_CSTATE) cAddress FROM hrm_m_application app, hrm_m_jobdesign jd, COM_M_city city,  COM_M_STATE state,(SELECT @c:=0) t, com_m_office office, com_m_bloodgroup bg,com_m_qualification qual   WHERE  app.INT_JOBID=jd.INT_JOBID AND  app.CHR_QUALIFICATION  =qual.INT_QUALIFICATIONID   AND app.CHR_BG =bg.INT_BLOODGROUPID  AND app.INT_PCITY=city.INT_CITYID AND app.INT_OFFICEID=office.INT_OFFICEID  AND app.INT_PSTATE=state.INT_STATEID  AND app.INT_CCITY=city.INT_CITYID AND  state.INT_STATEID=app.INT_CSTATE AND app.INT_YEAR= 2015 AND app.CHR_MONTH ='January' AND app.CHR_JOBGRADE = 'Middle' ]]>
+		</queryString>
+		<field name="SNO" class="java.lang.Long"/>
+		<field name="CHR_APPCODE" class="java.lang.String"/>
+		<field name="CHR_APPNAME" class="java.lang.String"/>
+		<field name="CHR_APPFATHER" class="java.lang.String"/>
+		<field name="DT_APPLICATIONDATE" class="java.sql.Date"/>
+		<field name="CHR_JOBGRADE" class="java.lang.String"/>
+		<field name="CHR_JOBCODE" class="java.lang.String"/>
+		<field name="CHR_JOBTITLE" class="java.lang.String"/>
+		<field name="CHR_GENDER" class="java.lang.String"/>
+		<field name="DT_DOB" class="java.sql.Date"/>
+		<field name="CHR_GROUPNAME" class="java.lang.String"/>
+		<field name="CHR_MARITALSTATUS" class="java.lang.String"/>
+		<field name="DT_WEDDATE" class="java.sql.Date"/>
+		<field name="CHR_QUALIFICATIONNAME" class="java.lang.String"/>
+		<field name="CHR_EMAILID" class="java.lang.String"/>
+		<field name="CHR_MOBILE" class="java.lang.String"/>
+		<field name="CHR_PASSPORT" class="java.lang.String"/>
+		<field name="CHR_PAN" class="java.lang.String"/>
+		<field name="CHR_BIKESTATUS" class="java.lang.String"/>
+		<field name="CHR_DRIVINGLIC" class="java.lang.String"/>
+		<field name="pAddress" class="java.lang.String"/>
+		<field name="cAddress" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="location" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="grade" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="title" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="month" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="year" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[  SELECT  (@c:=@c+1)  SNO,app.CHR_APPCODE,app.CHR_APPNAME,app.CHR_APPFATHER,  app.DT_APPLICATIONDATE,app.CHR_JOBGRADE,jd.CHR_JOBCODE,jd.CHR_JOBTITLE,app.CHR_GENDER, app.DT_DOB, bg.CHR_GROUPNAME, app.CHR_MARITALSTATUS,app.DT_WEDDATE,qual.CHR_QUALIFICATIONNAME,  app.CHR_EMAILID,app.CHR_MOBILE, app.CHR_PASSPORT, app.CHR_PAN,app.CHR_BIKESTATUS,  app.CHR_DRIVINGLIC,CONCAT(CONCAT(CONCAT(app.CHR_PADD1,app.CHR_PADD2) , city.CHR_CITYNAME), state.CHR_STATENAME) pAddress, CONCAT(CONCAT(CONCAT(app.CHR_CADD1,app.CHR_CADD2) ,  app.INT_CCITY), app.INT_CSTATE) cAddress FROM hrm_m_application app, hrm_m_jobdesign jd, COM_M_city city,  COM_M_STATE state,(SELECT @c:=0) t, com_m_office office, com_m_bloodgroup bg,com_m_qualification qual   WHERE  app.INT_JOBID=jd.INT_JOBID AND  app.CHR_QUALIFICATION  =qual.INT_QUALIFICATIONID   AND app.CHR_BG =bg.INT_BLOODGROUPID  AND app.INT_PCITY=city.INT_CITYID AND app.INT_OFFICEID=office.INT_OFFICEID  AND app.INT_PSTATE=state.INT_STATEID  AND app.INT_CCITY=city.INT_CITYID AND  state.INT_STATEID=app.INT_CSTATE AND app.INT_YEAR= 2015 AND app.CHR_MONTH ='January' AND app.CHR_JOBGRADE = 'Middle' ]]>
+	</queryString>
+	<field name="SNO" class="java.lang.Long"/>
+	<field name="CHR_APPCODE" class="java.lang.String"/>
+	<field name="CHR_APPNAME" class="java.lang.String"/>
+	<field name="CHR_APPFATHER" class="java.lang.String"/>
+	<field name="DT_APPLICATIONDATE" class="java.sql.Date"/>
+	<field name="CHR_JOBGRADE" class="java.lang.String"/>
+	<field name="CHR_JOBCODE" class="java.lang.String"/>
+	<field name="CHR_JOBTITLE" class="java.lang.String"/>
+	<field name="CHR_GENDER" class="java.lang.String"/>
+	<field name="DT_DOB" class="java.sql.Date"/>
+	<field name="CHR_GROUPNAME" class="java.lang.String"/>
+	<field name="CHR_MARITALSTATUS" class="java.lang.String"/>
+	<field name="DT_WEDDATE" class="java.sql.Date"/>
+	<field name="CHR_QUALIFICATIONNAME" class="java.lang.String"/>
+	<field name="CHR_EMAILID" class="java.lang.String"/>
+	<field name="CHR_MOBILE" class="java.lang.String"/>
+	<field name="CHR_PASSPORT" class="java.lang.String"/>
+	<field name="CHR_PAN" class="java.lang.String"/>
+	<field name="CHR_BIKESTATUS" class="java.lang.String"/>
+	<field name="CHR_DRIVINGLIC" class="java.lang.String"/>
+	<field name="pAddress" class="java.lang.String"/>
+	<field name="cAddress" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="5" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[SNO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="91">
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="53" y="22" width="360" height="50"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 1">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[SNO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.Long"><![CDATA[$F{SNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_APPCODE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_APPCODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_APPNAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_APPNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_APPFATHER]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_APPFATHER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[DT_APPLICATIONDATE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.util.Date"><![CDATA[$F{DT_APPLICATIONDATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_JOBGRADE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_JOBGRADE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_JOBCODE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_JOBCODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_JOBTITLE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_JOBTITLE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_GENDER]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_GENDER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[DT_DOB]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.util.Date"><![CDATA[$F{DT_DOB}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_GROUPNAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_GROUPNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_MARITALSTATUS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MARITALSTATUS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[DT_WEDDATE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.util.Date"><![CDATA[$F{DT_WEDDATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_QUALIFICATIONNAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_QUALIFICATIONNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_EMAILID]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EMAILID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_MOBILE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_MOBILE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_PASSPORT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_PASSPORT}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_PAN]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_PAN}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_BIKESTATUS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_BIKESTATUS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CHR_DRIVINGLIC]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_DRIVINGLIC}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[pAddress]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{pAddress}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[cAddress]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{cAddress}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Stretch"/>
+	</summary>
+</jasperReport>

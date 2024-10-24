@@ -1,0 +1,21 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-1.4.2.js"></script>
+</head>
+<body  onpaste='return false;'>
+<form>
+<input id="Flag" type="text" value="Input 1" />
+<input type="text" value="Input 2" />
+</form>
+<div id="other">
+Switch the handler
+</div>
+Click on first input field & after it, click out side.
+<script>
+$('#Flag').blur(function() {
+alert('You clicked in other than first input field');
+});
+</script>
+</body>
+</html>

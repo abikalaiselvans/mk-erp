@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<title>FancyBox plug-in for Images</title>
+	<script type="text/javascript" src="jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
+	<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.1.css" media="screen" />
+ 	<link rel="stylesheet" href="fancybox/style.css" />
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			*   Examples - images
+			*/
+
+			$("a#example1").fancybox({
+				'titleShow'		: false
+			});
+
+			$("a#example2").fancybox({
+				'titleShow'		: false,
+				'transitionIn'	: 'elastic',
+				'transitionOut'	: 'elastic'
+			});
+
+			$("a#example3").fancybox({
+				'titleShow'		: false,
+				'transitionIn'	: 'none',
+				'transitionOut'	: 'none'
+			});
+
+			$("a#example4").fancybox();
+
+			$("a#example5").fancybox({
+				'titlePosition'	: 'inside'
+			});
+
+			$("a#example6").fancybox({
+				'titlePosition'	: 'over'
+			});
+
+			$("a[rel=example_group]").fancybox({
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'titlePosition' 	: 'over',
+				'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+					return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+				}
+			});
+		});
+	</script>
+</head>
+<body  onpaste='return false;'>
+<div id="content">
+	<h1>Fancybox</h1>
+	<hr />
+	<p>
+		Different animations - 'fade', 'elastic' and 'none'<br />
+
+		<a id="example1" href="./fancybox/1_b.jpg"><img alt="example1" src="./fancybox/1_s.jpg" /></a>
+
+		<a id="example2" href="./fancybox/2_b.jpg"><img alt="example2" src="./fancybox/2_s.jpg" /></a>
+
+		<a id="example3" href="./fancybox/3_b.jpg"><img alt="example3" src="./fancybox/3_s.jpg" /></a>
+	</p>
+
+	<p>
+		Different title positions - 'outside', 'inside' and 'over'<br />
+
+		<a id="example4" href="./fancybox/4_b.jpg" title="The Hanging Gardens of Babylon is one of the original Seven Wonders of the Ancient World."><img alt="example4" src="./fancybox/4_s.jpg" /></a>
+
+		<a id="example5" href="./fancybox/5_b.jpg" title="The Colossus of Rhodes was a statue of the Greek god Helios, erected in the city of Rhodes on the Greek island of Rhodes by Chares of Lindos between 292 and 280 BC. "><img alt="example5" src="./fancybox/5_s.jpg" /></a>
+
+		<a id="example6" href="./fancybox/6_b.jpg" title="The Colosseum or Roman Coliseum, originally the Flavian Amphitheatre (Latin: Amphitheatrum Flavium, Italian Anfiteatro Flavio or Colosseo), is an elliptical amphitheatre in the center of the city of Rome, Italy, the largest ever built in the Roman Empire. It is considered one of the greatest works of Roman architecture and Roman engineering."><img alt="example6" src="./fancybox/6_s.jpg" /></a>
+	</p>
+
+	<p>
+		Image gallery (try using mouse scroll wheel)<br />
+
+		<a rel="example_group" href="./fancybox/7_b.jpg" title="Seven wonders of the world"><img alt="" src="./fancybox/7_s.jpg" /></a>
+
+		<a rel="example_group" href="./fancybox/8_b.jpg" title=""><img alt="" src="./fancybox/8_s.jpg" /></a>
+
+		<a rel="example_group" href="./fancybox/9_b.jpg" title=""><img alt="" src="./fancybox/9_s.jpg" /></a>
+	</p>
+	<hr />
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+JAVA/J2EE
+Accord Soft Offers Best Java/J2EE Training in Chennai. We offer Internships in Real-Life Business 
+Applications of our clients. Students are given Practical Training in the below mentioned syllabus.
+ The syllabus can be customized according to individual needs.
+
+Core Java
+Introduction to JAVA - OOPs & its Implementation using JAVA Programs - Classes, Objects, Inheritance,
+ Polymorphism, Abstraction, Encapsulation - Fundamentals of Java Programming: Keywords, Data Types & Programming 
+ Constructs - Sample Applications - Fundamental Classes: Package Overview, String, String Buffer, 
+ Math Classes, String Tokenizer, Constructors & Finalizers - Arrays - Exception Handling Techniques -
+  Reflections - Advanced I/O Streams: File, Byte Streams, Character Streams, Random Access File, 
+  Object Serialization - JDBC: Advantages, Database Connectivity Using SQL Server, Types of Drivers, 
+  Statements, Prepared Statement, Callable Statement, Result Set, Date, Time - Networking: 
+  Client & Server Sockets, Networking & I/O, Networking & Applet - RMI (Remote Method Invocation): 
+  Architecture, Registry, Server & Client Programs, Remote Interfaces, Objects & Methods - Multi Threading.
+
+Collection Framework:
+Collection, Map, Date & Calendar, Enumeration, And Iterator - Applets: Applet Basics, Event Handling in Applets, 
+Displaying Image, Playing Audio, Applet Interactions, Sample Applets - AWT - Swings - Building Stand - Alone, 
+Windows-Based Applications Using Java.
+
+J2EE - (JAVA 2 Enterprise Edition)
+J2EE Overview - Definition - Application Development Trends - J2EE API & Technologies - Component & 
+Container Architecture - Development & Deployment Lifecycle - J2EE Development Roles - 
+J2EE Application Anatomies
+
+Java Script:
+Java Script Features - Data types - Functions - Classes - Prototype Methods - HTML Document 
+Object Model - Event Handling - Accessing Form Elements - Form Validations
+
+Servlets
+Web Applications - Servlet Request & Response Model - Servlet Mapping - Servlet Lifecycle - 
+Scope Objects - Processing Client Data - HTTP Structure - Response Header & Body - Error Handling - 
+State Management in Servlets
+
+Java Server Pages (JSP)
+JSP Lifecycle and Phases - Directives - Scripting Elements - Comments - Actions - Implicit Objects - 
+Java Beans - Accessing bean properties - Sharing beans - Retaining form state - Writing custom tags - 
+Servlet and JSP (MVC)
+
+EJB (Enterprise Java Beans)
+Architecture - Home, Remote & Local Interfaces - Stateful & Stateless Session Beans - Entity beans - 
+Persistence Fields - Containers and Bean managed Persistence (CMP,BMP) - Application & Web clients - 
+Packing & Deploying EJB applications and Enterprise applications - EJB QL (Query Language) - Message Driven Beans
+
+XML (Extensible Markup Language)
+Role of XML in J2EE - Understanding XML - Generating XML Data - Designing XML Data structure - 
+Creating DTD - XML Parsers
+
+Struts
+Model View controller (MVC) Design Pattern - Model Components - Action Forms, 
+Action Classes - View Components - Forms and Form bean Interactions - Presentation techniques - 
+SmartLoginAuth components - Actions Servlet & Action mapping implementation - Handling input 
+validation & Business Logic exceptions
+
+Advanced J2EE
+Hibernate
+Introduction to Hibernate - Hibernate architecture and API - Object/Relational Mapping - Collection 
+Mapping - Component Mapping - Hibernate Query Language (HQL) and Criteria Queries - 
+Batch Processing and Native SQL - Caching Objects - Hibernate in web applications
+
+Spring
+Introduction to Spring - Spring Architecture - Dependency Injection - Aspect Oriented Programming -
+ Model View SmartLoginAuth Framework - Inversion of Control Framework - Aspect Oriented Programming 
+ Framework - Data Access Framework - Transaction Management Framework - Remote Access Framework
+
+AJAX
+Introduction to AJAX - Requirements - AJAX states - Properties - Methods - Programs - JSP 
+with AJAX - DB with AJAX - XML with AJAX - Using the XMLHttpRequest Object - Sprinkle some 
+AJAX magic in your Web Application!! 

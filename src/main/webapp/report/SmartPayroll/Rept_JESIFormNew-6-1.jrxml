@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rept_JESIFormNew-6-1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<parameter name="companyname" class="java.lang.String"/>
+	<parameter name="street" class="java.lang.String"/>
+	<parameter name="city" class="java.lang.String"/>
+	<parameter name="pincode" class="java.lang.String"/>
+	<parameter name="monFrom" class="java.lang.String"/>
+	<parameter name="monTo" class="java.lang.String"/>
+	<parameter name="yr" class="java.lang.String"/>
+	<parameter name="byr" class="java.lang.String"/>
+	<parameter name="emp_share" class="java.lang.String"/>
+	<parameter name="employer_share" class="java.lang.String"/>
+	<parameter name="tot" class="java.lang.String"/>
+	<parameter name="emp_contri_month1" class="java.lang.String"/>
+	<parameter name="employer_contri_month1" class="java.lang.String"/>
+	<parameter name="tot_contri_month1" class="java.lang.String"/>
+	<parameter name="emp_contri_month2" class="java.lang.String"/>
+	<parameter name="emp_contri_month3" class="java.lang.String"/>
+	<parameter name="emp_contri_month4" class="java.lang.String"/>
+	<parameter name="emp_contri_month5" class="java.lang.String"/>
+	<parameter name="emp_contri_month6" class="java.lang.String"/>
+	<parameter name="employer_contri_month2" class="java.lang.String"/>
+	<parameter name="employer_contri_month3" class="java.lang.String"/>
+	<parameter name="employer_contri_month4" class="java.lang.String"/>
+	<parameter name="employer_contri_month5" class="java.lang.String"/>
+	<parameter name="employer_contri_month6" class="java.lang.String"/>
+	<parameter name="tot_contri_month2" class="java.lang.String"/>
+	<parameter name="tot_contri_month3" class="java.lang.String"/>
+	<parameter name="tot_contri_month4" class="java.lang.String"/>
+	<parameter name="tot_contri_month5" class="java.lang.String"/>
+	<parameter name="tot_contri_month6" class="java.lang.String"/>
+	<parameter name="tot_employer_contri" class="java.lang.String"/>
+	<parameter name="tot_emp_contri" class="java.lang.String"/>
+	<parameter name="tot_contri" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT CHR_EMPID FROM com_m_staff where CHR_EMPID='ADMIN']]>
+	</queryString>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="793" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="17" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORM 6-1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="555" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Return Of Contrubutions
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="55" width="555" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Regulation - 26 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="108" width="555" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[(Return of Contribution)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="94" width="555" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[EMPLOYEES' STATE INSURANCE CORPORATION
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="122" width="555" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[(See Regulation 26 of the Employees' State Insurance (General) Regulations, 1950) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="29" width="555" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[In Quadruplicate
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="73" width="133" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Name of the Local Office : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="73" width="100" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Employers Code : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="42" width="555" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Employees State Insurance Corporation
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="242" y="153" width="313" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{street}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="140" width="313" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{companyname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="166" width="313" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{city}+"-"+$P{pincode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="140" width="242" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Name and address of the factory or establishment : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="157" y="225" width="32" height="13"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{monTo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="212" width="152" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[ADDRESS: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="183" width="555" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<text><![CDATA[PARTICULARS OF PARINCIPAL EMPLOYER
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="225" width="32" height="13"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{monFrom}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="225" width="75" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Period - From : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="189" y="225" width="31" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{yr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="199" width="152" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[NAME & DESIGNATION :
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="225" width="20" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[ To ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="112" y="225" width="25" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{byr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="243" width="550" height="85"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[I furnish below the details of employer’s and employees' share of contributions in respect of the under mentoined insured persons. I hereby declare that the return includes each & every employee, employed directly or through an immediate employer or in connection with the work of the factory/establishment or any work connected with the administration of the factory/establishment or purchase of raw materials, sale or distribution of finished products etc, to whom the ESI Act, 1948 applies, in the contribution period to which this return relates and that the contributions in respect of Employer's and Employee's share have been correctly paid in accordance with the provisions of the Act and Regulation.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="245" y="363" width="100" height="13"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Rs. "+$P{tot}+"/-"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="142" y="330" width="100" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Employees Share
+]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="246" y="330" width="100" height="13" isRemoveLineWhenBlank="true"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Rs. "+$P{emp_share}+"/-"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="142" y="347" width="100" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Employers Share
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="142" y="363" width="100" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Total Contribution ]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="244" y="347" width="100" height="13"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Rs. "+$P{employer_share}+"/-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="432" width="157" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{emp_contri_month4}.equals(null)?"0":$P{emp_contri_month4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="62" y="380" width="100" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Challan Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="419" width="52" height="13"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="419" width="100" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="406" width="100" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="445" width="100" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="319" y="393" width="116" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{employer_contri_month1}.equals(null)?"0":$P{employer_contri_month1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="458" width="52" height="13"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[6.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="380" width="116" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Employer Contribution ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="393" width="52" height="13"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="319" y="406" width="116" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{employer_contri_month2}.equals(null)?"0":$P{employer_contri_month2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="458" width="157" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{emp_contri_month6}.equals(null)?"0":$P{emp_contri_month6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="393" width="100" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tot_contri_month1}.equals(null)?"0":$P{tot_contri_month1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="406" width="100" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tot_contri_month2}.equals(null)?"0":$P{tot_contri_month2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="432" width="52" height="13"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="162" y="445" width="157" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{emp_contri_month5}.equals(null)?"0":$P{emp_contri_month5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="458" width="116" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{employer_contri_month6}.equals(null)?"0":$P{employer_contri_month6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="432" width="116" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{employer_contri_month4}.equals(null)?"0":$P{employer_contri_month4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="445" width="116" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{employer_contri_month5}.equals(null)?"0":$P{employer_contri_month5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="419" width="116" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{employer_contri_month3}.equals(null)?"0":$P{employer_contri_month3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="62" y="458" width="100" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="380" width="157" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Employee Contribution ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="435" y="432" width="100" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tot_contri_month4}.equals(null)?"0":$P{tot_contri_month4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="406" width="157" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{emp_contri_month2}.equals(null)?"0":$P{emp_contri_month2})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="458" width="100" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tot_contri_month6}.equals(null)?"0":$P{tot_contri_month6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="393" width="157" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{emp_contri_month1}.equals(null)?"0":$P{emp_contri_month1})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="419" width="157" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{emp_contri_month3}.equals(null)?"0":$P{emp_contri_month3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="62" y="432" width="100" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="406" width="52" height="13"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="393" width="100" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="435" y="445" width="100" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tot_contri_month5}.equals(null)?"0":$P{tot_contri_month5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="419" width="100" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tot_contri_month3}.equals(null)?"0":$P{tot_contri_month3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="380" width="52" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Sl No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="445" width="52" height="13"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="380" width="100" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Total Contribution ]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="435" y="471" width="100" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tot_contri}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="319" y="471" width="116" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tot_employer_contri}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="162" y="471" width="157" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tot_emp_contri}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="385" y="485" width="51" height="13"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Total : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="471" width="152" height="13"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Total Contribution ]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="436" y="485" width="100" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tot_contri}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="632" width="555" height="27"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[(h) During the period No. of employees directly employed by us have not been coverd and a total wages of Rs. /- have been paid to such employees.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="528" width="555" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[(a) All the Records and Registers have been maintained as per provisions contained in ESI Act, Rules & Regulations framed therein.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="659" width="555" height="27"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[(i) During the period ....................... No. of employees employed through immediate employer have been covered and a total wages of Rs. /- have been paid to such employees.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="765" width="185" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[5. GRADE
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="739" width="185" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[3. CON
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="580" width="555" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[(e) During the above period No. of PICS have been distributed amongst the eligible IPs.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="541" width="555" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[(b) During the period of return No. of Declaration forms have been submitted.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="593" width="555" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[(f) During the above period ....................... accidents have been reported to the concerned Branch Office.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="752" width="185" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[4. SPL ALL
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="713" width="185" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[1. BASIC
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="606" width="555" height="26"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[(g) During the period 44 No. of employees directly employed by us have been covered and a total wages of Rs. /- have been paid to such employees.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="567" width="555" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[(d) During the above period ....................... No. of PICs have been recevied.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="554" width="555" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[(c) During the above mperiod No. of TICs have been received.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="726" width="185" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[2. HRA
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="510" width="555" height="13"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[I declare that
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="686" width="555" height="27"/>
+				<textElement>
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[(j) During the period ....................... No. of employees employed through immediate employer have not been covered and a total wages of Rs. /- have been paid to such employees.
+]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="6" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,2439 @@
+
+body {
+	padding:0px;
+	border:0px;
+	background-color: #FFFFFF;
+}
+
+* { margin:0px;padding:0px;top:0px;left:0px;}
+
+ul, li, div {
+	list-style: none;
+}
+
+
+img { border:none;}
+
+.Logo {
+	 width:200px;
+	 height:50px;
+	 background:url(../images/logo.gif) repeat-x left 15px;
+}
+
+
+.TopNav {
+	width:250px;
+	font:normal 11px Verdana, Arial, Helvetica, sans-serif;
+	color:#7d7d7d;
+	text-align:right;
+	padding-right:20px;
+}
+
+.TopNav  a:link, .TopNav a:active, .TopNav a:visited {
+	color:#7d7d7d;
+	text-decoration:underline;
+}
+
+.TopNav a:hover {
+	color:#7d7d7d;
+	text-decoration:none;
+}
+
+.PrimaryNav {
+	height:33px;
+	background:url(../images/primary_nav_pix.gif) repeat-x left top;
+	text-align:right;
+}
+
+
+.PrimaryNav ul {
+	display:block;
+}
+
+.PrimaryNav ul li {
+	font:bold 12px Verdana, Arial, Helvetica, sans-serif;
+	color:#f2f2f2;
+	padding:0px 15px 0px 15px;
+	display:inline;
+	background:url(../images/pri_nav_seperator.gif) no-repeat left top;
+	line-height:33px;
+}
+
+.PrimaryNav ul li  a:link {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+.PrimaryNav ul li a:active {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+.PrimaryNav ul li a:visited  {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+.PrimaryNav ul li a:hover {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+.SearchBox {
+	width:100%;
+	height:153px;
+	background:url(../images/search_box_bg.gif) repeat-x left top;
+	vertical-align:top;
+	margin-top:1px;
+}
+.SearchBoxheader {
+	width:100%;
+	height:40px;
+	background:url(../images/search_box_bg.gif) repeat-x left top;
+	vertical-align:top;
+	margin-top:1px;
+}
+
+.Secnav {
+	height:23px;
+	text-align:right;
+	border-bottom:#ffffff 1px solid;
+}
+
+.Secnav ul {
+	display:block;
+	padding-right:10px;
+}
+
+.Secnav ul li {
+	font:normal 11px Verdana, Arial, Helvetica, sans-serif;
+	color:#f2f2f2;
+	padding:0px 5px 0px 5px;
+	display:inline;
+}
+
+
+.Secnav ul li  a:link {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+.Secnav ul li  a:active {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+.Secnav ul li  a:visited {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+.Secnav ul li  a:hover {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+
+.Secnavleft {
+	height:23px;
+	text-align:left;
+	border-bottom:#ffffff 1px solid;
+}
+
+
+
+.Secnavleft ul {
+	display:block;
+	padding-right:10px;
+}
+
+.Secnavleft ul li {
+	font:normal 11px Verdana, Arial, Helvetica, sans-serif;
+	color:#f2f2f2;
+	padding:0px 5px 0px 5px;
+	display:inline;
+}
+
+
+.Secnavleft ul li  a:link {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+.Secnav ul li  a:active {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+.Secnavleft ul li  a:visited {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+.Secnavleft ul li  a:hover {
+	color:#f2f2f2;
+	text-decoration:none;
+}
+
+
+/* SearchTable Starts */
+table#SearchTable {
+	width:95%;
+	/*padding:5px;*/
+}
+
+
+table#AdvSearchTable {
+	width:100%;
+	/*padding:5px;*/
+}
+
+
+table#SearchTable td {
+	text-align:left;
+	font:normal 11px Verdana, Arial, Helvetica, sans-serif;
+	color:#f2f2f2;
+	height:30px;
+}
+
+table#SearchTable td span{
+	font:bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color:#efdb00;
+}
+
+table#SearchTable select {
+	font:normal 11px Verdana, Arial, Helvetica, sans-serif;
+	color:#000000
+}
+
+
+.BodyTable {
+	width:100%;
+	height:auto;
+	margin:5px 0px 5px 0px;
+}
+
+.AdminBodyTable {
+	width:100%;
+	height:460;
+	margin:5px 0px 5px 0px;
+}
+.LeftPanel {
+	 width:200px;
+	 height:auto;
+	 vertical-align:top;
+	 padding:0px 10px 0px 10px;
+	 border-right:#910000 1px dotted;
+}
+
+.UserLeftPanel {
+	 width:200px;
+	 height:460;
+	 vertical-align:top;
+	 padding:0px 10px 0px 10px;
+	 border-right:#910000 1px dotted;
+	 
+} 
+.MiddlePanel {
+	 height:auto;
+ 	 vertical-align:top;
+	 padding:0px 10px 0px 10px;
+}
+
+.RightPanel {
+	 width:100px;
+	 height:auto;
+ 	 vertical-align:top;
+	 padding:0px 10px 0px 10px;
+	 border-left:#910000 1px dotted;
+}
+
+.SearchRightPanel {
+	 width:100px;
+	 height:auto;
+ 	 vertical-align:top;
+	 padding:0px 10px 0px 10px;
+	 border-left:#910000 1px dotted;
+}
+
+
+.UserRightPanel {
+	 width:10px;
+	 height:auto;
+ 	 vertical-align:top;
+	 padding:0px 10px 0px 10px;
+	 border-left:#910000 1px dotted;
+}
+
+
+.MemberMiddlePanel {
+	 width:600px;
+ 	 vertical-align:top;
+	 padding:0px 10px 0px 10px;
+}
+.MemberRightPanel {
+	 width:100px;
+	 height:auto;
+ 	 vertical-align:top;
+	 padding:0px 10px 0px 10px;
+	 border-left:#910000 1px dotted;
+}
+
+.BodyTable h1 {
+	font:bold 12px Verdana, Arial, Helvetica, sans-serif;
+	color:#6a6a6a;
+	border-bottom:#8b8881 1px dotted;
+	padding:5px 0px 3px 0px;
+	margin-bottom:3px;
+}
+
+.BodyTable h1 span {
+	font:bold 13px Verdana, Arial, Helvetica, sans-serif;
+	color:#a50000;
+	border-bottom:#8b8881 1px dotted;
+	padding:5px 0px 3px 0px;
+	margin-bottom:3px;
+
+}
+
+.BodyTable p {
+	font:normal 11px Verdana, Arial, Helvetica, sans-serif;
+	color:#6a6a6a;
+	text-align:justify;
+	padding:5px 0px 5px 0px;
+}
+
+.BodyTable p img {
+	margin-right:5px;
+	border:#212121  1px solid;
+	float:left;
+}
+
+.BodyTable h2 {
+	font:bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color:#940000;
+	margin-top:10px;
+}
+
+.BodyTable h2 a:link, a:active, a:visited, a:hover {
+	color:#940000;
+	text-decoration:underline;
+}
+
+
+/*Login Table */
+table#LoginTable  {
+	padding:10px 20px 10px 20px;
+	background-color:#ffe5e5;
+	border:#c70000 1px  solid;
+	margin:30px 0px 30px 0px;
+	margin-left:25%;
+}
+table#LoginTable1  {
+	padding:10px 20px 10px 20px;
+	background-color:#ffe5e5;
+	border:#c70000 1px  solid;
+	margin:1px 0px 1px 0px;
+	margin-left:5%;
+}
+
+
+table#CommonsettingTable  {
+	
+	background-color:#BBD7ED;
+	border:#c70000 1px  solid;
+	margin:30px 10px 30px 10px;
+	
+}
+
+table#SignupTable  {
+	padding:10px 10px 10px 10px;
+	background-color:#ffe5e5;
+	border:#c70000 1px  solid;
+	
+	
+}
+
+table#LoginTable td {
+	text-align:left;
+	font:normal 11px Verdana, Arial, Helvetica, sans-serif;
+	color:#232323;
+	height:30px;
+	padding:5px;
+}
+
+table#FLoginTable  {
+	background-color:#ffe5e5;
+	border:#c70000 1px  solid;
+	
+}
+
+table#FLoginTable td {
+	text-align:left;
+	font:normal 11px Verdana, Arial, Helvetica, sans-serif;
+	color:#232323;
+	height:30px;
+	
+}
+
+/* Footer Starts */
+
+.Footer {
+	height:33px;
+	background:url(../images/primary_nav_pix.gif) repeat-x left top;
+	text-align:left;
+	font:normal 10px Verdana, Arial, Helvetica, sans-serif;
+	color:#f2f2f2;
+	line-height:33px;
+	text-indent:10px;
+}
+
+/*submit button*/
+.submitButton{
+background:url(../images/submit-upper.gif);
+width:70px;
+}
+
+
+/*    */
+TEXTAREA {
+	FONT: 12px verdana, geneva, lucida, 'lucida grande', arial, helvetica,
+		sans-serif
+}
+
+
+
+.MRow1 {
+	BACKGROUND-COLOR: #FFFFFF;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	COLOR: #000000;
+	LINE-HEIGHT: 15px;
+	FONT-FAMILY: Verdana;
+	TEXT-DECORATION: none;
+}
+
+.MRow2 {
+	BACKGROUND-COLOR: #EEFFEE;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	COLOR: #000000;
+	LINE-HEIGHT: 15px;
+	FONT-FAMILY: Verdana;
+	TEXT-DECORATION: none;
+}
+.MRow3 {
+	BACKGROUND-COLOR: #FFEFD5;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	COLOR: #000000;
+	LINE-HEIGHT: 15px;
+	FONT-FAMILY: Verdana;
+	TEXT-DECORATION: none;
+}
+
+.MRow4 {
+	BACKGROUND-COLOR: #FFDAB9;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	COLOR: #000000;
+	LINE-HEIGHT: 15px;
+	FONT-FAMILY: Verdana;
+	TEXT-DECORATION: none;
+}
+
+
+.para {
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.para1 {
+	FONT-SIZE: 12px;
+	COLOR: #ffffff;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+
+.para2 {
+	FONT-SIZE: 10px;
+	COLOR: #999999;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.paramenu {
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+
+
+.paraserialcontent {
+	FONT-SIZE: 9px;
+	COLOR: #0099ff;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+
+.paraserialcontentbold {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 9px;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+
+.norapline {
+	BACKGROUND-IMAGE: url(images/corner_6.gif);
+	BACKGROUND-REPEAT: repeat-y
+}
+
+.noraplineright {
+	BACKGROUND-POSITION: right 50%;
+	BACKGROUND-IMAGE: url(images/corner_5.gif);
+	BACKGROUND-REPEAT: repeat-y
+}
+
+.noraplinetop {
+	BACKGROUND-IMAGE: url(images/corner_8.gif);
+	BACKGROUND-REPEAT: repeat-x
+}
+
+.noraplinebottom {
+	BACKGROUND-IMAGE: url(images/corner_7.gif);
+	BACKGROUND-REPEAT: repeat-x
+}
+
+.spc {
+	COLOR: #ff0000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-DECORATION: none
+}
+
+.bold {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #008cea;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.bolddik {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12px;
+	COLOR: #615e86;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.boldgre {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.bolddeepblue {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify;
+	COLOR: #000000;
+}
+
+.bolddeeplogin {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10px;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify;
+	COLOR: #000000;
+}
+
+.bolddeepgreen {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #003300;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.bolddeepred {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #ff0042;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.bold1 {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #ffffff;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.boldornge {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #ff8000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.boldthik {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 16px;
+	COLOR: #ff6500;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.boldthikass {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 13px;
+	COLOR: #0298fe;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.nomornge {
+	FONT-SIZE: 24px;
+	COLOR: #ff8000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.boldwhite {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #ffffff;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+.boldEleven {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	COLOR: #000000;
+	LINE-HEIGHT: 15px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, Sans-Serif;
+	TEXT-DECORATION: none
+}
+.boldElevenPrint {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 8px;
+	COLOR: #000000;
+	LINE-HEIGHT: 15px;
+	FONT-WEIGHT: bold;
+	FONT-FAMILY: Verdana, Arial, Helvetica, Sans-Serif;
+	TEXT-DECORATION: none
+}
+
+
+.Report {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 8px;
+	COLOR: #000000;
+	LINE-HEIGHT: 15px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, Sans-Serif;
+	TEXT-DECORATION: none
+}
+.boldgreen {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	COLOR: #0000FF;
+	LINE-HEIGHT: 15px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, Sans-Serif;
+	TEXT-DECORATION: none
+}
+
+.boldred {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	COLOR: #FF0000;
+	LINE-HEIGHT: 15px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, Sans-Serif;
+	TEXT-DECORATION: none
+}
+
+.formText135 {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana, Arial, Helvetica, Sans-Serif;
+	TEXT-DECORATION: none
+}
+
+.boldThirteen {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 13px
+}
+
+.changePos {
+	FONT-SIZE: 11px;
+	COLOR: #096
+}
+
+.redcol {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	COLOR: #336699;
+	FONT-STYLE: normal;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+
+.BorderLine {
+	BACKGROUND-COLOR: #336699
+}
+
+.BorderLine3 {
+	background-color: #663366
+}
+
+.sbarclr {
+	color: #003399
+}
+
+.smallfont {
+	FONT: 10px verdana, geneva, lucida, 'lucida grande', arial, helvetica,
+		sans-serif
+}
+.emitext {
+	FONT-SIZE: 12px; COLOR: #f58220; HEIGHT: 10px
+}
+.hrefblacktext {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefblacktext:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefblacktext:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.buyerleadbutton {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; WIDTH: 100px; COLOR: #ffffff; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 23px; TEXT-ALIGN: center
+}
+.dbuyerleadbutton {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; WIDTH: 100px; COLOR: #ffffff; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 23px; TEXT-ALIGN: center
+}
+.buyerleadbutton_captured {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; WIDTH: 100px; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 23px; TEXT-ALIGN: center
+}
+.staticorangehb {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; BORDER-LEFT: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; BACKGROUND-COLOR: #f4fafd
+}
+.staticorangetb {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3398cc 3px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.orangebordertable {
+	BORDER-RIGHT: #fed28b 1px solid; BORDER-TOP: #fed28b 1px solid; BORDER-LEFT: #fed28b 1px solid; BORDER-BOTTOM: #fed28b 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.maintable {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 3px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bluebordertable {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3398cc 1px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid
+}
+
+.tablefill1 {
+	BACKGROUND: #DEE7EF
+}
+
+.tablefill2 {
+	BACKGROUND: #F7F7ff
+}
+
+.blackbordertable {
+	BORDER-RIGHT: #333333 1px solid; BORDER-TOP: #333333 1px solid; BORDER-LEFT: #333333 1px solid; BORDER-BOTTOM: #333333 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.maintabletopnone {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: 0px; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.maintablebottomnone {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; BORDER-LEFT: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.greytable {
+	BORDER-RIGHT: #f2f2f2 1px solid; BORDER-TOP: #f2f2f2 1px solid; BORDER-LEFT: #f2f2f2 1px solid; BORDER-BOTTOM: #f2f2f2 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.thickbordertable {
+	BORDER-RIGHT: #3399cc 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 6px; BORDER-LEFT: #3399cc 1px solid; PADDING-TOP: 6px; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; BACKGROUND-COLOR: #fbfbfb; TEXT-ALIGN: justify
+}
+.topdisable-maintable {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.linespace {
+	LINE-HEIGHT: 15px; HEIGHT: 15px
+}
+.smalllinespace {
+	LINE-HEIGHT: 10px; HEIGHT: 10px
+}
+.thickgrayline {
+	LINE-HEIGHT: 1px; BACKGROUND-COLOR: #ddbe25
+}
+.penline {
+	LINE-HEIGHT: 1px; BACKGROUND-COLOR: #f2f2f2
+}
+.penlinedark {
+	LINE-HEIGHT: 2px; BACKGROUND-COLOR: #f2f2f2
+}
+.thickorangeline {
+	LINE-HEIGHT: 1px; BACKGROUND-COLOR: #ffebc9
+}
+.thickblueline {
+	LINE-HEIGHT: 1px; BACKGROUND-COLOR: #bfe8ff
+}
+.thickblackline {
+	LINE-HEIGHT: 1px; HEIGHT: 1px; BACKGROUND-COLOR: #000000
+}
+.thinblackline {
+	LINE-HEIGHT: 1px; HEIGHT: 1px; BACKGROUND-COLOR: #000000
+}
+.index-seperator {
+	HEIGHT: 8px; BACKGROUND-COLOR: #fbf3cf
+}
+.thickwhiteline {
+	LINE-HEIGHT: 1px; BACKGROUND-COLOR: #ffffff
+}
+.hr {
+	COLOR: #3399cc; LINE-HEIGHT: 1px
+}
+.strip {
+	BORDER-TOP: #bfe8ff 4px solid; LINE-HEIGHT: 30px; HEIGHT: 26px; BACKGROUND-COLOR: #d4ebfa
+}
+.noheightstrip {
+	BORDER-TOP: #bfe8ff 4px solid; HEIGHT: 22px; BACKGROUND-COLOR: #d4ebfa
+}
+.greenstrip {
+	BORDER-TOP: #66993d 4px solid; LINE-HEIGHT: 3px; HEIGHT: 2px; BACKGROUND-COLOR: #fff9b0
+}
+.mobilestrip {
+	BORDER-TOP: #bfe8ff 4px solid; LINE-HEIGHT: 30px; HEIGHT: 26px; BACKGROUND-COLOR: #2db0d4
+}
+.toplinks {
+	FONT-SIZE: 11px; COLOR: #0c80af; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.toplinks A {
+	FONT-SIZE: 11px; COLOR: #0c80af; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.toplinks A:hover {
+	FONT-SIZE: 11px; COLOR: #ff7701; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.boldtext {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.newsboldtext {
+	FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: #000000; FONT-FAMILY: arial
+}
+.newsboldtextbig {
+	FONT-WEIGHT: normal; FONT-SIZE: 20px; COLOR: #000000; FONT-FAMILY: verdana
+}
+.boldtextwhite {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.normaltextwhite {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.boldbigtextwhite {
+	FONT-WEIGHT: normal; FONT-SIZE: 25px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.boldtextwhiteroyal {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #9ffd09; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.boldlinewhiteroyal {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #07c1f4; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.msboldtextwhite {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.msboldtext {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.boldtextvardana {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 20px; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.blockhead {
+	PADDING-LEFT: 5px; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.paddingleft5 {
+	PADDING-LEFT: 5px
+}
+.paddingleft10 {
+	PADDING-LEFT: 10px
+}
+.paddingleft15 {
+	PADDING-LEFT: 15px
+}
+.paddingleft20 {
+	PADDING-LEFT: 20px
+}
+.paddingleft30 {
+	PADDING-LEFT: 30px
+}
+.paddingleft40 {
+	PADDING-LEFT: 40px
+}
+.paddingleft50 {
+	PADDING-LEFT: 50px
+}
+.paddingleft100 {
+	PADDING-LEFT: 100px
+}
+.paddingleft150 {
+	PADDING-LEFT: 150px
+}
+.paddingleft125 {
+	PADDING-LEFT: 125px
+}
+.bigtest {
+	PADDING-LEFT: 10px; FONT-SIZE: 11px
+}
+.headingtext {
+	FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.pageheading {
+	FONT-WEIGHT: bold; FONT-SIZE: 17px; COLOR: #f58220; LINE-HEIGHT: 10px; PADDING-TOP: 5px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 10px
+}
+.bredcrums {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.bredcrums:hover {
+	FONT-SIZE: 11px; COLOR: #ff7701; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.bredcrumshead {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 11px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px; TEXT-DECORATION: none
+}
+.bredcrumshead:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 11px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px; TEXT-DECORATION: underline
+}
+.detaillink {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.detaillink:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #ff7701; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.detaillink:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+H1 {
+	MARGIN-TOP: 0.25em; FONT-WEIGHT: normal; FONT-SIZE: 11px; MARGIN-BOTTOM: 0.5em; COLOR: #f58220; LINE-HEIGHT: 5px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+H2 {
+	DISPLAY: inline; FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #f58220; PADDING-TOP: 5px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.pagesubheadorange {
+	FONT-WEIGHT: bold; FONT-SIZE: 13px; COLOR: #f58220; PADDING-TOP: 5px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.pagesubheadorangebold {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #c68602; PADDING-TOP: 5px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.pagesubheadblueebold {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #2f2e88; PADDING-TOP: 5px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.divmsgbold {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #f58220; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-ALIGN: justify; TEXT-DECORATION: underline
+}
+.divmsg {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-ALIGN: justify
+}
+.pageheading2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+
+.boldtextbackgroundactive-search {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; BACKGROUND-COLOR: #67a80e
+}
+.boldtextbackgroundactive_listing_your_property {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; BACKGROUND-COLOR: #bbcfdf
+}
+.boldtextbackgroundactive_advertising {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; BACKGROUND-COLOR: #f57dc4
+}
+.boldtextbackgroundactive {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; BACKGROUND-COLOR: #ddbe25
+}
+.boldtextbackgroundinactive {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; BACKGROUND-COLOR: #f2da60
+}
+.td {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: black 1px solid; PADDING-LEFT: 2px; BACKGROUND: #9acb34; PADDING-BOTTOM: 2px; BORDER-LEFT: black 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.lineheight {
+	LINE-HEIGHT: 2px
+}
+.lineheight5 {
+	LINE-HEIGHT: 5px
+}
+.lineheight50 {
+	LINE-HEIGHT: 50px
+}
+.lineheight100 {
+	LINE-HEIGHT: 100px
+}
+.mediumlineheight {
+	LINE-HEIGHT: 6px
+}
+.lineheightgray {
+	LINE-HEIGHT: 1px; BACKGROUND-COLOR: #e8e8e8
+}
+.smallesttextbox {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 50px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.smallesttextbox2 {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 59px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.disabled {
+	BACKGROUND: #e8e8e8
+}
+.textarea {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.verysmallesttextbox {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 35px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.smalltextbox {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #3399cc 1px solid; WIDTH: 70px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; BACKGROUND-COLOR: #ffffff
+}
+.phonetextbox {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 100px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.smstextbox {
+	BORDER-RIGHT: #6f6f6f 1px solid; BORDER-TOP: #6f6f6f 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #6f6f6f 1px solid; WIDTH: 100px; COLOR: #333333; BORDER-BOTTOM: #6f6f6f 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textbox {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 150px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textboxmailer {
+	BORDER-RIGHT: #c9c9c2 1px solid; BORDER-TOP: #c9c9c2 1px solid; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #c9c9c2 1px solid; WIDTH: 150px; COLOR: #c9c9c2; BORDER-BOTTOM: #c9c9c2 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.propertytext {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 150px; COLOR: #2dafd3; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textsmallbox {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 150px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.phonesmalltextbox {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 100px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.mediumtextbox {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 11px; BORDER-LEFT: #3399cc 1px solid; WIDTH: 175px; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; BACKGROUND-COLOR: #ffffff
+}
+.fulltextbox {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 250px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.smallestdropdown {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 50px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.verysmallestdropdown {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 47px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.somemoresmalldropdown {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 100px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.smalldropdown {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 70px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bigfromsmalldropdown {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 110px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.smallmediumdropdown {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 135px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.dropdownwidth175 {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; Z-INDEX: 5; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 175px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.dropdown {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; Z-INDEX: -1000; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 150px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.mediumdropdown {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; Z-INDEX: -1000; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 200px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.fulldropdown {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; Z-INDEX: -1000; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; WIDTH: 250px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textarea {
+	BORDER-RIGHT: #d0d0dd 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #d0d0dd 1px solid; PADDING-LEFT: 3px; FONT-SIZE: 11px; BACKGROUND: #ffffff; PADDING-BOTTOM: 3px; OVERFLOW: auto; BORDER-LEFT: #d0d0dd 1px solid; WIDTH: 250px; COLOR: #333333; PADDING-TOP: 3px; BORDER-BOTTOM: #d0d0dd 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 270px
+}
+.textsmall {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textsmallnopad {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.text {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textwithoutpadding {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textbluefill {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #3399cc; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 25px
+}
+.textpinkfill {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #ff9ac6; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 25px
+}
+.textorangefill {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #f6c472; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 25px
+}
+.textgray {
+	PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #6f6f6f; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textgraybig {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #6f6f6f; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textblack13 {
+	PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textblack18 {
+	PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 18px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textwhite20 {
+	PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 18px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textpink18 {
+	PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 18px; COLOR: #eb4961; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textsms {
+	PADDING-LEFT: 0px; FONT-SIZE: 10px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textmobile {
+	PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #9dc937; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textmstemplate {
+	PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #239cc9; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.protext {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #6f6f6f; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.mlistingtext {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 13px; COLOR: #2eb3dc; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.propertydetailstext {
+	PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #198baf; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.app-download {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: #5fb0c2; FONT-FAMILY: Zurich BT
+}
+.text-teaser {
+	PADDING-LEFT: 5px; FONT-SIZE: 14px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textheadersearchsmall {
+	FONT-SIZE: 11px; FONT-FAMILY: Zurich BT
+}
+.text:hover {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.leftpanelheading {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #900000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman
+}
+.formtext {
+	PADDING-LEFT: 5px; FONT-SIZE: 14px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman
+}
+.texthome {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; COLOR: #333333; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman
+}
+.textnopad {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman
+}
+.rightleftpadding {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px
+}
+.alreadyreg {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman; TEXT-DECORATION: none
+}
+.textwhite {
+	PADDING-LEFT: 5px; FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman
+}
+.textwhitebig {
+	PADDING-LEFT: 5px; FONT-SIZE: 18px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textwhitenopad {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textorange {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; COLOR: #ae921e; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textbrown {
+	FONT-SIZE: 14px; COLOR: #ab9122; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textbigblack {
+	FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.columnhead {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.columnheadsearchresults {
+	PADDING-LEFT: 8px; FONT-WEIGHT: bold; FONT-SIZE: 13px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.columnheadgreen {
+	PADDING-LEFT: 8px; FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #008000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.headtext {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textwhite {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.smalltext {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.footertext {
+	FONT-SIZE: 10px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.texterror {
+	FONT: 11px normal ms sans serif, arial, verdana, Times new roman; COLOR: red
+}
+.texterrorverd {
+	FONT-SIZE: 11px; COLOR: red; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman
+}
+.texterrorbig {
+	FONT: 11px normal ms sans serif, arial, verdana, Times new roman; COLOR: red
+}
+.texterror2 {
+	FONT: 12px verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; COLOR: #000000
+}
+.reg_form {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px
+}
+.textbold {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bottumcopyright {
+	FONT-SIZE: 10px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.hrefheadersmall {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefheadersmall:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #ff7701; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.expandlink {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.expandlink:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.expandlink:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefheadersmall:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefheaderunderline {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefheaderunderline:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #ff7701; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefheaderunderline:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.normaltext {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bannernormaltext {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.hreftemplate {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefmstemplate {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #ffffff; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hreftemplate:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefheader {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefheader:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefheader:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #ff7701; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefleftpanel {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefleftpanel:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefhighlight {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BACKGROUND: #f7d18c; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefhighlight:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BACKGROUND: #f6cf98; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefheaderbig {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefheaderbig:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #ff7701; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefheaderbig:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0c80af; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.href {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #6d6d6d; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.href:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.href:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #6d6d6d; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefblack {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefblack:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #333333; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefblack:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefblacklisting {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefblacklisting:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: 0px; COLOR: #333333; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefwhite {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefwhite:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #ffffff; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefwhite:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefwhitebig {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 15px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefwhitebig:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 15px; BORDER-LEFT: 0px; COLOR: #ffffff; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefwhitebig:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 15px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefwhiteheader {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefwhiteheader:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #900000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefwhiteheader:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.hrefwhite2 {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #ffffff; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.font13 {
+	FONT-SIZE: 11px
+}
+.font13:hover {
+	FONT-SIZE: 11px
+}
+.hrefwhite2:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.hrefwhite2:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #ffffff; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.a {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.a:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #ffffff; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.a:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.bottomlinks {
+	FONT-SIZE: 11px; COLOR: #b7b7b7; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.bottomlinks:hover {
+	FONT-SIZE: 11px; COLOR: #b7b7b7; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.bottomlinks:visited {
+	FONT-SIZE: 11px; COLOR: #b7b7b7; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.checkbox {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid
+}
+.advertising {
+	BACKGROUND-IMAGE: url(http://img.makaan.com/images/ad-sample.gif); BACKGROUND-REPEAT: no-repeat
+}
+.advertisingagent {
+	BACKGROUND-IMAGE: url(http://img.makaan.com/images/ad-sample-agent.gif); BACKGROUND-REPEAT: no-repeat
+}
+.regbackground {
+	BACKGROUND-POSITION: 100% 56px; BACKGROUND-IMAGE: url(http://img.makaan.com/images/seven-benefits.jpg); BACKGROUND-REPEAT: no-repeat
+}
+.regbackground1 {
+	BACKGROUND-POSITION: 100% 70px; BACKGROUND-IMAGE: url(http://img.makaan.com/images/individual.gif); BACKGROUND-REPEAT: no-repeat
+}
+.regbackground2 {
+	BACKGROUND-POSITION: 100% 70px; BACKGROUND-IMAGE: url(http://img.makaan.com/images/broker.gif); BACKGROUND-REPEAT: no-repeat
+}
+.regbackground4 {
+	BACKGROUND-POSITION: 100% 70px; BACKGROUND-IMAGE: url(http://img.makaan.com/images/corporate.gif); BACKGROUND-REPEAT: no-repeat
+}
+.regbackground3 {
+	BACKGROUND-POSITION: 100% 70px; BACKGROUND-IMAGE: url(http://img.makaan.com/images/builder.gif); BACKGROUND-REPEAT: no-repeat
+}
+.loginborder {
+	BORDER-RIGHT: #3399cc thin solid; BORDER-TOP: #3399cc thin solid; BORDER-LEFT: #3399cc thin solid; BORDER-BOTTOM: #3399cc thin solid
+}
+.height5 {
+	HEIGHT: 5px
+}
+.height15 {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 15px
+}
+.height23 {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 23px
+}
+.height25 {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 25px
+}
+.height30 {
+	HEIGHT: 30px
+}
+.height40 {
+	HEIGHT: 40px
+}
+.height50 {
+	HEIGHT: 50px
+}
+.height10 {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 10px
+}
+.horizonline {
+	LINE-HEIGHT: 1px; BACKGROUND-COLOR: #ffffff
+}
+.tborder {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid
+}
+.tborderlisting {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid
+}
+.tborderblue {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid
+}
+.tbordertopnone {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: medium none; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid
+}
+.tbordertopleftnone {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: #3399cc 1px solid
+}
+.tborderhome {
+	BORDER-RIGHT: #3399cc 4px solid; BORDER-TOP: #3399cc 4px solid; BORDER-LEFT: #3399cc 4px solid; BORDER-BOTTOM: #3399cc 4px solid
+}
+.paddingtop10 {
+	PADDING-TOP: 10px
+}
+.green {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.white {
+	COLOR: white
+}
+.red {
+	COLOR: red
+}
+.brown {
+	COLOR: #900000
+}
+.blue {
+	COLOR: #165ea1
+}
+.bordertable {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid
+}
+.bordertableonlysides {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px
+}
+.bordertablenoleft {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px; BORDER-LEFT: #3399cc 1px; BORDER-BOTTOM: #3399cc 1px
+}
+.enabledtd {
+	BACKGROUND-COLOR: #ab9122
+}
+.toppaddingbox {
+	PADDING-TOP: 3px
+}
+.cursor {
+	CURSOR: pointer
+}
+DIV#mobiledisplay {
+	OVERFLOW: auto; WIDTH: 147px
+}
+#ajax_tooltipObj {
+	Z-INDEX: 1000000; TEXT-ALIGN: left
+}
+#ajax_tooltipObj DIV {
+	POSITION: relative
+}
+#ajax_tooltipObj .ajax_tooltip_arrow {
+	BACKGROUND-POSITION: left center; Z-INDEX: 1000005; LEFT: 0px; BACKGROUND-IMAGE: url(http://img.makaan.com/images/arrow-tooltip.gif); WIDTH: 20px; BACKGROUND-REPEAT: no-repeat; POSITION: absolute; TOP: 3px; HEIGHT: 60px
+}
+#ajax_tooltipObj .ajax_tooltip_content {
+	BORDER-RIGHT: #3399cc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 5px; Z-INDEX: 1000001; LEFT: 18px; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: middle; OVERFLOW: auto; BORDER-LEFT: #3399cc 1px solid; WIDTH: 160px; PADDING-TOP: 5px; BORDER-BOTTOM: #3399cc 1px solid; POSITION: absolute; TOP: 17px; HEIGHT: auto; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+#ajax_tooltipObj_search .ajax_tooltip_arrow {
+	BACKGROUND-POSITION: left center; Z-INDEX: 1000005; LEFT: 0px; BACKGROUND-IMAGE: url(http://img.makaan.com/images/arrow-tooltip.gif); WIDTH: 20px; BACKGROUND-REPEAT: no-repeat; POSITION: absolute; TOP: 3px; HEIGHT: 60px
+}
+#ajax_tooltipObj_search .ajax_tooltip_content {
+	BORDER-RIGHT: #3399cc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 5px; Z-INDEX: 1000001; LEFT: 18px; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: middle; OVERFLOW: auto; BORDER-LEFT: #3399cc 1px solid; WIDTH: 350px; PADDING-TOP: 5px; BORDER-BOTTOM: #3399cc 1px solid; POSITION: absolute; TOP: 17px; HEIGHT: auto; BACKGROUND-COLOR: #fffbd6; TEXT-ALIGN: center
+}
+.ajax_tooltip_arrow#ajax_tooltipObj_chooselistingpremium {
+	BACKGROUND-POSITION: left center; Z-INDEX: 1000005; LEFT: -250px; BACKGROUND-IMAGE: url(http://img.makaan.com/images/arrow-tooltip-listing.gif); WIDTH: 76px; BACKGROUND-REPEAT: no-repeat; POSITION: absolute; TOP: -34px; HEIGHT: 54px
+}
+#ajax_tooltipObj_chooselistingpremium .ajax_tooltip_content {
+	BORDER-RIGHT: #3399cc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 5px; Z-INDEX: 1000001; LEFT: -400px; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: middle; OVERFLOW: auto; BORDER-LEFT: #3399cc 1px solid; WIDTH: 440px; PADDING-TOP: 5px; BORDER-BOTTOM: #3399cc 1px solid; POSITION: absolute; TOP: 18px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+#ajax_tooltipObj_chooselistingbasic .ajax_tooltip_arrow {
+	BACKGROUND-POSITION: left center; Z-INDEX: 1000005; LEFT: -320px; BACKGROUND-IMAGE: url(http://img.makaan.com/images/arrow-tooltip-listing.gif); WIDTH: 76px; BACKGROUND-REPEAT: no-repeat; POSITION: absolute; TOP: 87px; HEIGHT: 54px
+}
+#ajax_tooltipObj_chooselistingbasic .ajax_tooltip_content {
+	BORDER-RIGHT: #3399cc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 5px; Z-INDEX: 1000001; LEFT: -410px; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: middle; OVERFLOW: auto; BORDER-LEFT: #3399cc 1px solid; WIDTH: 440px; PADDING-TOP: 5px; BORDER-BOTTOM: #3399cc 1px solid; POSITION: absolute; TOP: 140px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.solidbox {
+	FONT-WEIGHT: bold; BACKGROUND: #ffffa4
+}
+.JSWindowTitleStyle {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: arial, verdana, helvetica, sans serif
+}
+.JSWindowContentStyle {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 11px; PADDING-BOTTOM: 5px; COLOR: #000000; PADDING-TOP: 5px; FONT-FAMILY: arial, verdana, helvetica, sans serif
+}
+.select-free {
+	Z-INDEX: 102; OVERFLOW: hidden; POSITION: absolute
+}
+.select-free IFRAME {
+	DISPLAY: block; Z-INDEX: -1; LEFT: 0px; WIDTH: 3000px; POSITION: absolute; TOP: 0px; HEIGHT: 3000px
+}
+.width5 {
+	WIDTH: 5px
+}
+.width10 {
+	WIDTH: 10px
+}
+.width15 {
+	WIDTH: 15px
+}
+.width20 {
+	WIDTH: 20px
+}
+.width30 {
+	WIDTH: 30px
+}
+.width40 {
+	WIDTH: 40px
+}
+.width45 {
+	WIDTH: 45px
+}
+.width50 {
+	WIDTH: 50px
+}
+.width60 {
+	WIDTH: 60px
+}
+.width70 {
+	WIDTH: 70px
+}
+.width80 {
+	WIDTH: 80px
+}
+.width90 {
+	WIDTH: 90px
+}
+.width100 {
+	WIDTH: 100px
+}
+.width105 {
+	WIDTH: 105px
+}
+.width110 {
+	WIDTH: 110px
+}
+.width115 {
+	WIDTH: 115px
+}
+.width120 {
+	WIDTH: 120px
+}
+.width130 {
+	WIDTH: 130px
+}
+.width135 {
+	WIDTH: 135px
+}
+.width140 {
+	WIDTH: 140px
+}
+.width143 {
+	WIDTH: 143px
+}
+.width150 {
+	WIDTH: 150px
+}
+.width155 {
+	WIDTH: 155px
+}
+.width160 {
+	WIDTH: 160px
+}
+.width170 {
+	WIDTH: 170px
+}
+.width200 {
+	WIDTH: 200px
+}
+.width250 {
+	WIDTH: 250px
+}
+.width260 {
+	WIDTH: 260px
+}
+.font11px {
+	FONT-SIZE: 11px
+}
+.font11px {
+	FONT-SIZE: 11px
+}
+#uploadFrame {
+	BACKGROUND: #ccff66
+}
+.bannertitlebold {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #165ea1; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.texttitlebold {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #165ea1; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bannertitle {
+	FONT-SIZE: 10px; COLOR: #165ea1; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bannercontent {
+	FONT-SIZE: 10px; COLOR: #999999; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bannercontentbold {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.texttitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #3366ff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textcontent {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bannerwidth {
+	OVERFLOW: auto; WIDTH: 120px
+}
+.text12 {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.darkbluefill {
+	FONT-WEIGHT: bold; BACKGROUND: #3399cc; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 25px
+}
+.lightbluefill {
+	BACKGROUND: #bfe8ff
+}
+.greyfill {
+	BACKGROUND: #f2f2f2
+}
+.leftpanelfill {
+	BACKGROUND: #e4f2fb
+}
+.darkorangefill {
+	FONT-WEIGHT: bold; BACKGROUND: #f6c472; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 25px
+}
+.darkorangefill {
+	FONT-WEIGHT: bold; BACKGROUND: #f6c472; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 25px
+}
+.propertyhead {
+	FONT-WEIGHT: bold; BACKGROUND: #2dafd3; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 40px
+}
+.lightorangefill {
+	BACKGROUND: #ffebc9
+}
+.darkpinkfill {
+	FONT-WEIGHT: bold; BACKGROUND: #ff9ac6; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 25px
+}
+.lightpinkfill {
+	BACKGROUND: #ffe2f9
+}
+.lightpinkgradient {
+	BORDER-RIGHT: #e25090 1px solid; BORDER-TOP: #e25090 1px solid; BACKGROUND: url(http://img.makaan.com/images/pink-background.gif); BORDER-LEFT: #e25090 1px solid; BORDER-BOTTOM: #e25090 1px solid
+}
+.whitefill {
+	BACKGROUND: #ffffff
+}
+.black {
+	COLOR: #000000
+}
+.orange {
+	COLOR: #f58220
+}
+.headerdropdown {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #ffffff; BORDER-LEFT: #3399cc 1px solid; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.tabhighlight {
+	BORDER-TOP: #3399cc 2px solid; BACKGROUND: #bfe8ff; BORDER-BOTTOM: #3399cc 2px solid
+}
+.notabhighlight {
+	BORDER-TOP: #3399cc 2px solid; BORDER-BOTTOM: #3399cc 2px solid
+}
+.tabbottom {
+	BORDER-BOTTOM: #3399cc 2px solid
+}
+.grey-bg {
+	BACKGROUND-IMAGE: url(http://img.makaan.com/images/poll-bg.jpg); BACKGROUND-REPEAT: no-repeat
+}
+.smallgreylink {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #333333; FONT-STYLE: normal; FONT-FAMILY: ms sans serif; TEXT-DECORATION: none
+}
+A.smallgreylink:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #333333; FONT-STYLE: normal; FONT-FAMILY: ms sans serif; TEXT-DECORATION: none
+}
+A.smallgreylink:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #333333; FONT-STYLE: normal; FONT-FAMILY: ms sans serif; TEXT-DECORATION: none
+}
+A.smallgreylink:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #003399; FONT-STYLE: normal; FONT-FAMILY: ms sans serif; TEXT-DECORATION: underline
+}
+.darkbluefill {
+	FONT-WEIGHT: bold; BACKGROUND: #3399cc; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 25px
+}
+.lightbluefill {
+	FONT-WEIGHT: bold; BACKGROUND: #d4ebfa; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; HEIGHT: 25px
+}
+.textmstemplatebig {
+	PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 22px; COLOR: #4f4f4f; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.hboldtextbig {
+	FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #000000; FONT-FAMILY: arial
+}
+.hrefleftpanelblue {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #0000ff; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: none
+}
+.textgraydark {
+	PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 11px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textbluedark {
+	PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #015287; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.pagetextm {
+	FONT-SIZE: 12px; COLOR: #929292; FONT-FAMILY: Verdana,Arial, Helvetica, sans-serif
+}
+.faq-download {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 19px; COLOR: #f8874d; FONT-FAMILY: Verdana,Arial, Helvetica, sans-serif
+}
+.orangetextbig {
+	FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: #f88021; FONT-FAMILY: Verdana,Arial, Helvetica, sans-serif
+}
+.orangetextsmall {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #f88021; FONT-FAMILY: Verdana,Arial, Helvetica, sans-serif
+}
+.orangetextsmallnormal {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #f88021; FONT-FAMILY: Verdana,Arial, Helvetica, sans-serif
+}
+.img-bg {
+	BACKGROUND-IMAGE: url(http://img.makaan.com/images/mobile-application/makaan-mob-05.jpg); BACKGROUND-REPEAT: no-repeat
+}
+.img-bg-short {
+	BACKGROUND-IMAGE: url(http://img.makaan.com/images/small-top.jpg); BACKGROUND-REPEAT: no-repeat
+}
+.img-bg-short-left {
+	BACKGROUND-IMAGE: url(http://img.makaan.com/images/small-left.jpg); BACKGROUND-REPEAT: no-repeat
+}
+.img-bg-short-right {
+	BACKGROUND-IMAGE: url(http://img.makaan.com/images/small-right.jpg)
+}
+.bluetextsmall {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #245ddb; FONT-FAMILY: Verdana,Arial, Helvetica, sans-serif
+}
+.pagesubheadorangeboldcc {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #992673; PADDING-TOP: 5px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textbbrwondark {
+	PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #6e6e26; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.img-bg-micro {
+	BACKGROUND-IMAGE: url(http://img.makaan.com/images/customise-ms/lalalni/lalani08.jpg)
+}
+.textyellmid {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.graynstrip {
+	BORDER-TOP: #ababab 4px solid; LINE-HEIGHT: 3px; HEIGHT: 1px; BACKGROUND-COLOR: #ababab
+}
+.normaltextwhitesmall {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textblmid {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.contactext {
+	FONT-WEIGHT: bold; FONT-SIZE: 13px; COLOR: #067590; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.textboxbluefill {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 11px; BACKGROUND: #d4ebf9; BORDER-LEFT: #3399cc 1px solid; WIDTH: 150px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.smallestdropdownbluefill {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 1px solid; FONT-SIZE: 11px; BACKGROUND: #d4ebf9; BORDER-LEFT: #3399cc 1px solid; WIDTH: 50px; COLOR: #333333; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bgpic1 {
+	BACKGROUND: url(http://img.makaan.com/popup-advertise/advertising-bottom-top.gif)
+}
+#bg {
+	LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 100%
+}
+.penlinebliue {
+	LINE-HEIGHT: 1px; HEIGHT: 1px; BACKGROUND-COLOR: #34b1f1
+}
+.bluepenline {
+	BACKGROUND: #34b1f1; LINE-HEIGHT: 1px; HEIGHT: 1px
+}
+.contactextms {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #0098ff; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.greentext {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; COLOR: #5c7829; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.redtext {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; COLOR: #ff2525; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.pgclass {
+	BORDER-RIGHT: #00aaff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #00aaff 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; BORDER-LEFT: #00aaff 1px solid; CURSOR: hand; PADDING-TOP: 3px; BORDER-BOTTOM: #00aaff 1px solid; HEIGHT: 15px; TEXT-DECORATION: none
+}
+.pgclassselect {
+	BORDER-RIGHT: #00aaff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #00aaff 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; BORDER-LEFT: #00aaff 1px solid; COLOR: #ffffff; PADDING-TOP: 3px; BORDER-BOTTOM: #00aaff 1px solid; HEIGHT: 15px; BACKGROUND-COLOR: #00aaff; TEXT-DECORATION: none
+}
+.newpgclass {
+	BORDER-RIGHT: #3399cc 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; BORDER-LEFT: #3399cc 1px solid; CURSOR: hand; PADDING-TOP: 3px; BORDER-BOTTOM: #3399cc 1px solid; HEIGHT: 15px; TEXT-DECORATION: none
+}
+.newpgclassselect {
+	BORDER-RIGHT: #3399cc 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #3399cc 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; BORDER-LEFT: #3399cc 1px solid; COLOR: #ffffff; PADDING-TOP: 3px; BORDER-BOTTOM: #3399cc 1px solid; HEIGHT: 15px; BACKGROUND-COLOR: #3399cc; TEXT-DECORATION: none
+}
+.headtextorange {
+	FONT-SIZE: 16px; COLOR: #ed2027; FONT-FAMILY: verdana,arial
+}
+.text20 {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.contactextms11 {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #0098ff; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.contactextms11b {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.textmsblue {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #5982d3; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.headdiv {
+	BORDER-RIGHT: rgb(255,255,255) 1px solid; PADDING-RIGHT: 0pt; BORDER-TOP: rgb(255,255,255) 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 14px; PADDING-BOTTOM: 3px; BORDER-LEFT: rgb(255,255,255) 1px solid; COLOR: #000000; PADDING-TOP: 3px; BORDER-BOTTOM: rgb(255,255,255) 1px solid; BACKGROUND-COLOR: rgb(143,167,191); TEXT-ALIGN: left
+}
+.headtextorangesmall {
+	FONT-SIZE: 12px; COLOR: #ed2027; FONT-FAMILY: verdana,arial
+}
+.gpltextac {
+	FONT-SIZE: 13px; COLOR: #a45014; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 10px; TEXT-DECORATION: none
+}
+.w1h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.w2h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.w3h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.w4h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.w2bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.w3bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.w4bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.w1h {
+	BACKGROUND: #00549f; MARGIN: 0px 5px; HEIGHT: 1px
+}
+.w2h {
+	BORDER-RIGHT: #00549f 2px solid; BACKGROUND: #ffffff; MARGIN: 0px 3px; BORDER-LEFT: #00549f 2px solid; HEIGHT: 1px
+}
+.w2bh {
+	BORDER-RIGHT: #00549f 2px solid; BACKGROUND: #ffffff; MARGIN: 0px 3px; BORDER-LEFT: #00549f 2px solid; HEIGHT: 1px
+}
+.w3h {
+	BORDER-RIGHT: #00549f 1px solid; BACKGROUND: #ffffff; MARGIN: 0px 2px; BORDER-LEFT: #00549f 1px solid; HEIGHT: 1px
+}
+.w3bh {
+	BORDER-RIGHT: #00549f 1px solid; BACKGROUND: #ffffff; MARGIN: 0px 2px; BORDER-LEFT: #00549f 1px solid; HEIGHT: 1px
+}
+.w4h {
+	BORDER-RIGHT: #00549f 1px solid; BACKGROUND: #ffffff; MARGIN: 0px 1px; BORDER-LEFT: #00549f 1px solid; HEIGHT: 2px
+}
+.w4bh {
+	BORDER-RIGHT: #00549f 1px solid; BACKGROUND: #ffffff; MARGIN: 0px 1px; BORDER-LEFT: #00549f 1px solid; HEIGHT: 2px
+}
+.w2bh {
+	BACKGROUND: #fff
+}
+.w3bh {
+	BACKGROUND: #fff
+}
+.w4bh {
+	BACKGROUND: #fff
+}
+.wheadh {
+	BORDER-RIGHT: #00549f 1px solid; BACKGROUND: #ffffff; BORDER-LEFT: #00549f 1px solid
+}
+.wheadh H3 {
+	PADDING-BOTTOM: 3px; MARGIN: 0px 10px
+}
+.lb1h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.lb2h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.lb3h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.lb4h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.lb2bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.lb3bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.lb4bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.lb1h {
+	BACKGROUND: #00549f; MARGIN: 0px 5px; HEIGHT: 1px
+}
+.lb2h {
+	BORDER-RIGHT: #00549f 2px solid; BACKGROUND: #ddeef8; MARGIN: 0px 3px; BORDER-LEFT: #00549f 2px solid; HEIGHT: 1px
+}
+.lb2bh {
+	BORDER-RIGHT: #00549f 2px solid; BACKGROUND: #ddeef8; MARGIN: 0px 3px; BORDER-LEFT: #00549f 2px solid; HEIGHT: 1px
+}
+.lb3h {
+	BORDER-RIGHT: #00549f 1px solid; BACKGROUND: #ddeef8; MARGIN: 0px 2px; BORDER-LEFT: #00549f 1px solid; HEIGHT: 1px
+}
+.lb3bh {
+	BORDER-RIGHT: #00549f 1px solid; BACKGROUND: #ddeef8; MARGIN: 0px 2px; BORDER-LEFT: #00549f 1px solid; HEIGHT: 1px
+}
+.lb4h {
+	BORDER-RIGHT: #00549f 1px solid; BACKGROUND: #ddeef8; MARGIN: 0px 1px; BORDER-LEFT: #00549f 1px solid; HEIGHT: 2px
+}
+.lb4bh {
+	BORDER-RIGHT: #00549f 1px solid; BACKGROUND: #ddeef8; MARGIN: 0px 1px; BORDER-LEFT: #00549f 1px solid; HEIGHT: 2px
+}
+.lb2bh {
+	BACKGROUND: #fff
+}
+.lb3bh {
+	BACKGROUND: #fff
+}
+.lb4bh {
+	BACKGROUND: #fff
+}
+.lbheadh {
+	BORDER-RIGHT: #00549f 1px solid; BACKGROUND: #ddeef8; BORDER-LEFT: #00549f 1px solid
+}
+.lbheadh H3 {
+	PADDING-BOTTOM: 3px; MARGIN: 0px 10px
+}
+.b1h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.b2h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.b3h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.b4h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.b2bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.b3bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.b4bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.b1h {
+	BACKGROUND: #bbd7ed; MARGIN: 0px 5px; HEIGHT: 1px
+}
+.b2h {
+	BORDER-RIGHT: #bbd7ed 2px solid; BACKGROUND: #bbd7ed; MARGIN: 0px 3px; BORDER-LEFT: #bbd7ed 2px solid; HEIGHT: 1px
+}
+.b2bh {
+	BORDER-RIGHT: #bbd7ed 2px solid; BACKGROUND: #bbd7ed; MARGIN: 0px 3px; BORDER-LEFT: #bbd7ed 2px solid; HEIGHT: 1px
+}
+.b3h {
+	BORDER-RIGHT: #bbd7ed 1px solid; BACKGROUND: #bbd7ed; MARGIN: 0px 2px; BORDER-LEFT: #bbd7ed 1px solid; HEIGHT: 1px
+}
+.b3bh {
+	BORDER-RIGHT: #bbd7ed 1px solid; BACKGROUND: #bbd7ed; MARGIN: 0px 2px; BORDER-LEFT: #bbd7ed 1px solid; HEIGHT: 1px
+}
+.b4h {
+	BORDER-RIGHT: #bbd7ed 1px solid; BACKGROUND: #bbd7ed; MARGIN: 0px 1px; BORDER-LEFT: #bbd7ed 1px solid; HEIGHT: 2px
+}
+.b4bh {
+	BORDER-RIGHT: #bbd7ed 1px solid; BACKGROUND: #bbd7ed; MARGIN: 0px 1px; BORDER-LEFT: #bbd7ed 1px solid; HEIGHT: 2px
+}
+.b2bh {
+	BACKGROUND: #fff
+}
+.b3bh {
+	BACKGROUND: #fff
+}
+.b4bh {
+	BACKGROUND: #fff
+}
+.headh {
+	BORDER-RIGHT: #bbd7ed 1px solid; BACKGROUND: #bbd7ed; BORDER-LEFT: #bbd7ed 1px solid
+}
+.headh H3 {
+	PADDING-BOTTOM: 3px; MARGIN: 0px 10px
+}
+.contenth {
+	BORDER-RIGHT: #bbd7ed 1px solid; BORDER-LEFT: #bbd7ed 1px solid
+}
+.contenth DIV {
+	MARGIN-LEFT: 1px; PADDING-TOP: 5px
+}
+.bd1h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.bd2h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.bd3h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.bd4h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.bd2bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.bd3bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.bd4bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.bd1h {
+	BACKGROUND: #89b8e4; MARGIN: 0px 5px; HEIGHT: 1px
+}
+.bd2h {
+	BORDER-RIGHT: #89b8e4 2px solid; BACKGROUND: #89b8e4; MARGIN: 0px 3px; BORDER-LEFT: #89b8e4 2px solid; HEIGHT: 1px
+}
+.bd2bh {
+	BORDER-RIGHT: #89b8e4 2px solid; BACKGROUND: #89b8e4; MARGIN: 0px 3px; BORDER-LEFT: #89b8e4 2px solid; HEIGHT: 1px
+}
+.bd3h {
+	BORDER-RIGHT: #89b8e4 1px solid; BACKGROUND: #89b8e4; MARGIN: 0px 2px; BORDER-LEFT: #89b8e4 1px solid; HEIGHT: 1px
+}
+.bd3bh {
+	BORDER-RIGHT: #89b8e4 1px solid; BACKGROUND: #89b8e4; MARGIN: 0px 2px; BORDER-LEFT: #89b8e4 1px solid; HEIGHT: 1px
+}
+.bd4h {
+	BORDER-RIGHT: #89b8e4 1px solid; BACKGROUND: #89b8e4; MARGIN: 0px 1px; BORDER-LEFT: #89b8e4 1px solid; HEIGHT: 2px
+}
+.bd4bh {
+	BORDER-RIGHT: #89b8e4 1px solid; BACKGROUND: #89b8e4; MARGIN: 0px 1px; BORDER-LEFT: #89b8e4 1px solid; HEIGHT: 2px
+}
+.bd2bh {
+	BACKGROUND: #fff
+}
+.bd3bh {
+	BACKGROUND: #fff
+}
+.bd4bh {
+	BACKGROUND: #fff
+}
+.bdheadh {
+	BORDER-RIGHT: #89b8e4 1px solid; BACKGROUND: #89b8e4; BORDER-LEFT: #89b8e4 1px solid
+}
+.bdheadh H3 {
+	PADDING-BOTTOM: 3px; MARGIN: 0px 10px
+}
+.g1h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.g2h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.g3h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.g4h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.g2bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.g3bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.g4bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.g1h {
+	BACKGROUND: #def18a; MARGIN: 0px 5px; HEIGHT: 1px
+}
+.g2h {
+	BORDER-RIGHT: #def18a 2px solid; BACKGROUND: #def18a; MARGIN: 0px 3px; BORDER-LEFT: #def18a 2px solid; HEIGHT: 1px
+}
+.g2bh {
+	BORDER-RIGHT: #def18a 2px solid; BACKGROUND: #def18a; MARGIN: 0px 3px; BORDER-LEFT: #def18a 2px solid; HEIGHT: 1px
+}
+.g3h {
+	BORDER-RIGHT: #def18a 1px solid; BACKGROUND: #def18a; MARGIN: 0px 2px; BORDER-LEFT: #def18a 1px solid; HEIGHT: 1px
+}
+.g3bh {
+	BORDER-RIGHT: #def18a 1px solid; BACKGROUND: #def18a; MARGIN: 0px 2px; BORDER-LEFT: #def18a 1px solid; HEIGHT: 1px
+}
+.g4h {
+	BORDER-RIGHT: #def18a 1px solid; BACKGROUND: #def18a; MARGIN: 0px 1px; BORDER-LEFT: #def18a 1px solid; HEIGHT: 2px
+}
+.g4bh {
+	BORDER-RIGHT: #def18a 1px solid; BACKGROUND: #def18a; MARGIN: 0px 1px; BORDER-LEFT: #def18a 1px solid; HEIGHT: 2px
+}
+.g2bh {
+	BACKGROUND: #fff
+}
+.g3bh {
+	BACKGROUND: #fff
+}
+.g4bh {
+	BACKGROUND: #fff
+}
+.gheadh {
+	BORDER-RIGHT: #def18a 1px solid; BACKGROUND: #def18a; BORDER-LEFT: #def18a 1px solid
+}
+.gheadh H3 {
+	FONT-SIZE: 13px; PADDING-BOTTOM: 3px; MARGIN: 0px 10px
+}
+.gcontenth {
+	BORDER-RIGHT: #def18a 1px solid; BORDER-LEFT: #def18a 1px solid
+}
+.gcontenth DIV {
+	MARGIN-LEFT: 12px; PADDING-TOP: 5px
+}
+.leadg1h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.leadg2h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.leadg3h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.leadg4h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.leadg2bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.leadg3bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.leadg4bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.leadg1h {
+	BACKGROUND: #7b9331; MARGIN: 0px 5px; HEIGHT: 1px
+}
+.leadg2h {
+	BORDER-RIGHT: #7b9331 2px solid; BACKGROUND: #def18a; MARGIN: 0px 3px; BORDER-LEFT: #7b9331 2px solid; HEIGHT: 1px
+}
+.leadg2bh {
+	BORDER-RIGHT: #7b9331 2px solid; BACKGROUND: #def18a; MARGIN: 0px 3px; BORDER-LEFT: #7b9331 2px solid; HEIGHT: 1px
+}
+.leadg3h {
+	BORDER-RIGHT: #7b9331 1px solid; BACKGROUND: #def18a; MARGIN: 0px 2px; BORDER-LEFT: #7b9331 1px solid; HEIGHT: 1px
+}
+.leadg3bh {
+	BORDER-RIGHT: #7b9331 1px solid; BACKGROUND: #def18a; MARGIN: 0px 2px; BORDER-LEFT: #7b9331 1px solid; HEIGHT: 1px
+}
+.leadg4h {
+	BORDER-RIGHT: #7b9331 1px solid; BACKGROUND: #def18a; MARGIN: 0px 1px; BORDER-LEFT: #7b9331 1px solid; HEIGHT: 2px
+}
+.leadg4bh {
+	BORDER-RIGHT: #7b9331 1px solid; BACKGROUND: #def18a; MARGIN: 0px 1px; BORDER-LEFT: #7b9331 1px solid; HEIGHT: 2px
+}
+.leadg2bh {
+	BACKGROUND: #def18a
+}
+.leadg3bh {
+	BACKGROUND: #def18a
+}
+.leadg4bh {
+	BACKGROUND: #def18a
+}
+.leadgheadh {
+	BORDER-RIGHT: #7b9331 1px solid; BACKGROUND: #def18a; BORDER-LEFT: #7b9331 1px solid
+}
+.leadgheadh H3 {
+	FONT-SIZE: 13px; PADDING-BOTTOM: 3px; MARGIN: 0px 10px
+}
+.leadgcontenth {
+	BORDER-RIGHT: #def18a 1px solid; BORDER-LEFT: #def18a 1px solid
+}
+.leadgcontenth DIV {
+	MARGIN-LEFT: 12px; PADDING-TOP: 5px
+}
+.searchg1h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.searchg2h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.searchg3h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.searchg4h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.searchg2bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.searchg3bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.searchg4bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.searchg1h {
+	BACKGROUND: #7b9331; MARGIN: 0px 5px; HEIGHT: 1px
+}
+.searchg2h {
+	BORDER-RIGHT: #7b9331 2px solid; BACKGROUND: #cfe88d; MARGIN: 0px 3px; BORDER-LEFT: #7b9331 2px solid; HEIGHT: 1px
+}
+.searchg2bh {
+	BORDER-RIGHT: #7b9331 2px solid; BACKGROUND: #cfe88d; MARGIN: 0px 3px; BORDER-LEFT: #7b9331 2px solid; HEIGHT: 1px
+}
+.searchg3h {
+	BORDER-RIGHT: #7b9331 1px solid; BACKGROUND: #cfe88d; MARGIN: 0px 2px; BORDER-LEFT: #7b9331 1px solid; HEIGHT: 1px
+}
+.searchg3bh {
+	BORDER-RIGHT: #7b9331 1px solid; BACKGROUND: #cfe88d; MARGIN: 0px 2px; BORDER-LEFT: #7b9331 1px solid; HEIGHT: 1px
+}
+.searchg4h {
+	BORDER-RIGHT: #7b9331 1px solid; BACKGROUND: #cfe88d; MARGIN: 0px 1px; BORDER-LEFT: #7b9331 1px solid; HEIGHT: 2px
+}
+.searchg4bh {
+	BORDER-RIGHT: #7b9331 1px solid; BACKGROUND: #cfe88d; MARGIN: 0px 1px; BORDER-LEFT: #7b9331 1px solid; HEIGHT: 2px
+}
+.searchg2bh {
+	BACKGROUND: #cfe88d
+}
+.searchg3bh {
+	BACKGROUND: #cfe88d
+}
+.searchg4bh {
+	BACKGROUND: #cfe88d
+}
+.searchgheadh {
+	BORDER-RIGHT: #7b9331 1px solid; BACKGROUND: #cfe88d; BORDER-LEFT: #7b9331 1px solid
+}
+.searchgheadh H3 {
+	FONT-SIZE: 13px; PADDING-BOTTOM: 3px; MARGIN: 0px 10px
+}
+.searchgcontenth {
+	BORDER-RIGHT: #7b9331 1px solid; BORDER-LEFT: #7b9331 1px solid
+}
+.searchgcontenth DIV {
+	MARGIN-LEFT: 12px; PADDING-TOP: 5px
+}
+.capleadg1h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.capleadg2h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.capleadg3h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.capleadg4h {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.capleadg2bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.capleadg3bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.capleadg4bh {
+	DISPLAY: block; FONT-SIZE: 1px; OVERFLOW: hidden
+}
+.capleadg1h {
+	BACKGROUND: #ffffff; MARGIN: 0px 5px; HEIGHT: 1px
+}
+.capleadg2h {
+	BORDER-RIGHT: #ffffff 2px solid; BACKGROUND: #a6a6a6; MARGIN: 0px 3px; BORDER-LEFT: #ffffff 2px solid; HEIGHT: 1px
+}
+.capleadg2bh {
+	BORDER-RIGHT: #ffffff 2px solid; BACKGROUND: #a6a6a6; MARGIN: 0px 3px; BORDER-LEFT: #ffffff 2px solid; HEIGHT: 1px
+}
+.capleadg3h {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND: #a6a6a6; MARGIN: 0px 2px; BORDER-LEFT: #ffffff 1px solid; HEIGHT: 1px
+}
+.capleadg3bh {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND: #a6a6a6; MARGIN: 0px 2px; BORDER-LEFT: #ffffff 1px solid; HEIGHT: 1px
+}
+.capleadg4h {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND: #a6a6a6; MARGIN: 0px 1px; BORDER-LEFT: #ffffff 1px solid; HEIGHT: 2px
+}
+.capleadg4bh {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND: #a6a6a6; MARGIN: 0px 1px; BORDER-LEFT: #ffffff 1px solid; HEIGHT: 2px
+}
+.capleadg2bh {
+	BACKGROUND: #a6a6a6
+}
+.capleadg3bh {
+	BACKGROUND: #a6a6a6
+}
+.capleadg4bh {
+	BACKGROUND: #a6a6a6
+}
+.capleadgheadh {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND: #a6a6a6; BORDER-LEFT: #ffffff 1px solid
+}
+.capleadgheadh H3 {
+	FONT-SIZE: 13px; PADDING-BOTTOM: 3px; MARGIN: 0px 10px
+}
+.capleadgcontenth {
+	BORDER-RIGHT: #a6a6a6 1px solid; BORDER-LEFT: #a6a6a6 1px solid
+}
+.capleadgcontenth DIV {
+	MARGIN-LEFT: 12px; PADDING-TOP: 5px
+}
+A .menu-left {
+	DISPLAY: block; BACKGROUND: url(http://img.makaan.com/images/tab-lft-21.gif) 0px 0px; FLOAT: left; WIDTH: 13px; CURSOR: hand; POSITION: relative; TOP: 1px; HEIGHT: 29px
+}
+A .menu-mid {
+	DISPLAY: block; BACKGROUND: url(http://img.makaan.com/images/tab-bg-21.gif) 0px 0px; FLOAT: left; CURSOR: hand; POSITION: relative; TOP: 1px; HEIGHT: 29px
+}
+A .menu-right {
+	DISPLAY: block; BACKGROUND: url(http://img.makaan.com/images/tab-rgt-21.gif) 0px 0px; FLOAT: left; WIDTH: 13px; CURSOR: hand; POSITION: relative; TOP: 1px; HEIGHT: 29px
+}
+A .menuon-left {
+	DISPLAY: block; BACKGROUND: url(http://img.makaan.com/images/tab-lft-21.gif) 0px -29px; FLOAT: left; WIDTH: 13px; CURSOR: hand; POSITION: relative; TOP: 1px; HEIGHT: 29px
+}
+A .menuon-mid {
+	DISPLAY: block; BACKGROUND: url(http://img.makaan.com/images/tab-bg-21.gif) 0px -29px; FLOAT: left; CURSOR: hand; COLOR: #ffffff; POSITION: relative; TOP: 1px; HEIGHT: 29px
+}
+A .menuon-right {
+	DISPLAY: block; BACKGROUND: url(http://img.makaan.com/images/tab-rgt-21.gif) 0px -29px; FLOAT: left; WIDTH: 13px; CURSOR: hand; POSITION: relative; TOP: 1px; HEIGHT: 29px
+}
+.tabtext {
+	FONT-SIZE: 14px; FONT-FAMILY: arial, verdana, tahoma, ms sans serif, times new roman, ms sans serif; POSITION: relative; TOP: 7px
+}
+.menuarow {
+	BORDER-RIGHT: red 1px solid; BACKGROUND-POSITION: center top; BORDER-TOP: red 1px solid; BACKGROUND-IMAGE: url(http://img.makaan.com/images/arow-normal.gif); OVERFLOW: hidden; BORDER-LEFT: red 1px solid; WIDTH: 11px; BORDER-BOTTOM: red 1px solid; BACKGROUND-REPEAT: no-repeat; xheight: 14px; xline-height: 14px
+}
+.menudv {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; POSITION: relative
+}
+.navbg {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 5px; BACKGROUND: url(http://img.makaan.com/images/seprator.gif) no-repeat right top; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.tagline {
+	PADDING-LEFT: 15px; FONT-WEIGHT: bold; FONT-SIZE: 13px; CURSOR: hand; COLOR: #242424; FONT-FAMILY: Arial, Helvetica, sans-serif; LETTER-SPACING: 0.03em; TEXT-DECORATION: none
+}
+.headwithborder {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-TOP: #3399cc 3px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid
+}
+.gpltextic {
+	FONT-SIZE: 13px; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 10px; TEXT-DECORATION: none
+}
+.gpltextheading {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #f2a136; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.gpltextheadingbig {
+	FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: #f2a136; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bigtestgpl {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.bigtestgptabl {
+	PADDING-LEFT: 4px; FONT-SIZE: 10px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.gplbgpic1 {
+	BACKGROUND: url(http://img.makaan.com/images/customise-ms/gpl/img-10.gif)
+}
+.penlinedarkgray {
+	LINE-HEIGHT: 1px; BACKGROUND-COLOR: #c3c3c3
+}
+.penlinebrowndark {
+	LINE-HEIGHT: 5px; BACKGROUND-COLOR: #ff9024
+}
+.penlinewhite {
+	LINE-HEIGHT: 5px; BACKGROUND-COLOR: #ffffff
+}
+.lagraysmall {
+	COLOR: #d0d0d0; LINE-HEIGHT: 10px; FONT-FAMILY: Verdana,Arial, Helvetica, sans-serif
+}
+.lahref {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 10px; BORDER-LEFT: 0px; COLOR: #d0d0d0; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.lahref:hover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 10px; BORDER-LEFT: 0px; COLOR: #d0d0d0; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.lahref:visited {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 10px; BORDER-LEFT: 0px; COLOR: #d0d0d0; BORDER-BOTTOM: 0px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif; TEXT-DECORATION: underline
+}
+.orangebuttom {
+	BACKGROUND: url(http://img.makaan.com/images/innovations/center-btn.gif); WIDTH: 98px; HEIGHT: 25px
+}
+.innovationtop {
+	BORDER-RIGHT: #3399cc 1px solid; BORDER-LEFT: #3399cc 1px solid; BORDER-BOTTOM: #3399cc 1px solid; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.innopenlinedark {
+	LINE-HEIGHT: 1px; BACKGROUND-COLOR: #a09e9e
+}
+.headinginnovations {
+	FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: #e0661f; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textinno {
+	FONT-SIZE: 13px; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman, ms sans serif
+}
+.textwhiteinnovation {
+	PADDING-LEFT: 5px; FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, tahoma, ms sans serif, times new roman; TEXT-DECORATION: none
+}

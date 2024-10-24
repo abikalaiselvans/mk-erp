@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StaffCTCInfo" language="groovy" pageWidth="4450" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="4410" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="1534"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="hImageExpression" class="java.lang.String"/>
+	<parameter name="fImageExpression" class="java.lang.String"/>
+	<parameter name="company" class="java.lang.String"/>
+	<parameter name="branch" class="java.lang.String"/>
+	<parameter name="office" class="java.lang.String"/>
+	<parameter name="category" class="java.lang.String"/>
+	<parameter name="dept" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="CHR_STAFFFNAME" class="java.lang.String"/>
+	<field name="CHR_COMPANYNAME" class="java.lang.String"/>
+	<field name="CHR_BRANCHNAME" class="java.lang.String"/>
+	<field name="CHR_OFFICENAME" class="java.lang.String"/>
+	<field name="CHR_DEPARTNAME" class="java.lang.String"/>
+	<field name="CHR_DESIGNAME" class="java.lang.String"/>
+	<field name="CHR_CATEGORYNAME" class="java.lang.String"/>
+	<field name="CHR_GENDER" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DT_DOB,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DT_DOJCOLLEGE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="CHR_TYPE" class="java.lang.String"/>
+	<field name="CONCAT(FLOOR(PERIOD_DIFF(DATE_FORMAT(NOW(),&apos;%y%m&apos;) , DATE_FORMAT(a.DT_DOJCOLLEGE,&apos;%y%m&apos;))/12 ), &apos; - Years  / &apos; ,MOD(PERIOD_DIFF(DATE_FORMAT(NOW(),&apos;%y%m&apos;) , DATE_FORMAT(a.DT_DOJCOLLEGE,&apos;%y%m&apos;) ), 12) , &apos; - Months&apos; )" class="java.lang.String"/>
+	<field name="CHR_REPTO" class="java.lang.String"/>
+	<field name="if(a.CHR_REP=&apos;Y&apos;, &apos;Reporting Head&apos;, &apos; &apos; )" class="java.lang.String"/>
+	<field name="FUN_GET_ADDRESS(a.CHR_EMPID,&apos;P&apos;,&apos;,&apos;)" class="java.lang.String"/>
+	<field name="FUN_GET_ADDRESS(a.CHR_EMPID,&apos;C&apos;,&apos;,&apos;)" class="java.lang.String"/>
+	<field name="INT_SALARY" class="java.lang.Double"/>
+	<field name="NULL" class="java.lang.Object"/>
+	<field name="if(a.CHR_PF = &apos;C&apos; , &apos;Common&apos; , &apos;No&apos;)" class="java.lang.String"/>
+	<field name="CONCAT(b.CHR_PFNUMBER,a.CHR_PFNO)" class="java.lang.String"/>
+	<field name="FUN_GET_PFAMOUNT(a.CHR_PF,a.INT_SALARY)" class="java.lang.Double"/>
+	<field name="if(a.CHR_ESI = &apos;C&apos; , &apos;Common&apos; , &apos;No&apos;)" class="java.lang.String"/>
+	<field name="CHR_ESINO" class="java.lang.String"/>
+	<field name="FUN_PAY_GET_ESI_CALCULATION(&apos;CPY&apos;,a.CHR_EMPID,a.CHR_ESI)" class="java.lang.Double"/>
+	<field name="( (a.INT_SALARY+ null)  - (null) + FUN_GET_PFAMOUNT(a.CHR_PF,a.INT_SALARY)  + FUN_GET_ESIAMOUNT(&apos;COMPANY&apos;,a.CHR_ESI,a.INT_SALARY )   )" class="java.lang.Double"/>
+	<field name="( (a.INT_SALARY+ null)  - (null) + FUN_GET_PFAMOUNT(a.CHR_PF,a.INT_SALARY)  + FUN_GET_ESIAMOUNT(&apos;COMPANY&apos;,a.CHR_ESI,a.INT_SALARY )  +(null) )" class="java.lang.Double"/>
+	<field name="FIND_A_BANKNAME_NAME(i.INT_BANKID)" class="java.lang.String"/>
+	<field name="CHR_ACCNO" class="java.lang.String"/>
+	<field name="IF(a.CHR_TYPE=&apos;T&apos; ,&apos;RESIGNED&apos;, IF(a.CHR_TYPE =&apos;H&apos; ,&apos;HOLD&apos;,&apos;LIVE&apos;) )" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="50" width="4410" height="20" backcolor="#00CCCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Staff CTC Detail]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="4350" y="70" width="60" height="15"/>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4317" y="70" width="33" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+			<image>
+				<reportElement x="1904" y="0" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["../../images/hImage.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="1727" y="70" width="59" height="15"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Company : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1786" y="70" width="173" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{company}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1959" y="70" width="45" height="15"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Branch : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2004" y="70" width="160" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{branch}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2164" y="70" width="39" height="15"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Office : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2203" y="70" width="150" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{office}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2353" y="70" width="65" height="15"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Department : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2620" y="70" width="100" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{category}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2418" y="70" width="150" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{dept}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2568" y="70" width="52" height="15"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Category : ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="65" splitType="Stretch">
+			<image>
+				<reportElement x="1904" y="15" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["../../images/fImage.jpg"]]></imageExpression>
+			</image>
+			<textField evaluationTime="Report">
+				<reportElement x="4391" y="0" width="19" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4343" y="0" width="48" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

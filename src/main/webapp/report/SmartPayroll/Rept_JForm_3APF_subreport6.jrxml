@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rept_JForm_3APF_subreport1" language="groovy" pageWidth="286" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="286" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CHR_EMPID" class="java.lang.String"/>
+	<parameter name="yr" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT a.CHR_EMPNAME ,a.DOU_PENBASIC,a.DOU_PF,a.DOU_CPYPF1,a.DOU_CPYPF2,a.CHR_EMPID FROM pay_t_salary a WHERE a.CHR_MONTH ='September'  AND a.INT_YEAR=$P{yr}  AND  a.CHR_EMPID=$P{CHR_EMPID} GROUP BY a.CHR_EMPID]]>
+	</queryString>
+	<field name="CHR_EMPNAME" class="java.lang.String"/>
+	<field name="DOU_PENBASIC" class="java.lang.Double"/>
+	<field name="DOU_PF" class="java.lang.Double"/>
+	<field name="DOU_CPYPF1" class="java.lang.Double"/>
+	<field name="DOU_CPYPF2" class="java.lang.Double"/>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<group name="empid">
+		<groupExpression><![CDATA[$F{CHR_EMPID}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<textField evaluationTime="Auto" pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement x="0" y="0" width="70" height="20" printWhenGroupChanges="empid"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{REPORT_COUNT}>0?$F{DOU_PENBASIC}:0.00]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement x="70" y="0" width="73" height="20" printWhenGroupChanges="empid"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{REPORT_COUNT}>0?$F{DOU_PF}:0.00]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement x="143" y="0" width="71" height="20" printWhenGroupChanges="empid"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{REPORT_COUNT}>0?$F{DOU_CPYPF1}:0.00]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement x="214" y="0" width="72" height="20" printWhenGroupChanges="empid"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{REPORT_COUNT}>0?$F{DOU_CPYPF2}:0.00]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

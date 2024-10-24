@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Hrmofferletter" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="appid" class="java.lang.Integer"/>
+	<parameter name="logopath" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT  offer.INT_OFFERID,ecat.CHR_CATEGORYNAME,CONCAT(year(CURRENT_TIMESTAMP),CONCAT('-',year(CURRENT_TIMESTAMP)+1)) ayear,
+DATE_FORMAT(CURRENT_DATE,'%d-%b-%y'),
+CONCAT( if(app.CHR_GENDER='Male','Mr. ', if(app.CHR_MARITALSTATUS ='M','Mrs.' ,'Ms.') ),' ',app.CHR_APPNAME) salute,office.CHR_OFFICENAME,desig.CHR_DESIGNAME,
+DATE_ADD(CURDATE(),INTERVAL 3 DAY) joining,
+FUN_GET_takehome(hal.INT_APPID) takehome
+FROM
+ hrm_t_allowance hal,hrm_m_application app,hrm_t_offerletter offer,com_m_office office,com_m_desig desig,com_m_employeecategory ecat
+ WHERE hal.INT_APPID=offer.INT_APPID AND app.INT_APPID=offer.INT_APPID AND offer.INT_DESIGID=desig.INT_DESIGID AND
+
+offer.INT_OFFICEID=office.INT_OFFICEID AND hal.INT_APPID=$P{appid}
+ AND ecat.INT_EMPLOYEECATEGORYID=offer.INT_CATEGORY;]]>
+	</queryString>
+	<field name="INT_OFFERID" class="java.lang.Integer"/>
+	<field name="CHR_CATEGORYNAME" class="java.lang.String"/>
+	<field name="ayear" class="java.lang.String"/>
+	<field name="DATE_FORMAT(CURRENT_DATE,&apos;%d-%b-%y&apos;)" class="java.lang.String"/>
+	<field name="salute" class="java.lang.String"/>
+	<field name="CHR_OFFICENAME" class="java.lang.String"/>
+	<field name="CHR_DESIGNAME" class="java.lang.String"/>
+	<field name="joining" class="java.sql.Date"/>
+	<field name="takehome" class="java.lang.Integer"/>
+	<field name="F1" class="java.lang.String"/>
+	<field name="F2" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="293" splitType="Stretch">
+			<image>
+				<reportElement x="188" y="0" width="159" height="49"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{logopath}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="187" y="61" width="160" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OFFER LETTER]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="97" width="525" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["CARE/OFFER-"+$F{INT_OFFERID}+"/"+$F{CHR_CATEGORYNAME}+"/"+$F{ayear}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="117" width="170" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATE_FORMAT(CURRENT_DATE,'%d-%b-%y')}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="152" width="29" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="46" y="167" width="347" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{salute}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="187" width="347" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_OFFICENAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="236" width="525" height="30"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We are pleased to offer the post of  "+" \""+$F{CHR_DESIGNAME}+" \" "+" in our organisation at "+"\""+$F{CHR_OFFICENAME}+"\""+"."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="266" width="525" height="25"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["You are expected to join us on or before "+$F{joining}+" failing with this offer is not valid. Your salary details as mentioned bellow. "]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="297" y="31" width="211" height="20"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Double"/>
+					<leftPen lineWidth="0.5" lineStyle="Double"/>
+					<bottomPen lineWidth="0.5" lineStyle="Double"/>
+					<rightPen lineWidth="0.5" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[AMOUNT PER MONTH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="31" width="280" height="20"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Double"/>
+					<leftPen lineWidth="0.5" lineStyle="Double"/>
+					<bottomPen lineWidth="0.5" lineStyle="Double"/>
+					<rightPen lineWidth="0.5" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[PARTICULARS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="11" width="491" height="20"/>
+				<box leftPadding="10">
+					<topPen lineWidth="0.5" lineStyle="Double"/>
+					<leftPen lineWidth="0.5" lineStyle="Double"/>
+					<bottomPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.5" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[SALARY COMPONENT]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="17" y="0" width="280" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{F1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="297" y="0" width="211" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{F2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="15" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="298" splitType="Stretch"/>
+	</summary>
+</jasperReport>

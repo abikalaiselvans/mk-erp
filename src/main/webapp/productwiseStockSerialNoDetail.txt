@@ -1,0 +1,78 @@
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                   Date7/02/2   
+                                                                                                                                                                
+                                                                                                                                                                
+                                                             Productwise Stock Serial Number Detail                                                             
+                                                                                                                                                                
+                   Company @ Branch / division / Product Type / Product Code : Company-1 @ CHENNAI / CAREIT / All Product Types / All Products                  
+                                                                                                                                                                
+    S.        Branch               Division        Product  Product Group    Product Code         Product Description          Serial    Warranty  Stock Unit   
+    No                                              Type                                                                       Number                Amount     
+   Data does not exist for the given input                                                                                                                      
+                                                                                                                                                                
+                                                                                                                                Total :(this page)        null  
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                     Grand Total :        null  
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                     Page 1 1   
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+                                                                                                                                                                
+
+

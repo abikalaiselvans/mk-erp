@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+
+div { color:blue; }
+</style>
+<script src="jquery-1.4.2.js"></script>
+</head>
+<body  onpaste='return false;'>
+<select name="cloths" multiple="multiple">
+<option>Shirt</option>
+<option selected="selected">T-Shirt</option>
+
+<option>Jeans</option>
+<option selected="selected">Trousers</option>
+<option>Skirts</option>
+<option>Coats</option>
+
+</select>
+
+<div></div>
+You can select multiple option by pressing "ctrl" key.
+<br>Can deselect the option by clicking on it.
+<script>
+$("select").change(function () {
+var str = "YOU SELECTED :";
+$("select option:selected").each(function () {
+str += $(this).text() + " ";
+});
+$("div").text(str);
+})
+</script>
+</body>
+</html>

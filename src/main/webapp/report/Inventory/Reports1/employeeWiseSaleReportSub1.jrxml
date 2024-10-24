@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="employeeWiseSaleReportSub1" language="groovy" pageWidth="1104" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="1104" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="hImageExpression" class="java.lang.String"/>
+	<parameter name="fImageExpression" class="java.lang.String"/>
+	<parameter name="fromDt" class="java.lang.String"/>
+	<parameter name="toDt" class="java.lang.String"/>
+	<parameter name="cpy" class="java.lang.String"/>
+	<parameter name="division" class="java.lang.String"/>
+	<parameter name="customer" class="java.lang.String"/>
+	<parameter name="dataLength" class="java.lang.String"/>
+	<parameter name="ref" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Program Files\\Apache Software Foundation\\Tomcat 5.0\\webapps\\SmartCampus\\report\\Inventory\\Reports1\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subreport1Parameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreport2Parameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="dataLength1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT a.CHR_SALESNO,a.DOU_NETAMOUNT,DATE_FORMAT(a.DAT_SALESDATE,'%d-%b-%Y'),FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID), a.CHR_PAYMENTSTATUS, c.CHR_STAFFNAME,a.DOU_AMOUNT,e.CHR_COMPANYNAME,d.CHR_BRANCHNAME,f.CHR_DIVICODE FROM inv_t_servicebilling a ,inv_m_customerinfo b ,com_m_staff c,com_m_branch d ,com_m_company e ,inv_m_division f WHERE a.INT_BRANCHID = d.INT_BRANCHID AND d.INT_COMPANYID=e.INT_COMPANYID AND a.INT_DIVIID=f.INT_DIVIID AND a.DAT_SALESDATE >='2013-08-01' AND a.DAT_SALESDATE<='2013-08-31' AND a.INT_BRANCHID=20 AND a.INT_CUSTOMERID = b.INT_CUSTOMERID AND c.CHR_EMPID =a.CHR_REF ORDER BY a.CHR_SALESNO]]>
+	</queryString>
+	<field name="CHR_SALESNO" class="java.lang.String"/>
+	<field name="DOU_NETAMOUNT" class="java.lang.Double"/>
+	<field name="DATE_FORMAT(a.DAT_SALESDATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID)" class="java.lang.String"/>
+	<field name="CHR_PAYMENTSTATUS" class="java.lang.String"/>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="DOU_AMOUNT" class="java.lang.Double"/>
+	<field name="CHR_COMPANYNAME" class="java.lang.String"/>
+	<field name="CHR_BRANCHNAME" class="java.lang.String"/>
+	<field name="CHR_DIVICODE" class="java.lang.String"/>
+	<variable name="INT_QUALIFICATIONID_1" class="java.lang.Integer" resetType="Page" calculation="Count"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="15" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="1104" height="15" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="hImageExpression"/>
+				<subreportParameter name="division"/>
+				<subreportParameter name="toDt"/>
+				<subreportParameter name="cpy"/>
+				<subreportParameter name="ref"/>
+				<subreportParameter name="fromDt"/>
+				<subreportParameter name="customer"/>
+				<subreportParameter name="dataLength">
+					<subreportParameterExpression><![CDATA[$P{dataLength}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fImageExpression"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport1Parameter}]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="15" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="1104" height="15" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="hImageExpression"/>
+				<subreportParameter name="division"/>
+				<subreportParameter name="toDt"/>
+				<subreportParameter name="cpy"/>
+				<subreportParameter name="ref"/>
+				<subreportParameter name="fromDt"/>
+				<subreportParameter name="customer"/>
+				<subreportParameter name="dataLength1">
+					<subreportParameterExpression><![CDATA[$P{dataLength1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fImageExpression"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport2Parameter}]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,246 @@
+ <script language="javascript">
+ function number_format(number, decimals, dec_point, thousands_sep)
+{
+    var n = number, prec = decimals;
+    n = !isFinite(+n) ? 0 : +n;
+    prec = !isFinite(+prec) ? 0 : Math.abs(prec);
+    var sep = (typeof thousands_sep == "undefined") ? ',' : thousands_sep;
+    var dec = (typeof dec_point == "undefined") ? '.' : dec_point;
+ 
+    var s = (prec > 0) ? n.toFixed(prec) : Math.round(n).toFixed(prec); //fix for IE parseFloat(0.55).toFixed(0) = 0;
+ 
+    var abs = Math.abs(n).toFixed(prec);
+    var _, i;
+ 
+    if (abs >= 1000) {
+        _ = abs.split(/\D/);
+        i = _[0].length % 3 || 3;
+ 
+        _[0] = s.slice(0,i + (n < 0)) +
+              _[0].slice(i).replace(/(\d{3})/g, sep+'$1');
+ 
+        s = _.join(dec);
+    } else {
+        s = s.replace('.', dec);
+    }
+ 
+    return s;
+}
+
+function mailProviders(mailId){
+ var mailPro=new Array("gmail","yahoo","hotmail","aol","msn","rediff","test","att","attglobal","bellsouth","earthlink","verizon","comcast","live");
+ var mailArr=mailId.split("@");
+ var provide=mailArr[1];
+ var getMsg="";
+ for(var i in mailPro){
+  if(provide.indexOf(mailPro[i])!=-1){
+   getMsg="Please provide a corporate email id.";
+   break;
+  }else{
+   getMsg="";
+  }
+ }
+ return getMsg;
+}
+function cleanPhone(phone) {
+	/*
+	
+	Remove any non numeric characters from the phone number but leave any plus sign at the beginning
+	
+	phone (String) phone number to clean
+	
+	*/
+	
+	phone = phone.replace(/[^\d\+]/g,'');
+	if (phone.substr(0, 1) == "+") {
+		phone = "+" + phone.replace(/[^\d]/g,'');
+	} else {
+		phone = phone.replace(/[^\d]/g,'');
+	}
+	return phone;
+}
+//You should create the validator only after the definition of the HTML form
+	function validatePhone(phone)
+	{
+		var phoneno= cleanPhone(phone);
+		var phoneNum = new String(phoneno);
+		var regExpObj = /^[\s()+-]*([0-9][\s()+-]*){6,20}$/;
+		if(regExpObj.exec(phoneNum) == null)
+			return false;
+		else
+			return true;
+		/*var reg = /^[\s()+-]*([0-9][\s()+-]*){6,20}$/;  
+	
+		var regExpObj = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+		 var regex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+		*/
+	}
+	function emailCheck(str) {
+	var at="@";
+	var dot=".";
+	var lat=str.indexOf(at);
+	var lstr=str.length;
+	var ldot=str.indexOf(dot);
+	if (str.indexOf(at) == -1)
+		return false;
+		
+	if (str.indexOf(at) == -1 || str.indexOf(at) == 0 || str.indexOf(at) == lstr)
+		return false;
+	
+	if (str.indexOf(dot) == -1 || str.indexOf(dot) == 0 || str.indexOf(dot) == lstr)
+		return false;
+	
+	if (str.indexOf(at,(lat+1))!= -1)
+		return false;
+	
+	if (str.substring(lat-1,lat) == dot || str.substring(lat+1,lat+2) == dot)
+		return false;
+	
+	if (str.indexOf(dot,(lat+2)) == -1)
+		return false;
+			
+	if (str.indexOf(" ") != -1)
+		return false;
+	
+	return true;
+}
+
+
+function IsNumeric(sText)
+{
+   var ValidChars = "0123456789";
+   var IsNumber=true;
+   var Char;
+   for (i = 0; i < sText.length && IsNumber == true; i++) 
+   { 
+      Char = sText.charAt(i); 
+      if (ValidChars.indexOf(Char) == -1) 
+         {
+         IsNumber = false;
+         }
+   }
+   return IsNumber;
+   
+}
+			
+function chkfrm(){
+	var frm = window.document.dwnform;
+	
+	if(frm.name.value=='' || frm.name.value=='* First Name'){
+		alert("Please enter your first name");
+		frm.name.focus();
+		return false;
+	}
+	if(frm.lastname.value=='' || frm.lastname.value=='* Last Name'){
+		alert("Please enter your last name");
+		frm.lastname.focus();
+		return false;
+	}
+	
+	
+	if(frm.bemail.value == "" || !emailCheck(frm.bemail.value)) {
+		alert("Please enter a valid e-mail address.");
+		frm.bemail.select();
+		return false;
+	}
+	var vemail=frm.bemail.value;
+	
+	if(mailProviders(vemail.toLowerCase())!="")
+	{ 
+		frm.bemail.focus();
+		alert("Sorry - only business emails are allowed.");
+		return false; 
+	}
+	if(frm.company.value=='' || frm.company.value=='* Company'){
+		alert("Please enter your Company name");
+		frm.company.focus();
+		return false;
+	}
+	if(frm.phone.value == "" || frm.phone.value=='* Phone No. (With Country Code)') 
+	{
+		alert("Phone number is mandatory");
+		frm.phone.focus();
+		return false;
+	}
+	else
+	{
+		if(frm.phone.value.length > 5)
+		{
+			if(!validatePhone(frm.phone.value))
+			{
+				alert("Please enter the valid phone number");
+				frm.phone.focus();
+				
+				return false;
+			}
+		}
+		else
+		{
+			alert("Please check the number");
+			frm.phone.focus();
+			return false;
+		}
+		
+	}
+	/*if(!frm.privacypolicy.checked)
+	{
+		alert('You must agree to the terms first.');
+		return false;
+	}*/
+	if(frm.recaptcha_response_field.value==''){
+		alert("Please enter reCAPTCHA text");
+		frm.recaptcha_response_field.focus();
+		return false;
+	}
+	
+	
+	return true;
+}
+ </script>
+ 
+ <form name="dwnform" id="dwnform" action="live-demo-action.php" method="post" class="pcform1"  onsubmit="return chkfrm()">
+	<input type="hidden" name="LFMIdsite" value="5249" />
+	<input type="hidden" name="LFMC" id="LFMC" value="0" />
+	<input type="hidden" name="_form_name_" value="dwnform" />
+	<script type="text/javascript">
+	function getCookie(cookieName, path, domain) {
+		var cookiePattern = new RegExp('(^|;)[ ]*' + cookieName + '=([^;]*)' +
+			(path ? '(;[ ]*expires=[^;]*)?;[ ]*path=' + path.replace('/', '/') + '' : '') +
+			(domain ? ';[ ]*domain=' + domain + '(;|$)' : '')),
+		cookieMatch = cookiePattern.exec(document.cookie),
+		unescapeWrapper = window.decodeURIComponent || unescape;
+		return cookieMatch ? unescapeWrapper(cookieMatch[2]) : 0;
+	}
+
+	function setLFMC() {
+		try {
+			document.dwnform.LFMC.value= getCookie("_vt_");
+		} catch (e) { }
+	}
+	window.onload = function(){ setLFMC(); }
+	</script>
+    <label for="name">First Name</label>
+	<input type="text" name="name" id="name" tabindex="1" class="dinput"/>
+	
+	<label for="lastname">Last Name</label>
+	<input type="text" name="lastname" id="lastname" tabindex="2" class="dinput"/>
+
+	<label for="bemail">Business Email</label>
+	<input type="text" name="bemail" id="bemail" tabindex="3" class="dinput"/>
+	
+	<label for="company">Company</label>
+	<input type="text" name="company" id="company" tabindex="4" class="dinput"/>
+	
+	<label for="phone">Phone No. <span>(with Country Code)</span></label>
+	<input type="text" name="phone" id="phone" tabindex="4" class="dinput"/>
+    
+	<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6Le6fOASAAAAALvNrpz38lUr_rT38FoPSeaTxgry"></script>
+
+	<noscript>
+  		<iframe src="https://www.google.com/recaptcha/api/noscript?k=6Le6fOASAAAAALvNrpz38lUr_rT38FoPSeaTxgry" height="300" width="500" frameborder="0"></iframe><br/>
+  		<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+  		<input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
+	</noscript>     
+    <input type="submit" class="dsubmit" value=" " name="submit"><br/>
+	<span class="credittext">We respect your <a href="/../index.php?option=com_content&Itemid=351&id=325&lang=en&view=article">privacy</a></span>
+	</form>

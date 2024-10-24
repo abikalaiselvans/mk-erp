@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="appointment1" language="groovy" pageWidth="743" pageHeight="985" columnWidth="703" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="empid" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT staff.CHR_STAFFNAME, desig.CHR_DESIGNAME,DATE_FORMAT(staff.DT_DOJCOLLEGE,'%d-%b-%Y') , staff.INT_CTC,office.CHR_OFFICENAME
+
+FROM com_m_staff staff,com_m_desig desig, com_m_office office
+
+WHERE staff.INT_DESIGID=desig.INT_DESIGID AND
+staff.INT_OFFICEID=office.INT_OFFICEID AND staff.CHR_EMPID=$P{empid}]]>
+	</queryString>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="CHR_DESIGNAME" class="java.lang.String"/>
+	<field name="DATE_FORMAT(staff.DT_DOJCOLLEGE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="INT_CTC" class="java.lang.Long"/>
+	<field name="CHR_OFFICENAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="0" width="100" height="27"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APPOINTMENT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="796" splitType="Stretch">
+			<staticText>
+				<reportElement x="50" y="0" width="100" height="14"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dear]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="24" width="496" height="40"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
+					<font fontName="Verdana" size="10" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We have pleasure in appointing you as <b> \""+$F{CHR_DESIGNAME}+"\"</b>,  effective <b> \""+$F{DATE_FORMAT(staff.DT_DOJCOLLEGE,'%d-%b-%Y')}+"\"</b> on the following terms and conditions:"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="50" y="64" width="496" height="40"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
+					<font fontName="Verdana" size="10" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["1.     You will be entitled to  <b> \""+$F{INT_CTC}+"\"</b> and other benefits as applicable to your category of employees, details are given in <b> Annexure \'A\'</b>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="50" y="104" width="310" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DUTIES AND RESPONSIBILITIES]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="50" y="119" width="496" height="73"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
+					<font fontName="Verdana" size="10" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" You are required to perform the duties and responsibilities related to your position at any division, department or section in the Company or within the Group of Companies. You will be deployed at <b> \""+$F{CHR_OFFICENAME}+" \"</b>: Refer to <b>Annexure B</b> for your KRA."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="50" y="192" width="310" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROBATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="207" width="496" height="87"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[You are required to serve a probationary period of 12 months after which your service will be confirmed subject to satisfactory performance. The probationary period may be extended or shortened at the absolute discretion of the Company. During the probationary period, the appointment may be terminated by either party giving 1 month notice writing to other party or on payment of one (1) month salary lieu of notice.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="294" width="310" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WORKING HOURS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="309" width="310" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Monday to Saturday: 9.00 a.m. to 6.00 p.m.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="329" width="310" height="15"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Lunch time: 1.00 noon to 2.00 p.m.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="366" width="310" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ANNUAL LEAVE / HOLIDAYS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="393" width="496" height="74"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[You will be entitled to privilege; sick and casual leave any other statutory compliance as applicable to your category of employees. During Probation you are entitled to Maximum 4 days of leave and 18days on confirmation of your employment in addition to 11 days (govt holidays) gazetted holidays observed by the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="480" width="310" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROVIDENT FUND:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="495" width="496" height="28"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[An investment fund contributed by employees, employers out of which lump sum is provided to the employee on retirement.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="533" width="310" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RULES, REGULATIONS & CONFIDENTIALITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="548" width="496" height="40"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[You shall at all times, devote your full attention and skill to the affairs of the Company and will endeavor to your at most ability to promote and advance the interests of the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="588" width="476" height="14"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Accordingly, you undertake that:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="344" width="496" height="22"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[The Company reserves the right to change your working days and hours.]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

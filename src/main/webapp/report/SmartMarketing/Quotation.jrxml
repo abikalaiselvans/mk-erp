@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Quotation" language="groovy" pageWidth="920" pageHeight="842" columnWidth="880" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="New Dataset 1">
+		<queryString language="SQL">
+			<![CDATA[SELECT  CHR_QUOTATIONNO,FIND_A_CUSTOMER_ADDRESS(INT_CUSTOMERID),DATE_FORMAT(DAT_QUOTATIONDATE,'%d-%m-%Y') ,
+ CHR_ATTENTION , CHR_SUBJECT, CHR_TERMS from mkt_t_quotation where CHR_QUOTATIONNO='QT/22/000026/DAC']]>
+		</queryString>
+		<field name="CHR_QUOTATIONNO" class="java.lang.String"/>
+		<field name="FIND_A_CUSTOMER_ADDRESS(INT_CUSTOMERID)" class="java.lang.String"/>
+		<field name="DATE_FORMAT(DAT_QUOTATIONDATE,&apos;%d-%m-%Y&apos;)" class="java.lang.String"/>
+		<field name="CHR_ATTENTION" class="java.lang.String"/>
+		<field name="CHR_SUBJECT" class="java.lang.String"/>
+		<field name="CHR_TERMS" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="quotno" class="java.lang.String"/>
+	<parameter name="customer" class="java.lang.String"/>
+	<parameter name="dt" class="java.lang.String"/>
+	<parameter name="attentiontitle" class="java.lang.String"/>
+	<parameter name="attention" class="java.lang.String"/>
+	<parameter name="subject" class="java.lang.String"/>
+	<parameter name="terms" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[ ]]>
+	</queryString>
+	<field name="CHR_QUOTATIONNO" class="java.lang.String"/>
+	<field name="FIND_A_CUSTOMER_ADDRESS3(INT_CUSTOMERID)" class="java.lang.String"/>
+	<field name="DATE_FORMAT(DAT_QUOTATIONDATE,&apos;%d-%m-%Y&apos;)" class="java.lang.String"/>
+	<field name="CHR_ATTENTION" class="java.lang.String"/>
+	<field name="CHR_SUBJECT" class="java.lang.String"/>
+	<field name="CHR_TERMS" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="323" y="2" width="131" height="33"/>
+				<textElement>
+					<font fontName="Arial Black" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QUOTATION]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="153" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="114" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dear Sir,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="543" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ref. No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="543" y="20" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="71" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

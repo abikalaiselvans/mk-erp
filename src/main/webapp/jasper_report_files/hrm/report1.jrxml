@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT ROUND(a.INT_SALARY),ROUND(INT_SALARY*12),b.A001,( b.A001 *12) ,  b.A002,( b.A002 *12) ,  b.A003,( b.A003 *12) ,  b.A004,( b.A004 *12) ,  b.A005,( b.A005 *12) ,  b.A006,( b.A006 *12) ,  b.A0010,( b.A0010 *12) ,  b.A0011,( b.A0011 *12)  ,ROUND(a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011)),ROUND( (a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011))*12 ),b.A007,( b.A007 *12) ,  b.A008,( b.A008 *12) ,  b.A009,( b.A009 *12) ,  b.A0012,( b.A0012 *12) ,  b.A0013,( b.A0013 *12) ,  b.A0014,( b.A0014 *12) ,  b.A0015,( b.A0015 *12) ,ROUND(b.A007+  b.A008+  b.A009+  b.A0012+  b.A0013+  b.A0014+  b.A0015),ROUND( (a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011)+(b.A007+  b.A008+  b.A009+  b.A0012+  b.A0013+  b.A0014+  b.A0015))*12 ),ROUND(a.INT_SALARY*12/100) ,ROUND((a.INT_SALARY*12/100)*12),ROUND( (a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011))  + (a.INT_SALARY*12/100) ) , ROUND(( (a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011))  + (a.INT_SALARY*12/100) )*12),ROUND( (a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011)) - (a.INT_SALARY*12/100) )  FROM com_m_staff a,pay_t_allowance b  WHERE a.CHR_EMPID = b.CHR_EMPID AND a.CHR_EMPID='CISDEC2014004330']]>
+	</queryString>
+	<field name="ROUND(a.INT_SALARY)" class="java.lang.Double"/>
+	<field name="ROUND(INT_SALARY*12)" class="java.lang.Double"/>
+	<field name="A001" class="java.lang.Integer"/>
+	<field name="( b.A001 *12)" class="java.lang.Long"/>
+	<field name="A002" class="java.lang.Integer"/>
+	<field name="( b.A002 *12)" class="java.lang.Long"/>
+	<field name="A003" class="java.lang.Integer"/>
+	<field name="( b.A003 *12)" class="java.lang.Long"/>
+	<field name="A004" class="java.lang.Integer"/>
+	<field name="( b.A004 *12)" class="java.lang.Long"/>
+	<field name="A005" class="java.lang.Integer"/>
+	<field name="( b.A005 *12)" class="java.lang.Long"/>
+	<field name="A006" class="java.lang.Integer"/>
+	<field name="( b.A006 *12)" class="java.lang.Long"/>
+	<field name="A0010" class="java.lang.Integer"/>
+	<field name="( b.A0010 *12)" class="java.lang.Long"/>
+	<field name="A0011" class="java.lang.Integer"/>
+	<field name="( b.A0011 *12)" class="java.lang.Long"/>
+	<field name="ROUND(a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011))" class="java.lang.Double"/>
+	<field name="ROUND( (a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011))*12 )" class="java.lang.Double"/>
+	<field name="A007" class="java.lang.Integer"/>
+	<field name="( b.A007 *12)" class="java.lang.Long"/>
+	<field name="A008" class="java.lang.Integer"/>
+	<field name="( b.A008 *12)" class="java.lang.Long"/>
+	<field name="A009" class="java.lang.Integer"/>
+	<field name="( b.A009 *12)" class="java.lang.Long"/>
+	<field name="A0012" class="java.lang.Integer"/>
+	<field name="( b.A0012 *12)" class="java.lang.Long"/>
+	<field name="A0013" class="java.lang.Integer"/>
+	<field name="( b.A0013 *12)" class="java.lang.Long"/>
+	<field name="A0014" class="java.lang.Integer"/>
+	<field name="( b.A0014 *12)" class="java.lang.Long"/>
+	<field name="A0015" class="java.lang.Integer"/>
+	<field name="( b.A0015 *12)" class="java.lang.Long"/>
+	<field name="ROUND(b.A007+  b.A008+  b.A009+  b.A0012+  b.A0013+  b.A0014+  b.A0015)" class="java.lang.Long"/>
+	<field name="ROUND( (a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011)+(b.A007+  b.A008+  b.A009+  b.A0012+  b.A0013+  b.A0014+  b.A0015))*12 )" class="java.lang.Double"/>
+	<field name="ROUND(a.INT_SALARY*12/100)" class="java.lang.Double"/>
+	<field name="ROUND((a.INT_SALARY*12/100)*12)" class="java.lang.Double"/>
+	<field name="ROUND( (a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011))  + (a.INT_SALARY*12/100) )" class="java.lang.Double"/>
+	<field name="ROUND(( (a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011))  + (a.INT_SALARY*12/100) )*12)" class="java.lang.Double"/>
+	<field name="ROUND( (a.INT_SALARY+(b.A001+  b.A002+  b.A003+  b.A004+  b.A005+  b.A006+  b.A0010+  b.A0011)) - (a.INT_SALARY*12/100) )" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="128" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[ROUND(a.INT_SALARY)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[ROUND(INT_SALARY*12)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[A001]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="128" y="41" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ROUND(a.INT_SALARY)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="21" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ROUND(INT_SALARY*12)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="21" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{A001}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<link href="../Style/Help.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false">
+<table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
+  
+  <tr>
+    <td><table width="100" border="0" align="right" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="Instalation.html">Home</a></td>
+        <td><a href="javascript:history.back()">Back</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><div align="center" class="ButtonHead1">Installing MySQl Server 5.1 on Windows </div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/1n.jpg" width="300" height="150" /></div></td>
+  </tr>
+  <tr>
+    <td><span class="content">Get the  Installer</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The version we&rsquo;re interested in is the  free-as-in-both-speech-and-beer Community Edition, which is available at the  MySQL site. Here are the links to the installers:</span></td>
+  </tr>
+  <tr>
+    <td><ul type="disc">
+      <li><span class="content"><a href="http://dev.mysql.com/downloads/mysql/5.1.html#win32">Here are the links for the Windows 32-bit       installers</a> </span></li>
+      <li><span class="content"><a href="http://dev.mysql.com/downloads/mysql/5.1.html#winx64">Here are the links for the  Windows 64-bit installers</a></span></li>
+    </ul>    </td>
+  </tr>
+  <tr>
+    <td><span class="content">Both these options provide you with three different  installers. <strong>I recommend  getting the .msi (Windows Installer) as it&rsquo;s the lowest-headache option.</strong> It&rsquo;s also the version I use in this walkthrough.</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">By the way, the screenshots provided in this  walkthrough are from my actual installation process on PC.</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">Here&rsquo;s what you should see when you launch the  installer:</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/2.jpg" width="500" height="383" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h2 class="mainheading">Which Setup Type?</h2></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">The first choice you have to make is the type of setup  you want:</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/3.jpg" width="500" height="383" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The three choices offered are:</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content"><strong>1</strong></span><strong>.</strong><span class="content"><strong>Typical:</strong> Installs the basic components for MySQL to the default installation path, C:\Program       Files\MySQL\MySQL Server 5.1\, including:</span>      <ol start="1" type="1">
+        <ul type="circle">
+          <li class="content">The MySQL server</li>
+          <li class="content">The mysql command-line client</li>
+          <li class="content">Other command-line utilities like mysqldump, myisamchk        and more.</li>
+        </ul>
+    </ol></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content"><strong>2. Complete:</strong> Installs all the MySQL components to the default installation path, C:\Program       Files\MySQL\MySQL Server 5.1\, including those listed in the       Typical setup, plus:
+      </span>      <ol start="1" type="1">
+      <ul type="circle">
+        <li><span class="content">Documentation</span></li>
+        <li><span class="content">The embedded server library</span></li>
+        <li><span class="content">The benchmark suite</span></li>
+        <li><span class="content">Support scripts</span></li>
+      </ul>
+    </ol></td>
+  </tr>
+  <tr>
+    <td><span class="content"><strong>3.</strong> <strong>Custom:</strong> Gives you complete control over the components installed and the       installation path.</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">Although the components in the Typical setup will work  fine for most web development purposes, <strong>I  like having the docs handy, so I went with the Complete setup.</strong></span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">Once you&rsquo;ve selected the setup, you&rsquo;ll be shown a  confirmation window like the one below:</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/4.jpg" width="500" height="383" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">Once MySQL has been installed, you&rsquo;ll see the window  below:</td>
+  </tr>
+  <tr>
+    <td class="content">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/5.jpg" width="500" height="383" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">You&rsquo;ll be given the choice to configure MySQL server,  which I recommend. You can do so by leaving the <strong>Configure the MySQL Server now</strong> checkbox  checked and then clicking <strong>Finish</strong>.</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h3 class="mainheading">The Configuration Wizard :</h3></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">Here&rsquo;s the first window of the Configuration Wizard:</td>
+  </tr>
+  <tr>
+    <td class="content">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/6.jpg" width="500" height="400" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h3 class="mainheading">Which Configuration?</h3></td>
+  </tr>
+  <tr>
+    <td class="content">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">You&rsquo;ll be asked which configuration type to use:</td>
+  </tr>
+  <tr>
+    <td class="content">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/7.jpg" width="500" height="383" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The two choices offered are:</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><p><strong>1</strong>.<span class="content"><strong>Detailed Configuration:</strong> Gives you fine-grained control over the       configuration process. <strong>I&rsquo;m       familiar with the options being offered, so this is the option I chose. </strong>If       you choose this option, you will have to make some additional choices in       the windows that follow.</span>    </p>
+    <p><span class="content"><strong>2. Standard Configuration:</strong> If you&rsquo;re new to MySQL and  need a server configured as a single-user developer machine, this configuration  should suit your needs. If you choose this option, you&rsquo;ll skip the next few  steps and go directly to the Root Password window</span></p></td>
+  </tr>
+  
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h3 class="mainheading">Detailed Configuration Options :</h3></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">If you chose to use the Detailed Configuration, you  will see the following windows.</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h4 class="headings">Server Type :</h4></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The first choice in the Detailed Configuration is  Server Type:</span></td>
+  </tr>
+  <tr>
+    <td><p class="content">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/8.jpg" width="500" height="383" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The three options are:</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><ol start="1" type="1">
+      <li><span class="content"><strong>Developer Machine:</strong> This setup assumes that MySQL will be running on       a machine used to write applications, where the database will be used for       basic developer proofs of concept and simple testing. MySQL will be       configured to use minimal system resources. <strong>This is the option I selected.</strong> </span></li>
+      <li><span class="content"><strong>Server Machine:</strong> This setup is for server systems where MySQL will       be running along with other server applications such as a web server, mail       server, FTP server and so on. MySQL will be configured to use a moderate       portion of the system resources. </span></li>
+      <li><span class="content"><strong>Dedicated MySQL Server Machine:</strong> This is for machines that will be running only       MySQL. in this configuration, MySQL will be configured to use all       available system resources. </span></li>
+    </ol></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h4 class="headings">Storage Engines :</h4></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The next choice to make is selecting the storage  engines to be used: MyISAM or InnoDB. If you&rsquo;re not familiar with MySQL, you&rsquo;re  probably asking &ldquo;What&rsquo;s the difference between InnoDB and MyISAM?&rdquo;</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">Of the two engines, <strong>MyISAM</strong> is the older of the two, and the  default engine. The general consensus is that in most cases, it&rsquo;s faster than  InnoDB for typical CRUD operations. It supports up to around 4 billion rows of  data and 64 indexed fields per table. MyISAM uses table-level locking, which  means than when a row is being updated, the table is locked and no other  operations can update any other rows until the first row is updated and the  lock on the table is released.</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">Of the two engines, <strong>MyISAM</strong> is the older of the two, and the  default engine. The general consensus is that in most cases, it&rsquo;s faster than  InnoDB for typical CRUD operations. It supports up to around 4 billion rows of  data and 64 indexed fields per table. MyISAM uses table-level locking, which  means than when a row is being updated, the table is locked and no other  operations can update any other rows until the first row is updated and the  lock on the table is released.</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">Of the two engines, <strong>MyISAM</strong> is the older of the two, and the  default engine. The general consensus is that in most cases, it&rsquo;s faster than  InnoDB for typical CRUD operations. It supports up to around 4 billion rows of  data and 64 indexed fields per table. MyISAM uses table-level locking, which  means than when a row is being updated, the table is locked and no other  operations can update any other rows until the first row is updated and the  lock on the table is released.</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The general guidelines for choosing between MyISAM and  InnoDB are as follows:
+      </span>      <ul type="disc">
+        <li><span class="content"><strong>Will your use of the database be mostly </strong><em><strong>reading</strong></em><strong>?</strong> That is, will you be doing mostly select operations and few insert, update       and delete operations? Then you want MyISAM.</span></li>
+        <li><span class="content"><strong>Will your use of the database involve at least as       many writes as reads, if not more?</strong> That is, will you be doing as many insert, update and delete operations as       select operations? Then you want InnoDB.</span></li>
+        <li><span class="content"><strong>Do you need full-text search?</strong> You want MyISAM.</span></li>
+        <li><span class="content"><strong>Do you need to conserve disk space and RAM?</strong> You want MyISAM.</span></li>
+        <li><span class="content"><strong>Does the idea of using a non-SQL Server database       irk you?</strong> You might feel better       going with InnoDB, since it has the row-level locking, transaction safety       and generally more &ldquo;relational&rdquo; feel.</span></li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content"><strong>Keep in mind that when adding a  table to a MySQL database, you can specify which engine it uses.</strong> Lately, I&rsquo;ve been in the habit of specifying InnoDB  for most tables except those  on which I want to provide full-text search; for those, I&rsquo;ve specified MyISAM.  (For more on specifying engines when creating tables, see <a href="http://dev.mysql.com/doc/refman/5.1/en/create-table.html">MySQL&rsquo;s page on the <strong>create  table</strong> command</a>.)</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">Now that I&rsquo;ve done a quick review of MyISAM and InnoDB,  let&rsquo;s look at the storage engine choices that the Configuration Wizard offers.</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/9.jpg" width="500" height="383" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><p><span class="content">The three choices are:</span></p></td>
+  </tr>
+  <tr>
+    <td><ol start="1" type="1">
+      <li><span class="content"><strong>Multifunctional Database:</strong> This enables both InnoDB and MyISAM storage       engines and divides resources evenly between the two. This is the       recommended option for developers who use both storage engines on a       regular basis. <strong>It&rsquo;s       the option I chose, since it yields the most flexibility.</strong></span></li>
+      <li><span class="content"><strong>Transactional Database Only:</strong> This enables both InnoDB and MyISAM storage       engines, but dedicates more resources to the InnoDB engine.</span></li>
+      <li><span class="content"><strong>Non-Transactional Database Only:</strong> This option completely disables InnoDB; all       resources are dedicated to the MyISAM storage engine.</span></li>
+    </ol></td>
+  </tr>
+  <tr>
+    <td><span class="content">If you chose Multifunctional Database or Transactional  Database Only, you&rsquo;ll be presented a windows asking you where to put the InnoDB  tablespace:</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../images/instalation/mysql/10.jpg" width="500" height="383" /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content"><strong>I went with the default,</strong> which puts the tablespace in the MySQL installation  directory.</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h4><span class="content">Concurrent Connection Settings</span> :</h4></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The next window is all about the number of concurrent  connections supported:</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/11.jpg" width="500" height="383" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The three choices offered are:
+      </span>      <ol start="1" type="1">
+        <li><span class="content"><strong>Decision Support (DSS)/OLAP:</strong> This assumes an average of around 20 concurrent       connections, with a maximum of 100 concurrent connections supports. <strong>I chose this option, as it works       for most development scenarios.</strong></span></li>
+        <li><span class="content"><strong>Online Transaction Processing: </strong>This supports up to 500 concurrent connections and       is generally for production use.</span></li>
+        <li><span class="content"><strong>Manual Setting:</strong> This lets you specify a specific number of       connections. I&rsquo;ve seen it used mostly for testing.</span></li>
+    </ol></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h4><span class="content">Networking Options</span> :</h4></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The next window concerns itself with networking  options:</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/12.jpg" width="500" height="383" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">Port  3306 is the default MySQL port, so that&rsquo;s what I went with; I also checked the <strong>Add firewall exception for this port</strong> checkbox. I also left the <strong>Enable  Strict Mode</strong> checkbox checked.</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h4 class="headings">Default Character Encoding :</h4></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">Now it&rsquo;s time to select the default character encoding:</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/13.jpg" width="500" height="383" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">You&rsquo;re given a number of options, but I suggest you go  with my choice. <strong>I chose  UTF-8 because it&rsquo;s the encoding of the Web.</strong></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h4 class="headings"><strong>Service  Options</strong> :</h4></td>
+  </tr>
+  <tr>
+    <td class="content">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">Here&rsquo;s the next window:</td>
+  </tr>
+  <tr>
+    <td class="content">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/14.jpg" width="500" height="383" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">I strongly recommend:
+      </span>
+      <ul type="disc">
+        <li><span class="content">Checking the <strong>Install As Windows Service</strong> checkbox. When installed as a Windows service, MySQL can be started       automatically at system startup and restarted in the event of a service       failure.</span></li>
+        <li><span class="content">Going with the default service name of <strong>MySQL </strong>unless       there&rsquo;s already an instance of MySQL installed, in which case you&rsquo;ll want       to provide a different name. Note that service names should be 255       characters or less and can have any legal character except for the       forward-slash (/) or backslash (/).</span></li>
+        <li><span class="content">Checking the <strong>Launch the MySQL Server automatically</strong> checkbox.</span></li>
+      </ul>
+    <span class="content">    Checking the <strong>Include Bin Directory in Windows PATH</strong> checkbox. You&rsquo;ll save yourself a lot of typing if you do this. </span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h4><span class="headings">Security Options</span> :</h4></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">And now, the Security Options window&hellip;</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/15.jpg" width="500" height="383" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">You&rsquo;ll be asked to provide a password for the <strong>root</strong> user twice.</span></td>
+  </tr>
+  <tr>
+    <td><span class="content">You can also choose to:
+      </span>      <ul type="disc">
+        <li><span class="content"><strong>Enable root access from remote machines.</strong> I don&rsquo;t really need this on my development       machine, so <strong>I </strong><em><strong>didn&rsquo;t</strong></em><strong> check this checkbox</strong>.</span></li>
+        <li><span class="content"><strong>Create an anonymous account.</strong> I don&rsquo;t need this either, so <strong>I </strong><em><strong>didn&rsquo;t</strong></em><strong> check this checkbox</strong>.</span></li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td><h4><span class="content">Go!</span></h4></td>
+  </tr>
+  <tr>
+    <td><span class="content">That&rsquo;s it for all the option setting. You&rsquo;ll now be  presented with this window:</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/16.jpg" width="500" height="383" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td class="content">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="content">If you&rsquo;re satisfied with your configuration choices in  the previous windows, click the <strong>Execute</strong> button. You&rsquo;ll be presented with this window as your reward:</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/17.jpg" width="500" height="383" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">&hellip;and you&rsquo;re done!</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><h3><span class="headings">Taking it for a Quick Spin</span> :</h3></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">Let&rsquo;s take MySQL for a quick spin to confirm it&rsquo;s  working. We&rsquo;ll do this using the mysql  command-line client and logging in as <strong>root</strong>.  There are a couple of ways to do this. One is by firing up the <strong>MySQL Command Line Client </strong>from  your Windows menu (or Start Menu on XP):</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/18.jpg" width="500" height="200" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>A command-line window will pop up, where you&rsquo;ll be  prompted to enter the root password. Enter it, and you&rsquo;ll be in the  command-line client!</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/19.jpg" width="500" height="300" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="content">The other way is to fire up the <strong>Command Prompt</strong> and  (if you specified that you wanted MySQL&rsquo;s bin directory  included in Windows&rsquo; PATH, which you should have), enter <strong>mysql  &ndash;u root &ndash;p</strong>. The -u switch is for  specifying a username, and the -p switch is for  specifying that you will be providing a password for the specified username.<br />
+    </span></td>
+  </tr>
+  <tr>
+    <td><span class="content">You&rsquo;ll be prompted to enter a password. Enter the root  password and you&rsquo;ll be in the command-line client:</span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/mysql/20.jpg" width="500" height="300" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>And MySQL is ready to use! </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

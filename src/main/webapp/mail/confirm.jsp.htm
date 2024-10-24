@@ -1,0 +1,239 @@
+<%@ page language="java" import="java.util.*,javax.mail.*,javax.activation.*,javax.mail.internet.*,java.io.*" buffer="none" %>
+<HTML>
+<HEAD>
+<TITLE> Ayushman - Mail Confirm page </TITLE>
+</HEAD>
+<link rel="stylesheet" href="compose.css">
+<link rel="stylesheet" href="nav.css">
+<Body marginwidth=0 marginheight=0 leftmargin=0 topmargin=0>
+<form>
+<table width=100% border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td colspan=2><jsp:include page="mailtop2.html" flush="true" />
+</td>
+</tr>
+<tr>
+<td width=15% class="navBg">
+<table border="0" cellpadding=0 cellspacing=0 >
+					<tr>
+				<td><img src="images/dot.gif" height=1 width=1 border=0 alt=""></td>
+				<td class="navBorderOut"><img src="images/dot.gif" height=1 width=1 border=0 alt=""></td>
+				<td><img src="images/dot.gif" height=1 width=1 border=0 alt=""></td>
+					</tr>
+				 	<tr>
+						<td><img src="images/dot.gif" height=1 width=1 border=0 alt=""></td>
+						<td class="navBorderOut"><img src="images/dot.gif" height=1 width=1 border=0 alt=""></td>
+						<td><img src="images/dot.gif" height=1 width=1 border=0 alt=""></td>
+					</tr>
+								<tr><td colspan=2 class="navBorderIn"><img src="images/dot.gif" height=1
+								 width=1 border=0 alt=""></td></tr>
+							<tr><td class="navBg"><img src="images/dot.gif" height=19 width=8 border=0
+							 alt=""></td>
+							<td width="100%"><font face="Verdana,Sans-serif" color="#FFFFFF" size=1><a href="mail_count1.jsp" onmouseover="status='Compose';return true" 
+							 class="navtxt">MailHome</a></font></td></tr>
+							<tr><td colspan=2 class="navBorderOut"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+							<tr><td colspan=2 class="navBorderIn"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+							 <tr><td class="navBg"><img src="images/dot.gif" height=19 width=8 border=0
+							 alt=""></td>
+							<td width="100%"><font face="Verdana,Sans-serif" color="#FFFFFF" size=1><a href="read_mail.jsp" onmouseover="status='Compose';return true" 
+							 class="navtxt">Inbox</a></font></td></tr>
+							<tr><td colspan=2 class="navBorderOut"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+							<tr><td colspan=2 class="navBorderIn"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+							<tr><td class="navBg"><img src="images/dot.gif" height=19 width=8 border=0
+							 alt=""></td>
+							<td width="100%"><font face="Verdana,Sans-serif" color="#FFFFFF" size=1><a href="compose1.jsp" onmouseover="status='Compose';return true" 
+							 class="navtxt">Compose</a></font></td></tr>
+							<tr><td colspan=2 class="navBorderOut"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+							<tr><td colspan=2 class="navBorderIn"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+							<tr><td class="navBg"><img src="images/dot.gif" height=19 width=8 border=0
+							 alt=""></td>
+							<td width="100%"><font face="Verdana,Sans-serif" color="#FFFFFF" size=1><a href="view_address.jsp" onmouseover="status='Address Book';return true" class="navtxt">Address Book</a></font></td></tr>
+							<tr><td colspan=2 class="navBorderOut"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+							<tr><td colspan=2 class="navBorderIn"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+							<tr><td class="navBg"><img src="images/dot.gif" height=19 width=8 border=0
+							 alt=""></td>
+							<td width="100%"><font face="Verdana,Sans-serif" color="#FFFFFF" size=1><a href="http://login.mail.lycos.com/bounce.shtml?goto=options&cached=1" onmouseover="status='Options';return true" 
+							 class="navtxt">Options</a></font></td></tr>
+                        	<tr><td colspan=2 class="navBorderOut"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+							<tr><td colspan=2 class="navBorderIn"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+						
+                        <tr><td class="navBg"><img src="images/dot.gif" height=19 width=8 border=0
+							 alt=""></td>
+							<td width="100%"><font face="Verdana,Sans-serif" color="#FFFFFF" size=1><a href="/servlet/logoff?control=mail" onmouseover="status='Compose';return true" 
+							 class="navtxt">SignOut</a></font></td></tr>
+
+
+							<tr><td colspan=2 class="navBorderOut"><img src="images/dot.gif" height=1 width=1
+							 border=0 alt=""></td></tr>
+							
+							 </table>
+</td>
+<td width=80% align="center" bgcolor=#D6E9FC>
+<table border="0" cellpadding=0 cellspacing=0 >
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+	<td align=center >
+	<font face=verdana size=2 color=#3300CC><b>Ayushman Mailing Service </b>: Message Confirmation</font><BR><BR>
+	</td>
+</tr>
+<%
+String path=application.getRealPath("/")+"mail_new/attachment/test/";
+	String host="192.168.10.79";
+	//String host="192.168.10.204";
+	String subject=request.getParameter("subject");
+	//out.println("Subject  "+subject);
+	String from=request.getParameter("from");
+	//out.println("from "+from);
+	String to=request.getParameter("to");
+	//out.println("To  "+to);
+	String h1=request.getParameter("h1");
+	//out.println("H1   "+h1);
+	String bcc=request.getParameter("bcc");
+	String cc=request.getParameter("cc");		
+	String body=request.getParameter("body");
+	//out.println("Body"+body);%>
+<tr>
+	<td align=center>
+		<p> <font face=arial size=2 color=#000099>Your message has been sent To:</p>
+	</td>
+</tr>
+<tr><td>&nbsp;&nbsp;</td></tr>
+<tr>
+    <td align=center>
+	<p>
+
+<%   String receipient=cc+","+bcc;  	
+	//StringTokenizer rectok=new StringTokenizer(receipient,"',',';'");
+	StringTokenizer rectok=new StringTokenizer(receipient,",");
+	
+	int ct=rectok.countTokens();
+	String ccar[]=new String[ct];
+	String cc1="";
+	ArrayList ar=new ArrayList();
+	while(rectok.hasMoreTokens())
+	{
+		ar.add(rectok.nextToken());
+		//cc1=rectok.nextToken();
+		//out.println("<br>"+cc1);;
+	}
+	//out.println("AR  "+ar);
+
+//out.println(cc1);
+	Properties props = System.getProperties();
+	Vector files_add=new Vector();
+	Vector vec_len=new Vector();
+	long len=0;
+	Enumeration enum=null;
+	int filecount=0;
+//	out.println("I!!!!");
+	if(h1.equals("yes"))
+	{
+	//	out.println("YES");
+		files_add=(Vector)session.getValue("files_add");
+		//out.println("File count  "+session.getValue("vec_dir"));
+		filecount=files_add.size();
+		//out.println("File count  "+files_add.size());
+		vec_len=(Vector)session.getValue("vec_len");
+		Long Len=(Long)session.getValue("len");
+		len=Len.longValue();
+		enum=files_add.elements();
+	}
+	//out.println("<br>raja");
+// Setup mail server
+props.put("mail.smtp.host", host);
+
+// Get session
+Session sess = Session.getDefaultInstance(props, null);
+String next="";
+//while(rectok.hasMoreTokens())
+//{
+	try{
+			//next=rectok.nextToken();
+			// Define message
+			javax.mail.Message message=new MimeMessage(sess);
+			message.setFrom(new InternetAddress(from));
+		InternetAddress[] address={new InternetAddress(to)};
+		//out.println(address.length);
+			out.println("<font color=red size=2 face=arial>"+to+"</font>");
+			message.addRecipients(javax.mail.Message.RecipientType.TO,address);
+			InternetAddress[] cc2=new InternetAddress[ar.size()];
+			for(int i=0;i<ar.size();i++)
+				{
+					cc2[i]=new InternetAddress(ar.get(i).toString());
+					out.println(",\t <font face=arial size=2 color=red>"+cc2[i]+"</font>");
+					message.addRecipient(javax.mail.Message.RecipientType.CC,cc2[i]);
+				}
+			//InternetAddress[] bcc1={new InternetAddress(bcc)};
+		//	message.addRecipients(javax.mail.Message.RecipientType.CC,cc2);
+		//	message.addRecipients(javax.mail.Message.RecipientType.BCC,cc2);
+			message.setSubject(subject);
+			message.setSentDate(new Date());
+			javax.mail.internet.MimeBodyPart mbp=new MimeBodyPart();
+			if(filecount==0)
+			{
+				  // out.println("FileCount "+filecount);
+					message.setText(body);
+				//	out.println("<br>111");
+			}
+			else
+			{
+			//		out.println("<br>222");
+				     mbp.setText(body);
+					 javax.mail.Multipart multipart=new MimeMultipart();
+					multipart.addBodyPart(mbp);
+					message.setDisposition(Part.ATTACHMENT);
+					//out.println("attt");
+
+					while(enum.hasMoreElements())
+					{
+								//	out.println("<br>"+filecount++);
+								//	out.println("!!!!");
+								String obj=(String)enum.nextElement();
+								String fp=path+obj;
+							//	out.println("<br>FP  "+fp);
+								File f=new File(fp);
+								mbp=new MimeBodyPart();
+								DataSource ds=new FileDataSource(fp);
+								mbp.setDataHandler(new DataHandler(ds));
+								mbp.setFileName(fp);
+								multipart.addBodyPart(mbp);
+								message.setContent(multipart);
+				}
+	
+		}
+		// Send message
+		Transport.send(message);%>
+<font face=arial size=2 color=#3838BA> <%=next%>
+    </p>
+	</td>
+</tr>
+<%	}
+	catch(Exception e11)
+	{
+		out.println(e11);
+	}
+//}//end while
+%>
+      
+<tr><td>&nbsp;&nbsp;</td></tr>  
+</table>
+</td>
+</tr>
+<!-- <tr><td colspan=2 align="center"><input type=button name="more" value="SendMoreMails"></td></tr>
+ --></table>
+</form>
+<jsp:include page="/bottom.html" flush="true"/>
+</body>
+</html>

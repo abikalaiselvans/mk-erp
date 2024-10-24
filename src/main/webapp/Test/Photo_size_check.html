@@ -1,0 +1,52 @@
+<html>
+<head>
+ 
+<title>Untitled Document</title>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function imgExceedSize(w,h)
+{
+	if(!document.form1.image.value=="")
+	{
+		if(img.width>w || img.height>h)
+		{
+			alert("Image size "+img.width+"X"+img.height+" Image too big Please make it less than "+w+"×"+h);
+			return true;
+		}
+		else	
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return true;
+	}
+}
+
+
+function detect()
+{
+	var ok=imgExceedSize(20,20); //20,20 are size limitation
+	if(ok)
+	{	
+		document.form1.reset();
+	}
+	else
+	{
+		document.form1.submit();
+	}
+}
+
+//-->
+</SCRIPT>
+</head>
+<body>
+<form name="form1" enctype="multipart/form-data" method="post" action="">
+            <input type="file" name="image" id="image" onchange="img.src=document.form1.image.value">
+            <input type="button" name="upload" id="upload" value="Upload" onClick="detect()">
+			 <img  name="img" id="img" src="file:///C|/Documents and Settings/Administrator/Desktop/images/whitespace.gif">
+          </form></body>
+</html>

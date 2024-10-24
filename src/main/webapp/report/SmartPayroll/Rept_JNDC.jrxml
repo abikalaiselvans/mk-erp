@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rept_JNDC" language="groovy" pageWidth="640" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="600" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1">
+		<conditionalStyle>
+			<style forecolor="#99FF99" backcolor="#FF3333" fill="Solid"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="hImageExpression" class="java.lang.String"/>
+	<parameter name="fImageExpression" class="java.lang.String"/>
+	<parameter name="exitInterview" class="java.lang.String"/>
+	<parameter name="workingDays" class="java.lang.String"/>
+	<parameter name="salary" class="java.lang.String"/>
+	<parameter name="advance" class="java.lang.String"/>
+	<parameter name="loan" class="java.lang.String"/>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="settlement" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT a.INT_NDCID,a.CHR_EMPID,b.CHR_STAFFNAME,  c.CHR_OFFICENAME,d.CHR_DEPARTNAME,e.CHR_CATEGORYNAME,DATE_FORMAT(DAT_RESIGNDATE,'%d-%b-%Y'),
+    if(a.CHR_STORE='Y','Closed','Pending'),  a.CHR_STORE_DESC,FIND_A_EMPLOYEE_ID_NAME(a.CHR_STORE_EMPID),DATE_FORMAT(a.DAT_STORE_DATE,'%d-%b-%Y'),
+       a.DOU_STORE,if(a.CHR_ACCOUNTS='Y','Closed','Pending'),a.CHR_ACCOUNTS_DESC,FIND_A_EMPLOYEE_ID_NAME(a.CHR_ACCOUNTS_EMPID),
+         DATE_FORMAT(a.DAT_ACCOUNTS_DATE,'%d-%b-%Y'), a.DOU_ACCOUNTS, if(a.CHR_HR='Y','Closed','Pending'),
+           a.CHR_HR_DESC,FIND_A_EMPLOYEE_ID_NAME(a.CHR_HR_EMPID),DATE_FORMAT(a.DAT_HR_DATE,'%d-%b-%Y'),
+             DOU_HR, if(a.CHR_GENERAL='Y','Closed','Pending') ,a.CHR_GENERAL_DESC,FIND_A_EMPLOYEE_ID_NAME(a.CHR_GENERAL_EMPID),
+               DATE_FORMAT(a.DAT_GENERAL_DATE,'%d-%b-%Y'), a.DOU_GENERAL, if(a.CHR_FINAL='Y','Closed','Pending') ,  a.CHR_FINAL_DESC,
+               FIND_A_EMPLOYEE_ID_NAME(a.CHR_FINAL_EMPID),DATE_FORMAT(a.DAT_FINAL_DATE,'%d-%b-%Y'),  a.DOU_FINAL,
+               a.CHR_USRNAME,a.DT_UPDATEDATE,a.CHR_UPDATESTATUS,a.DOU_STORE+a.DOU_ACCOUNTS+DOU_HR+a.DOU_GENERAL+a.DOU_FINAL total,
+               if(a.CHR_HR_IDCARD='Y','Id card returned','Id card not returned'),if(a.CHR_HR_ACCESSCARD='Y',
+               'Access card returned','Access card not returned') ac,if(a.CHR_HR_EMAILDELETION='Y',
+               'Email Id deleted','Email Id not deleted') em,if(a.CHR_OUTSOURCE_EMPLOYEE='Y','outsource employee','Not an outsource employee'),
+               if(a.CHR_OUTSOURCE_EMPLOYEE='Y',if(a.CHR_OUTSOURCE='Y','Outsource claimed','Outsource not claimed'),''),
+               (a.DOU_STORE+a.DOU_ACCOUNTS+DOU_HR+a.DOU_GENERAL+a.DOU_FINAL) ,(( select a.INT_NOD1BALANCE FROM att_m_leave a,pay_t_emp_ndc b
+               where a.INT_NOD1BALANCE<0  AND a.CHR_EMPID=b.CHR_EMPID)+( select a.INT_NOD1BALANCE FROM att_m_leave a,pay_t_emp_ndc b
+               where a.INT_NOD1BALANCE<0  AND a.CHR_EMPID=b.CHR_EMPID)+( select a.INT_NOD1BALANCE FROM att_m_leave a,pay_t_emp_ndc b
+                where a.INT_NOD1BALANCE<0  AND a.CHR_EMPID=b.CHR_EMPID)+( select a.INT_NOD1BALANCE FROM att_m_leave a,pay_t_emp_ndc b
+                where a.INT_NOD1BALANCE<0  AND a.CHR_EMPID=b.CHR_EMPID)+( select a.INT_NOD1BALANCE FROM att_m_leave a,pay_t_emp_ndc b
+                where a.INT_NOD1BALANCE<0  AND a.CHR_EMPID=b.CHR_EMPID)+( select a.INT_NOD1BALANCE FROM att_m_leave a,pay_t_emp_ndc b
+                where a.INT_NOD1BALANCE<0  AND a.CHR_EMPID=b.CHR_EMPID)+( select a.INT_NOD1BALANCE FROM att_m_leave a,pay_t_emp_ndc b where a.INT_NOD1BALANCE<0  AND a.CHR_EMPID=b.CHR_EMPID)+( select a.INT_NOD1BALANCE FROM att_m_leave a,pay_t_emp_ndc b where a.INT_NOD1BALANCE<0  AND a.CHR_EMPID=b.CHR_EMPID)+(select a.INT_NOD1BALANCE FROM att_m_leave a,pay_t_emp_ndc b where a.INT_NOD1BALANCE<0  AND a.CHR_EMPID=b.CHR_EMPID)) leaveBal FROM pay_t_emp_ndc a , com_m_staff b, com_m_office c, com_m_depart d, com_m_employeecategory e  WHERE a.CHR_EMPID =b.CHR_EMPID  AND b.INT_OFFICEID =c.INT_OFFICEID AND a.CHR_FINAL='Y'  AND b.INT_DEPARTID = d.INT_DEPARTID  AND b.CHR_CATEGORY =e.INT_EMPLOYEECATEGORYID  AND a.INT_NDCID = 5]]>
+	</queryString>
+	<field name="INT_NDCID" class="java.lang.Integer"/>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="CHR_OFFICENAME" class="java.lang.String"/>
+	<field name="CHR_DEPARTNAME" class="java.lang.String"/>
+	<field name="CHR_CATEGORYNAME" class="java.lang.String"/>
+	<field name="DATE_FORMAT(DAT_RESIGNDATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="if(a.CHR_STORE=&apos;Y&apos;,&apos;Closed&apos;,&apos;Pending&apos;)" class="java.lang.String"/>
+	<field name="CHR_STORE_DESC" class="java.lang.String"/>
+	<field name="FIND_A_EMPLOYEE_ID_NAME(a.CHR_STORE_EMPID)" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DAT_STORE_DATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="DOU_STORE" class="java.lang.Double"/>
+	<field name="if(a.CHR_ACCOUNTS=&apos;Y&apos;,&apos;Closed&apos;,&apos;Pending&apos;)" class="java.lang.String"/>
+	<field name="CHR_ACCOUNTS_DESC" class="java.lang.String"/>
+	<field name="FIND_A_EMPLOYEE_ID_NAME(a.CHR_ACCOUNTS_EMPID)" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DAT_ACCOUNTS_DATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="DOU_ACCOUNTS" class="java.lang.Double"/>
+	<field name="if(a.CHR_HR=&apos;Y&apos;,&apos;Closed&apos;,&apos;Pending&apos;)" class="java.lang.String"/>
+	<field name="CHR_HR_DESC" class="java.lang.String"/>
+	<field name="FIND_A_EMPLOYEE_ID_NAME(a.CHR_HR_EMPID)" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DAT_HR_DATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="DOU_HR" class="java.lang.Double"/>
+	<field name="if(a.CHR_GENERAL=&apos;Y&apos;,&apos;Closed&apos;,&apos;Pending&apos;)" class="java.lang.String"/>
+	<field name="CHR_GENERAL_DESC" class="java.lang.String"/>
+	<field name="FIND_A_EMPLOYEE_ID_NAME(a.CHR_GENERAL_EMPID)" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DAT_GENERAL_DATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="DOU_GENERAL" class="java.lang.Double"/>
+	<field name="if(a.CHR_FINAL=&apos;Y&apos;,&apos;Closed&apos;,&apos;Pending&apos;)" class="java.lang.String"/>
+	<field name="CHR_FINAL_DESC" class="java.lang.String"/>
+	<field name="FIND_A_EMPLOYEE_ID_NAME(a.CHR_FINAL_EMPID)" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DAT_FINAL_DATE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="DOU_FINAL" class="java.lang.Double"/>
+	<field name="CHR_USRNAME" class="java.lang.String"/>
+	<field name="DT_UPDATEDATE" class="java.sql.Date"/>
+	<field name="CHR_UPDATESTATUS" class="java.lang.String"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="if(a.CHR_HR_IDCARD=&apos;Y&apos;,&apos;Id card returned&apos;,&apos;Id card not returned&apos;)" class="java.lang.String"/>
+	<field name="ac" class="java.lang.String"/>
+	<field name="em" class="java.lang.String"/>
+	<field name="if(a.CHR_OUTSOURCE_EMPLOYEE=&apos;Y&apos;,&apos;outsource employee&apos;,&apos;Not an outsource employee&apos;)" class="java.lang.String"/>
+	<field name="if(a.CHR_OUTSOURCE_EMPLOYEE=&apos;Y&apos;,if(a.CHR_OUTSOURCE=&apos;Y&apos;,&apos;Outsource claimed&apos;,&apos;Outsource not claimed&apos;),&apos;&apos;)" class="java.lang.String"/>
+	<field name="(a.DOU_STORE+a.DOU_ACCOUNTS+DOU_HR+a.DOU_GENERAL+a.DOU_FINAL)" class="java.lang.Double"/>
+	<field name="leaveBal" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="700" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{hImageExpression}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="65" width="600" height="20" backcolor="#00CCCC"/>
+				<textElement textAlignment="Center" markup="styled">
+					<font fontName="Verdana" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>CLEARANCE CERTIFICATE</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="111" width="120" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Name of the Employee </style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="131" width="120" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Department </style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="151" width="120" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Category </style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="111" width="100" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Verdana" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Employee ID</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="131" width="100" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Location</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="151" width="100" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Resigned Date</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="181" width="109" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Verified By</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="0" y="181" width="81" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>DEPARTMENT</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="181" width="111" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Description</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="181" width="102" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Status</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="403" y="181" width="104" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Verified Date</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="507" y="181" width="94" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Fine Amount</style>]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="81" y="241" width="102" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(a.CHR_ACCOUNTS='Y','Closed','Pending')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="81" y="211" width="102" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(a.CHR_STORE='Y','Closed','Pending')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="164" y="111" width="156" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{CHR_STAFFNAME}.equals(null)?": ":":  "+$F{CHR_STAFFNAME})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="507" y="211" width="94" height="30"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{DOU_STORE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="0" y="211" width="81" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>STORE</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="0" y="241" width="81" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>ACCOUNTS</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="0" y="271" width="81" height="75"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>HR</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="0" y="346" width="81" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>BUSINESS</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="0" y="376" width="81" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>FINAL</style>]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="164" y="131" width="156" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{CHR_DEPARTNAME}.equals(null)?": ":":  "+$F{CHR_DEPARTNAME})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="164" y="151" width="156" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{CHR_CATEGORYNAME}.equals(null)?": ":":  "+$F{CHR_CATEGORYNAME})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="420" y="111" width="161" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{CHR_EMPID}.equals(null)?": ":":  "+$F{CHR_EMPID})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="420" y="131" width="161" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{CHR_OFFICENAME}.equals(null)?": ":":  "+$F{CHR_OFFICENAME})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="420" y="151" width="161" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{DATE_FORMAT(DAT_RESIGNDATE,'%d-%b-%Y')}.equals(null)?": ":":  "+$F{DATE_FORMAT(DAT_RESIGNDATE,'%d-%b-%Y')})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="81" y="271" width="102" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(a.CHR_HR='Y','Closed','Pending')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="81" y="346" width="102" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(a.CHR_GENERAL='Y','Closed','Pending')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="81" y="376" width="102" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(a.CHR_FINAL='Y','Closed','Pending')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="183" y="211" width="111" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_STORE_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="183" y="241" width="111" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_ACCOUNTS_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="183" y="271" width="111" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_HR_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="183" y="346" width="111" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_GENERAL_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="183" y="376" width="111" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_FINAL_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="294" y="211" width="109" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FIND_A_EMPLOYEE_ID_NAME(a.CHR_STORE_EMPID)}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="294" y="241" width="109" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FIND_A_EMPLOYEE_ID_NAME(a.CHR_ACCOUNTS_EMPID)}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="294" y="271" width="109" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FIND_A_EMPLOYEE_ID_NAME(a.CHR_HR_EMPID)}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="294" y="346" width="109" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FIND_A_EMPLOYEE_ID_NAME(a.CHR_GENERAL_EMPID)}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="294" y="376" width="109" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FIND_A_EMPLOYEE_ID_NAME(a.CHR_FINAL_EMPID)}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="403" y="211" width="104" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATE_FORMAT(a.DAT_STORE_DATE,'%d-%b-%Y')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="403" y="241" width="104" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATE_FORMAT(a.DAT_ACCOUNTS_DATE,'%d-%b-%Y')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="403" y="271" width="104" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATE_FORMAT(a.DAT_HR_DATE,'%d-%b-%Y')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="403" y="346" width="104" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATE_FORMAT(a.DAT_GENERAL_DATE,'%d-%b-%Y')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="403" y="376" width="104" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATE_FORMAT(a.DAT_FINAL_DATE,'%d-%b-%Y')}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="507" y="241" width="94" height="30"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{DOU_ACCOUNTS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="507" y="271" width="94" height="30"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{DOU_HR}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="507" y="346" width="94" height="30"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{DOU_GENERAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="507" y="376" width="94" height="30"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{DOU_FINAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="0" y="406" width="81" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Exit Interview</style>]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="81" y="406" width="520" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{exitInterview}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="0" y="444" width="320" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Final Settlement</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="0" y="464" width="120" height="20"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>No of Working Days</style>]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="style1" x="120" y="464" width="200" height="20"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{workingDays}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="0" y="645" width="160" height="20"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Employee Signatory</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="0" y="675" width="160" height="20"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Manager Signatory</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="447" y="645" width="154" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Authorised Signatory</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="443" y="675" width="154" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="styled">
+					<font fontName="Verdana" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Managing Director</style>]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="81" y="301" width="102" height="45"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(a.CHR_HR_IDCARD='Y','Id card returned','Id card not returned')}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="301" width="111" height="45"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="507" y="301" width="94" height="45"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(a.CHR_OUTSOURCE_EMPLOYEE='Y',if(a.CHR_OUTSOURCE='Y','Outsource claimed','Outsource not claimed'),'')}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="301" width="109" height="45"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{em}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="301" width="104" height="45"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{if(a.CHR_OUTSOURCE_EMPLOYEE='Y','outsource employee','Not an outsource employee')}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="484" width="120" height="20"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Salary</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="504" width="120" height="20"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Advance</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="524" width="120" height="20"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Loan</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="544" width="120" height="20"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Fine Amount Total</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="584" width="120" height="20"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Total</style>]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="484" width="97" height="20"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{salary}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="504" width="103" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{advance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="524" width="103" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{loan}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="217" y="544" width="103" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{(a.DOU_STORE+a.DOU_ACCOUNTS+DOU_HR+a.DOU_GENERAL+a.DOU_FINAL)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="584" width="200" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="604" width="120" height="30"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Settlement Amount( salary-total) </style>]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="604" width="200" height="30"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{settlement}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="217" y="484" width="103" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="504" width="97" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="524" width="97" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="544" width="97" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement x="120" y="564" width="200" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{leaveBal}.equals(null)?"0.0":$F{leaveBal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="564" width="120" height="20"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true' pdfFontName='Helvetica-Bold'>Negative Leave</style>]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement key="textField" x="541" y="85" width="60" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="501" y="85" width="40" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date : "]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="65" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="15" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{fImageExpression}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="533" y="0" width="48" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="581" y="0" width="19" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,157 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+</head>
+
+<script language="javascript">
+ var isIE;
+var req;
+var names;
+ 
+function initRequest(url) 
+{
+    if (window.XMLHttpRequest) 
+    {
+        req = new XMLHttpRequest();
+    }
+    else if (window.ActiveXObject) 
+    {
+        isIE = true;
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+}
+  
+
+function ClearTable(ctr1)
+{
+	 var str="<center><br><br><br><font class='bolddeepred'>Data not found...</font></br></br></br>";
+	 var tb=document.getElementById(ctr1);	 
+  	 tb.innerHTML=str     
+}
+
+
+function ClearTabler(ctr1)
+{
+	 var str="<center><br><br><br><font class='bolddeepred'>Total No of Records : 0</font></br></br></br>";
+	 var tb=document.getElementById(ctr1);	 
+  	 tb.innerHTML=str     
+}
+
+
+function  loadCountry(str) 
+{
+	var url = "../../SmartCommonAjax?actionS=loadCountry&str="+str;
+	initRequest(url);
+	req.onreadystatechange = CountryRequest;
+    req.open("GET", url, true);
+    req.send(null);
+   
+}
+
+function CountryRequest() 
+{
+    if(req.readyState == 4) 
+    {    	
+        ClearTable('CountryTable');
+        ClearTabler('totrec');
+        if (req.status== 200) 
+        {		  	
+        	CountryMessages();
+        }
+    }
+}
+
+function CountryMessages() 
+{	 
+	var batchs = req.responseXML.getElementsByTagName("Rowss")[0];  
+	 
+    var str=""; 
+    str=str+"<table width='100%'  class='boldEleven'  id='myTable'     cellpadding=2 cellspacing=1  >";
+    for(loop = 0; loop < batchs.childNodes.length; loop++) 
+    {
+	    
+	    var batch = batchs.childNodes[loop];
+	    var Id = batch.getElementsByTagName("Id")[0].childNodes[0].nodeValue;
+	    var Name = batch.getElementsByTagName("Name")[0].childNodes[0].nodeValue;
+	    if(loop%2==1)
+			str=str+"<tr class='MRow1'>";
+		else
+		    str=str+"<tr  class='MRow2'>";	
+		   			 
+		str=str+"<td   class='boldEleven'><input name='id' id='id' type='checkbox' value='"+Id+"' />"+(loop+1)+".</td>";
+		str=str+"<td   class='boldEleven'>&nbsp;"+Name+" </td>";
+    }
+   
+    if(batchs.childNodes.length<1)
+     	str=str+"<tr class='MRow1'><td class='bolddeepred'><center>Data not found...</center></td></tr>";
+     	
+    str=str+"</table>";
+     var tb=document.getElementById('CountryTable');
+  	 tb.innerHTML=str  ; 
+  	  tb=document.getElementById('totrec');
+  	 tb.innerHTML= " <center><font class='bolddeepred'>Total No of Record : "+batchs.childNodes.length  +"</font></center>"; 
+  	
+  	 
+  	
+}
+
+
+</script>
+
+<body  onLoad=" loadCountry('0')">
+<table width="90%" height="220" border="0" align="center" cellpadding="0" cellspacing="0" class="TableDesign"
+			 >
+  <tr>
+    <td height="30" align="center"  color='#fffff'>COUNTRY</td>
+  </tr>
+  <tr>
+    <td height="30" align="center"><table width="100%" border="0" align="center" cellpadding="5" cellspacing="0" color='#fffff'>
+      <tr>
+        <td width="9%" style="font-weight: bold"><div align="center">S.No</div></td>
+        <td width="91%" style="font-weight: bold"><div align="center">NAME </div></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr class="MRow1"  >
+    <td ><div id="CountryTable" style="OVERFLOW:auto;width:100%;height:300px"></div>
+      <br>
+      <div id="totrec"  > </div>
+      <br></td>
+  </tr>
+</table>
+<table width="90%" border="0" align="center" cellpadding="1"
+			cellspacing="1" class="TableDesign">
+  <tr class="para">
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('0')">All</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('A')">A</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('B')">B</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('C')">C</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('D')">D</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('E')">E</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('F')">F</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('G')">G</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('H')">H</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('I')">I</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('J')">J</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('K')">K</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('L')">L</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('M')">M</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('N')">N</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('O')">O</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('P')">P</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('Q')">Q</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('R')">R</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('S')">S</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('T')">T</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('U')">U</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('V')">V</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('W')">W</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('X')">X</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('Y')">Y</a></div></td>
+    <td><div align="center"><a color='#fffff' href="javascript:loadCountry('Z')">Z</a></div></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+<script language="javascript" src="jquery-1.7.1.js"></script>
+<script language="javascript">
+
+$("#mydropdownlist").val("thevalue");
+
+</script>
+</head>
+
+<body  onpaste='return false;'>
+<p></p>
+
+  <select id="single">
+    <option>Single</option>
+    <option>Single2</option>
+  </select>
+
+  <select id="multiple" multiple="multiple">
+    <option selected="selected">Multiple</option>
+    <option>Multiple2</option>
+    <option selected="selected">Multiple3</option>
+  </select>
+
+<script>
+    function displayVals() {
+      var singleValues = $("#single").val();
+      var multipleValues = $("#multiple").val() || [];
+      $("p").html("<b>Single:</b> " + 
+                  singleValues +
+                  " <b>Multiple:</b> " + 
+                  multipleValues.join(", "));
+    }
+
+    $("select").change(displayVals);
+    displayVals();
+
+</script>
+
+</body>
+</html>
+</body>
+</html>

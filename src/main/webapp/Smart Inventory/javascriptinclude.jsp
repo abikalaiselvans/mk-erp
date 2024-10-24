@@ -1,0 +1,1 @@
+ <script language="javascript" src="../JavaScript/comfunction.js"></script>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rept_JAppointmentOrder" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ref1" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Program Files\\Apache Software Foundation\\Tomcat 5.0\\webapps\\SmartCampus\\report\\SmartPayroll\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="eid" class="java.lang.String"/>
+	<parameter name="subreport1Parameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<queryString>
+		<![CDATA[select A.CHR_STAFFNAME,CONCAT(if(a.CHR_GENDER='Male','Mr. ',(if(a.CHR_MARITALSTATUS ='M','Mrs.' ,'Ms.'))),' ',a.CHR_STAFFNAME),A.DT_DOJCOLLEGE,A.CHR_SADD1,A.CHR_SADD2,A.CHR_SCITY,A.CHR_SSTATE,A.CHR_SPIN,
+B.CHR_DESIGNAME,C.CHR_COMPANYNAME,A.CHR_GENDER,A.CHR_MARITALSTATUS , RIGHT(CHR_EMPID,6),A.CHR_PERMAILID ,D.CHR_DEPARTNAME,E.CHR_OFFICENAME,A.CHR_PF,A.CHR_ESI
+ from com_m_staff A, com_m_desig B,com_m_company C,com_m_depart D,  com_m_office  E
+		 where A.CHR_EMPID='admin' AND A.INT_DESIGID=B.INT_DESIGID
+	 AND A.INT_COMPANYID=C.INT_COMPANYID   AND A.INT_DEPARTID = D.INT_DEPARTID AND A.INT_OFFICEID = E.INT_OFFICEID]]>
+	</queryString>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="CONCAT(if(a.CHR_GENDER=&apos;Male&apos;,&apos;Mr. &apos;,(if(a.CHR_MARITALSTATUS =&apos;M&apos;,&apos;Mrs.&apos; ,&apos;Ms.&apos;))),&apos; &apos;,a.CHR_STAFFNAME)" class="java.lang.String"/>
+	<field name="DT_DOJCOLLEGE" class="java.sql.Date"/>
+	<field name="CHR_SADD1" class="java.lang.String"/>
+	<field name="CHR_SADD2" class="java.lang.String"/>
+	<field name="CHR_SCITY" class="java.lang.String"/>
+	<field name="CHR_SSTATE" class="java.lang.String"/>
+	<field name="CHR_SPIN" class="java.lang.String"/>
+	<field name="CHR_DESIGNAME" class="java.lang.String"/>
+	<field name="CHR_COMPANYNAME" class="java.lang.String"/>
+	<field name="CHR_GENDER" class="java.lang.String"/>
+	<field name="CHR_MARITALSTATUS" class="java.lang.String"/>
+	<field name="RIGHT(CHR_EMPID,6)" class="java.lang.String"/>
+	<field name="CHR_PERMAILID" class="java.lang.String"/>
+	<field name="CHR_DEPARTNAME" class="java.lang.String"/>
+	<field name="CHR_OFFICENAME" class="java.lang.String"/>
+	<field name="CHR_PF" class="java.lang.String"/>
+	<field name="CHR_ESI" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="802" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Appointment Order]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="20" width="555" height="20"/>
+				<textElement>
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["CARE/APPT-"+$F{RIGHT(CHR_EMPID,6)}+"/TN-Chennai/"+$P{ref1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="40" width="555" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="70" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CONCAT(if(a.CHR_GENDER='Male','Mr. ',(if(a.CHR_MARITALSTATUS ='M','Mrs.' ,'Ms.'))),' ',a.CHR_STAFFNAME)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="90" width="555" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_SADD1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="105" width="555" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_SADD2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="120" width="555" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_SCITY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="135" width="555" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_SSTATE}+"-"+$F{CHR_SPIN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="28" y="160" width="242" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_STAFFNAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="232" width="555" height="15"/>
+				<textElement>
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1. APPOINTMENTS' AND COMPENSATION :- ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="247" width="555" height="28"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["    1.1 Your Date of joining is "+$F{DT_DOJCOLLEGE}+", the terms and conditions of appointment shall be effective from your date of joining."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="275" width="555" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[     1.2 Your Annual Cost to Company is Rs. .For details refer to Annexure 'A'.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="191" width="555" height="41"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" With Reference to your application and the subsequent interview, we have pleasure in offering you an appointment as "+$F{CHR_DESIGNAME}+
+" in the terms and conditions of your appointment are as follows:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="295" width="555" height="20"/>
+				<textElement>
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2.EMOLUMENTS AND TAXES:- ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="315" width="555" height="71"/>
+				<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[    2.1 You will be paid remuneration as per the details provided in Annexure 'A' annexed hereto.
+    2.2 You shall be solely responsible for paying any taxes, direct or indirect, state or local whether payable in India or elsewhere, which may result from your remuneration. The company shall be entitled to deduct from your remuneration, income tax, other taxes and levies that it is liable to deduct at source.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="386" width="555" height="15"/>
+				<textElement>
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3.PROBATION:-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="401" width="555" height="107"/>
+				<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[     3.1 You shall initially be on probation for a period of One year from the date of joining the Company. The same may however, be extended if so deemed necessary by the Management if the Company It is the sole discretionary power of the Management in fixing up the probation Period.
+     3.2 On Completion of probation period, either initial or extended, as the case may be, the Management may in its sole discretion confirm your employment with a company, by issuing a letter to the said effect. You will be deemed to be on probation till your confirmation from the management.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="508" width="555" height="15"/>
+				<textElement>
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4. TERMINATION :-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="523" width="555" height="220"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[     4.1 During the period, the Management after giving one day notice and without assigning any reason therefore may terminate your services. After your confirmation, the management may terminate your employment, by giving one month's written notice or basic salary in lieu thereof without assigning any reason. Similarly you can leave the services of the company by giving Thirty days notice prior confirmation, and two month's notice in writing or basic in lieu thereof after your confirmation.
+     4.2 Your employment shall stand terminated for with on the happening of the following:
+          i. If You are held guilty of any offence involving moral turpitude; or
+          ii. If You do not join with in the stipulated date, unless extended in writing.
+     4.3 Upon termination of your employment, you (or your legal her is as the case may be) shall immediately return to the Company, any and all documents, manual Documented Confidential information (without making any copies thereof and / or extracts there from), Kits and other property belonging to the company that may be entrusted to and or placed in Your possession by virtue of and/or during the course of your employment with the company. You (or your legal her is as the case may be) shall also deliver to the Company immediately all notes, analyses, summaries and working papers relating thereto.
+]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="787" width="555" height="15"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport1Parameter}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="743" width="555" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[5. INTIAL POSTING AND TRANSFER:-
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="763" width="555" height="24"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[      5.1 Your initial place of posting shall be at Chennai. However, you will be transferred to the base location within three months of posting. No salary increase/revision will be considered during the transfer.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="28" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Dear ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="802" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="297" width="555" height="20"/>
+				<textElement verticalAlignment="Top" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[11. GOVERNING LAW AND JURISDICTION:- ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="317" width="555" height="97"/>
+				<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[     11.1 This appointment letter shall be governed and construed in accordance with the laws of India. It is agreed that any dispute of whatsoever nature between you a management will be subject to exclusive jurisdiction of courts of Chennai whether they be civil courts, Labor courts, industrial tribunals or any other courts or authority of whatsoever nature in Case this offer of employment is acceptable to you, please sign duplicate copy of this letter and return to us as a token of your acceptance of the terms and conditions of Employment offered to you. You are also requested to indicate the date on which you are willing to join the Company. ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="414" width="555" height="20"/>
+				<textElement verticalAlignment="Middle" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["12. Your Employee ID is "+$P{eid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="450" width="555" height="20"/>
+				<textElement lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Yours faithfully, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="526" width="555" height="20"/>
+				<textElement lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Authorized Signatory ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="492" width="555" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_COMPANYNAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="546" width="555" height="35"/>
+				<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[   I have gone through the aforesaid terms and conditions/ terms of appointment and have fully understood the same.
+   I hereby accept the above appointment on the terms and conditions stated herein above.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="599" width="145" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date : "+$P{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="469" y="599" width="86" height="20"/>
+				<textElement/>
+				<text><![CDATA[Signature]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="163" width="555" height="20"/>
+				<textElement lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[10. CONTINUATION OF EMPLOYMENT:- ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="116" width="555" height="47"/>
+				<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[     9.1 You shall retire on the attainment of 58 years unless specially by the Company in writing to continue in service beyond this age. Your employment shall stand terminated on the date of your retirement. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="555" height="76"/>
+				<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[     8.1 You will be entitled to leave, holidays and other service benefits as per the rules of the Company as amended from time to time. After confirmation, you will be entitled to Holiday and other services benefits as per the rules of the managements frame from time and applicable to your cared office /establishments /department in which you are for the time being posted. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="183" width="555" height="114"/>
+				<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[    10.1 It is understood that this employment is being offered to you on basis of the particulars Submitted by you with the Company at the time of recruitment process. However, if at any time it should emerge that the particulars furnished by you are false/incorrect or if any materials or relevant information has been suppressed or concealed this appointment will be considered ineffective and irregular and would be liable to be terminated by the management for without notice. This will be without prejudice to the rights of the management to take disciplinary action against you for the same.
+     10.2 Your appointment and its continuation is subject to your being medically fit and the Management reserves its right to ask you to undergo medical examination, as and when deemed necessary.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="96" width="555" height="20"/>
+				<textElement verticalAlignment="Middle" lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[9. RETIREMENT:- ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<textElement lineSpacing="1_1_2">
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[8. LEAVES AND OTHER SERVICE BENEFITS:-
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="363" y="631" width="192" height="20"/>
+				<textElement/>
+				<text><![CDATA[________________________________]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

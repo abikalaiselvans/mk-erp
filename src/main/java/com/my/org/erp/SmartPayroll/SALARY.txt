@@ -1,0 +1,199 @@
+  
+
+SELECT 
+a.CHR_EMPID,b.CHR_STAFFNAME,'March' smonth,'2014' syear,b.INT_ATTENDANCECYCLE,
+b.INT_COMPANYID,b.INT_BRANCHID, b.INT_DEPARTID,b.INT_DESIGID,b.INT_OFFICEID,
+b.CHR_BANK,b.CHR_ACCNO ,c.CHR_PF,c.CHR_ESI,
+'31' noofdaysinamonth ,a.DOU_TOTALDAYS ,
+ROUND( (c.INT_SALARY - ((c.INT_SALARY/31)* a.DOU_ABSENT)) , 2 ) basic,
+ROUND( (d.A001 - ((d.A001/31)* a.DOU_ABSENT)) , 2 ) a1,
+ROUND( (d.A002 - ((d.A002/31)* a.DOU_ABSENT)) , 2 ) a2,
+ROUND( (d.A003 - ((d.A003/31)* a.DOU_ABSENT)) , 2 ) a3,
+ROUND( (d.A004 - ((d.A004/31)* a.DOU_ABSENT)) , 2 ) a4,
+ROUND( (d.A005 - ((d.A005/31)* a.DOU_ABSENT)) , 2 ) a5,
+ROUND( (d.A006 - ((d.A006/31)* a.DOU_ABSENT)) , 2 ) a6,
+ROUND( (d.A007 - ((d.A007/31)* a.DOU_ABSENT)) , 2 ) a7,
+ROUND( (d.A008 - ((d.A008/31)* a.DOU_ABSENT)) , 2 ) a8,
+ROUND( (d.A009 - ((d.A009/31)* a.DOU_ABSENT)) , 2 ) a9,
+ROUND( (d.A0010 - ((d.A0010/31)* a.DOU_ABSENT)) , 2 ) a10,
+ROUND( (d.A0011 - ((d.A0011/31)* a.DOU_ABSENT)) , 2 ) a11,
+ROUND( (d.A0012 - ((d.A0012/31)* a.DOU_ABSENT)) , 2 ) a12,
+ROUND( (d.A0013 - ((d.A0013/31)* a.DOU_ABSENT)) , 2 ) a13,
+ROUND( (d.A0014 - ((d.A0014/31)* a.DOU_ABSENT)) , 2 ) a14,
+ROUND( (d.A0015 - ((d.A0015/31)* a.DOU_ABSENT)) , 2 ) a15,
+
+ROUND(
+(d.A001 - ((d.A001/31)* a.DOU_ABSENT)) +
+(d.A002 - ((d.A002/31)* a.DOU_ABSENT)) +
+(d.A003 - ((d.A003/31)* a.DOU_ABSENT)) +
+(d.A004 - ((d.A004/31)* a.DOU_ABSENT)) +
+(d.A005 - ((d.A005/31)* a.DOU_ABSENT)) +
+(d.A0010 - ((d.A0010/31)* a.DOU_ABSENT))+
+(d.A0011 - ((d.A0011/31)* a.DOU_ABSENT))
+,2) addedallowance ,
+
+ROUND(
+(d.A006 - ((d.A006/31)* a.DOU_ABSENT)) +
+(d.A007 - ((d.A007/31)* a.DOU_ABSENT)) +
+(d.A008 - ((d.A008/31)* a.DOU_ABSENT)) +
+(d.A009 - ((d.A009/31)* a.DOU_ABSENT)) +
+(d.A0012 - ((d.A0012/31)* a.DOU_ABSENT)) +
+(d.A0013 - ((d.A0013/31)* a.DOU_ABSENT)) +
+(d.A0014 - ((d.A0014/31)* a.DOU_ABSENT))+
+(d.A0015 - ((d.A0015/31)* a.DOU_ABSENT))
+, 2 ) extraallowance,
+
+ROUND( (c.INT_SALARY - ((c.INT_SALARY/31)* a.DOU_ABSENT)) +
+(d.A001 - ((d.A001/31)* a.DOU_ABSENT)) +
+(d.A002 - ((d.A002/31)* a.DOU_ABSENT)) +
+(d.A003 - ((d.A003/31)* a.DOU_ABSENT)) +
+(d.A004 - ((d.A004/31)* a.DOU_ABSENT)) +
+(d.A005 - ((d.A005/31)* a.DOU_ABSENT)) +
+(d.A0010 - ((d.A0010/31)* a.DOU_ABSENT))+
+(d.A0011 - ((d.A0011/31)* a.DOU_ABSENT))
+,2) gross ,
+
+ROUND( (e.R001 - ((e.R001/31)* a.DOU_ABSENT)) , 2 ) r1,
+ROUND( (e.R002 - ((e.R002/31)* a.DOU_ABSENT)) , 2 ) r2,
+ROUND( (e.R003 - ((e.R003/31)* a.DOU_ABSENT)) , 2 ) r3,
+ROUND( (e.R004 - ((e.R004/31)* a.DOU_ABSENT)) , 2 ) r4,
+ROUND( (e.R005 - ((e.R005/31)* a.DOU_ABSENT)) , 2 ) r5,
+ROUND( (e.R006 - ((e.R006/31)* a.DOU_ABSENT)) , 2 ) r6,
+ROUND( (e.R007 - ((e.R007/31)* a.DOU_ABSENT)) , 2 ) r7,
+ROUND( (e.R008 - ((e.R008/31)* a.DOU_ABSENT)) , 2 ) r8,
+
+
+
+ROUND(
+(e.R001 - ((e.R001/31)* a.DOU_ABSENT))+
+(e.R002 - ((e.R002/31)* a.DOU_ABSENT))+
+(e.R003 - ((e.R003/31)* a.DOU_ABSENT))+
+(e.R004 - ((e.R004/31)* a.DOU_ABSENT))+
+(e.R005 - ((e.R005/31)* a.DOU_ABSENT))+
+(e.R006 - ((e.R006/31)* a.DOU_ABSENT))+
+(e.R007 - ((e.R007/31)* a.DOU_ABSENT))+
+(e.R008 - ((e.R008/31)* a.DOU_ABSENT))
+,2 ) RValues,
+
+
+if(c.CHR_PF ='C', 
+     FUN_GET_PFAMOUNT (c.CHR_PF,(c.INT_SALARY - ((c.INT_SALARY/31)* a.DOU_ABSENT))),
+  if(c.CHR_PF ='Y',c.INT_PFAMT,'0')
+  ) PFvalue,
+  
+
+if(c.CHR_ESI ='C', 
+     FUN_GET_ESIAMOUNT('STAFF' , c.CHR_ESI , 
+                               ROUND( (c.INT_SALARY - ((c.INT_SALARY/31)* a.DOU_ABSENT)) +
+                               (d.A001 - ((d.A001/31)* a.DOU_ABSENT)) +
+                               (d.A002 - ((d.A002/31)* a.DOU_ABSENT)) +
+                               (d.A003 - ((d.A003/31)* a.DOU_ABSENT)) +
+                               (d.A004 - ((d.A004/31)* a.DOU_ABSENT)) +
+                               (d.A005 - ((d.A005/31)* a.DOU_ABSENT)) +
+                               (d.A0010 - ((d.A0010/31)* a.DOU_ABSENT))+
+                               (d.A0011 - ((d.A0011/31)* a.DOU_ABSENT))
+                               ,2)  
+
+                               ),
+  if(c.CHR_ESI ='Y',c.INT_ESIAMT,'0')
+  ) ESIvalue,
+  
+'0' mess ,  
+FUN_PAY_SALARY_ADVANCE(a.CHR_EMPID,'March','2014') advance,
+
+ 
+     ROUND(
+            (e.R001 - ((e.R001/31)* a.DOU_ABSENT))+
+            (e.R002 - ((e.R002/31)* a.DOU_ABSENT))+
+            (e.R003 - ((e.R003/31)* a.DOU_ABSENT))+
+            (e.R004 - ((e.R004/31)* a.DOU_ABSENT))+
+            (e.R005 - ((e.R005/31)* a.DOU_ABSENT))+
+            (e.R006 - ((e.R006/31)* a.DOU_ABSENT))+
+            (e.R007 - ((e.R007/31)* a.DOU_ABSENT))+
+            (e.R008 - ((e.R008/31)* a.DOU_ABSENT))
+         
+   +
+        if(c.CHR_PF ='C', 
+             FUN_GET_PFAMOUNT (c.CHR_PF,(c.INT_SALARY - ((c.INT_SALARY/31)* a.DOU_ABSENT))),
+             if(c.CHR_PF ='Y',c.INT_PFAMT,'0')
+         ) 
+  
+   +
+        if(c.CHR_ESI ='C', 
+            FUN_GET_ESIAMOUNT('STAFF' , c.CHR_ESI , 
+                               ROUND( (c.INT_SALARY - ((c.INT_SALARY/31)* a.DOU_ABSENT)) +
+                               (d.A001 - ((d.A001/31)* a.DOU_ABSENT)) +
+                               (d.A002 - ((d.A002/31)* a.DOU_ABSENT)) +
+                               (d.A003 - ((d.A003/31)* a.DOU_ABSENT)) +
+                               (d.A004 - ((d.A004/31)* a.DOU_ABSENT)) +
+                               (d.A005 - ((d.A005/31)* a.DOU_ABSENT)) +
+                               (d.A0010 - ((d.A0010/31)* a.DOU_ABSENT))+
+                               (d.A0011 - ((d.A0011/31)* a.DOU_ABSENT))
+                               ,2)  
+
+                               ),
+         if(c.CHR_ESI ='Y',c.INT_ESIAMT,'0')
+         ) 
+         
+,2) totalrecovery  ,
+
+ROUND( FUN_PAY_SALARY_PROFESSIONAL_TAX(a.CHR_EMPID ,'1000','March','2014') ,2)   professionaltax,       
+
+
+ROUND( 
+     if(c.CHR_PF ='C', 
+     FUN_GET_COMPANY_PF1_AMOUNT (c.CHR_PF,(c.INT_SALARY - ((c.INT_SALARY/31)* a.DOU_ABSENT))),
+  if(c.CHR_PF ='Y',(c.INT_PFAMT*3.67/100),'0')
+  )
+ 
+,2)   CompanyPF1,
+
+ 
+ROUND(
+    if(c.CHR_PF ='C', 
+     FUN_GET_COMPANY_PF2_AMOUNT (c.CHR_PF,(c.INT_SALARY - ((c.INT_SALARY/31)* a.DOU_ABSENT))),
+    if(c.CHR_PF ='Y',(c.INT_PFAMT*8.33/100),'0')
+    ) 
+,2) CompanyPF2,
+
+
+ROUND( 
+        if(c.CHR_ESI ='C', 
+             FUN_GET_ESIAMOUNT('CPY' , c.CHR_ESI , 
+                                       ROUND( (c.INT_SALARY - ((c.INT_SALARY/31)* a.DOU_ABSENT)) +
+                                       (d.A001 - ((d.A001/31)* a.DOU_ABSENT)) +
+                                       (d.A002 - ((d.A002/31)* a.DOU_ABSENT)) +
+                                       (d.A003 - ((d.A003/31)* a.DOU_ABSENT)) +
+                                       (d.A004 - ((d.A004/31)* a.DOU_ABSENT)) +
+                                       (d.A005 - ((d.A005/31)* a.DOU_ABSENT)) +
+                                       (d.A0010 - ((d.A0010/31)* a.DOU_ABSENT))+
+                                       (d.A0011 - ((d.A0011/31)* a.DOU_ABSENT))
+                                       ,2)  
+        
+                                       ),
+          if(c.CHR_ESI ='Y',c.INT_ESIAMT,'0')
+          ) 
+,2) CompanyESI   ,
+
+a.DOU_ABSENT absent
+
+
+
+FROM  att_t_register  a ,com_m_staff b , pay_t_salarybasic c, pay_t_salaryallowance d,
+pay_t_salaryrecovery e
+WHERE a.DOU_TOTALDAYS >0 
+AND a.CHR_EMPID = b.CHR_EMPID
+AND a.CHR_EMPID = d.CHR_EMPID
+AND a.CHR_EMPID = e.CHR_EMPID
+AND a.CHR_MONTH='March' 
+AND a.INT_YEAR= 2014
+AND c.CHR_MONTH='March' 
+AND c.INT_YEAR= 2014
+AND d.CHR_MONTH='March' 
+AND d.INT_YEAR= 2014
+AND e.CHR_MONTH='March' 
+AND e.INT_YEAR= 2014
+AND b.INT_ATTENDANCECYCLE =1 
+AND a.CHR_EMPID=c.CHR_EMPID  
+AND b.DT_DOJCOLLEGE<='2014-03-31'
+ORDER BY b.CHR_STAFFNAME 

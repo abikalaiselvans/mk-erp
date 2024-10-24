@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Hrmofferletter" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="appid" class="java.lang.Integer"/>
+	<parameter name="logopath" class="java.lang.String"/>
+	<parameter name="takehome" class="java.lang.String"/>
+	<parameter name="t1" class="java.lang.String"/>
+	<parameter name="t2" class="java.lang.String"/>
+	<parameter name="salute" class="java.lang.String"/>
+	<parameter name="office" class="java.lang.String"/>
+	<parameter name="designation" class="java.lang.String"/>
+	<parameter name="doj" class="java.lang.String"/>
+	<parameter name="takehomesalary" class="java.lang.String"/>
+	<parameter name="Performanceallowance" class="java.lang.String"/>
+	<parameter name="companyname" class="java.lang.String"/>
+	<parameter name="tot" class="java.lang.Double"/>
+	<queryString>
+		<![CDATA[SELECT  offer.INT_OFFERID,ecat.CHR_CATEGORYNAME,CONCAT(year(CURRENT_TIMESTAMP),CONCAT('-',year(CURRENT_TIMESTAMP)+1)) ayear,
+DATE_FORMAT(CURRENT_DATE,'%d-%b-%y'),
+CONCAT( if(app.CHR_GENDER='Male','Mr. ', if(app.CHR_MARITALSTATUS ='M','Mrs.' ,'Ms.') ),' ',app.CHR_APPNAME) salute,office.CHR_OFFICENAME,desig.CHR_DESIGNAME,
+DATE_ADD(CURDATE(),INTERVAL 3 DAY) joining,
+FUN_GET_takehome(hal.INT_APPID) takehome
+FROM
+ hrm_t_allowance hal,hrm_m_application app,hrm_t_offerletter offer,com_m_office office,com_m_desig desig,com_m_employeecategory ecat
+ WHERE hal.INT_APPID=offer.INT_APPID AND app.INT_APPID=offer.INT_APPID AND offer.INT_DESIGID=desig.INT_DESIGID AND
+
+offer.INT_OFFICEID=office.INT_OFFICEID AND hal.INT_APPID=$P{appid}
+ AND ecat.INT_EMPLOYEECATEGORYID=offer.INT_CATEGORY;]]>
+	</queryString>
+	<field name="INT_OFFERID" class="java.lang.Integer"/>
+	<field name="CHR_CATEGORYNAME" class="java.lang.String"/>
+	<field name="ayear" class="java.lang.String"/>
+	<field name="DATE_FORMAT(CURRENT_DATE,&apos;%d-%b-%y&apos;)" class="java.lang.String"/>
+	<field name="salute" class="java.lang.String"/>
+	<field name="CHR_OFFICENAME" class="java.lang.String"/>
+	<field name="CHR_DESIGNAME" class="java.lang.String"/>
+	<field name="joining" class="java.sql.Date"/>
+	<field name="takehome" class="java.lang.Integer"/>
+	<field name="F1" class="java.lang.String"/>
+	<field name="F2" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="234" splitType="Stretch">
+			<staticText>
+				<reportElement x="188" y="15" width="160" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OFFER LETTER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="104" width="29" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="171" width="525" height="30"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We are pleased to offer the post of  "+" \""+ $P{designation}+" \" "+" in our organisation at "+"\""+ $P{office}+"\""+"."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="201" width="525" height="25"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["You are expected to join us on or before "+ $P{doj}+" failing with this offer is not valid. Your salary details as mentioned bellow. "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="49" width="376" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{t1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="69" width="376" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{t2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="117" width="347" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{salute}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="137" width="347" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{office}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="297" y="31" width="211" height="20"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Double"/>
+					<leftPen lineWidth="0.5" lineStyle="Double"/>
+					<bottomPen lineWidth="0.5" lineStyle="Double"/>
+					<rightPen lineWidth="0.5" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[AMOUNT PER MONTH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="31" width="280" height="20"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Double"/>
+					<leftPen lineWidth="0.5" lineStyle="Double"/>
+					<bottomPen lineWidth="0.5" lineStyle="Double"/>
+					<rightPen lineWidth="0.5" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[PARTICULARS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="11" width="491" height="20"/>
+				<box leftPadding="10">
+					<topPen lineWidth="0.5" lineStyle="Double"/>
+					<leftPen lineWidth="0.5" lineStyle="Double"/>
+					<bottomPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.5" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[SALARY COMPONENT]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="17" y="0" width="280" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{F1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+				<reportElement x="297" y="0" width="211" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{F2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="290" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="250" width="525" height="15"/>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I agree to accept the offer on terms and conditions mentioned in the above letter.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="131" width="525" height="15"/>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[* At the time of relieving 1 month Notice Period to be served.]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="52" y="265" width="60" height="15"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="235" width="525" height="15"/>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Authorized Signatory]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="94" width="525" height="15"/>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Please confirm that the above terms are acceptable to you and that you accept the offer by signing the copy of this letter.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="10" width="525" height="41"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Your ‘Take Home Salary’ will be Rs."+$P{takehomesalary}+"/- PF will be deducted as per the minimum wages Act. (Take Home salary=Gross-Employee contribution of PF(12% of basic)-Employee contribution of ESI(1.75% of Gross))."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="59" width="525" height="13"/>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Rs.183/- per month will be deducted towards ‘Professional Tax’ as per statutory."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="19" y="195" width="525" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{tot}>0]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["For "+ $P{companyname}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="265" width="33" height="15"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="111" width="525" height="15"/>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Please ensure that you bring the enclosed details attached with the offer letter at the time of joining.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="166" width="525" height="15"/>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Yours sincerely,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="151" width="525" height="15"/>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="Verdana" size="9"/>
+				</textElement>
+				<text><![CDATA[Wishing you the very best.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="265" width="272" height="15"/>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signature:__________________________________]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="17" y="77" width="525" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{tot}>0]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="0">
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Verdana" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["You will be paid a MPC of Rs."+ $P{Performanceallowance}+"/- based on your achievement of target and performance."]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="appointment1" language="groovy" pageWidth="743" pageHeight="985" columnWidth="703" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="541"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="empid" class="java.lang.String"/>
+	<parameter name="staffname" class="java.lang.String"/>
+	<parameter name="desig" class="java.lang.String"/>
+	<parameter name="office" class="java.lang.String"/>
+	<parameter name="dept" class="java.lang.String"/>
+	<parameter name="doj" class="java.lang.String"/>
+	<parameter name="ad1" class="java.lang.String"/>
+	<parameter name="ad2" class="java.lang.String"/>
+	<parameter name="basic" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="galw" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="hra" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="talw" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="gross" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pf" class="java.lang.Integer"/>
+	<parameter name="esi" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cpy" class="java.lang.Integer"/>
+	<parameter name="salw" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT staff.CHR_STAFFNAME, desig.CHR_DESIGNAME,DATE_FORMAT(staff.DT_DOJCOLLEGE,'%d-%b-%Y') , staff.INT_CTC,office.CHR_OFFICENAME
+
+FROM com_m_staff staff,com_m_desig desig, com_m_office office
+
+WHERE staff.INT_DESIGID=desig.INT_DESIGID AND
+staff.INT_OFFICEID=office.INT_OFFICEID AND staff.CHR_EMPID=$P{empid}]]>
+	</queryString>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="CHR_DESIGNAME" class="java.lang.String"/>
+	<field name="DATE_FORMAT(staff.DT_DOJCOLLEGE,&apos;%d-%b-%Y&apos;)" class="java.lang.String"/>
+	<field name="INT_CTC" class="java.lang.Long"/>
+	<field name="CHR_OFFICENAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="293" y="0" width="155" height="44"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APPOINTMENT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="855" splitType="Stretch">
+			<staticText>
+				<reportElement x="37" y="43" width="140" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dear]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="37" y="80" width="653" height="56"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We have pleasure in appointing you as \""+$F{CHR_DESIGNAME}+"\",  effective \""+$F{DATE_FORMAT(staff.DT_DOJCOLLEGE,'%d-%b-%Y')}+"\" on the following terms and conditions:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="37" y="136" width="653" height="39"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["1.     You will be entitled to  <b> \""+$F{INT_CTC}+"\"</b> and other benefits as applicable to your category of employees, details are given in <b> Annexure \'A\'</b>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="37" y="186" width="256" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DUTIES AND RESPONSIBILITIES]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="37" y="217" width="653" height="66"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" You are required to perform the duties and responsibilities related to your position at any division, department or section in the Company or within the Group of Companies. You will be deployed at <b> \""+$F{CHR_OFFICENAME}+" \"</b>: Refer to <b>Annexure B</b> for your KRA."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="283" width="140" height="17"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROBATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="304" width="653" height="85"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[You are required to serve a probationary period of 12 months after which your service will be confirmed subject to satisfactory performance. The probationary period may be extended or shortened at the absolute discretion of the Company. During the probationary period, the appointment may be terminated by either party giving 1 month notice writing to other party or on payment of one (1) month salary lieu of notice.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="399" width="193" height="20"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WORKING HOURS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="425" width="653" height="20"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[Monday to Saturday: 9.00 a.m. to 6.00 p.m.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="453" width="653" height="20"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[Lunch time: 1.00 noon to 2.00 p.m.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="483" width="653" height="20"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[The Company reserves the right to change your working days and hours.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="516" width="320" height="20"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ANNUAL LEAVE / HOLIDAYS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="540" width="653" height="76"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[You will be entitled to privilege; sick and casual leave any other statutory compliance as applicable to your category of employees. During Probation you are entitled to Maximum 4 days of leave and 18days on confirmation of your employment in addition to 11 days (govt holidays) gazetted holidays observed by the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="620" width="140" height="20"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROVIDENT FUND]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="640" width="653" height="48"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[An investment fund contributed by employees, employers out of which lump sum is provided to the employee on retirement.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="688" width="463" height="20"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RULES, REGULATIONS & CONFIDENTIALITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="716" width="653" height="41"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[You shall at all times, devote your full attention and skill to the affairs of the Company and will endeavor to your at most ability to promote and advance the interests of the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="769" width="321" height="20"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[Accordingly, you undertake that:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="801" width="653" height="36"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[1.    It is expected that you will discharge your assigned responsibilities with high standard of performance, quality, integrity, and discipline.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="882" splitType="Stretch">
+			<staticText>
+				<reportElement x="37" y="272" width="234" height="20"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TERMINATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="296" width="653" height="82"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[After confirmation of your employment, notice of termination of employment will be one(1) month notice in writing or one(1) month salary in lieu of notice from either party. Notwithstanding the aforementioned, the Company shall be entitled to terminate your employment without notice, indemnities and compensation in any of the following events.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="381" width="653" height="60"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[1. If any information furnished or declaration given by you in regard to your employment to the Company is found to be false or any material information will fully suppressed, your appointment would be liable for termination without any notice or compensation.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="448" width="653" height="41"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[2. If you are, in the opinion of the Company, guilty of dishonesty, misconduct or negligence in the performance of your duties.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="500" width="653" height="40"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[3. If you have been found to have committed a serious breach or continual material breach of any of your duties or obligations.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="547" width="653" height="42"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[4. If you are found to have made illegal monetary profit or received any gratuities or other rewards, in cash or in kind, out of any of the Company's affairs or any of its subsidiaries or related companies.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="601" width="653" height="65"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[Upon termination of employment, you are entitled to return all the company property, which may be in your possession. It would be obligatory on your part to get a proper relieving letter from the Management before your services are deemed to be concluded.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="681" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RETIREMENT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="704" width="653" height="48"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[The retiring age is at Fifty-Eight (58) years. In the absence of evidence of the exact date of birth the employee shall retire on 31st December of the year the employee attains Fifty-Eight years of age.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="752" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RETIRALS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="780" width="653" height="46"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[You will participate in the Company Provident Fund Scheme and any other statutory compliance as applicable to your category of employees.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="826" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRATUITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="848" width="653" height="20"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[You will be entitled to gratuity in accordance with the rules governing such payment.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="196" width="653" height="53"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[4. You will obey and comply with all reasonable orders and instructions given to you by the Company or its authorized agents and observe all standing and other rules and/or regulations now in force or from time to time approved by the Company. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="101" width="653" height="95"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[3. You will not at any time during the continuance or after the termination of your services with the Company irrespective of any reason for such termination, make use or disclose to any party either for your own benefit or for the benefit of any party(individual, firm, company, any trade or business), the affairs and confidential information of the Company or any of its related companies of which you have knowledge or become aware during the course of your service with the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="37" width="653" height="64"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[2. You will under no circumstances make available your services to any undertaking, or have any interest directly or indirectly in any other undertaking or activity which might interfere with the proper performance of your duties without first obtaining the written permission of the Company.]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

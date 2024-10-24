@@ -1,0 +1,1280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rept_JPF_Challan" language="groovy" pageWidth="1000" pageHeight="842" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="284"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="parameter2" class="java.lang.String"/>
+	<parameter name="parameter3" class="java.lang.String"/>
+	<parameter name="parameter4" class="java.lang.String"/>
+	<parameter name="parameter5" class="java.lang.String"/>
+	<parameter name="parameter6" class="java.lang.String"/>
+	<parameter name="parameter7" class="java.lang.String"/>
+	<parameter name="parameter8" class="java.lang.String"/>
+	<parameter name="parameter9" class="java.lang.String"/>
+	<parameter name="parameter10" class="java.lang.String"/>
+	<parameter name="parameter11" class="java.lang.String"/>
+	<parameter name="parameter12" class="java.lang.String"/>
+	<parameter name="parameter13" class="java.lang.String"/>
+	<parameter name="parameter14" class="java.lang.String"/>
+	<parameter name="parameter15" class="java.lang.String"/>
+	<parameter name="parameter16" class="java.lang.String"/>
+	<parameter name="parameter17" class="java.lang.String"/>
+	<parameter name="parameter18" class="java.lang.String"/>
+	<parameter name="parameter19" class="java.lang.String"/>
+	<parameter name="parameter20" class="java.lang.String"/>
+	<parameter name="parameter21" class="java.lang.String"/>
+	<parameter name="parameter22" class="java.lang.String"/>
+	<parameter name="parameter23" class="java.lang.String"/>
+	<parameter name="parameter24" class="java.lang.String"/>
+	<parameter name="parameter25" class="java.lang.String"/>
+	<parameter name="parameter26" class="java.lang.String"/>
+	<parameter name="parameter27" class="java.lang.String"/>
+	<parameter name="parameter28" class="java.lang.String"/>
+	<parameter name="parameter29" class="java.lang.String"/>
+	<parameter name="parameter30" class="java.lang.String"/>
+	<parameter name="parameter31" class="java.lang.String"/>
+	<parameter name="parameter32" class="java.lang.String"/>
+	<parameter name="parameter33" class="java.lang.String"/>
+	<parameter name="parameter34" class="java.lang.String"/>
+	<parameter name="parameter35" class="java.lang.String"/>
+	<parameter name="parameter36" class="java.lang.String"/>
+	<parameter name="parameter37" class="java.lang.String"/>
+	<parameter name="parameter38" class="java.lang.String"/>
+	<parameter name="parameter39" class="java.lang.String"/>
+	<parameter name="parameter40" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT CHR_EMPID FROM com_m_staff WHERE CHR_EMPID='ADMIN']]>
+	</queryString>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="137" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="960" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMPLOYEES' PROVIDENT FUND ORGANISATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="33" width="960" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(Combined Challan for A/c No. 1, 2, 10, 21 & 22)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="92" width="62" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Business No.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="62" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="87" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="112" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="137" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="162" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="187" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="212" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="237" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="262" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="287" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="312" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="337" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="362" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="509" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="534" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="592" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="617" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="642" y="91" width="25" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="667" y="91" width="25" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="724" y="91" width="51" height="20"/>
+				<textElement/>
+				<text><![CDATA[VDR No.:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="789" y="101" width="149" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="803" y="111" width="122" height="20"/>
+				<textElement/>
+				<text><![CDATA[(To be filled in by EPFO)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="409" y="91" width="96" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[For the Month of:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="509" y="71" width="25" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="534" y="71" width="25" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="592" y="71" width="25" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="617" y="72" width="25" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="642" y="71" width="25" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="667" y="72" width="25" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="960" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[(Amount in Rs.)]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="19" width="44" height="51"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sl. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="19" width="168" height="51"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Particulars]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="19" width="210" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/c No. 1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="19" width="100" height="51"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/c No. 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="521" y="19" width="100" height="51"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/c No. 10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="621" y="19" width="100" height="51"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/c No. 21]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="721" y="19" width="100" height="51"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/c. No. 22]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="821" y="19" width="100" height="51"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="39" width="70" height="31"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employees' Share]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="39" width="70" height="31"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employer's Share]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="39" width="70" height="31"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="202" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="44" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="44" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[2(a).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="44" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[2(b).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="44" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="44" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="0" width="169" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Contribution, Administrative / Inspection Charges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="40" width="169" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Interest Under Section 7Q]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="80" width="169" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Damages Under Section 14B]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="120" width="169" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Miscellaneous Payments]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="160" width="169" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="213" y="0" width="69" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="0" width="70" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="0" width="70" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="0" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="522" y="0" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="622" y="0" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="722" y="0" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="822" y="0" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter8}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="40" width="69" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="40" width="70" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="40" width="70" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter11}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="40" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter12}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="522" y="40" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter13}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="622" y="40" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter14}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="722" y="40" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter15}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="822" y="40" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter16}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="80" width="69" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter17}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="80" width="70" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter18}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="80" width="69" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter19}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="80" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter20}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="521" y="80" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter21}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="621" y="80" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter22}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="721" y="80" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter23}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="821" y="80" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter24}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="120" width="70" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter25}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="120" width="70" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter26}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="120" width="69" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter27}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="120" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter28}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="521" y="120" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter29}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="621" y="120" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter30}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="721" y="120" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter31}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="821" y="120" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter32}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="160" width="69" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter33}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="160" width="70" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter34}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="160" width="69" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter35}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="160" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter36}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="521" y="160" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter37}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="621" y="160" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter38}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="721" y="160" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter39}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="821" y="160" width="100" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{parameter40}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="331" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="960" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Mode of Payment (Tick)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="20" width="48" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cheque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="20" width="40" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="20" width="40" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="546" y="20" width="54" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Transfer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="62" width="145" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Date of Deposit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="85" width="145" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Cheque / DD No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="109" width="145" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Cheque / DD Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="133" width="145" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Amount Received (Rs.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="157" width="145" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Deposit Bank Code:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="182" width="145" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Deposit Branch Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="208" width="145" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Bank Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="228" width="145" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[(on which Cheque/DD drawn)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="687" y="137" width="234" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="687" y="160" width="234" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="687" y="184" width="234" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="687" y="208" width="234" height="118"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="688" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="706" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="724" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="742" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="760" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="778" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="796" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="832" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="814" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="850" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="868" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="903" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="886" y="85" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="688" y="62" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="706" y="62" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="760" y="62" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="742" y="62" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="796" y="62" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="814" y="62" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="832" y="62" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="850" y="62" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="796" y="113" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="832" y="113" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="706" y="113" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="850" y="113" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="760" y="113" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="742" y="113" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="688" y="113" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="814" y="113" width="18" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="12" y="62" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Name of the Establishment:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="85" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Address:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="155" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Name of the Depositor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="180" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Signature of Depositor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="223" width="340" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Instruction to the employer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="243" width="340" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Use separate challan for each month.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="263" width="340" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Write legibly without any overwriting / correction / erasures.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="286" width="340" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Include Interest U/S 7Q for all belated remittances.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="306" width="340" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Pay the dues through local cheque only.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="162" y="89" width="260" height="64"/>
+			</rectangle>
+			<line>
+				<reportElement x="162" y="174" width="260" height="1"/>
+			</line>
+			<line>
+				<reportElement x="166" y="198" width="260" height="1"/>
+			</line>
+			<rectangle>
+				<reportElement x="387" y="20" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="453" y="20" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="518" y="20" width="18" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="604" y="20" width="18" height="20"/>
+			</rectangle>
+		</band>
+	</summary>
+</jasperReport>

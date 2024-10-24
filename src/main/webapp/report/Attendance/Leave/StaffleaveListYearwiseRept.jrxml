@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Monthwise attendance register report" language="groovy" pageWidth="832" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="792" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="71"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="year" class="java.lang.String">
+		<defaultValueExpression><![CDATA[2013]]></defaultValueExpression>
+	</parameter>
+	<parameter name="company" class="java.lang.String"/>
+	<parameter name="office" class="java.lang.String"/>
+	<parameter name="dept" class="java.lang.String"/>
+	<parameter name="hImageExpression" class="java.lang.String"/>
+	<parameter name="fImageExpression" class="java.lang.String"/>
+	<parameter name="branch" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT a.CHR_EMPID,a.CHR_STAFFNAME, DATE_FORMAT(a.DT_DOJCOLLEGE,'%d-%m-%Y'),  n.CHR_OFFICENAME,o.CHR_DEPARTNAME,
+ ( SELECT SUM(b.DOU_VALUE)  FROM att_t_leave b    WHERE  a.CHR_EMPID = b.CHR_EMPID AND YEAR(b.DT_LDATE) = 2013 AND MONTHNAME(b.DT_LDATE)='January' GROUP BY MONTHNAME(b.DT_LDATE)),
+
+( SELECT SUM(c.DOU_VALUE)  FROM att_t_leave c    WHERE  a.CHR_EMPID = c.CHR_EMPID AND YEAR(c.DT_LDATE) =  2013  AND MONTHNAME(c.DT_LDATE)='February' GROUP BY MONTHNAME(c.DT_LDATE)),
+
+ ( SELECT SUM(d.DOU_VALUE)  FROM att_t_leave d    WHERE  a.CHR_EMPID = d.CHR_EMPID AND YEAR(d.DT_LDATE) =  2013 AND MONTHNAME(d.DT_LDATE)='March' GROUP BY MONTHNAME(d.DT_LDATE)),
+
+( SELECT SUM(e.DOU_VALUE)  FROM att_t_leave e    WHERE  a.CHR_EMPID = e.CHR_EMPID AND YEAR(e.DT_LDATE) =  2013  AND MONTHNAME(e.DT_LDATE)='April' GROUP BY MONTHNAME(e.DT_LDATE)),
+
+ ( SELECT SUM(f.DOU_VALUE)  FROM att_t_leave f   WHERE  a.CHR_EMPID = f.CHR_EMPID AND YEAR(f.DT_LDATE) =  2013  AND MONTHNAME(f.DT_LDATE)='May' GROUP BY MONTHNAME(f.DT_LDATE)),
+
+ ( SELECT SUM(g.DOU_VALUE)  FROM att_t_leave g    WHERE  a.CHR_EMPID = g.CHR_EMPID AND YEAR(g.DT_LDATE) =  2013  AND MONTHNAME(g.DT_LDATE)='June' GROUP BY MONTHNAME(g.DT_LDATE)),
+
+ ( SELECT SUM(h.DOU_VALUE)  FROM att_t_leave h    WHERE  a.CHR_EMPID = h.CHR_EMPID AND YEAR(h.DT_LDATE) =  2013  AND MONTHNAME(h.DT_LDATE)='July' GROUP BY MONTHNAME(h.DT_LDATE)),
+
+( SELECT SUM(i.DOU_VALUE)  FROM att_t_leave i   WHERE  a.CHR_EMPID = i.CHR_EMPID AND YEAR(i.DT_LDATE) =  2013  AND MONTHNAME(i.DT_LDATE)='August' GROUP BY MONTHNAME(i.DT_LDATE)),
+
+
+( SELECT SUM(j.DOU_VALUE)  FROM att_t_leave j   WHERE  a.CHR_EMPID = j.CHR_EMPID AND YEAR(j.DT_LDATE) =  2013  AND MONTHNAME(j.DT_LDATE)='September' GROUP BY MONTHNAME(j.DT_LDATE)),
+
+
+( SELECT SUM(k.DOU_VALUE)  FROM att_t_leave k   WHERE  a.CHR_EMPID = k.CHR_EMPID AND YEAR(k.DT_LDATE) =  2013  AND MONTHNAME(k.DT_LDATE)='October' GROUP BY MONTHNAME(k.DT_LDATE)),
+
+
+( SELECT SUM(l.DOU_VALUE)  FROM att_t_leave l   WHERE  a.CHR_EMPID = l.CHR_EMPID AND YEAR(l.DT_LDATE) =  2013  AND MONTHNAME(l.DT_LDATE)='November' GROUP BY MONTHNAME(l.DT_LDATE)),
+
+( SELECT SUM(m.DOU_VALUE)  FROM att_t_leave m   WHERE  a.CHR_EMPID = m.CHR_EMPID AND YEAR(m.DT_LDATE) =  2013  AND MONTHNAME(m.DT_LDATE)='December' GROUP BY MONTHNAME(m.DT_LDATE))  ,
+SUM(p.INT_NOD1+p.INT_NOD2+p.INT_NOD3+p.INT_NOD4+p.INT_NOD5+p.INT_NOD6+p.INT_NOD7+p.INT_NOD8+p.INT_NOD9) leaveGiven,
+( SELECT SUM(q.DOU_VALUE)  FROM att_t_leave q WHERE  a.CHR_EMPID = q.CHR_EMPID AND YEAR(q.DT_LDATE) = 2013  GROUP BY YEAR(q.DT_LDATE)) leaveTaken,
+ (   ( SUM(p.INT_NOD1+p.INT_NOD2+p.INT_NOD3+p.INT_NOD4+p.INT_NOD5+p.INT_NOD6+p.INT_NOD7+p.INT_NOD8+p.INT_NOD9))- ( SELECT SUM(s.DOU_VALUE) FROM att_t_leave s  WHERE  a.CHR_EMPID = s.CHR_EMPID AND YEAR(s.DT_LDATE) = 2013  GROUP BY YEAR(s.DT_LDATE) ) ) bal
+
+
+ FROM com_m_staff a ,com_m_office   n ,com_m_depart o ,att_m_leave p
+ WHERE a.INT_OFFICEID = n.INT_OFFICEID AND a.INT_DEPARTID = o.INT_DEPARTID
+ AND a.CHR_EMPID=p.CHR_EMPID AND p.INT_YEAR=2013 GROUP BY p.CHR_EMPID ORDER BY a.CHR_STAFFNAME]]>
+	</queryString>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<field name="CHR_STAFFNAME" class="java.lang.String"/>
+	<field name="DATE_FORMAT(a.DT_DOJCOLLEGE,&apos;%d-%m-%Y&apos;)" class="java.lang.String"/>
+	<field name="CHR_OFFICENAME" class="java.lang.String"/>
+	<field name="CHR_DEPARTNAME" class="java.lang.String"/>
+	<field name="( SELECT SUM(b.DOU_VALUE)  FROM att_t_leave b    WHERE  a.CHR_EMPID = b.CHR_EMPID AND YEAR(b.DT_LDATE) = 2013 AND MONTHNAME(b.DT_LDATE)=&apos;January&apos; GROUP BY MONTHNAME(b.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(c.DOU_VALUE)  FROM att_t_leave c    WHERE  a.CHR_EMPID = c.CHR_EMPID AND YEAR(c.DT_LDATE) =  2013  AND MONTHNAME(c.DT_LDATE)=&apos;February&apos; GROUP BY MONTHNAME(c.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(d.DOU_VALUE)  FROM att_t_leave d    WHERE  a.CHR_EMPID = d.CHR_EMPID AND YEAR(d.DT_LDATE) =  2013 AND MONTHNAME(d.DT_LDATE)=&apos;March&apos; GROUP BY MONTHNAME(d.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(e.DOU_VALUE)  FROM att_t_leave e    WHERE  a.CHR_EMPID = e.CHR_EMPID AND YEAR(e.DT_LDATE) =  2013  AND MONTHNAME(e.DT_LDATE)=&apos;April&apos; GROUP BY MONTHNAME(e.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(f.DOU_VALUE)  FROM att_t_leave f   WHERE  a.CHR_EMPID = f.CHR_EMPID AND YEAR(f.DT_LDATE) =  2013  AND MONTHNAME(f.DT_LDATE)=&apos;May&apos; GROUP BY MONTHNAME(f.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(g.DOU_VALUE)  FROM att_t_leave g    WHERE  a.CHR_EMPID = g.CHR_EMPID AND YEAR(g.DT_LDATE) =  2013  AND MONTHNAME(g.DT_LDATE)=&apos;June&apos; GROUP BY MONTHNAME(g.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(h.DOU_VALUE)  FROM att_t_leave h    WHERE  a.CHR_EMPID = h.CHR_EMPID AND YEAR(h.DT_LDATE) =  2013  AND MONTHNAME(h.DT_LDATE)=&apos;July&apos; GROUP BY MONTHNAME(h.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(i.DOU_VALUE)  FROM att_t_leave i   WHERE  a.CHR_EMPID = i.CHR_EMPID AND YEAR(i.DT_LDATE) =  2013  AND MONTHNAME(i.DT_LDATE)=&apos;August&apos; GROUP BY MONTHNAME(i.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(j.DOU_VALUE)  FROM att_t_leave j   WHERE  a.CHR_EMPID = j.CHR_EMPID AND YEAR(j.DT_LDATE) =  2013  AND MONTHNAME(j.DT_LDATE)=&apos;September&apos; GROUP BY MONTHNAME(j.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(k.DOU_VALUE)  FROM att_t_leave k   WHERE  a.CHR_EMPID = k.CHR_EMPID AND YEAR(k.DT_LDATE) =  2013  AND MONTHNAME(k.DT_LDATE)=&apos;October&apos; GROUP BY MONTHNAME(k.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(l.DOU_VALUE)  FROM att_t_leave l   WHERE  a.CHR_EMPID = l.CHR_EMPID AND YEAR(l.DT_LDATE) =  2013  AND MONTHNAME(l.DT_LDATE)=&apos;November&apos; GROUP BY MONTHNAME(l.DT_LDATE))" class="java.lang.String"/>
+	<field name="( SELECT SUM(m.DOU_VALUE)  FROM att_t_leave m   WHERE  a.CHR_EMPID = m.CHR_EMPID AND YEAR(m.DT_LDATE) =  2013  AND MONTHNAME(m.DT_LDATE)=&apos;December&apos; GROUP BY MONTHNAME(m.DT_LDATE))" class="java.lang.String"/>
+	<field name="leaveGiven" class="java.lang.Double"/>
+	<field name="leaveTaken" class="java.lang.String"/>
+	<field name="bal" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="50" width="792" height="20" backcolor="#00CCCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Yearwise Staff Leave Detail ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="85" width="52" height="15"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Year : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="85" width="101" height="15"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" "+$P{year}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="70" width="45" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Office : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="70" width="104" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{office}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="559" y="70" width="76" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Depatment :  ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="635" y="70" width="105" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{dept}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="70" width="62" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Company :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="62" y="70" width="150" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{company}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="699" y="85" width="33" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="258" y="70" width="152" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{branch}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="212" y="70" width="46" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Branch : ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="732" y="85" width="60" height="15"/>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="97" y="0" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{hImageExpression}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="0" width="90" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Employee Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="30" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[S. No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="0" width="130" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="50" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Date of Joining]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Mar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Feb]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Jan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="523" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Jun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="563" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Aug]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="47" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Office]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="501" y="0" width="22" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[May]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="603" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Oct]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="623" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Nov]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="543" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Jul]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="583" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Sep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="0" width="74" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Department]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="643" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Dec]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="481" y="0" width="20" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Apr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="748" y="0" width="44" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Leave Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="664" y="0" width="42" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Leave Taken]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="706" y="0" width="42" height="30"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<text><![CDATA[Leave Given]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="0" width="90" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" "+$F{CHR_EMPID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="30" height="13"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="130" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" "+$F{CHR_STAFFNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="50" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATE_FORMAT(a.DT_DOJCOLLEGE,'%d-%m-%Y')}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="47" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" "+$F{CHR_OFFICENAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="0" width="74" height="13"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" "+$F{CHR_OFFICENAME}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement x="421" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{( SELECT SUM(b.DOU_VALUE)  FROM att_t_leave b    WHERE  a.CHR_EMPID = b.CHR_EMPID AND YEAR(b.DT_LDATE) = 2013 AND MONTHNAME(b.DT_LDATE)='January' GROUP BY MONTHNAME(b.DT_LDATE))}).equals("")?"0":$F{( SELECT SUM(b.DOU_VALUE)  FROM att_t_leave b    WHERE  a.CHR_EMPID = b.CHR_EMPID AND YEAR(b.DT_LDATE) = 2013 AND MONTHNAME(b.DT_LDATE)='January' GROUP BY MONTHNAME(b.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(b.DOU_VALUE)  FROM att_t_leave b    WHERE  a.CHR_EMPID = b.CHR_EMPID AND YEAR(b.DT_LDATE) = 2013 AND MONTHNAME(b.DT_LDATE)='January' GROUP BY MONTHNAME(b.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(c.DOU_VALUE)  FROM att_t_leave c    WHERE  a.CHR_EMPID = c.CHR_EMPID AND YEAR(c.DT_LDATE) =  2013  AND MONTHNAME(c.DT_LDATE)='February' GROUP BY MONTHNAME(c.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(c.DOU_VALUE)  FROM att_t_leave c    WHERE  a.CHR_EMPID = c.CHR_EMPID AND YEAR(c.DT_LDATE) =  2013  AND MONTHNAME(c.DT_LDATE)='February' GROUP BY MONTHNAME(c.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="461" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(d.DOU_VALUE)  FROM att_t_leave d    WHERE  a.CHR_EMPID = d.CHR_EMPID AND YEAR(d.DT_LDATE) =  2013 AND MONTHNAME(d.DT_LDATE)='March' GROUP BY MONTHNAME(d.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(d.DOU_VALUE)  FROM att_t_leave d    WHERE  a.CHR_EMPID = d.CHR_EMPID AND YEAR(d.DT_LDATE) =  2013 AND MONTHNAME(d.DT_LDATE)='March' GROUP BY MONTHNAME(d.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="481" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(e.DOU_VALUE)  FROM att_t_leave e    WHERE  a.CHR_EMPID = e.CHR_EMPID AND YEAR(e.DT_LDATE) =  2013  AND MONTHNAME(e.DT_LDATE)='April' GROUP BY MONTHNAME(e.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(e.DOU_VALUE)  FROM att_t_leave e    WHERE  a.CHR_EMPID = e.CHR_EMPID AND YEAR(e.DT_LDATE) =  2013  AND MONTHNAME(e.DT_LDATE)='April' GROUP BY MONTHNAME(e.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="501" y="0" width="22" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(f.DOU_VALUE)  FROM att_t_leave f   WHERE  a.CHR_EMPID = f.CHR_EMPID AND YEAR(f.DT_LDATE) =  2013  AND MONTHNAME(f.DT_LDATE)='May' GROUP BY MONTHNAME(f.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(f.DOU_VALUE)  FROM att_t_leave f   WHERE  a.CHR_EMPID = f.CHR_EMPID AND YEAR(f.DT_LDATE) =  2013  AND MONTHNAME(f.DT_LDATE)='May' GROUP BY MONTHNAME(f.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="523" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(g.DOU_VALUE)  FROM att_t_leave g    WHERE  a.CHR_EMPID = g.CHR_EMPID AND YEAR(g.DT_LDATE) =  2013  AND MONTHNAME(g.DT_LDATE)='June' GROUP BY MONTHNAME(g.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(g.DOU_VALUE)  FROM att_t_leave g    WHERE  a.CHR_EMPID = g.CHR_EMPID AND YEAR(g.DT_LDATE) =  2013  AND MONTHNAME(g.DT_LDATE)='June' GROUP BY MONTHNAME(g.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="543" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(h.DOU_VALUE)  FROM att_t_leave h    WHERE  a.CHR_EMPID = h.CHR_EMPID AND YEAR(h.DT_LDATE) =  2013  AND MONTHNAME(h.DT_LDATE)='July' GROUP BY MONTHNAME(h.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(h.DOU_VALUE)  FROM att_t_leave h    WHERE  a.CHR_EMPID = h.CHR_EMPID AND YEAR(h.DT_LDATE) =  2013  AND MONTHNAME(h.DT_LDATE)='July' GROUP BY MONTHNAME(h.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="563" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(i.DOU_VALUE)  FROM att_t_leave i   WHERE  a.CHR_EMPID = i.CHR_EMPID AND YEAR(i.DT_LDATE) =  2013  AND MONTHNAME(i.DT_LDATE)='August' GROUP BY MONTHNAME(i.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(i.DOU_VALUE)  FROM att_t_leave i   WHERE  a.CHR_EMPID = i.CHR_EMPID AND YEAR(i.DT_LDATE) =  2013  AND MONTHNAME(i.DT_LDATE)='August' GROUP BY MONTHNAME(i.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="583" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(j.DOU_VALUE)  FROM att_t_leave j   WHERE  a.CHR_EMPID = j.CHR_EMPID AND YEAR(j.DT_LDATE) =  2013  AND MONTHNAME(j.DT_LDATE)='September' GROUP BY MONTHNAME(j.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(j.DOU_VALUE)  FROM att_t_leave j   WHERE  a.CHR_EMPID = j.CHR_EMPID AND YEAR(j.DT_LDATE) =  2013  AND MONTHNAME(j.DT_LDATE)='September' GROUP BY MONTHNAME(j.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="603" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(k.DOU_VALUE)  FROM att_t_leave k   WHERE  a.CHR_EMPID = k.CHR_EMPID AND YEAR(k.DT_LDATE) =  2013  AND MONTHNAME(k.DT_LDATE)='October' GROUP BY MONTHNAME(k.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(k.DOU_VALUE)  FROM att_t_leave k   WHERE  a.CHR_EMPID = k.CHR_EMPID AND YEAR(k.DT_LDATE) =  2013  AND MONTHNAME(k.DT_LDATE)='October' GROUP BY MONTHNAME(k.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="623" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(l.DOU_VALUE)  FROM att_t_leave l   WHERE  a.CHR_EMPID = l.CHR_EMPID AND YEAR(l.DT_LDATE) =  2013  AND MONTHNAME(l.DT_LDATE)='November' GROUP BY MONTHNAME(l.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(l.DOU_VALUE)  FROM att_t_leave l   WHERE  a.CHR_EMPID = l.CHR_EMPID AND YEAR(l.DT_LDATE) =  2013  AND MONTHNAME(l.DT_LDATE)='November' GROUP BY MONTHNAME(l.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="643" y="0" width="20" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{( SELECT SUM(m.DOU_VALUE)  FROM att_t_leave m   WHERE  a.CHR_EMPID = m.CHR_EMPID AND YEAR(m.DT_LDATE) =  2013  AND MONTHNAME(m.DT_LDATE)='December' GROUP BY MONTHNAME(m.DT_LDATE))}.equals(null)?"0":$F{( SELECT SUM(m.DOU_VALUE)  FROM att_t_leave m   WHERE  a.CHR_EMPID = m.CHR_EMPID AND YEAR(m.DT_LDATE) =  2013  AND MONTHNAME(m.DT_LDATE)='December' GROUP BY MONTHNAME(m.DT_LDATE))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="664" y="0" width="42" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{leaveTaken}.equals(null)?"0":$F{leaveTaken}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="748" y="0" width="44" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{bal}.equals(null)?$F{leaveGiven}:$F{bal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="706" y="0" width="42" height="13"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{leaveGiven}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="65" splitType="Stretch">
+			<image>
+				<reportElement x="97" y="15" width="600" height="50" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{fImageExpression}]]></imageExpression>
+			</image>
+			<textField evaluationTime="Report">
+				<reportElement x="773" y="0" width="19" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="725" y="0" width="48" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

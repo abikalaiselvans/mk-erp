@@ -1,0 +1,199 @@
+$ mysql -h localhost -u user_name -ppassword<Enter>
+$ mysql -h localhost -u user_name -p<Enter>
+$ ******
+$ mysql -h193.0.0.13 -u user_name -p db_name<Enter>
+$ ******<Enter>
+
+How to avoid this typing?
+
+$ vi $HOME/.my.cnf ( create this file in your ! home directory )
+
+[client]
+host=localhost
+user=your_login
+password=your_password
+:wq (save file)
+
+$ chmod 400 $HOME/.my.cnf
+$ mysql test
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 112 to server ....
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> _
+
+Some Help and Show Commands
+
+$ mysql --help | less
+$ mysqld --help
+$ mysqlshow --help | less
+$ mysqldump --help | less
+$ mysqlshow	- show all databases.
+$ mysqlshow db_name - all tables in particular database.
+$ mysqlshow db_name BA* - all tables which start from BA letters.
+
+mysql> \?
+mysql> use db_name;
+mysql> show databases;
+mysql> show databases like 'ba%'
+mysql> show tables;
+mysql> describe table_name;
+mysql> select user(), now(), version(), database();
++---------------+---------------------+----------------+------------+
+| user()        | now()               | version()      | database() |
++---------------+---------------------+----------------+------------+
+| ana@localhost | 2003-01-05 21:24:27 | 4.0.1-alpha-nt | test       |
++---------------+---------------------+----------------+------------+
+
+mysql> show tables from db_name
+
+mysql> show tables from db_name like '__ab%'
+
+mysql> show columns from table_name
+
+mysql> show columns from table_name from db_name
+
+mysql> show grants for user_name
+
+mysql> show index from table_name
+
+mysql> show index from table_name from db_name
+
+mysql> show processlist
+
+mysql> show status
+
+mysql> show table status from db_name
+
+mysql> show variables
+
+
+Creating Table
+
+mysql> drop table if exists my_table;
+mysql> create table my_table (ID int not null primary key, l_name
+    -> varchar(20) not null, f_name varchar(20));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> describe my_table;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| ID     | int(11)     |      | PRI | 0       |       |
+| l_name | varchar(20) |      |     |         |       |
+| f_name | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.04 sec)
+
+mysql> insert into my_table values (1,"Frost",'Robert');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into my_table (ID,l_name) values (2,'Smith');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from my_table;
++----+--------+--------+
+| ID | l_name | f_name |
++----+--------+--------+
+|  1 | Frost  | Robert |
+|  2 | Smith  | NULL   |
++----+--------+--------+
+2 rows in set (0.01 sec)
+
+mysql> update my_table set f_name='Linda' where l_name='Smith'
+    -> and ID=2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from my_table;
++----+--------+--------+
+| ID | l_name | f_name |
++----+--------+--------+
+|  1 | Frost  | Robert |
+|  2 | Smith  | Linda  |
++----+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> delete from my_table where ID=1;
+mysql> select * from my_table;
++----+--------+--------+
+| ID | l_name | f_name |
++----+--------+--------+
+|  2 | Smith  | Linda  |
++----+--------+--------+
+1 row in set (0.01 sec)
+
+mysql> create table table_name select * from bank.BANK_WORKER;
+(copy table bank.BANK_WORKER into table_name)
+
+Creatint Table using Script
+
+$ vi create_table.sql ( open new file )
+---------------------
+drop table if exists my_table;
+create table my_table (ID int not null primary key, l_name
+	varchar(20) not null, f_name varchar(20));
+insert into my_table values (1,"Frost",'Robert');
+insert into my_table (ID,l_name) values (2,'Smith');
+select * from my_table;
+:wq ( save file )
+-----------------
+$ mysql db_name < create_table.sql
+$ mysql db_name -t < create_table.sql > output.sql
+mysql> \. create_table.sql
+
+
+Some Useful Commands
+
+$ mysqldump db_name my_table
+$ mysqldump db_name my_table > output.sql
+$ mysqldump --no-data db_name my_table > dump_table_name.sql
+$ mysqldump --add-drop-table db_name my_table > dump_table_name.sql
+$ mysqladmin create db_name
+$ mysqladmin drop db_name
+$ mysqladmin flush-privileges
+$ mysqladmin ping
+$ mysqladmin reload
+$ mysqladmin kill ps_id,ps_id...
+$ mysqladmin --user=root shutdown
+$ mysqladmin variables
+$ mysqlimport db_name file_name ...
+$ safe_mysqld
+$ myisamchk table_name.MYI
+
+mysql> GRANT ALL ON db_name TO user_name@localhost IDENTIFIED BY 'password'
+
+mysql> GRANT ALL ON db_name TO user_name@'%' IDENTIFIED BY 'password'
+ 
+Backing up your database
+The quickest and easiest way to backup and restore your database would be to use MySQLDump. If you've got shell or telnet access to your server, you can backup MySQL data by issuing the mysqldump command. The syntax for the command is as follows.
+
+mysqldump -u [uname] -p [pass] [dbname] > [backupfile.sql]
+
+[uname] - this is your database username
+
+[pass]- this is the password for your database
+
+[dbname] - the name of your database
+
+[backupfile.sql] - the filename for your database backup
+
+To backup your database 'Customers' with the username 'sadmin' and password 'pass21' to a file custback.sql, you would issue the command
+
+mysqldump -u sadmin -p pass21 Customers > custback.sql
+
+
+
+Restoring your database
+If you have to re-build your database from scratch, you can easily restore the mysqldump file by issuing the following command. This method will not work if the tables already exist in your database.
+
+mysql - u sadmin -p pass21 Customers < custback.sql
+
+If you need to restore existing databases, you'll need to use MySQLImport. The syntax for mysqlimport is
+
+mysqlimport [options] database textfile1
+
+To restore your previously created custback.sql dump back to your Customers Database, you'd issue
+
+mysqlimport -u sadmin -p pass21 Customers custback.sql

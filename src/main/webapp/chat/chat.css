@@ -1,0 +1,137 @@
+h1, h2, h3, h4, h4, h5, td, table, p, body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.white { color:white;font-weight:900 }
+td
+{	color: Black;
+	font-size: 13px;
+}
+.pagetitle {
+	color: #ffffff;
+	background-color: #666699;
+	font-size: 20px;
+	font-weight: 900;
+	text-align: center
+}
+.title {
+	color: #FF0033; background-color: #F8F8F8; font-size: 25px; font-weight: 900;
+	text-align: center; border-width: 2px; border-style: solid
+}
+	
+.panel {
+	font-size: 18px;
+	background-color: #666699;
+	color : #ffffff;
+}
+
+.chattername {
+	font-family:Arial,Tahoma,Verdana;
+	color:#6633CC;
+	font-size:18px
+}
+
+.error {
+	color : #FF3300;
+	font-weight : 700;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+	font-family:Arial,Tahoma,Verdana;
+	font-size:16px;
+}
+a, a:link, a:visited, a:active {
+	text-decoration: none;
+	color:#333399
+}
+a:hover {
+	text-decoration:underline;
+	color:#000000; 
+}
+
+h2 {
+	font-size: 150%;
+	color: #000066;
+}
+h3 { font-size: 110%; color:#009966 }
+h4 { font-size: 100%; color:#330099 }
+
+
+
+.bold {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #008cea;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.bolddik {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12px;
+	COLOR: #615e86;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.boldgre {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.bolddeepblue {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify;
+	COLOR: #000000;
+}
+
+.bolddeeplogin {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10px;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify;
+	COLOR: #000000;
+}
+
+.bolddeepgreen {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #003300;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.bolddeepred {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #ff0042;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.bold1 {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #ffffff;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}
+
+.boldornge {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #ff8000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: justify
+}

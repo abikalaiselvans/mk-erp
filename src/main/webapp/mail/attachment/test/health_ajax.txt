@@ -1,0 +1,518 @@
+<%@ page language="java" %>
+<jsp:useBean id="pool" class="com.ayush.beans.ConnectionPool" scope="application" />
+<%@include file="../arch/validator-header.jsp"%>
+<%
+	String name="";
+%>
+<LINK 
+href="/styles.css" type=text/css rel=stylesheet>
+<LINK 
+href="opservices_styles.css" type=text/css rel=stylesheet>
+<body  onpaste='return false;'>
+<jsp:include page="health_top.jsp" flush="true"/>
+<table border=0 cellspacing=0 cellpadding=0 align=center width=780>
+
+<tr><td>
+
+<%@include file="secinclud.jsp"%>
+
+<br>
+
+
+<table border=0 cellspacing=0 cellpadding=0 align=center width=100%>
+<tr><td>
+<%//@include file="op_top_sel_tests.jsp" %>
+    <%//@include file="specifierTop.jsp"%>
+</td></tr></table>
+
+<%
+	/*String loginid = (String) session.getValue("ID");
+	String name = (String) session.getValue("name");
+	    if (loginid == null) {
+		session.invalidate();
+		response.sendRedirect("/default.jsp");
+	}*/
+	String country = "", state = "", city = "";
+	     if (submit != null) {
+
+		country = request.getParameter("country");
+		if (country == null || "".equals(country)) {
+			errorList.put("country", "Country is mandatory");
+		}
+		if (state == null || "".equals(state)) {
+			errorList.put("state", "State is mandatory");
+			
+		}
+		
+		
+		if (city == null || "".equals(city)) {
+			errorList.put("city", "State is mandatory");
+			
+		}
+		
+	}
+%>
+<%!Connection con = null;
+	ResultSet rs = null;
+	Statement st = null;%>
+<%
+	if (pool.getSize() == 0) {
+		pool.setSize(10);
+		pool.initializePool();
+	}
+	con = pool.getConnection();
+	st = con.createStatement();
+%>
+<SCRIPT LANGUAGE="JavaScript" SRC="/arch/ajax-utils/ajax.js"></SCRIPT>
+<SCRIPT language="JavaScript">
+
+function getPackage(emp_value)		{ 
+
+	var city = emp_value.value;
+	document.getElementsByName("package_name")[0].options.length = 0;
+	document.getElementsByName("package_name")[0].options[0] = new Option('Select Pack');
+	makeRequest('health_services_ajaxpackage_include.jsp?city='+city, loadDoctors);
+	
+
+}
+function loadDoctors(pack) 	{ 
+
+	eval(pack);
+
+}
+function isPackloaded(pack, city)	{
+alert("come"+city.value);alert(pack.options.length);
+	if (pack.options.length == 1) {
+		getPackage(city);
+	}
+}
+
+
+
+	function checkvalues(){
+		if(document.paydetails.city.value==""){			
+		 alert("Please Select the  city");
+	     document.paydetails.city.focus();
+		  return false;
+		}
+	}
+	</SCRIPT>
+		<style type="text/css">
+	 A:link { color:#930093; }
+	 A:visited { color:#930093; }
+	 A:hover { color:#FF3E9E;}
+	 .a
+	 {
+	   a  {text-decoration:underline;} 
+	   a:hover{text-decoration:underline;} 
+	   a:active{text-decoration:underline;} 
+	 }
+		.b
+			{
+				border:1px solid #003300;
+				background:#Ffffff;
+				color:#000000;
+				FONT-FAMILY:"verdana"
+				font-size:11px;
+				font-weight:plain
+			}
+		.c
+			{
+				border:1px solid #FF0000;
+				background:#Ffffff;
+				color:#000000;
+				FONT-FAMILY:"verdana"
+				font-size:11px;
+				font-weight:plain
+			}
+				
+</style>
+<LINK 
+href="/styles.css" type=text/css rel=stylesheet>
+<LINK href="health_services_style.css" type=text/css rel=stylesheet>
+<style TYPE="text/css"> <!-- .clsJustify 
+	{
+	   text-align:justify;} 
+	   a  {text-decoration:none;} 
+	   a:hover{text-decoration:underline;} 
+	   a:active{text-decoration:underline;} 
+	  -->
+	</style>
+<%@include file="../arch/validator-body.jsp"%>
+<html>
+<head><title>Vendor's available in these city's</title>
+</head>
+<body  onpaste='return false;'>
+<table border=0 cellspacing=0 cellpadding=0 align=center width=780>
+<tr><td>
+<table border=0 cellspacing=2 cellpadding=0 align=center width=100%>
+<tr><td>
+
+<tr><td>
+
+</td></tr></table>
+<!-- <table align="center" width=100% cellspacing=2 cellpadding=0 border=0>
+	<tr bgcolor="#d6e9fc">
+	
+		<td colspan=6 align="center" height=25>
+		<hr width=780 ><font face="Arial,Helvetica"  size="2" color="#804040"><b>Welcome </font>	
+
+<%//nana = String.valueOf(name.charAt(0));
+
+			//nana=nana.toUpperCase();%>
+<%//sss = name.substring(1,name.length());%>
+<font face="Arial,Helvetica"  size="2" color="red"><%//=nana+sss%>&nbsp;</font>
+<font face="Arial,Helvetica"  size="2" color="#804040">to Ayush Health Drugs Online</b></font>
+<hr width=780>
+</td>
+</tr>
+</table> -->
+
+<table cellSpacing="0" cellPadding="0" width="60%" align="center" border="0">
+<form name=paydetails action="health_services.jsp" method=post onsubmit="return checkvalues()">
+<tr>
+				<td><IMG src="images/TargetPreview_031.gif"></td>
+<td class="drugfrmTopBg" align="center" width="100%">Choose City</td>
+<td><IMG src="images/TargetPreview_071.gif" ></td>
+			</tr></table>
+<table border=0 width=60% align=center cellspacing=0 cellpadding=0 class=drugFormTbborder>
+<tr  class=GridTD1>
+	<td height=25 colspan=2>&nbsp;
+&nbsp;
+
+</tr>
+</td>
+<tr  class=GridTD>
+<td><font color="red">*</font> Country </td>
+<td height=25 align=center  class=GridTD>
+<%@include file="../arch/ajax-utils/country-combo.jsp"%>
+</td>
+</tr>
+<tr  class=GridTD1>
+<td><font color="red">*</font> State </td>
+<td height=25 align=center>
+<%@include file="../arch/ajax-utils/state-combo.jsp"%>
+</td>
+</tr>
+<tr class=GridTD>
+<td><font color="red">*</font> City </td>
+<td height=25 align=center>
+<%@include file="../arch/ajax-utils/city-combo.jsp"%>
+</td>
+</tr>
+
+<!-- <select name="package_name" onfocus="return isPackloaded(this, document.getElementsByName('city')[0])">
+<option value="">Select Package </option>
+
+</select>--> 
+
+
+
+
+<tr class=GridTD1>
+	<td height=25 colspan=2>&nbsp;
+&nbsp;
+</td>
+</tr></table>
+<br>
+<table align=center>
+<tr>
+<td></td>
+<td align=center><input type=submit name=search value="Proceed" class=opsubbtnwhite>
+&nbsp;&nbsp;<input type="button" name="Back" value="Back" onclick="window.history.go(-1)" class=opsubbtnwhite></td>
+</tr>
+
+
+</form>
+</table>
+
+<%
+	try {
+		if (con != null) {
+			pool.releaseConnection(con);
+		}
+		if (rs != null) {
+			rs.close();
+		}
+		if (st != null) {
+			st.close();
+		}
+	} catch (Exception ex) {
+		out.println("Exception while closing connection objects");
+	}
+%>
+	
+<%@include file="../arch/validator-footer.jsp"%>
+<%@ include file="/bottom.jsp" %>
+</body>
+</html>
+
+
+
+
+
+
+New
+====================
+
+
+
+<%@ page language="java" %>
+<jsp:useBean id="pool" class="com.ayush.beans.ConnectionPool" scope="application" />
+<%@include file="../arch/validator-header.jsp"%>
+<%
+	String name="";
+%>
+<LINK 
+href="/styles.css" type=text/css rel=stylesheet>
+<LINK 
+href="health_services_styles.css" type=text/css rel=stylesheet>
+
+
+<body  onpaste='return false;'>
+<jsp:include page="health_top.jsp" flush="true"/>
+<table border=0 cellspacing=0 cellpadding=0 align=center width=780>
+
+<tr><td>
+
+<%@include file="secinclud.jsp"%>
+
+<br>
+
+
+<table border=0 cellspacing=0 cellpadding=0 align=center width=100%>
+<tr><td>
+<%//@include file="op_top_sel_tests.jsp" %>
+    <%//@include file="specifierTop.jsp"%>
+</td></tr></table>
+
+<%
+	/*String loginid = (String) session.getValue("ID");
+	String name = (String) session.getValue("name");
+	    if (loginid == null) {
+		session.invalidate();
+		response.sendRedirect("/default.jsp");
+	}*/
+	String country = "", state = "", city = "";
+	     if (submit != null) {
+
+		country = request.getParameter("country");
+		if (country == null || "".equals(country)) {
+			errorList.put("country", "Country is mandatory");
+		}
+		if (state == null || "".equals(state)) {
+			errorList.put("state", "State is mandatory");
+			
+		}
+		
+		
+		if (city == null || "".equals(city)) {
+			errorList.put("city", "State is mandatory");
+			
+		}
+		
+	}
+%>
+<%!Connection con = null;
+	ResultSet rs = null;
+	Statement st = null;%>
+<%
+	if (pool.getSize() == 0) {
+		pool.setSize(10);
+		pool.initializePool();
+	}
+	con = pool.getConnection();
+	st = con.createStatement();
+%>
+<SCRIPT LANGUAGE="JavaScript" SRC="/arch/ajax-utils/ajax.js"></SCRIPT>
+<SCRIPT language="JavaScript">
+
+function getPackage(emp_value)		{ 
+
+	var city = emp_value.value;
+	document.getElementsByName("package_name")[0].options.length = 0;
+	document.getElementsByName("package_name")[0].options[0] = new Option('Select Pack');
+	makeRequest('health_services_ajaxpackage_include.jsp?city='+city, loadDoctors);
+	
+
+}
+function loadDoctors(pack) 	{ 
+
+	eval(pack);
+
+}
+function isPackloaded(pack, city)	{
+alert("come"+city.value);alert(pack.options.length);
+	if (pack.options.length == 1) {
+		getPackage(city);
+	}
+}
+
+
+
+	function checkvalues(){
+		if(document.paydetails.city.value==""){			
+		 alert("Please Select the  city");
+	     document.paydetails.city.focus();
+		  return false;
+		}
+	}
+	</SCRIPT>
+		<style type="text/css">
+	 A:link { color:#930093; }
+	 A:visited { color:#930093; }
+	 A:hover { color:#FF3E9E;}
+	 .a
+	 {
+	   a  {text-decoration:underline;} 
+	   a:hover{text-decoration:underline;} 
+	   a:active{text-decoration:underline;} 
+	 }
+		.b
+			{
+				border:1px solid #003300;
+				background:#Ffffff;
+				color:#000000;
+				FONT-FAMILY:"verdana"
+				font-size:11px;
+				font-weight:plain
+			}
+		.c
+			{
+				border:1px solid #FF0000;
+				background:#Ffffff;
+				color:#000000;
+				FONT-FAMILY:"verdana"
+				font-size:11px;
+				font-weight:plain
+			}
+				
+</style>
+
+<style TYPE="text/css"> <!-- .clsJustify 
+	{
+	   text-align:justify;} 
+	   a  {text-decoration:none;} 
+	   a:hover{text-decoration:underline;} 
+	   a:active{text-decoration:underline;} 
+	  -->
+	</style>
+<%@include file="../arch/validator-body.jsp"%>
+<html>
+<head><title>Vendor's available in these city's</title>
+</head>
+<body  onpaste='return false;'>
+<table border=0 cellspacing=0 cellpadding=0 align=center width=780>
+<tr><td>
+<table border=0 cellspacing=2 cellpadding=0 align=center width=100%>
+<tr><td>
+
+<tr><td>
+
+</td></tr></table>
+<!-- <table align="center" width=100% cellspacing=2 cellpadding=0 border=0>
+	<tr bgcolor="#d6e9fc">
+	
+		<td colspan=6 align="center" height=25>
+		<hr width=780 ><font face="Arial,Helvetica"  size="2" color="#804040"><b>Welcome </font>	
+
+<%//nana = String.valueOf(name.charAt(0));
+
+			//nana=nana.toUpperCase();%>
+<%//sss = name.substring(1,name.length());%>
+<font face="Arial,Helvetica"  size="2" color="red"><%//=nana+sss%>&nbsp;</font>
+<font face="Arial,Helvetica"  size="2" color="#804040">to Ayush Health Drugs Online</b></font>
+<hr width=780>
+</td>
+</tr>
+</table> -->
+
+<table cellSpacing="0" cellPadding="0" width="60%" align="center" border="0">
+<form name=paydetails action="health_services.jsp" method=post onsubmit="return checkvalues()">
+<tr>
+				<td><IMG src="images/TargetPreview_031.gif"></td>
+<td class="opbluemiddle" align="center" width="100%">Choose City</td>
+<td><IMG src="images/TargetPreview_071.gif" ></td>
+			</tr></table>
+<table border=0 width=60% align=center cellspacing=0 cellpadding=0 class=drugFormTbborder>
+<tr  class=GridTD1>
+	<td height=25 colspan=2>&nbsp;
+&nbsp;
+
+</tr>
+</td>
+<tr  class=GridTD>
+<td><font color="red">*</font> Country </td>
+<td height=25 align=center  class=GridTD>
+<%@include file="../arch/ajax-utils/country-combo.jsp"%>
+</td>
+</tr>
+<tr  class=GridTD1>
+<td><font color="red">*</font> State </td>
+<td height=25 align=center>
+<%@include file="../arch/ajax-utils/state-combo.jsp"%>
+</td>
+</tr>
+<tr class=GridTD>
+<td><font color="red">*</font> City </td>
+<td height=25 align=center>
+<%@include file="../arch/ajax-utils/city-combo.jsp"%>
+</td>
+</tr>
+
+<!-- <select name="package_name" onfocus="return isPackloaded(this, document.getElementsByName('city')[0])">
+<option value="">Select Package </option>
+
+</select>--> 
+
+
+
+
+<tr class=GridTD1>
+	<td height=25 colspan=2>&nbsp;
+&nbsp;
+</td>
+</tr></table>
+<br>
+<table align=center>
+<tr>
+<td></td>
+<td align=center><input type=submit name=search value="Proceed" class=opsubbtnwhite>
+&nbsp;&nbsp;<input type="button" name="Back" value="Back" onclick="window.history.go(-1)" class=opsubbtnwhite></td>
+</tr>
+
+
+</form>
+</table>
+
+<%
+	try {
+		if (con != null) {
+			pool.releaseConnection(con);
+		}
+		if (rs != null) {
+			rs.close();
+		}
+		if (st != null) {
+			st.close();
+		}
+	} catch (Exception ex) {
+		out.println("Exception while closing connection objects");
+	}
+%>
+	
+<%@include file="../arch/validator-footer.jsp"%>
+<%@ include file="/bottom.jsp" %>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

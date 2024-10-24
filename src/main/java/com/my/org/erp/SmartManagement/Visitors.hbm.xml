@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 April 2011 11:37:37 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping >
+    <class name="com.my.org.erp.bean.management.Visitors" table="mgt_m_visitor" >
+        
+        <id name="rowid" type="java.lang.Integer">
+            <column name="INT_VISITORID" />
+        </id>
+      
+      <property name="refno" type="string">
+            <column name="CHR_VISITORNO"  />
+        </property>
+        
+        <property name="name" type="string">
+            <column name="CHR_VISITORNAME"  />
+        </property>
+        
+        <property name="desc" type="string">
+            <column name="CHR_DESC"  />
+        </property>
+        
+        <property name="address" type="string">
+            <column name="CHR_ADDRESS"  />
+        </property> 
+        
+          <property name="building" type="java.lang.Long">
+            <column name="INT_BUILDINGID"  />
+        </property> 
+
+ 		<property name="floor" type="java.lang.Long">
+            <column name="INT_FLOORID"  />
+        </property>
+        
+        <property name="purpose" type="java.lang.Long">
+            <column name="INT_PURPOSEID"  />
+        </property>
+        
+        <property name="whomtomeet" type="string">
+            <column name="CHR_WHOMTOMEET"  />
+        </property> 
+       
+        <property name="fromdate" type="string">
+            <column name="DT_TIMEIN"  />
+        </property>
+        
+        <property name="todate" type="string">
+            <column name="DT_TIMEOUT"  />
+        </property>  
+        
+        <property name="vechileno" type="string">
+            <column name="CHR_VECHILENO"  />
+        </property>
+        
+        <property name="notification" type="string">
+            <column name="CHR_NOTIFICATION"  />
+        </property>
+        <property name="emailid" type="string">
+            <column name="CHR_EMAILID"  />
+        </property>
+        
+        <property name="entryby" type="string">
+            <column name="CHR_ENTRYBY"  />
+        </property>    
+        
+         <property name="validupto" type="string">
+            <column name="DT_VALIDUPTO"  />
+        </property>  
+        
+        <property name="createtime" type="string">
+            <column name="DT_CREATIONTIME"  />
+        </property>
+        
+          <property name="mobile" type="java.lang.Long">
+            <column name="INT_MOBILE"  />
+        </property>
+ 
+  
+        
+        <property name="userid" type="string">
+            <column name="CHR_USRNAME"  />
+        </property>
+        
+        <property name="userdate" type="java.util.Date">
+            <column name="DT_UPDATEDATE"  />
+        </property>
+        
+        <property name="status" type="string">
+            <column name="CHR_UPDATESTATUS"  />
+        </property>
+     </class>
+</hibernate-mapping>
+ 

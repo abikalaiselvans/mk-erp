@@ -1,0 +1,1459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rept_JForm_3APF" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Program Files\\Apache Software Foundation\\Tomcat 5.0\\webapps\\SmartCampus\\report\\SmartPayroll\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="year" class="java.lang.String"/>
+	<parameter name="year1" class="java.lang.String"/>
+	<parameter name="subreport1Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport2Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport3Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport4Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport5Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport6Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport7Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport8Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport9Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport10Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport11Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subreport12Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="employees" class="java.lang.String"/>
+	<parameter name="subreport13Parameter" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="VoluntaryHigherRate" class="java.lang.String"/>
+	<parameter name="EmployerContribution" class="java.lang.String"/>
+	<parameter name="VoluntaryContribution" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT b.CHR_EMPID, b.CHR_PFNO,a.CHR_EMPNAME,b.CHR_STAFFFNAME, g.CHR_COMPANYNAME,g.CHR_STREET,f.CHR_CITYNAME,g.INT_PINCODE,g.CHR_PFNUMBER, c.CHR_COUNTRYNAME,d.CHR_STATENAME,e.CHR_DISTRICT,f.CHR_CITYNAME FROM com_m_staff b,pay_t_salary a,com_m_company g, com_m_country c, com_m_state d, com_m_district e, com_m_city f  WHERE b.CHR_TYPE!='T' AND b.CHR_HOLD!='Y' AND b.INT_OFFICEID = 1 AND a.CHR_EMPID=b.CHR_EMPID  AND g.INT_COMPANYID=a.INT_COMPANYID AND g.INT_COUNTRYID= c.INT_COUNTRYID AND g.INT_STATEID = d.INT_STATEID AND g.INT_DISTRICTID = e.INT_DISTRICTID AND g.INT_CITYID = f.INT_CITYID  	AND b.INT_OFFICEID = 1 AND a.CHR_EMPID=b.CHR_EMPID AND a.CHR_EMPID in($P{employees}) GROUP BY a.CHR_EMPID]]>
+	</queryString>
+	<field name="CHR_EMPID" class="java.lang.String"/>
+	<field name="CHR_PFNO" class="java.lang.String"/>
+	<field name="CHR_EMPNAME" class="java.lang.String"/>
+	<field name="CHR_STAFFFNAME" class="java.lang.String"/>
+	<field name="CHR_COMPANYNAME" class="java.lang.String"/>
+	<field name="CHR_STREET" class="java.lang.String"/>
+	<field name="CHR_CITYNAME" class="java.lang.String"/>
+	<field name="INT_PINCODE" class="java.lang.Integer"/>
+	<field name="CHR_PFNUMBER" class="java.lang.String"/>
+	<field name="CHR_COUNTRYNAME" class="java.lang.String"/>
+	<field name="CHR_STATENAME" class="java.lang.String"/>
+	<field name="CHR_DISTRICT" class="java.lang.String"/>
+	<group name="g1">
+		<groupExpression><![CDATA[$F{CHR_EMPID}]]></groupExpression>
+		<groupHeader>
+			<band height="797">
+				<staticText>
+					<reportElement x="-1" y="0" width="556" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Form No.3A(Revised)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="50" width="194" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Name and address of the Establishment:
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="130" width="107" height="20"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[1. Account No
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="150" width="107" height="28"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[2. Name/surname (in Block Capitals) ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="178" width="107" height="40"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[3. Father's/Husband's Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="258" y="130" width="257" height="20"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[4. Statutory rate of Contribution : ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="258" y="198" width="257" height="20"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[7. Voluntary contribution to pension y/n ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="258" y="178" width="257" height="20"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[6. Employer contribution on Hig wages to EPF(ER) y/n ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="258" y="150" width="257" height="28"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[5. Voluntary higher rate of employee's contribution if any ]]></text>
+				</staticText>
+				<textField evaluationTime="Group" evaluationGroup="g1" isBlankWhenNull="true">
+					<reportElement x="107" y="130" width="151" height="20" printWhenGroupChanges="g1"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_PFNO}.equals(null)?": ":": "+$F{CHR_PFNO}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Page">
+					<reportElement x="107" y="150" width="151" height="28" printWhenGroupChanges="g1"/>
+					<textElement verticalAlignment="Top"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_EMPNAME}.equals(null)?": ":": "+$F{CHR_EMPNAME}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="70" width="555" height="13"/>
+					<textElement markup="styled">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_COMPANYNAME}.equals(null)?null:"<style isBold='true' pdfFontName='Helvetica-Bold'>"+$F{CHR_COMPANYNAME}+"</style>"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="83" width="555" height="13"/>
+					<textElement markup="styled">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_STREET}.equals(null)?null:"<style isBold='true' pdfFontName='Helvetica-Bold'>"+$F{CHR_STREET}+"</style>"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="96" width="555" height="13"/>
+					<textElement markup="styled">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_CITYNAME}.equals(null)?null:"<style isBold='true' pdfFontName='Helvetica-Bold'>"+$F{CHR_CITYNAME}+"-"+$F{INT_PINCODE}+"</style>"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="218" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Months]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="85" y="218" width="143" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Workers Share ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="218" width="143" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Employers Share]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="238" width="85" height="36"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[APR-2012]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="155" y="238" width="73" height="36"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[EPF(12%)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="238" width="85" height="36"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[No of Days/Period of Non Contributing service if any ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="238" width="49" height="36"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Refund of Advance]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="238" width="50" height="36"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Remarks]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="218" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="218" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="218" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="238" width="71" height="36"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[EPF(3.67%)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="299" y="238" width="72" height="36"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Pension Fund Contri(8.33%) .]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="274" width="71" height="15"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[4(A)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="299" y="274" width="72" height="15"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[4(B)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="85" y="274" width="70" height="15"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[2]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="274" width="85" height="15"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[6]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="274" width="49" height="15"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[5]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="155" y="274" width="73" height="15"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[3(A)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="274" width="85" height="15"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[1]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="274" width="50" height="15"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[7]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="534" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="289" width="49" height="25"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="289" width="50" height="25"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="289" width="85" height="25"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="314" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="314" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="314" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="334" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="334" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="334" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="354" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="354" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="354" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="374" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="374" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="374" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="394" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="394" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="394" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="414" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="414" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="414" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="434" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="434" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="434" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="454" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="454" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="454" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="474" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="474" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="474" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="494" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="494" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="494" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="514" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="514" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="514" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="534" width="49" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="505" y="534" width="50" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="534" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="289" width="85" height="25"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Mar paid in APR-"+$P{year}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="314" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["MAY-"+$P{year}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="334" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["JUN-"+$P{year}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="354" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["JUL-"+$P{year}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="374" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["AUG-"+$P{year}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="394" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["SEP-"+$P{year}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="414" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["OCT-"+$P{year}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="434" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["NOV-"+$P{year}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="454" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["DEC-"+$P{year}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="474" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["JAN-"+$P{year1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="494" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["FEB-"+$P{year1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="514" width="85" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["MAR-"+$P{year1}]]></textFieldExpression>
+				</textField>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="289" width="286" height="25" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr">
+						<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport1Parameter}]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement x="-1" y="554" width="556" height="30"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Certified that the total amount of contribution (both shares) indicated in this card i.e, Rs. 0.0 has already been remitted in full in EPF A/C No. 1 and pension Fund A/C No. 10 R 0.0 vide below ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="584" width="555" height="45"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Certified that the difference between the total of the contributions shown under columns(3) and 4(a) & 4(b) of the above table and that arrived at on the total wages shown in col(2) at the prescribed rate is sloely due to rounding off of contribution to the nearest rupee under the rules.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="360" y="678" width="194" height="13"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Authorised signatory]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="678" width="194" height="13"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Dated :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="704" width="555" height="13"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[(See paragraph 19 of the Employee's Pension Scheme 1995)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="717" width="555" height="39"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Note:- In respect of Form 3(A) sent to the Regional Office during the course of the Currency period for the purpose of final settlement of the accounts of the member who had left service details of date and reason for leaving service.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="756" width="555" height="13"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Should be furnished under column 7(A)(B)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="769" width="555" height="22"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[In respect of those who are not members of the Pension Fund the employers share of contribution to the EPF will be 8-1/3 or 10% as the may be and is to be shown under Column 4(a)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="691" width="555" height="13"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[(See paragraphs 35 and 42 of the employee' Provident Funds Scheme, 1952)]]></text>
+				</staticText>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="314" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr">
+						<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport2Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="334" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr">
+						<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport3Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="354" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr">
+						<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport4Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="374" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr">
+						<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport5Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="454" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr">
+						<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport9Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="394" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr">
+						<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport6Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="414" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr">
+						<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport7Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="434" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr">
+						<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport8Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="534" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr">
+						<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="yr1">
+						<subreportParameterExpression><![CDATA[$P{year1}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport13Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="474" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr1">
+						<subreportParameterExpression><![CDATA[$P{year1}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport10Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="494" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr1">
+						<subreportParameterExpression><![CDATA[$P{year1}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport11Parameter}]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="false">
+					<reportElement x="85" y="514" width="286" height="20" printWhenGroupChanges="g1"/>
+					<subreportParameter name="yr1">
+						<subreportParameterExpression><![CDATA[$P{year1}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="CHR_EMPID">
+						<subreportParameterExpression><![CDATA[$F{CHR_EMPID}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreport12Parameter}]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement x="85" y="238" width="70" height="36"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<text><![CDATA[Amount of Wages]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="20" width="555" height="30"/>
+					<textElement>
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Contribution card for the Currency Period from 1st April "+$P{year}+" to 31st March "+$P{year1}+" (FOR UNEXEMPTED ESTABLISHMENTS ONLY)"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="g1" isBlankWhenNull="true">
+					<reportElement x="515" y="130" width="40" height="20" printWhenGroupChanges="g1"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[": "+"12%"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="g1" isBlankWhenNull="true">
+					<reportElement x="515" y="150" width="40" height="28" printWhenGroupChanges="g1"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{VoluntaryHigherRate}.equals(null)?": ":": "+$P{VoluntaryHigherRate}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="g1" isBlankWhenNull="true">
+					<reportElement x="515" y="178" width="40" height="20" printWhenGroupChanges="g1"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{EmployerContribution}.equals(null)?": ":": "+$P{EmployerContribution}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="g1" isBlankWhenNull="true">
+					<reportElement x="515" y="198" width="40" height="20" printWhenGroupChanges="g1"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{VoluntaryContribution}.equals(null)?": ":": "+$P{VoluntaryContribution}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="g1" isBlankWhenNull="true">
+					<reportElement x="107" y="178" width="151" height="40" printWhenGroupChanges="g1"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Verdana" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CHR_STAFFFNAME}.equals(null)?": ":": "+$F{CHR_STAFFFNAME}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,42 @@
+html {
+	
+	font-family: arial, tahoma, georgia;
+	font-size:100%;
+	font-weight:normal;
+	line-height:100%;	
+	} /* This has to be changed according to site. */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+	font-weight:normal; }
+
+img {border:0;}
+
+li{list-style:none;}
+
+h1,h2,h3,h4,h5,h6 { 
+	font-size:100%;
+	font-weight:bold; }
+	
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+input, textarea, select {
+	font-family:inherit;font-size:inherit;
+	font-weight:inherit;
+	font-size:100%;}
+	
+h1 {
+	font-size:18px;  
+}
+h2 {
+	font-size:16px; 
+}
+h3 {
+	font-size:14px;  
+}
+h2 {
+	font-size:12px;  
+}
+
+	

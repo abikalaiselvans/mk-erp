@@ -1,0 +1,75 @@
+
+#tab11 p{
+	line-height:14px;
+
+	}
+.tab a
+{
+	color:#0187CE;
+	text-decoration:none;
+	font-weight:bold;
+}
+.tab_hover a
+{
+	color:#666;
+	text-decoration:none;
+	font-weight:bold;
+	
+}
+.tab_hover a:hover, .tab a:hover
+{
+	color:#AAA;
+}
+.tab_hover, .tab
+{
+}
+.tab_hover {
+	background:url(../images/tab_bg_act.gif) repeat-x;
+	height:32px;
+	width:80px;
+	float:left;
+	border-bottom:none;
+	
+	font-size:12px;
+	padding:5px 0px 0px 10px;
+	cursor:pointer;
+	line-height:25px;	
+		
+}
+
+.tab {
+	background:url(../images/tab_bg.gif) repeat-x;
+	height:32px;
+	width:80px;
+	float:left;
+	
+	border-bottom:none;
+	padding:5px 0px 0px 10px;
+	font-size:12px;
+	color:#ce2232;
+	cursor:pointer;
+	line-height:25px;	
+	}
+
+#tab1_data, #tab2_data, #tab3_data , #tab4_data
+{
+background:#FFF;
+width:705px;
+height:300px;
+border-top:none;
+padding:.3em;
+margin-left:10px;
+}
+
+.sep{
+	background:url(../images/dot_ver.gif) repeat-y;
+	height:20px;
+	width:2px;
+	float:left;
+	margin-top:7px;
+}
+#tab2_data ul li , #tab3_data ul li,  #tab4_data ul li{
+	list-style-image:url(../images/arr_li.gif);
+	list-style-position:outside;
+	padding-left:0px;
+}

@@ -1,0 +1,1112 @@
+Modules are available in Attendance And Payroll
+===============================================
+We deployed the web version of Wings Auto, Wings Accounting, 
+and Wings Payroll so that we have one system covering all our
+ branches and locations. We are able to manage all branches, 
+ and all users, centrally. The software takes care of all 
+ our requirements and business processes. We have been able 
+ to automate and integrate our front offices, workshops, 
+ accounting, inventory and payroll efficiently.
+  We get excellent analysis and reports from the system.
+   Wings is also very easy to learn and use.
+    I would strongly recommend Wings to anyone. 
+
+EMPLOYEE PROFILE
+	
+	Employee Joining Information.
+	Probation Confirmation details.
+	Employee Profile.
+	Employee Current position and job profile.
+	Family background details.
+	Employee Local address and References details.
+	Employee Emergency address and contact person details.
+	Employee Qualification and experience details.
+	Awards given to Employee and their Children. 
+	Documents submitted by employee.
+	Employee Club Membership Profile.
+	Assets given to employee.
+	Employees extra Circular Activities / sports / social etc.
+	Employee Training details.
+	Canteen Info 		
+	Holidays Info (Fixed / Non-fixed)
+       
+LEAVE MANAGEMENT SYSTEM
+	
+	User Defined Leave types
+	Leave Balance Details
+	Leave Application
+	Leave Approvals
+	Leave rules
+	Monthly / Yearly Leave Carry Forward
+
+
+TIME MANAGEMENT SYSTEM
+	Late Coming, 
+	Early going, 
+	Absence due to travel on Duty etc
+	Employee Shift Manage
+	Overtime Details
+	Overtime on Overtime
+	Manual Attendance done By Employee details
+	Monthly / Yearly Leave Carry Forward
+	Week of Adjustment (employeewise) 		
+
+PAYROLL MANAGEMENT SYSTEM
+	
+	User defined Salary Heads
+	Professional Tax Slab
+	Payslip Generation
+	Salary formula
+	Create your own Salary Structures
+	
+
+HRD PROCEDURES
+	Final Settlement
+	Superannuation
+	PF Challan
+	Gratuity
+	Tax Calculation
+       
+TRANSFER, PROMOTIONS& INCREMENTS
+	
+	Transfer Details (Shift / Department)
+	Promotion Details (Post / Salary)
+ 	Company Reports 		 
+	Company Details 		
+	Contractor Details
+	Company Holidays 		
+	Bank Details
+	Leave Types Detail 		
+	Bonus Types
+	Professional Tax Details 	  	 
+	Leave & Attendance Reports 		 
+	Employee Leave Application 		
+	Used Leave Detail
+	Employee Leave Approval 		
+	Leave Closing Yearly
+	Leave Balance 		
+	Credit Days
+	Late Coming 		
+	Leave Enhanshment
+	Late Sitting 		
+	Attendance Detail
+	Early Going 		
+	Inout Summary
+	Compensate off Details 		
+	Attendance Summary
+	Shift Details 		
+	Present:Employee wise & Date Wise
+	Employee Current Shift 		
+	Absent:Emloyee wise & Date Wise
+	Overtime Details 		
+	Holiday Work
+	Employee Total Over Time Hour 		
+	Current Present Employee
+	Daily Attendance Report 		
+	Device In-Out Detail
+	Daily Absent Report 		
+	Leave Closing as on Date
+	Monthly Attendance 	  	 
+	
+Employee Reports 		 
+	Employee Joining Information 		
+	Emergrncy Address-Contact Details
+	Employee Probasion Details 		
+	Birthday List
+	Employee Profile 		
+	Employee Training History
+	Employee Salary Structure 		
+	Emloyee Mail Lable
+	Transfer/Promotion Details 		
+	Allowance Deduction Report
+	Salary Increment Details 		
+	Salary Structure
+	Resigned Employee Details 		
+	CTC
+	Department wise EmployeeList 		
+	Week Off
+	Bllod Group Employee List 		
+	Enrollment Report
+	Family Background Details 	  	 
+	Payroll Reports 		 
+	Salary Heads Detail 		
+	Salary Cheque Statement
+	Monthly Salary Register 		
+	Salary Slip
+	Salary Statement Depositing in Bank 		
+	Bonus Details
+	Salary Cash Statement 		
+	Conveyance Details
+
+Government of India Taxation Forms Reports 		 
+	ESIC Challans 		
+	PF Challans
+	PT Challans 		
+	TDS
+	Form6A(Employees Yearly PF Contribution) 		
+	PF Statements
+	Form-3 (For Professional Tax) 		
+	Chart Report
+	Form12A(Revised)-Employee's Monthly PF Contribution 		
+	Performance
+	Form3A(Revised)Details of Employees Pension Fund Scheme-Yearly Credit
+	Form-10(Employee's PF Oraganization for Resigned Employee's)
+ 	  	 
+Salary Reports 		 
+	Salary Muster(Accountant) 		
+	Bank Statement
+	Salary Sheet 		
+	Bank Transfer Statement
+	Online Time 		
+	Bank Recovering Statement
+	Salary Summary 		
+	
+	Reimbursement Detail
+	Allowance(Deduction)
+	
+	
+	
+	
+	Enterprise resource planning (ERP) integrates internal and external management information across an entire organization, embracing finance/accounting, manufacturing, sales and service, customer relationship management, etc. ERP systems automate this activity with an integrated software application. Its purpose is to facilitate the flow of information between all business functions inside the boundaries of the organization and manage the connections to outside stakeholders.
+ERP systems can run on a variety of hardware and network configurations, typically employing a database as a repository for information 
+ERP systems typically include the following characteristics:
+•	An integrated system that operates in real time (or next to real time), without relying on periodic updates 
+•	A common database, which supports all applications.
+•	A consistent look and feel throughout each module.
+•	Installation of the system without elaborate application/data integration by the Information Technology (IT) department 
+
+Finance/Accounting 
+General ledger, payables, cash management, fixed assets, receivables, budgeting, consolidation
+Human resources 
+payroll, training, benefits, 401K, recruiting, diversity management
+Manufacturing 
+Engineering, bill of materials, work orders, scheduling, capacity, workflow management, quality control, cost management, manufacturing process, manufacturing projects, manufacturing flow, activity based costing, product lifecycle management
+Supply chain management 
+Order to cash, inventory, order entry, purchasing, product configurator, supply chain planning, supplier scheduling, inspection of goods, claim processing, commissions
+Project management 
+Costing, billing, time and expense, performance units, activity management
+Customer relationship management 
+Sales and marketing, commissions, service, customer contact, call center support
+Data services 
+Various "self–service" interfaces for customers, suppliers and/or employees
+Access control 
+Management of user privileges for various processes
+
+Human Resource Management
+The Human Resource Module in eresource ERP has a set of rich features and integrates seamlessly with other module. Eresource ERP HR module offers you wide solutions for HR department making it possible for other department to access specific employee data. The HR modules covers all the function required in business practice and is flexible enough to optimize the business processes by configuring to suit customer's requirement. 
+Human Resource module streamlines the management of human resources and human capitals. It comprises of four broad sections, mainly Training, Recruitment, Payroll and Attendance. HR module in eresource ERP routinely maintains a complete employee database including contact information, salary details, attendance, performance evaluation and promotion of all employees. 
+eresource ERP Human resource Management is a suite of integrated solution, designed to facilitate HR operations by reducing time-intensive administrative tasks and lowering costs by deploying self-service applications. Eresource ERP solution offers many different sub-systems under the HR module. Listed below are some of the most common sub systems. 
+•	Personnel Management: The personnel management comprises of HR master-data, personnel administration, recruitment and salary administration. 
+•	Organizational Management: Organizational management includes, organizational structure, staffing schedules & job description. 
+•	Payroll System: Salary management, statutory reporting, attendance management for salary calculation. 
+•	Time Management: Time management includes shift planning, time recording, absence & leave management. 
+•	Personal Development: This section comprises of training and event management, additional training determination and training assessment. 
+
+
+Attendance 
+
+Many companies need to keep track of what their employees are doing day-to-day.  This information is needed to process payroll, determine labor costs on individual tasks, jobs and projects, and track individual productivity.   Hourly or waged-based employees, as opposed to salary-based employees, are usually familiar with timing or logging in at the beginning and end of the work day, but frequently it is desirable to have finer resolution of the time spent during the work day, for both the wage and salary based workforce.  For instance, if  a machinist works on four different parts for three different projects in the course of a workday, to accurately calculate job cost, he would have had to record the starting and end times for each task.  This is also true for the salary based engineer that works on four different drawings in the course of a day.
+Time and attendance calculations are further complicated by the wide range of hourly charges in a typical shift.  For instance, time charges may be classified as overtime or double-time after a certain period, or the workday may fall on a holiday or weekend.   Sometimes there are supplemental shift surcharges; for instance, for the night or overnight shifts.  If a facility is running more than one shift, with dozens of jobs and hundreds of tasks, all being worked concurrently and subject to the variations just described, it can be impossible for facility management to accurately calculate job cost or individual productivity.  
+With the traditional methods of time management, all too often management loses the finer resolution wherein resides the bulk of the information that can be compiled as part of a larger strategy to reduce job and task cost and increase worker productivity.  Furthermore, without this finer resolution, there can be no effective way to accurately monitor the return on investment for new assets that were purchased ostensibly to reduce task cost but more realistically were acquired without any major cost analysis, simply because the data to perform that analysis were not available.
+These deficiencies are addressed with our Time and Attendance module.  With this module, we provide a means to track individual task time and thus cost, and compare that cost with original estimates.  The historical data that you compile can then be used to more accurately estimate costs on future projects.  In conjunction with our Workscope Management module, these times and costs can even be analyzed on a skill level basis, providing you with a multi-dimensional cost analysis and estimate tool.  This finer resolution is what is required to monitor whether or not a specific capital investment yields the reduction in task cost and increase in profitability that was the reason for the investment (see Asset Management).  This information obviously interfaces then with payroll, but in conjunction with our Human Resources module, task/skill level progress can be monitored on an employee basis, allowing you to monitor the return on training and education expenses, and whether those investments were justified. 
+In short, there is almost no limit on the amount of fine analysis that can be performed with this information.  To discuss your specific requirements, please contact us at any time.
+
+
+Payroll
+HR & Payroll system needed for any small to large companies. Any companies have its employees and to manage big number of employees can be resulted in to bulk of errors and time delay.
+
+Earning/Deduction Master
+Earning/Deduction code
+Description
+Payment Frequency
+Earning/Deduction
+Finance Account
+Calculation base (D/M)
+Category Master Education
+Language
+PIB Master
+Employment Info
+Employment Info (payroll)
+Qualification (Multiple)
+Experience (Multiple)
+Opening Leave Details
+Personal Details
+Life Insurance Details (Multiple)
+Language Attendance
+Process
+Salary Process
+Arrears Calculation process
+Finance process
+Masters
+Geographical Hierarchy
+Grade
+Designation
+Shift
+Bank
+Life Insurance Details
+Late Scheme
+Earning/Deduction
+Grade wise Earning
+Deduction
+Global Earning
+Earning Information
+Leave Master
+Loan
+Parameter Master
+ESIC
+Bonus
+Ex-Greta
+Provident Fund
+Gratuity
+Professional Tax Details
+Layoff Details Month end Process
+Year End Calculations
+Misbehavior Master
+Transactions
+Attendance Entry
+Attendance Import from ARS
+Attendance Datewise
+Leave Entry/Sanction Loan
+Application / Sanction / Repayment
+Overtime Approval
+Generate Weekly Off
+Holiday Maintenance
+Gradewise/Designation-wise Earning / deductions
+Employee wise Earning / deductions
+Process
+Attendance Import Process
+Leave Credit process
+Generate Loan EMI
+Process (Monthly)
+Bonus Calculation Process
+Overtime Calculation
+Processes
+
+ERP (Inventory Management module) 
+Inventory Management module is sub divided into different modules as under
+Inventory Requisition.
+Inventory Order Assessment
+Inventory Placing.
+Supplier Performa.
+Order Received.
+Quality checks
+Inventory Bills and Challans
+Minimum Inventory Assessment.
+Maximum Inventory Assessment.
+Minimum Inventory Assessment
+In this particular module the objective is to get the minimum Inventory requirement from different Departments. A Performa is prepared in which different departments have to fill up there minimum inventory requirement in coming 15 days i.e. we are planning for ahead what will be the inventory requirement in near future. This assessment will be done by taking into account the Customers Order received, Inventory in hand, Scrap etc. Taking all these into account Departments will be filling Minimum Inventory Requirement.
+
+What is Minimum Inventory Requirement?
+Minimum Inventory Requirement is that quantity of inventory below which workers cannot work i.e. it is that quantity of inventory, which is minimum, required accomplishing the task of Student. Hence stock of inventory should not go below this amount.
+Maximum Inventory Assessment
+In this particular module the objective is to get the maximum Inventory requirement from different Departments.
+A Performa is prepared in which different departments have to fill up there maximum inventory requirement in coming 15 days i.e. we are planning for ahead what will be the inventory requirement in near future. We are taking Maximum Inventory Requirement for this reason so that to assure that wastage does not happen and there is no blocking of funds unnecessary. This assessment will be done by taking into account the Customers Order received, Inventory in hand, Scrap, Durable goods, Non Durable goods etc. Taking all these into account Departments will be filling Maximum Inventory Requirement.
+What is Maximum Inventory Requirement?
+Maximum Inventory Requirement is that quantity of inventory above which order for Inventory should not be placed i.e. it is that quantity of inventory, which is enough to accomplish the task of Student. The stock of inventory above this quantity will result in wastage and blocking of funds.
+Inventory Requisition
+In this particular module the objective is to take the inventory requirement from different departments of the Student. This is done by filling up of Inventory Requisition form by different departments. In this particular form the Department head will fill up the quantity of Inventory required, Grade / quality of Inventory required etc. Department head should take into account the minimum inventory required, maximum inventory required and current inventory available.
+Inventory Order Assessment
+This is back end program written in Java Servlets. This program is actually assessing the Inventory requirements of the Company.
+It takes the Input from the Inventory Requisition form and processes it i.e. it then compares the Inventory demanded by different departments with the minimum inventory required according to customers order.
+After processing the results it makes the final Inventory requirement for different departments and then call for Suppliers list that provides these inventory.
+Supplier Performa
+In this module the quotation for Inventory requisition is called from different suppliers. Suppliers will be filling up the Proposal Form in which they will be stating that:
+•	How much quantity of goods they can provide?
+•	In what time?
+•	What will be pay mode?
+•	Are they providing Credit?
+•	What will be the Quantity of goods?
+•	What will be the Price per Item?
+All this information will be stored and then will be processed by the program which then taking into account all the above filled information will finalize the supplier. Inventory ordered should be cost effective and should be of good quality
+Inventory Placing
+Now the supplier is selected we have to finally place an order. We have to fill up order placing form in which we will be filling up information like Date of Placing of Order, Quality required, Transportation Mode, Mode of Payment, Advance Payment, Supplier ID, Department ID, price per Item etc. and the order will be placed.
+Order Received
+Next module is Order Received module in this module we will be recording the Inventory received information. We will be comparing order placed and order received data i.e. weather there is uniformity between these two or not. We will be comparing Date of placing order and Date of receiving order, Quality of Inventory, Quantity of order received and Quantity of order placed, Transport mode etc. If there is uniformity in both then we will be assessing the amount to be paid to the supplier. We will be taking into account the quantity received, price per Item and advance paid.
+Quality Assessment
+We have received order then it have to pass through quality checks by R&D Department and Department head has to fill up quality assessment form indicating the quality of goods received.
+Inventory Bills & Challans
+Last thing in Inventory control is making up of payment. When we finally make up payment we have to draw bill & challan indicating the amount paid, mode of payment, Supplier ID, Receipt ID etc.
+Read more ERP Solutions
+
+Leave Management
+
+Company wise Leave Policy : user define leave Grade-wise Paid / Unpaid.
+
+Leave Application : Employee can apply for leave online & HR/Authorized user will get alert notification for same.
+
+Employee Leave Approval : it can be approved by the Supervisor or admin or hr manager –on the basis of leave balance of employee and availability of alternate employee
+
+Employee Leave Carry Forward : leave carry forward process done automatically as defined period in leave master.
+
+Leave Cancellation : if leave is approved incase if employee remain present on that day then admin can cancel the leave.
+
+Leave Encashment : employee can put request of leave Encashment after define period of that leave and admin get alert for that and also save all records. 
+
+
+Employee Self Service (ESS)
+ 
+payroll 	Employee self service is a powerful tool providing employees of the company with the ability to view relevant information such as personal information. updating personal information with web - enabled PC without having to hassle the HR staff.
+payroll 	The functionality of this module spans through the entire system, making information available anywhere, anytime. Of course all information is subject to company defined security policy, where everyone can only view the information he/she is authorized to.
+payroll 	Employee can view his/her load, leave , claim , salary , appraisal details.
+payroll 	Employee can post all application of leave, load, claim, advance, appraisal feedback also employee can approve all detail of other employee detail if he is superior employee.
+payroll 	Employee can view his attendance , appraisal History
+payroll 	Employee can get his pay sleep with all detail in his login
+payroll 	Employee can do daily attendance form login.
+payroll 	Employee can get company news , remainders , attendance and late mark summary
+ 
+ 
+ Payroll Management
+ 
+Major Modules
+	
+Leave Management
+ 
+payroll 	
+Employee Profile
+	payroll 	
+User Defined Leave types
+payroll 	
+Leave Management System
+	payroll 	Leave Application
+payroll 	
+Time Management System
+	payroll 	Leave rules
+payroll 	
+Employee Transfer, Promotions & Increments
+	payroll 	Leave Balance Details
+payroll 	
+Payroll Management System
+	payroll 	Leave Approvals
+payroll 	
+HRD Procedures
+	payroll 	Monthly / Yearly Leave Carry Forward
+payroll 	
+Reimbursement Management
+	payroll 	MIS Reports
+ 
+Employee Profile
+	 
+ 
+payroll
+	Employee Joining Information.
+	
+payroll
+	Probation Confirmation details.
+payroll
+	Employee Profile.
+	
+payroll
+	Employee Current position and job profile.
+payroll
+	Family background details.
+	
+payroll
+	Employee Local address and References details.
+payroll
+	Employee Emergency details. 	
+payroll
+	Employee Qualification and experience details.
+payroll
+	Awards given to Employee and their Children. 	
+payroll
+	Documents submitted by employee.
+payroll
+	Employee Club Membership Profile. 	
+payroll
+	Assets given to employee.
+payroll
+	Employees extra Circular Activities etc. 	
+payroll
+	Employee Training details.
+payroll
+	Canteen Info 	
+payroll
+	Holidays Info (Fixed / Non-fixed)
+ 
+Time Management System 	 
+ 
+payroll
+	Overtime Details 	
+payroll
+	Employee Shift Manage
+payroll
+	Manual Attendance done By Employee details 	
+payroll
+	Overtime on Overtime
+payroll
+	Week of Adjustment (employee wise) 	
+payroll
+	Monthly / Yearly Leave Carry Forward
+payroll
+	Late Coming, Early going, travel on Duty etc 	  	 
+ 
+Payroll Management System 	
+HRD Procedures
+ 
+payroll
+	User defined Salary Heads
+payroll
+	Professional Tax Slab
+payroll
+	Payslip Generation
+payroll
+	Salary formulas's
+payroll
+	Create your own Salary Structures
+	
+payroll
+	Final Settlement
+payroll
+	Superannuation
+payroll
+	PF Challan
+payroll
+	Gratuity
+payroll
+	Tax Calculation
+ 
+Transfer, promotion & Increments 	 
+ 
+payroll 	Transfer Details (Shift / Department) 	
+payroll
+	Promotion Details (Post / Salary)
+ 
+Company Reports 	 
+ 
+payroll
+	Company Details 	
+payroll
+	Contractor Details
+payroll
+	Company Holidays 	
+payroll
+	Bank Details
+payroll
+	Leave Types Detail 	
+payroll
+	Bonus Types
+payroll
+	Professional Tax Details 	
+	 
+ 
+Leave & Attendance Reports 	 
+ 
+payroll
+	Employee Leave Application 	
+payroll
+	Used Leave Detail
+payroll
+	Employee Leave Approval 	
+payroll
+	Leave Closing Yearly
+payroll
+	Leave Balance 	
+payroll
+	Credit Days
+payroll
+	Late Coming 	
+payroll
+	Leave Enhanshment
+payroll
+	Late Sitting 	
+payroll
+	Attendance Detail
+payroll
+	Early Going 	
+payroll
+	In out Summary
+payroll
+	Compensate off Details 	
+payroll
+	Attendance Summary
+payroll
+	Shift Details 	
+payroll
+	Present:Employee wise & Date Wise
+payroll
+	Employee Current Shift 	
+payroll
+	Absent:Employee wise & Date Wise
+payroll
+	Overtime Details 	
+payroll
+	Holiday Work
+payroll
+	Employee Total Over Time Hour 	
+payroll
+	Current Present Employee
+payroll
+	Daily Attendance Report 	
+payroll
+	Device In-Out Detail
+payroll
+	Daily Absent Report 	
+payroll
+	Leave Closing as on Date
+payroll
+	Monthly Attendance 	
+	 
+ 
+Employee Reports 	 
+ 
+payroll
+	Employee Joining Information 	
+payroll
+	Emergency Address-Contact Details
+payroll
+	Employee Probation Details 	
+payroll
+	Birthday List
+payroll
+	Employee Profile 	
+payroll
+	Employee Training History
+payroll
+	Employee Salary Structure 	
+payroll
+	Employee Mail Lable
+payroll
+	Transfer/Promotion Details 	
+payroll
+	Allowance Deduction Report
+payroll
+	Salary Increment Details 	
+payroll
+	Salary Structure
+payroll
+	Resigned Employee Details 	
+payroll
+	CTC
+payroll
+	Department wise Employee List 	
+payroll
+	Week Off
+payroll
+	Blood Group Employee List 	
+payroll
+	Enrollment Report
+payroll
+	Family Background Details 	
+	 
+ 
+Payroll Reports 	 
+ 
+payroll
+	Salary Heads Detail 	
+payroll
+	Salary Cheque Statement
+payroll
+	Monthly Salary Register 	
+payroll
+	Salary Slip
+payroll
+	Salary Statement Depositing in Bank 	
+payroll
+	Bonus Details
+payroll
+	Salary Cash Statement 	
+payroll
+	Conveyance Details
+ 
+Government of India Taxation Forms Reports 	 
+ 
+payroll
+	ESIC Challans
+payroll
+	PT Challans
+payroll
+	Form6A(Employees Yearly PF Contribution)
+payroll
+	Form-3 (For Professional Tax)
+payroll
+	Form12A(Revised)-Employee's Monthly PF Contribution
+payroll
+	Form3A Details of Employees Pension Fund Scheme-Yearly
+payroll
+	Form-10(Employee's PF Oraganization for Resigned Employee's)
+payroll
+	PF Challans
+payroll
+	TDS
+payroll
+	PF Statements
+payroll
+	Chart Report
+payroll
+	Performance
+payroll
+	Credit
+ 
+Salary Reports 	 
+ 
+payroll 	Salary Muster(Accountant) 	payroll 	Bank Statement
+payroll 	Salary Sheet 	payroll 	Bank Transfer Statement
+payroll 	Online Time 	payroll 	Bank Recovering Statement
+payroll 	Salary Summary 	payroll 	Reimbursement Detail
+payroll 	Allowance(Deduction)
+
+
+
+
+Major Modules
+	
+
+Leave Management
+bullet
+	
+Employee Profile
+	
+bullet
+	
+User Defined Leave types
+bullet
+	
+Leave Management System
+	
+bullet
+	Leave Application
+bullet
+	
+Time Management System
+	
+bullet
+	Leave rules
+bullet
+	
+Employee Transfer, Promotions & Increments
+	
+bullet
+	Leave Balance Details
+bullet
+	
+Payroll Management System
+	
+bullet
+	Leave Approvals
+bullet
+	
+HRD Procedures
+	
+bullet
+	Monthly / Yearly Leave Carry Forward
+bullet
+	
+Reimbursement Management
+	
+bullet
+	MIS Reports
+Employee Profile
+	 
+bullet
+	Employee Joining Information.
+	
+bullet
+	Probation Confirmation details.
+bullet
+	Employee Profile.
+	
+bullet
+	Employee Current position and job profile.
+bullet
+	Family background details.
+	
+bullet
+	Employee Local address and References details.
+bullet
+	Employee Emergency details. 	
+bullet
+	Employee Qualification and experience details.
+bullet
+	Awards given to Employee and their Children. 	
+bullet
+	Documents submitted by employee.
+bullet
+	Employee Club Membership Profile. 	
+bullet
+	Assets given to employee.
+bullet
+	Employees extra Circular Activities etc. 	
+bullet
+	Employee Training details.
+bullet
+	Canteen Info 	
+bullet
+	Holidays Info (Fixed / Non-fixed)
+Time Management System
+	 
+bullet
+	Overtime Details 	
+bullet
+	Employee Shift Manage
+bullet
+	Manual Attendance done By Employee details 	
+bullet
+	Overtime on Overtime
+bullet
+	Week of Adjustment (employee wise) 	
+bullet
+	Monthly / Yearly Leave Carry Forward
+bullet
+	Late Coming, Early going, travel on Duty etc 	  	 
+Payroll Management System
+	
+HRD Procedures
+bullet
+	User defined Salary Heads
+bullet
+	Professional Tax Slab
+bullet
+	Payslip Generation
+bullet
+	Salary formula
+bullet
+	Create your own Salary Structures
+	
+bullet
+	Final Settlement
+bullet
+	Superannuation
+bullet
+	PF Challan
+bullet
+	Gratuity
+bullet
+	Tax Calculation
+Transfer, promotion & Increments
+bullet
+	Transfer Details (Shift / Department) 	
+bullet
+	Promotion Details (Post / Salary)
+Company Reports
+bullet
+	Company Details 	
+bullet
+	Contractor Details
+bullet
+	Company Holidays 	
+bullet
+	Bank Details
+bullet
+	Leave Types Detail 	
+bullet
+	Bonus Types
+bullet
+	Professional Tax Details 	  	 
+Leave & Attendance Reports
+bullet
+	Employee Leave Application 	
+bullet
+	Used Leave Detail
+bullet
+	Employee Leave Approval 	
+bullet
+	Leave Closing Yearly
+bullet
+	Leave Balance 	
+bullet
+	Credit Days
+bullet
+	Late Coming 	
+bullet
+	Leave Enhanshment
+bullet
+	Late Sitting 	
+bullet
+	Attendance Detail
+bullet
+	Early Going 	
+bullet
+	In out Summary
+bullet
+	Compensate off Details 	
+bullet
+	Attendance Summary
+bullet
+	Shift Details 	
+bullet
+	Present:Employee wise & Date Wise
+bullet
+	Employee Current Shift 	
+bullet
+	Absent:Employee wise & Date Wise
+bullet
+	Overtime Details 	
+bullet
+	Holiday Work
+bullet
+	Employee Total Over Time Hour 	
+bullet
+	Current Present Employee
+bullet
+	Daily Attendance Report 	
+bullet
+	Device In-Out Detail
+bullet
+	Daily Absent Report 	
+bullet
+	Leave Closing as on Date
+bullet
+	Monthly Attendance 	  	 
+Employee Reports
+bullet
+	Employee Joining Information 	
+bullet
+	Emergency Address-Contact Details
+bullet
+	Employee Probasion Details 	
+bullet
+	Birthday List
+bullet
+	Employee Profile 	
+bullet
+	Employee Training History
+bullet
+	Employee Salary Structure 	
+bullet
+	Employee Mail Lable
+bullet
+	Transfer/Promotion Details 	
+bullet
+	Allowance Deduction Report
+bullet
+	Salary Increment Details 	
+bullet
+	Salary Structure
+bullet
+	Resigned Employee Details 	
+bullet
+	CTC
+bullet
+	Department wise Employee List 	
+bullet
+	Week Off
+bullet
+	Blood Group Employee List 	
+bullet
+	Enrollment Report
+bullet
+	Family Background Details 	  	 
+Payroll Reports 	 
+bullet
+	Salary Heads Detail 	
+bullet
+	Salary Cheque Statement
+bullet
+	Monthly Salary Register 	
+bullet
+	Salary Slip
+bullet
+	Salary Statement Depositing in Bank 	
+bullet
+	Bonus Details
+bullet
+	Salary Cash Statement 	
+bullet
+	Conveyance Details
+  	  	  	 
+Taxation Reports
+bullet
+	ESIC Challans 	  	 
+bullet
+	PT Challans 	  	 
+bullet
+	Form6A(Employees Yearly PF Contribution) 	  	 
+bullet
+	Form-3 (For Professional Tax) 	  	 
+bullet
+	Form12A(Revised)-Employee's Monthly PF Contribution 	  	 
+bullet
+	Form3A Details of Employees Pension Fund Scheme-Yearly 	  	 
+bullet
+	Form-10(Employee's PF Organization for Resigned Employee's) 	  	 
+bullet
+	PF Challans 	  	 
+bullet
+	TDS 	  	 
+bullet
+	PF Statements 	  	 
+bullet
+	Chart Report 	  	 
+Salary Reports
+bullet
+	Salary Muster(Accountant) 	
+bullet
+	Bank Statement
+bullet
+	Salary Sheet 	
+bullet
+	Bank Transfer Statement
+bullet
+	Online Time 	
+bullet
+	Bank Recovering Statement
+bullet
+	Salary Summary 	
+bullet
+	Reimbursement Detail
+bullet
+	Allowance(Deduction) 	  	 
+	
+	
+	
+	
+	
+	
+	Time Attendance Solution
+ 
+
+Features 
+ 
+
+This system has been developed to generate customized attendance reports. The application has been developed in such way that the database may be any of the three i.e. Oracle/ SQL/ MS Access database for generating the various attendance reports. The software has been developed in a highly user-friendly manner and is menu-driven. The Software has been developed keeping in view the local conditions for use. Eterna can be integrated with various Attendance devices and also integrated to the client Payroll systems.
+ 
+
+Leaves:
+·         User defined leaves with provision for storing the carry forward and also en-cashable details.
+·         Maintenance of Leave ledger.
+·         Details of leaves availed to be entered into the system.
+ 
+
+OOD entry:
+·         Provision for entering the On Official Duty (OOD) details.
+ 
+
+Shifts:
+·         Maximum of nine shifts with various timings can be defined for an   organization.
+·         Allocation of shifts to employees on group basis or individual basis for any future dates.
+ 
+
+Recording patterns:
+·         The Attendance System is flexible as any number of employees and can register single, double or multiple recording of the Attendance of the Staff.
+ 
+
+Time Control Schedules:
+·         The authorities can incorporate user settable time control schedules as and when required. In time, lunch break and out-time, special holidays or any other timing can be incorporated in the system.
+ 
+
+Real time display of events:
+·         Real time display of events can be seen on the screen on selection of any Building and door at any given point of time. Display of details pertaining to the Staff Id, Name, Category, Grade, Entry time, Exit time, Number of Persons entered through a particular door etc., can be obtained from the database.
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Miscellaneous Information:
+·         Employee movements.
+·         Ramzan Shifts
+·         Reminder Modules for Renewals for VISA, ISHTIMARA, IQAMA, PASSPORTS etc.
+·         Hours worked details.
+·         Overtime details
+ 
+
+Reports:
+·         Employee Attendance Report
+·         Employee Absentees Report
+·         On Duty / On Site Employees Report
+·         Attendance Register
+·         Employee Presence Report
+·         Employees Leave Report
+·         Employee Movement Report
+·         Hours Worked Report
+·         Late Comers Report
+·         Overtime Report
+ 
+
+All the above reports have the flexibility of selecting for single date or between dates or for a specific month, for single employee or for a complete section (department).
+ 
+
+Access Control
+Optional feature like door-locks/turnstiles can be integrated with the above application to provide secure access to premises for only authorized personal. Door locks with contact less smart card readers or fingerprint access devices are fitted to the door and flash the employee id card or placing finger, the smart door lock verifies the personal and on authentication the door unlocks to grant access.
+	
+	Main Features
+Introduction
+ETERNA HRMS understands just how critical it is for a company to have an integrated system for payroll and personnel administration. Which is why, we have the ETERNA HRMS. It offers you the opportunity to manage your human resources smoothly and effortlessly.
+Objectives and Advantages
+The system consists broadly of the five major functions:
+•	Payroll
+•	Daily attendance recording system – manual input or automatic link through online time attendance system
+•	Employee requirements and recruitment
+•	Maintenance of personnel records
+•	MIS report
+The HRMS Edge: Features and Highlights
+•	Generates the payslip of the employees as well as the pay register, taking into account the various earnings and deductions and also the attendance record of the employee. There is no limitation regarding the earnings and deductions that one employee may have.
+•	Earnings and deductions on the basis of complex formulae can be specified to suit virtually every business condition.
+•	Generation of various statutory reports of the company like Provident Fund, Employee State Insurance, Professional Tax etc.
+•	The parametric system architecture allows easy updation of the rates of various statutory calculations as well as having provision for deducting template rates.
+•	Provision for calculating arrear salary.
+•	Provision for entering loan information including calculation of monthly EMI and separate posting principal and interest figure in the salary.
+Master and Company Settings
+
+The system provides complete payroll for a corporate organization for calculation of paydays, leaves, absent, earning and deduction for employees.
+
+Multi Company and Branch Settings
+
+Master Tables
+Unit Master
+Skill Master
+Category Master
+Department Master
+Section Master
+Grade Master
+Designation Master
+Community Master
+Religion Master
+Employee Master
+Resume Master
+Bank Master
+Group Master
+Holiday Master
+Week/Fortnight/Month Date Master
+Leave Definition Master
+Leave Opening Master
+Payroll: System Functions 
+Creation of setup in which earning and deductions are defined 
+Creation of departments, designations, grades, scales of pay 
+Creation of the employee, specifying his earning and deduction parameters 
+Specifying the attendance information of employees monthly 
+Updating the month specific deductions like advance, etc 
+Printing pay slips for the employees 
+Printing advance and loan records of the employees 
+Updating the monthly accounts file with the salaries payable figures 
+Transaction Master Tables
+Payroll Rate Structure
+Deduction & Earning
+Salary Calculation
+Daily Attendance Recording System
+The daily attendance recording system keeps a track of the shift roster of factories. It also captures the record of employees’ daily attendance. This data can also be uploaded from an online time attendance system so as to ensure that the daily timings of employees need not be recorded manually.
+This system then generates a monthly attendance register for each employee offering easy access to information regarding days present, days absent and days on leave.
+This system also gives a list of employee-wise late records. It can also update the integrated payroll system with rules regarding late attendance. 
+Monthly Transactions
+Monthly Attendance
+Leave Calculations
+Overtime Calculations
+Employee Requirements and Recruitment: Highlights
+Employees required for various departments and sections are recorded. A chart regarding shortfall in work force can be generated for various skills in the company.
+At the time of recruitment, the bio-data of employees suitable for various department and sections can be recorded. This then generates the database of potential employees who could be available at a future date when the need arises. This database maintains the records of only those employees who have deemed suitable after a personal screening. This ensures that unnecessary resumes are not added to the database.
+After the interview, an advice is generated from the computer. The offer letter can also be generated. This enables an organization to track the process of interview handling and management.
+Maintenance of Personnel Records: Highlights
+This module takes care of the transfer of an employee from one department to another or from one category (like temporary or probation) to another (for instance, permanent). This module also tracks the increments given to an employee from time to time. These records are required by the company at the time of yearly appraisal. 
+It is also possible to track an employee’ s records regarding his PF and ESI entitlement, as well as maintain his advance, leave and loan records.
+Leave records especially like casual leave, sick leave are all parameterized and all information regarding this can be provided. This enables the organization to calculate leave encashment, leave balance, leave getting lapsed and leave to be carried forward.
+Besides this, various evaluation details (like appraisal) are also kept in this system, which are required at times such as probation, yearly increments as well as other times when specific employee information is necessary. 
+MIS: Highlights
+This module covers creates various reports like monthly salary register, payslip, department wise salary register, earning and deduction register, tax deducted register, advance deducted and balance register, leave register and other statutory reports.
+
+Report Generation
+
+Payslips
+Overtime Slips
+Monthly Salary Register
+Deduction Register
+Advance Calculation Register
+Department Wise Head Count Register
+Yearly Salary Register
+Statutory Reports & Forms
+
+	
+	

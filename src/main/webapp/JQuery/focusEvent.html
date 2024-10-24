@@ -1,0 +1,28 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>span {display:none;}</style>
+<script src="jquery-1.4.2.js"></script>
+</head>
+<body  onpaste='return false;'>
+<p><input type="text" value="Text Field 1"/>
+<span><font color="blue">Focus on text field</font></span></p>
+<p><input id="flag" type="text" value="Text Field 2" /></p>
+<p><input type="password" value="password"/>
+<span><font color="blue">Focus on password field</font></span></p>
+<p><font color="red">
+Click on 'Text Field 1' or 'password' above to see focus effect</font></p>
+<p><font color="red">Click on 'Text Field 2' to see alert box</font></p>
+<script>
+$("input").focus(function () {
+$(this).next("span").css('display','inline').fadeOut(1000);
+});
+$("input[type=password]").focus(function(){
+$(this).blur();
+});
+$('#flag').focus(function() {
+alert('focus is on "Text Field 2"');
+});
+</script>
+</body>
+</html>

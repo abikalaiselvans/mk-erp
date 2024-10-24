@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<link href="../Style/Help.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false">
+<table width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="content">
+  <tr>
+    <td><table width="100" border="0" align="right" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="Instalation.html">Home</a></td>
+        <td><a href="javascript:history.back()">Back</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><div align="center" class="ButtonHead1">Install and Configure the Tomcat Server</div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Here&nbsp; we are  illustrating the installation process only for Windows.&nbsp;Steps involved in  installation and configuration process for Tomcat 6.0.10 are illustrated below: </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong>Step 1:</strong></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="headings"><strong>Installation of JDK:</strong></span><strong>&nbsp; </strong>Don't  forget to install JDK on your system (if&nbsp; not installed) because any  tomcat requires the&nbsp; Java 1.5 (Java 5) and Java 1.6 (Java 6) and then set  the class path (environment variable) of JDK. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong class="headings">Step 2:</strong></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong class="headings"> Setting the  class path variable for JDK:</strong> Two methods are there to set the classpath. 
+      <ol start="1" type="1">
+        <li>Set the class path using the following       command.
+            <br />
+          set PATH=&quot;C:\Program Files\Java\jdk1.5.0_08\bin&quot;;%PATH% </li>
+        <li>The other way of setting the class path       variable is: </li>
+    </ol></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>First right click on the My  Computer-&gt;properties-&gt;advance-&gt;Environment Variables-&gt;path.<br />
+Set bin directory path of JDK in the path variable.&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong class="headings">Step 3:</strong></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Now it's time to shift on to the installation process of&nbsp; Tomcat  6.0.10. It takes various steps for installing and configuring the Tomcat 6.0.<br />
+For Windows, Tomcat comes in two forms :&nbsp; <strong>.</strong>zip file and the Windows  installer (<strong>.</strong>exe file). Here we are exploring the installation process by  using the <strong>.</strong>exe file.&nbsp; The directory C:\apache-tomcat-6.0.10 is  the&nbsp; common installation directory as it is pre-specified C:\ as the  top-level directory. First unpack the zipped file and simply execute the <strong>.</strong>exe  file.&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/1.jpg" width="501" height="391" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>The above  shown screen shot is the first one shown in the installation process. Just  click on the Next button to proceed the installation process. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/2.jpg" width="501" height="391" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>click&nbsp; &quot;I  Agree&quot;&nbsp; button to continue the installation process. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/3.jpg" width="501" height="391" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Click next to go with&nbsp; the default components choosen.&nbsp; </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/4.jpg" width="501" height="391" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Choose the location  for the Tomcat files as per your convenience. You can also choose the default  location. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/5.jpg" width="501" height="391" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Now choose the port number on which you want to run the tomcat server.  Tomcat uses the port number 8080 as its default value. But&nbsp; Most of the  people change the port number to 80 because in this case the user is not  required to specify the port number at request time. But we are using here the  default port number as 8080.&nbsp; Choose the user name and password as per  your convenience. We can change the port number even the installation process  is over.&nbsp; For that,&nbsp; go to the specified location as &quot; Tomcat  6.0 \conf \server.xml &quot;. Within the server.xml file choose &quot;Connector&quot;  tag and change the port number.&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>E.g : While using the  port number 8080, give the following request in the address bar as: </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong class="headings">Default Port: </strong>http//localhost:8080/index.jsp </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>In case of port  number number 80 just type the string illustrated below in the address bar: </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong class="headings">New Port:</strong> http://localhost/index.jsp </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Note that we do no  need to specify any port number in the URL. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Now click on the  Next button to proceed the installation process. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/6.jpg" width="501" height="391" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>The installation  process shows the above screen as the next window. This window asks for the  location of the&nbsp; installed Java Virtual Machine. Browse the location of  the JRE folder and click on the Install button. This will install the Apache  tomcat at the specified location. </td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/7.jpg" width="501" height="391" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>To get the  information about installer click on the &quot;Show <u>d</u>etails&quot;  button. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/8.jpg" width="501" height="391" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>After completion  of&nbsp; installation process it will display the window like the above one. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/9.jpg" width="408" height="202" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>On clicking at  Finish button, a window like the above one will display a message printed on  the window given below. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/10.jpg" width="191" height="53" /></div></td>
+  </tr>
+  <tr>
+    <td>After successfully  installing, a shortcut icon to start the tomcat server appears in the icon tray  of the task bar as shown above. Double clicking the icon, displays the window  of Apache Manager for Tomcat. It will show the &quot;Startup type&quot; as manual  since we have changed the destination folder for tomcat during the installation  process. Now we can configure the other options like &quot;Display name&quot;  and &quot;Description&quot; .We can also start, stop and restart the service  from here. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/11.jpg" width="429" height="417" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>If&nbsp;  installation process completes successfully then a window as shown below will  appear. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/12.jpg" width="502" height="352" border="1" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Now , set the  environment variable for tomcat : </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong>Step 4:</strong></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="headings"><strong>Setting the JAVA_HOME Variable</strong></span><strong>:</strong> Purpose of setting the  environment variable JAVA_HOME is to specify the location of the java run time  environment needed to support&nbsp; the Tomcat else Tomcat server does not  run.&nbsp; This variable contains the path of&nbsp; JDK installation directory.  Note that&nbsp; it should not contain the path up to bin folder.&nbsp;</td>
+  </tr>
+  <tr>
+    <td><br />
+set JAVA_HOME=C:\Program Files\Java\jdk1.5.0_08 </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Here, we have taken the URI path according to our installation  convention&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong class="headings">For Windows XP, Go through the following steps :</strong></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Start menu-&gt;Control Panel-&gt;System-&gt;Advanced tab-&gt;Environment  Variables-&gt;New-&gt;set the Variable Name as&nbsp; JAVA_HOME and Variable  Value as C:\Program Files\Java\jdk1.6.0&nbsp;and then click on all the three ok  buttons one by one. It will set the JDK path.</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong class="headings">For Windows 2000 and NT, follow these steps :</strong> </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Start-&gt;Settings-&gt;Control Panel-&gt;System-&gt;Environment  Variable-&gt;New-&gt;set the Variable Name as JAVA_HOME and Variable Value  as&nbsp; C:\Program Files\Java\jdk1.6.0 and then click on all the three ok  button one by one. It will set the JDK path.</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Now , <strong>Start the Tomcat Server :&nbsp; </strong>Start the tomcat server  from the bin folder of&nbsp; Tomcat 6.0 directory by double clicking the &quot;  tomcat6.exe &quot;&nbsp; file. You can also create a shortcut of this .exe file  at your desktop. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong>Stop the Tomcat  Server:  </strong> Stop the server by  pressing the &quot;Ctrl + c&quot; keys. </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="headings"><h4>Deploying Web Applications to  Tomcat :</h4></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>If all goes well we can test  Tomcat to see if is working. Start up your favorite browser and go to  http://localhost:8080 (change the port number if you altered the default port  number in server.xml).You should see the Tomcat startup page (see figure below).</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/13.jpg" width="576" height="433" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong class="headings">Tomcat Management</strong> :</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Use the &quot;Tomcat  Management&quot; link from the Tomcat startup page. The users go to  http://localhost:8080/manager/html (see the figure ).</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Before the management page  loads you will asked for a user name and password. These are not the same as  the administrator?s user name and password for the server. The opening page  gives us a clue to the user name and password required:</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/instalation/tomcat/14.jpg" width="576" height="433" /></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
