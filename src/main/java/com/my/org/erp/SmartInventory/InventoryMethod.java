@@ -9961,7 +9961,8 @@ public class InventoryMethod extends HttpServlet {
       int year = Integer.parseInt(request.getParameter("year"));
       String sql = " SELECT a.INT_PURCHASEORDERID,a.CHR_PURCHASEORDERNO,b.CHR_VENDORNAME,DATE_FORMAT(a.DAT_ORDERDATE,'%d-%b-%Y') , ";
       sql = String.valueOf(sql) + " a.DOU_TOTALAMOUNT, if(a.CHR_PAYMENTSTATUS='Y','Paid','Pending') ,a.CHR_FLAG,a.CHR_SALEFLAG,a.DOU_TOTALAMOUNT,a.CHR_POREQUESTNO,a.CHR_CANCEL, ";
-      sql = String.valueOf(sql) + " FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME),a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST')  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b ";
+      sql = String.valueOf(sql) + " FUN_INV_DIVISION(a.INT_DIVIID),FIND_A_EMPLOYEE_ID_NAMEONLY_BY_USERID(a.CHR_USRNAME), ";
+      sql = String.valueOf(sql) + " a.CHR_GST_TYPE,if(a.CHR_GST_TYPE='S','GST','IST'), a.CHR_VENDORPO, RIGHT(a.CHR_PURCHASEORDERNO,8)  FROM inv_t_directpurchase  a, inv_m_vendorsinformation  b ";
       sql = String.valueOf(sql) + " where   a.INT_VENDORID=b.INT_VENDORID ";
       if (!"F".equals(object2))
         sql = String.valueOf(sql) + " AND a.INT_BRANCHID =" + object1; 
@@ -10009,6 +10010,8 @@ public class InventoryMethod extends HttpServlet {
           sb.append("<Entry>" + readData[u][12] + "</Entry>");
           sb.append("<Taxtype>" + readData[u][13] + "</Taxtype>");
           sb.append("<TaxtypeGST>" + readData[u][14] + "</TaxtypeGST>");
+          sb.append("<VPO>" + readData[u][15] + "</VPO>");
+          sb.append("<GPO>" + readData[u][16] + "</GPO>");
           sb.append("<usertype>" + object2 + "</usertype>");
           sb.append("</directPurchase>");
         } 

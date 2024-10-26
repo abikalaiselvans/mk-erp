@@ -88,6 +88,7 @@ function DirectPurchaseMessages()
     str=str+"<tr class='MRow1'> ";
     str=str+"<td><div align='center'>S.NO</div></td> ";
     str=str+"<td><div align='center'>Purchase No</div></td> ";
+     str=str+"<td><div align='center'>Vendor PO</div></td> ";
     str=str+"<td><div align='center'>Division</div></td> ";
     str=str+"<td><div align='center'>Date</div></td> ";
     str=str+"<td><div align='center'>Vendor Name</div></td> ";
@@ -122,8 +123,8 @@ function DirectPurchaseMessages()
         var Entry = batch.getElementsByTagName("Entry")[0].childNodes[0].nodeValue;
         var Taxtype = batch.getElementsByTagName("Taxtype")[0].childNodes[0].nodeValue;
         var TaxtypeGST = batch.getElementsByTagName("TaxtypeGST")[0].childNodes[0].nodeValue;
-        
-        
+        var VPO = batch.getElementsByTagName("VPO")[0].childNodes[0].nodeValue;
+        var GPO = batch.getElementsByTagName("GPO")[0].childNodes[0].nodeValue;
 
 	    if("Y" == Cancel)
 			str=str+"<tr class='MRow0'>";
@@ -136,18 +137,19 @@ function DirectPurchaseMessages()
 		}
 	    
 	    str=str+"<td width='10' class='boldEleven'>"+(loop+1)+"</td>";
-		
+		//title='"+salNo+"'
 	    
 	    if("N" == Cancel)
 	    {	
 	    	if((Status=="N")||(SalesStatus=="N")   )
-	    		str=str+"<td   class='boldEleven'><input type='checkbox' name='Ponumber'  id='Ponumber' value='"+salNo+"'>"+salNo +" </td>";
+	    		str=str+"<td    align='left'  class='boldEleven' ><input type='checkbox' name='Ponumber'  id='Ponumber' value='"+salNo+"'>"+salNo +" </td>";
 	    	else
-	    		str=str+"<td width='200' class='boldEleven'> "+salNo +"</font></a></td>";
+	    		str=str+"<td align='left' width='200' class='boldEleven'  > "+salNo +"</font></a></td>";
 	    }
 	    else
-			str=str+"<td width='200' class='boldEleven'> "+salNo +"</font></a></td>";
+			str=str+"<td align='left' width='200' class='boldEleven' > "+salNo +"</font></a></td>";
 		
+	    str=str+"<td class='boldEleven' align='left'>"+VPO +"</td>";
 	    str=str+"<td class='boldEleven'>"+Division +"</td>";
 	    
 	    str=str+"<td class='boldEleven'>"+salDate +"</td>";
@@ -192,7 +194,7 @@ function DirectPurchaseMessages()
      }
      
      str=str+"<tr  class='MRow2'>";	
-     str=str+"<td  class='boldEleven' colspan='9' align='right'><font  class='bolddeepred'>Total Amount ::</font></td>"; 
+     str=str+"<td  class='boldEleven' colspan='10' align='right'><font  class='bolddeepred'>Total Amount ::</font></td>"; 
 	 str=str+"<td  class='boldEleven' align='right' >"+Round(sum)+"</td> ";
 	 str=str+"<td  class='boldEleven' align='right'>&nbsp;</td> ";
 	 str=str+"<td  class='boldEleven' align='right'>&nbsp;</td> ";
@@ -200,6 +202,7 @@ function DirectPurchaseMessages()
 	 str=str+"</table>";
       
      console.log(str);
+     
      var tb=document.getElementById('DirectPurchaseTable');
   	 tb.innerHTML=str   
   	 str="<font class='bolddeepred'>Total no of Records :: "  + loop+"</font>";

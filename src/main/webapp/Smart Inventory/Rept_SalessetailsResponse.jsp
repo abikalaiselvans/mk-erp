@@ -51,7 +51,8 @@ try
 			sql = sql + " j.CHR_MODELCODE Brand ,  b1.CHR_GROUPNAME ProductGroup, c.CHR_DES PCODEDESCRIPTION ,   ";
 			sql = sql + " FUN_INV_GET_WARRANTY_IN_YEAR(b.INT_WARRANTY) Warranty, c.CHR_HSNCODE HSNorSAC,   FUN_INV_GET_SALES_SERIALNUMBER_CONCATS( b.CHR_TYPE,b.CHR_ITEMID,a.CHR_SALESNO) SlNos, ";
 			sql = sql + "B.INT_QUANTITY Qty,  b.DOU_UNITPRICE UnitCost, ROUND((b.INT_QUANTITY  * b.DOU_UNITPRICE),2) BeforeTax,   b.DOU_TAX_AMOUNT TaxAmt, b.DOU_TOTAL Total, a.DOU_AMOUNT NetValue, a.DOU_TCS_AMOUNT TCS,   ";
-			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue , k.CHR_TAXNAME GST, g.CHR_STAFFNAME AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname ";
+			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue , k.CHR_TAXNAME GST, g.CHR_STAFFNAME AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname, ";
+			sql = sql + "FIND_A_EMPLOYEE_NAME(a.CHR_REF1) Second ";
 			sql = sql + "from inv_t_directsales a,inv_t_swapsalesitem b,inv_m_item c, inv_m_itemgroup b1, inv_m_division d,inv_m_customerinfo e,inv_m_itemgroup f, com_m_staff g ,  ";
 			sql = sql + "inv_m_customertype i, inv_m_model j, inv_m_tax k  ";
 			sql = sql + "WHERE a.CHR_SALESNO = b.CHR_SALESNO  AND b.CHR_TYPE ='I'    ";
@@ -81,7 +82,8 @@ try
 			sql = sql + "j.CHR_MODELCODE Brand ,  b1.CHR_NAME ProductGroup, c.CHR_PRODUCTDESC PCODEDESCRIPTION ,    ";
 			sql = sql + "FUN_INV_GET_WARRANTY_IN_YEAR(b.INT_WARRANTY) Warranty,  c.CHR_HSNCODE HSNorSAC ,   FUN_INV_GET_SALES_SERIALNUMBER_CONCATS(b.CHR_TYPE,b.CHR_ITEMID, a.CHR_SALESNO) SlNos,";
 			sql = sql + "b.INT_QUANTITY Qty, b.DOU_UNITPRICE UnitCost, ROUND((b.INT_QUANTITY  * b.DOU_UNITPRICE),2) BeforeTax,b.DOU_TAX_AMOUNT TaxAmt, b.DOU_TOTAL Total, a.DOU_AMOUNT NetValue, a.DOU_TCS_AMOUNT TCS,   ";
-			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue ,  k.CHR_TAXNAME GST, g.CHR_STAFFNAME AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname ";
+			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue ,  k.CHR_TAXNAME GST, g.CHR_STAFFNAME AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname, ";
+			sql = sql + "FIND_A_EMPLOYEE_NAME(a.CHR_REF1) Second ";
 			sql = sql + "from inv_t_directsales a,inv_t_swapsalesitem b,inv_m_produtlist c,  inv_m_productgroup b1, inv_m_division d,inv_m_customerinfo e,inv_m_productgroup f, com_m_staff g ,  ";
 			sql = sql + "inv_m_customertype i, inv_m_model j, inv_m_tax k  ";
 			sql = sql + "WHERE a.CHR_SALESNO = b.CHR_SALESNO  AND b.CHR_TYPE ='P'    ";
@@ -144,6 +146,7 @@ try
 						child.addElement(data[u][18]);
 						child.addElement(data[u][19]);
 						child.addElement(data[u][20]);
+						child.addElement(data[u][21]);
 						mn.add(child); 
 					}
 				}
@@ -178,7 +181,8 @@ try
 					<display:column title="TCS"  style="text-align:right" sortable="true"><%=temp.elementAt(16)%></display:column>
 					<display:column title="FINALVALUE"   style="text-align:right" ><%=temp.elementAt(17)%></display:column>  
 					<display:column title="GST"   sortable="true"><%=temp.elementAt(18)%></display:column>  
-					<display:column title="ACCOUNTMANAGER"   sortable="true"><%=temp.elementAt(19)%></display:column>  	
+					<display:column title="ACCOUNTMANAGER-1"   sortable="true"><%=temp.elementAt(19)%></display:column> 
+					<display:column title="ACCOUNTMANAGER-2"   sortable="true"><%=temp.elementAt(21)%></display:column>  	
 					<display:column title="BRANCH"   sortable="true"><%=temp.elementAt(20)%></display:column>  
 					          
 	
