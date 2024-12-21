@@ -1906,7 +1906,7 @@ function CreateExcelSheet1( )
 	for (var y=0;y<detailsTable.rows.length;y++) 
 	{ 
 		for (var x=0;x<detailsTable.rows(y).cells.length;x++) 
-		{ 
+		{
 			oSheet.Cells(y+1,x+1) =detailsTable.rows(y).cells(x).innerText; 
 
 		} 

@@ -73,6 +73,7 @@ function adminReset(saleno,invoicenumber)
 
 function loadSwapSales(startletter) 
 {
+	console.log(startletter);
 	try
 	{
 		var mon=document.getElementById('month').value;
@@ -84,6 +85,7 @@ function loadSwapSales(startletter)
 	    var cancel=document.getElementById('cancel').value;
 	    var taxtype=document.getElementById('taxtype').value;
 	    var url = "../inventoryCustomer?actionS=INVSwapSale&type=1&month="+escape(mon)+"&year="+escape(yea)+"&txtSer="+startletter+"&customer="+customer+"&division="+division+"&day="+day+"&delivery="+delivery+"&cancel="+cancel+"&taxtype="+taxtype;
+	    console.log(url);
 	    initRequest(url);   
 	    req.onreadystatechange = DirectSwapRequest;
 	    req.open("GET", url, true);

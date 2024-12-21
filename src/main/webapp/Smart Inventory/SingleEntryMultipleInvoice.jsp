@@ -65,7 +65,7 @@ function Add()
           <tr  >
             <td height="31"  ><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td class="whiteMedium">Customer Group</td>
+                <td class="whiteMedium" >Customer Group</td>
                 <td><select name="customergroup" class="formText135" id="customergroup" style="width:200" onChange="loadCustomer('0')">
                 <option value="0">All</option>
             

@@ -156,7 +156,7 @@ function list()
 						  	{
 							out.println("<tr><td class='boldEleven' cellspacing=2 cellpadding=5>"+column[i].toUpperCase());
 							out.println("<td  class='boldEleven'>");
-							%> <input onKeyPress="return numeric_only(event,'<%=sdf+i%>','8')" id="<%=sdf+i%>" class='formText135' name='<%=column[i]%>' type='text' size='10' maxlength='2' />
+							%> <input onKeyPress="return numeric_only(event,'<%=sdf+i%>','8')" id="<%=sdf+i%>"  value='0' class='formText135' name='<%=column[i]%>' type='text' size='10' maxlength='2' />
 							
 							
 							 

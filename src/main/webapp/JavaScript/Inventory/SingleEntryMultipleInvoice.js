@@ -95,35 +95,42 @@ function loadCustomerMessages()
 		 
 		for(loop=0; loop<batchs.childNodes.length; loop++) 
 	    {
+		   
 		    var batch = batchs.childNodes[loop];
+		    
+		    
 	        var Rowid = batch.getElementsByTagName("Rowid")[0].childNodes[0].nodeValue;
 		    var Group = batch.getElementsByTagName("Group")[0].childNodes[0].nodeValue;
-		  /*  var Customer = batch.getElementsByTagName("Customer")[0].childNodes[0].nodeValue;
+		    console.log(loop+"=======>"+Rowid);
+		    
+		  /* var Customer = batch.getElementsByTagName("Customer")[0].childNodes[0].nodeValue;
 		    var Add1 = batch.getElementsByTagName("Add1")[0].childNodes[0].nodeValue;
 		    var Add2 = batch.getElementsByTagName("Add2")[0].childNodes[0].nodeValue;
 		    var Add3 = batch.getElementsByTagName("Add3")[0].childNodes[0].nodeValue;
-		  */  var City = batch.getElementsByTagName("City")[0].childNodes[0].nodeValue;
-		    var District = batch.getElementsByTagName("District")[0].childNodes[0].nodeValue;
-		    var State = batch.getElementsByTagName("State")[0].childNodes[0].nodeValue;
-		    var Country = batch.getElementsByTagName("Country")[0].childNodes[0].nodeValue;
-		    var Pincode = batch.getElementsByTagName("Pincode")[0].childNodes[0].nodeValue;
-		    var Areacode = batch.getElementsByTagName("Areacode")[0].childNodes[0].nodeValue;
-		    var Phone = batch.getElementsByTagName("Phone")[0].childNodes[0].nodeValue;
+		  */
+		  	
+		  	var City = batch.getElementsByTagName("City")[0].childNodes[0].nodeValue; 
+		    var District = batch.getElementsByTagName("District")[0].childNodes[0].nodeValue; 
+		    var State = batch.getElementsByTagName("State")[0].childNodes[0].nodeValue; 
+		    var Country = batch.getElementsByTagName("Country")[0].childNodes[0].nodeValue; 
+		    var Pincode = batch.getElementsByTagName("Pincode")[0].childNodes[0].nodeValue; 
+		 	 var Areacode = batch.getElementsByTagName("Areacode")[0].childNodes[0].nodeValue; 
+		   var Phone = batch.getElementsByTagName("Phone")[0].childNodes[0].nodeValue; 
 		    var Mobile = batch.getElementsByTagName("Mobile")[0].childNodes[0].nodeValue;
-		    
+		   
 		    
 			if(loop%2==0)
 				str=str+"<tr class='MRow1'>";
 			else
 			    str=str+"<tr  class='MRow2'>";	
 			 
-			str=str+"<td  class='boldEleven'><input name='Rowid'  id='Rowid' type='checkbox' value='"+Rowid+"' />"+(loop+1)+". </td>"	;
-			str=str+"<td  class='boldEleven'>"+Group+"</td>";
-			str=str+"<td  class='boldEleven'>"+City+"</td>";
-			str=str+"<td  class='boldEleven'>"+District+"</td>";
-			str=str+"<td  class='boldEleven'>"+State+"</td>";
-			str=str+"<td  class='boldEleven'>"+Pincode+"</td>";
-			str=str+"<td  class='boldEleven'>"+Mobile+"</td>";
+			str=str+"<td  class='boldEleven' align='left'><input name='Rowid'  id='Rowid' type='checkbox' value='"+Rowid+"' />"+(loop+1)+". </td>"	;
+			str=str+"<td  class='boldEleven' align='left'>"+Group+"</td>";
+			str=str+"<td  class='boldEleven' align='left'>"+City+"</td>";
+			str=str+"<td  class='boldEleven' align='left'>"+District+"</td>";
+			str=str+"<td  class='boldEleven' align='left'>"+State+"</td>";
+			str=str+"<td  class='boldEleven' align='left'>"+Pincode+"</td>";
+			str=str+"<td  class='boldEleven' align='left'>"+Mobile+"</td>";
 			 
 	     }
 	     
@@ -137,7 +144,8 @@ function loadCustomerMessages()
 	}
 	catch(err)
 	{
-		alert(err);
+		alert(err.desc);
+		console.log(err);
 	}
 } 
 

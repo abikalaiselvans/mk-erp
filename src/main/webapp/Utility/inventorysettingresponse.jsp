@@ -59,6 +59,7 @@ try
 	 String ifsccode =""+request.getParameter("ifsccode");
 	 String footercontent =""+request.getParameter("footercontent");
 	 String salesinvoice =""+request.getParameter("salesinvoice");
+	  String paymentadjustment =""+request.getParameter("paymentadjustment");
 	
 	 if(!"Y".equals(mailfeatue))
 	 		mailfeatue="N";
@@ -74,7 +75,7 @@ try
 		 	mailstockbranchs = mailstockbranchs +mailstockbranch[u]+",";
 	 }
 	  
-	 String sql = " UPDATE m_inventorysetting SET CHR_MAILENABLE ='"+mailfeatue+"', CHR_INVOICEDELETE='"+emailid+"', CHR_EDITUSER='"+edituser+"' , CHR_DELETEUSER='"+deleteuser+"' , CHR_DAILY_COLLECTION_MAIL='"+collectionmail+"',CHR_DAILY_COLLECTION_MAIL_IDS='"+collectionemailids+"', INT_DAILY_COLLECTION_MAIL_TIME="+mailtime+" , INT_DELIVERYDAYS="+deliverydays+" , INT_DELIVERY_KM = "+deliverykilometer +" , INT_ME_NAME_CHANGE="+menamechange+" ,CHR_EMD_MAILIDS ='"+emdmail+"', CHR_DELIVERY_PENDING_MAIL_IDS='"+deliverypendingmail+"',CHR_INSTALLATION_PENDING_MAIL_IDS = '"+installationpendingmail+"', INT_PURCHASEREQUEST_LOCK ="+prlock+" , CHR_STOCKMAIL_ALERT_BRANCH='"+mailstockbranchs+"',INT_UNBLOCK ="+blockinvoice+",INT_CONTRIBUTION_LEVEL1   ="+contributionlevel1+" ,INT_CONTRIBUTION_LEVEL2   ="+contributionlevel2+", CHR_CUSTOMERCREDITLIMIT='"+creditlimit+"', CHR_PR_APPROVAL='"+prapproval+"', CHR_PR_CLOSED='"+perclosed+"', CHR_INWARDMAIL ='"+inwardmail+"', CHR_STOCKTRANSFERMAIL ='"+stocktransfermail+"', CHR_PAYMENTMAIL ='"+paymentupdate+"' , CHR_PR_BYPASS='"+bypasspr+"', INT_INVOCECHANGES = "+invoicechanges+" , CHR_BANK_NAME='"+bankname+"', CHR_IFSCCODE='"+ifsccode+"', CHR_ACCOUNT_NO='"+accountnumber+"', CHR_FOOTER_CONTENT='"+footercontent+"',  CHR_SALES_INVOICE_CREATED ='"+salesinvoice+"'   WHERE INT_ROWID=1";
+	 String sql = " UPDATE m_inventorysetting SET CHR_MAILENABLE ='"+mailfeatue+"', CHR_INVOICEDELETE='"+emailid+"', CHR_EDITUSER='"+edituser+"' , CHR_DELETEUSER='"+deleteuser+"' , CHR_DAILY_COLLECTION_MAIL='"+collectionmail+"',CHR_DAILY_COLLECTION_MAIL_IDS='"+collectionemailids+"', INT_DAILY_COLLECTION_MAIL_TIME="+mailtime+" , INT_DELIVERYDAYS="+deliverydays+" , INT_DELIVERY_KM = "+deliverykilometer +" , INT_ME_NAME_CHANGE="+menamechange+" ,CHR_EMD_MAILIDS ='"+emdmail+"', CHR_DELIVERY_PENDING_MAIL_IDS='"+deliverypendingmail+"',CHR_INSTALLATION_PENDING_MAIL_IDS = '"+installationpendingmail+"', INT_PURCHASEREQUEST_LOCK ="+prlock+" , CHR_STOCKMAIL_ALERT_BRANCH='"+mailstockbranchs+"',INT_UNBLOCK ="+blockinvoice+",INT_CONTRIBUTION_LEVEL1   ="+contributionlevel1+" ,INT_CONTRIBUTION_LEVEL2   ="+contributionlevel2+", CHR_CUSTOMERCREDITLIMIT='"+creditlimit+"', CHR_PR_APPROVAL='"+prapproval+"', CHR_PR_CLOSED='"+perclosed+"', CHR_INWARDMAIL ='"+inwardmail+"', CHR_STOCKTRANSFERMAIL ='"+stocktransfermail+"', CHR_PAYMENTMAIL ='"+paymentupdate+"' , CHR_PR_BYPASS='"+bypasspr+"', INT_INVOCECHANGES = "+invoicechanges+" , CHR_BANK_NAME='"+bankname+"', CHR_IFSCCODE='"+ifsccode+"', CHR_ACCOUNT_NO='"+accountnumber+"', CHR_FOOTER_CONTENT='"+footercontent+"',  CHR_SALES_INVOICE_CREATED ='"+salesinvoice+"', INT_PAYMENTADJUSTMENT="+paymentadjustment+"  WHERE INT_ROWID=1";
  //out.println(sql); 
 
 //CHR_BANK_NAME,CHR_IFSCCODE,CHR_ACCOUNT_NO, CHR_FOOTER_CONTENT

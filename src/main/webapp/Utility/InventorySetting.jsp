@@ -56,6 +56,7 @@ function validate()
 		&& checkNullSelect("prlock","Select Purchase Request valid for ",'0')
 		&& checkNullSelect("mailstockbranch","Select Stock Mail alert branch... ",'')
 		&& contributionChange()
+		&& checkNull("paymentadjustment","Enter Payment Adjustment")
 		
 	)
 	{
@@ -141,7 +142,7 @@ function contributionChange()
               <tr>
                 <td colspan="4" class="boldThirteen"><div align="center">INVERTORY SETTINGS 
 				<%
-				String data[][] = CommonFunctions.QueryExecute("SELECT INT_ROWID ,CHR_PURCHASEREQUEST,CHR_PURCHASEACCEPT,CHR_INVOICEDELETE,CHR_DELETEUSER,CHR_DAILY_COLLECTION_MAIL,CHR_DAILY_COLLECTION_MAIL_IDS, INT_DAILY_COLLECTION_MAIL_TIME,INT_DELIVERYDAYS,INT_DELIVERY_KM,INT_ME_NAME_CHANGE,CHR_EMD_MAILIDS,CHR_DELIVERY_PENDING_MAIL_IDS,CHR_INSTALLATION_PENDING_MAIL_IDS,INT_PURCHASEREQUEST_LOCK ,CHR_STOCKMAIL_ALERT_BRANCH,INT_UNBLOCK, INT_CONTRIBUTION_LEVEL1, INT_CONTRIBUTION_LEVEL2,CHR_CUSTOMERCREDITLIMIT,INT_INVOCECHANGES,CHR_MAILENABLE,CHR_PR_APPROVAL ,CHR_PR_CLOSED,CHR_INWARDMAIL,CHR_PAYMENTMAIL,CHR_STOCKTRANSFERMAIL,CHR_PR_BYPASS,CHR_BANK_NAME,CHR_ACCOUNT_NO,CHR_IFSCCODE, CHR_FOOTER_CONTENT ,CHR_SALES_INVOICE_CREATED   FROM m_inventorysetting  WHERE INT_ROWID=1");
+				String data[][] = CommonFunctions.QueryExecute("SELECT INT_ROWID ,CHR_PURCHASEREQUEST,CHR_PURCHASEACCEPT,CHR_INVOICEDELETE,CHR_DELETEUSER,CHR_DAILY_COLLECTION_MAIL,CHR_DAILY_COLLECTION_MAIL_IDS, INT_DAILY_COLLECTION_MAIL_TIME,INT_DELIVERYDAYS,INT_DELIVERY_KM,INT_ME_NAME_CHANGE,CHR_EMD_MAILIDS,CHR_DELIVERY_PENDING_MAIL_IDS,CHR_INSTALLATION_PENDING_MAIL_IDS,INT_PURCHASEREQUEST_LOCK ,CHR_STOCKMAIL_ALERT_BRANCH,INT_UNBLOCK, INT_CONTRIBUTION_LEVEL1, INT_CONTRIBUTION_LEVEL2,CHR_CUSTOMERCREDITLIMIT,INT_INVOCECHANGES,CHR_MAILENABLE,CHR_PR_APPROVAL ,CHR_PR_CLOSED,CHR_INWARDMAIL,CHR_PAYMENTMAIL,CHR_STOCKTRANSFERMAIL,CHR_PR_BYPASS,CHR_BANK_NAME,CHR_ACCOUNT_NO,CHR_IFSCCODE, CHR_FOOTER_CONTENT ,CHR_SALES_INVOICE_CREATED,INT_PAYMENTADJUSTMENT    FROM m_inventorysetting  WHERE INT_ROWID=1");
 				//String s[]="000150,001277,004464".split(",");
 				//String ss="001277";
 				//boolean contains = org.apache.commons.lang.ArrayUtils.contains(s, ss);
@@ -314,8 +315,7 @@ function contributionChange()
                   <option value="A">Automatic</option>
 				  <option value="M">Manual</option>
                 </select><%=data[0][32]%>
-				<script language="javascript">setOptionValue('salesinvoice','<%=data[0][32]%>')</script>
-				</td>
+				<script language="javascript">setOptionValue('salesinvoice','<%=data[0][32]%>')</script>				</td>
               </tr>
               <tr>
                 <td align="left" valign="top" class="boldEleven">Enable daily stock report   <span class="boldred">*</span></td>
@@ -361,6 +361,26 @@ function contributionChange()
                 <td align="left" valign="top" class="boldEleven">Footer Content </td>
                 <td align="left" valign="top" class="boldEleven"><textarea name="footercontent" cols="50" rows="5" id="footercontent"><%=data[0][31]%></textarea></td>
               </tr>
+			 
+			  <tr>
+			    <td align="left" valign="top" class="boldEleven">Payment Adjustment Amount </td>
+			    <td align="left" valign="top" class="boldEleven">
+				<input name="paymentadjustment" type="text" class="formText135" id="paymentadjustment" onKeyPress="return numeric_only(event,'paymentadjustment','12')" value="<%=data[0][33]%>" size="26" maxlength="14"></td>
+			    <td align="left" valign="top" class="boldEleven">&nbsp;</td>
+			    <td align="left" valign="top" class="boldEleven">&nbsp;</td>
+			    </tr>
+				 <tr>
+			    <td align="left" valign="top" class="boldEleven">&nbsp;</td>
+			    <td align="left" valign="top" class="boldEleven">&nbsp;</td>
+			    <td align="left" valign="top" class="boldEleven">&nbsp;</td>
+			    <td align="left" valign="top" class="boldEleven">&nbsp;</td>
+			    </tr>
+			  <tr>
+			    <td align="left" valign="top" class="boldEleven">&nbsp;</td>
+			    <td align="left" valign="top" class="boldEleven">&nbsp;</td>
+			    <td align="left" valign="top" class="boldEleven">&nbsp;</td>
+			    <td align="left" valign="top" class="boldEleven">&nbsp;</td>
+			    </tr>
               <tr>
                 <td colspan="4"><table border="0" align="center" cellpadding="3" cellspacing="0">
                   <tr>

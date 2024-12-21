@@ -175,19 +175,19 @@ function Validate()
 		<td>
 		<%
     	String pType=request.getParameter("payType");
-		String To[] =request.getParameterValues("To");
+		//String To[] =request.getParameterValues("To");
 		 
 		String salesno ="";
 		String sql="";
-		if(To.length>0)
+		/*if(To.length>0)
 			for(int u=0;u<To.length;u++)
 				salesno = salesno +" '"+To[u]+"' , " ;
 		sql = sql +salesno;
 		sql = sql +" '0' )";
 		System.out.println(sql);
-		 
+		 */
 		String transactiontypedata[][] = CommonFunctions.QueryExecute("SELECT INT_TRANSACTIONTYPE, CHR_TRANSACTIONTYPE FROM inv_m_transactiontype ORDER BY INT_TRANSACTIONTYPE");
-	   
+	    String paymentadjustment = CommonFunctions.QueryExecute("SELECT INT_PAYMENTADJUSTMENT   FROM m_inventorysetting  WHERE INT_ROWID=1")[0][0];
 		
    	%>		</td>
 	</tr>
@@ -232,15 +232,11 @@ function Validate()
 									
 									int l =0;
 									 
-									String salesnumber[] = request.getParameterValues("To");
+									
 									String reqpagerepeat = request.getParameter("reqpagerepeat");
 									String salesnumberids="";
-									String ids=" AND a.CHR_SALESNO IN (" ;
-									if(salesnumber.length>0)
-										for(int u=0;u<salesnumber.length; u++)
-											ids =ids + "'"+salesnumber[u]+"' ,";
-									ids =ids + " '0' )";
-									
+									String ids="  " ;
+									 
 									
 									ids=" AND a.CHR_SALESNO IN (" ;
 									if("Y".equals(reqpagerepeat))
@@ -256,6 +252,7 @@ function Validate()
 									}
 									else
 									{
+										String salesnumber[] = request.getParameterValues("To");
 										if(salesnumber.length>0) {
 											for(int u=0;u<salesnumber.length; u++)
 											{
@@ -284,7 +281,7 @@ function Validate()
 									%>
 									<input type="hidden" name="pagerepeat" id="pagerepeat" value="N">
 									<input type="hidden" name="salesnumberids" id="salesnumberids" value="<%=salesnumberids%>">
-									</td>
+									<input name="diffamount" type="hidden" id="diffamount" value="0"></td>
 									
                           </tr>
                           <tr>
@@ -384,7 +381,7 @@ if(data.length>0)
 		//Paind Amount
 		out.println("<td class='boldEleven'> ");
 		out.println("<input name='Paid"+(u)+"' size='10' type='text' class='formText135' id='Paid"+(u)+"' value='0'  ");
-		out.println("maxlength='10' onKeyUp=\"extractNumber(this,2,true),CheckBalance(this,'Balance"+(u)+"','"+(u)+"');\"  ");
+		out.println("maxlength='15' onKeyUp=\"extractNumber(this,2,true),CheckBalance(this,'Balance"+(u)+"','"+(u)+"');\"  ");
 		out.println("onKeyPress=\"return blockNonNumbers(this, event, true, true);\"  onBlur=\"checkfillAmount()\"> <div id='Valid"+(u)+"'></div>	");
 		out.println("</td>");
 		
@@ -657,6 +654,7 @@ function checkfillAmount()
 			else
 				paidamountamount =0;
 			sum = sum+paidamountamount;
+			sum = sum.toFixed(2);
 		}
 		
 		var str="<center><font class='bolddeepred'>"+sum+"</font><center>";
@@ -695,9 +693,13 @@ function checkfillAmountAndChequeAmount()
 			sum = sum+paidamountamount;
 		}
 		
-		if( chequeamount != sum )
+		var paymentadjustment = parseFloat("<%=paymentadjustment%>");
+		diffamount = diff(chequeamount,sum);
+		
+		//sum = sum + paymentadjustment;
+		if( diffamount > paymentadjustment )
 		{
-			alert("Kindly check the paind amount is not equal to check amount " + " chequeamount="+chequeamount +"  sum="+sum);
+			alert("Kindly check the amount is not match " + " Cheque Amount::"+chequeamount + " Invoice Amountsum::"+sum  +" Paymentadjustment::"+paymentadjustment +" Difference::"+diffamount);
 			document.getElementById('chequeamount').value="";
 			document.getElementById('chequeamount').focus();
 			return false;
@@ -715,17 +717,36 @@ function checkfillAmountAndChequeAmount()
 }
 
 
+function diff (num1, num2) {
+  if (num1 > num2) {
+    return num1 - num2
+  } else {
+    return num2 - num1
+  }
+}
+
 
 function AllSelects(){  
 	var len=document.getElementById("totalrecords").value;
 	for(var i=0;i<len;i++)
 	{
 		var fline="paidrow"+i;
-		if(document.getElementById('Astatus').checked)
+		var bval=document.getElementById('Balance'+i).value;
+		//alert(bval);
+		if(document.getElementById('Astatus').checked) {
 			document.getElementById(fline).checked=true;
+			document.getElementById('Paid'+i).value = bval;
+			}
 		else
+		{
 			document.getElementById(fline).checked=false;
+			document.getElementById('Paid'+i).value = 0;
+			}
 	}
+	
+	checkfillAmount();
+	
+			
 }  
 
 

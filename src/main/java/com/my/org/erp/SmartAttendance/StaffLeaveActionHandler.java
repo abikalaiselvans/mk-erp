@@ -21,6 +21,7 @@ import com.my.org.erp.ServiceLogin.DateUtil;
 import com.my.org.erp.bean.Attendance.Attinfo;
 import com.my.org.erp.common.CommonFunction;
 import com.my.org.erp.common.CommonFunctions;
+import com.my.org.erp.common.CommonInfo;
 
 
 public class StaffLeaveActionHandler extends AbstractActionHandler {
@@ -109,7 +110,9 @@ public class StaffLeaveActionHandler extends AbstractActionHandler {
 					String leaveChr[] = com.my.org.erp.bean.Attendance.StaffRegistration.leaveTypeChar().split("~");
 					String s = "";
 					String reqVal = "";
-					//System.out.println("1");
+					System.out.println(leaveName.length);
+					System.out.println(leaveChr.length);
+					
 					for (int y = 0; y < leaveName.length; y++) 
 					{
 						reqVal = "" + request.getParameter(leaveName[y]).trim();
@@ -120,16 +123,20 @@ public class StaffLeaveActionHandler extends AbstractActionHandler {
 
 					String reqLeaveVal[] = s.split("~");
 					
+					
+					
 					String sql = "";
 					sql = " DELETE FROM ATT_M_LEAVE WHERE ";
 					sql = sql + "CHR_EMPID = '" + staffid[u] + "' AND INT_YEAR =";
 					sql = sql + Integer.parseInt(year)  ;
-					
 					Statement ts = con.createStatement();
 					ts.execute(sql);
 					ts.close();
+					System.out.println("Exisiting Record deleted from ATT_M_LEAVE::");
+					
 					
 					boolean flag = RecordExist(staffid[u]);
+					System.out.println("RecordExist::"+flag);
 					
 					if (flag) 
 					{
@@ -138,12 +145,25 @@ public class StaffLeaveActionHandler extends AbstractActionHandler {
 					} 
 					else 
 					{
-						String carryleaveposition[][]=com.my.org.erp.common.CommonFunctions.QueryExecute("SELECT CHR_LEAVENAME,CHR_SYMBOL,CHR_CARRY FROM att_m_leavetype ");
+						String carryleaveposition[][]=CommonFunctions.QueryExecute("SELECT CHR_LEAVENAME,CHR_SYMBOL,CHR_CARRY FROM att_m_leavetype ");
 						boolean staffflag =false;
 						
 						
-						staffflag=com.my.org.erp.common.CommonInfo.RecordExist("SELECT CHR_EMPID FROM  com_m_staff  WHERE CHR_LEAVECARRY='Y' AND 	CHR_EMPID = '"+staffid[u]+"'");	
-						sql = "INSERT INTO ATT_M_LEAVE  VALUES (";
+						staffflag= CommonInfo.RecordExist("SELECT CHR_EMPID FROM  com_m_staff  WHERE CHR_LEAVECARRY='Y' AND 	CHR_EMPID = '"+staffid[u]+"'");	
+						
+						sql = "INSERT INTO ATT_M_LEAVE ";
+						sql = sql + " ( CHR_EMPID,INT_YEAR,  ";
+						sql = sql + "CHR_LEAVE1,INT_NOD1,INT_NOD1BALANCE, ";
+						sql = sql + "CHR_LEAVE2,INT_NOD2,INT_NOD2BALANCE, ";
+						sql = sql + "CHR_LEAVE3,INT_NOD3,INT_NOD3BALANCE, ";
+						sql = sql + "CHR_LEAVE4,INT_NOD4,INT_NOD4BALANCE, ";
+						sql = sql + "CHR_LEAVE5,INT_NOD5,INT_NOD5BALANCE, ";
+						sql = sql + "CHR_LEAVE6,INT_NOD6,INT_NOD6BALANCE, ";
+						sql = sql + "CHR_LEAVE7,INT_NOD7,INT_NOD7BALANCE, ";
+						sql = sql + "CHR_LEAVE8,INT_NOD8,INT_NOD8BALANCE, ";
+						sql = sql + "CHR_LEAVE9,INT_NOD9,INT_NOD9BALANCE, ";
+						sql = sql + "CHR_CARRY,CHR_USRNAME,DT_UPDATEDATE, CHR_UPDATESTATUS) ";
+						sql = sql + "VALUES ( ";
 						sql = sql + "'" + staffid[u] + "' , ";
 						sql = sql + Integer.parseInt(year) + " , ";
 						if(staffflag)
@@ -188,6 +208,8 @@ public class StaffLeaveActionHandler extends AbstractActionHandler {
 						sql = sql + "'Y' , '" + userId + "' , ";
 						sql = sql + "'" + updatedate + "' , ";
 						sql = sql + "'Y' ) ";
+						System.out.println(sql);
+						
 						st = con.createStatement();
 						st.execute(sql);
 

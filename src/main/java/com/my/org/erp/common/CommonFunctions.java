@@ -2174,8 +2174,8 @@ public class CommonFunctions
 		 		{	
 		 			for(int u=0; u<rsmd.getColumnCount();u++)
 		 			{
-		 					svalue[i][u] = ""+rs.getString((u+1));
-		 					if(svalue[i][u].equals("null") || svalue[i][u].equals(""))svalue[i][u]="-";
+		 					svalue[i][u] = ""+(rs.getString((u+1)));
+		 					if(svalue[i][u].trim().equals("null") || svalue[i][u].trim().equals("") )svalue[i][u]="-";
 		 			}
 		 			i=i+1;
 		 				

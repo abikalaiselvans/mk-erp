@@ -54,6 +54,7 @@ public class InventoryCustomerAJAX extends HttpServlet
 				}
 				else if(action.equals("INVSwapSale"))
 				{
+					System.out.println("INVSwapSale");
 					InventoryMethod.loadDSwapSale(request,response);    
 				}
 				else if(action.equals("INVACCSwapSale"))
@@ -170,6 +171,7 @@ public class InventoryCustomerAJAX extends HttpServlet
 		} 
 		catch (Exception e) 
 		{
+			e.printStackTrace();
 			System.out.println(e.getMessage());
 			request.setAttribute("error", e.getMessage() );
             RequestDispatcher dispatchers = request.getRequestDispatcher("/error/index.jsp");

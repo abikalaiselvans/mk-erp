@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.ArrayUtils;
+
 public class InventoryMethod extends HttpServlet {
   public static void loadItemsData(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
     try {
@@ -3696,155 +3698,36 @@ public class InventoryMethod extends HttpServlet {
     } 
   }
   
-  public static void ServiceCompalintID(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    // Byte code:
-    //   0: ldc ''
-    //   2: astore_2
-    //   3: new java/lang/StringBuilder
-    //   6: dup
-    //   7: invokespecial <init> : ()V
-    //   10: aload_0
-    //   11: ldc_w 'servicecompalintid'
-    //   14: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   19: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   22: invokevirtual toString : ()Ljava/lang/String;
-    //   25: astore_3
-    //   26: new java/lang/StringBuilder
-    //   29: dup
-    //   30: ldc_w 'SELECT COUNT(*) FROM inv_t_service WHERE CHR_SERVICEID  = ''
-    //   33: invokespecial <init> : (Ljava/lang/String;)V
-    //   36: aload_3
-    //   37: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   40: ldc_w '''
-    //   43: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   46: invokevirtual toString : ()Ljava/lang/String;
-    //   49: astore_2
-    //   50: new java/lang/StringBuffer
-    //   53: dup
-    //   54: invokespecial <init> : ()V
-    //   57: astore #4
-    //   59: iconst_0
-    //   60: istore #5
-    //   62: aload_2
-    //   63: invokestatic RecordExist : (Ljava/lang/String;)Z
-    //   66: ifeq -> 72
-    //   69: iconst_1
-    //   70: istore #5
-    //   72: new java/lang/StringBuilder
-    //   75: dup
-    //   76: invokespecial <init> : ()V
-    //   79: iload #5
-    //   81: invokevirtual append : (Z)Ljava/lang/StringBuilder;
-    //   84: invokevirtual toString : ()Ljava/lang/String;
-    //   87: astore #6
-    //   89: aload #6
-    //   91: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   94: astore #6
-    //   96: aload #4
-    //   98: ldc_w '<ComplaintId>'
-    //   101: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   104: pop
-    //   105: aload #4
-    //   107: new java/lang/StringBuilder
-    //   110: dup
-    //   111: ldc_w '<Exsist>'
-    //   114: invokespecial <init> : (Ljava/lang/String;)V
-    //   117: aload #6
-    //   119: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   122: ldc_w '</Exsist>'
-    //   125: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   128: invokevirtual toString : ()Ljava/lang/String;
-    //   131: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   134: pop
-    //   135: aload #4
-    //   137: ldc_w '</ComplaintId>'
-    //   140: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   143: pop
-    //   144: aload_1
-    //   145: ldc 'text/xml'
-    //   147: invokeinterface setContentType : (Ljava/lang/String;)V
-    //   152: aload_1
-    //   153: ldc 'Cache-Control'
-    //   155: ldc 'no-cache'
-    //   157: invokeinterface setHeader : (Ljava/lang/String;Ljava/lang/String;)V
-    //   162: aload_1
-    //   163: invokeinterface getWriter : ()Ljava/io/PrintWriter;
-    //   168: new java/lang/StringBuilder
-    //   171: dup
-    //   172: ldc_w '<ComplaintIds>'
-    //   175: invokespecial <init> : (Ljava/lang/String;)V
-    //   178: aload #4
-    //   180: invokevirtual toString : ()Ljava/lang/String;
-    //   183: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   186: ldc_w '</ComplaintIds>'
-    //   189: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   192: invokevirtual toString : ()Ljava/lang/String;
-    //   195: invokevirtual write : (Ljava/lang/String;)V
-    //   198: goto -> 241
-    //   201: astore_2
-    //   202: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   205: aload_2
-    //   206: invokevirtual getMessage : ()Ljava/lang/String;
-    //   209: invokevirtual println : (Ljava/lang/String;)V
-    //   212: aload_0
-    //   213: ldc 'error'
-    //   215: aload_2
-    //   216: invokevirtual getMessage : ()Ljava/lang/String;
-    //   219: invokeinterface setAttribute : (Ljava/lang/String;Ljava/lang/Object;)V
-    //   224: aload_0
-    //   225: ldc '/error/index.jsp'
-    //   227: invokeinterface getRequestDispatcher : (Ljava/lang/String;)Ljavax/servlet/RequestDispatcher;
-    //   232: astore_3
-    //   233: aload_3
-    //   234: aload_0
-    //   235: aload_1
-    //   236: invokeinterface forward : (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
-    //   241: return
-    // Line number table:
-    //   Java source line number -> byte code offset
-    //   #4431	-> 0
-    //   #4432	-> 3
-    //   #4433	-> 10
-    //   #4432	-> 22
-    //   #4434	-> 26
-    //   #4435	-> 36
-    //   #4434	-> 46
-    //   #4436	-> 50
-    //   #4437	-> 59
-    //   #4438	-> 62
-    //   #4439	-> 69
-    //   #4440	-> 72
-    //   #4441	-> 89
-    //   #4442	-> 96
-    //   #4443	-> 105
-    //   #4444	-> 135
-    //   #4445	-> 144
-    //   #4446	-> 152
-    //   #4447	-> 162
-    //   #4448	-> 168
-    //   #4447	-> 195
-    //   #4449	-> 198
-    //   #4450	-> 202
-    //   #4451	-> 212
-    //   #4452	-> 224
-    //   #4453	-> 225
-    //   #4452	-> 232
-    //   #4454	-> 233
-    //   #4456	-> 241
-    // Local variable table:
-    //   start	length	slot	name	descriptor
-    //   0	242	0	request	Ljavax/servlet/http/HttpServletRequest;
-    //   0	242	1	response	Ljavax/servlet/http/HttpServletResponse;
-    //   3	195	2	sql	Ljava/lang/String;
-    //   26	172	3	StartLetter	Ljava/lang/String;
-    //   59	139	4	sb	Ljava/lang/StringBuffer;
-    //   62	136	5	flag	Z
-    //   89	109	6	name	Ljava/lang/String;
-    //   202	39	2	e	Ljava/lang/Exception;
-    //   233	8	3	dispatchers	Ljavax/servlet/RequestDispatcher;
-    // Exception table:
-    //   from	to	target	type
-    //   0	198	201	java/lang/Exception
+  public static void ServiceCompalintID(HttpServletRequest request, HttpServletResponse response) 
+		  throws IOException, ServletException {
+
+		try {
+			String sql = "";
+			String StartLetter = ""
+					+ request.getParameter("servicecompalintid");
+			sql = "SELECT COUNT(*) FROM inv_t_service WHERE CHR_SERVICEID  = '"
+					+ StartLetter + "'";
+			StringBuffer sb = new StringBuffer();
+			boolean flag = false;
+			if (CommonInfo.RecordExist(sql))
+				flag = true;
+			String name = "" + flag;
+			name = name.toUpperCase();
+			sb.append("<ComplaintId>");
+			sb.append("<Exsist>" + name + "</Exsist>");
+			sb.append("</ComplaintId>");
+			response.setContentType("text/xml");
+			response.setHeader("Cache-Control", "no-cache");
+			response.getWriter().write(
+					"<ComplaintIds>" + sb.toString() + "</ComplaintIds>");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			request.setAttribute("error", e.getMessage());
+			RequestDispatcher dispatchers = request
+					.getRequestDispatcher("/error/index.jsp");
+			dispatchers.forward(request, response);
+		}
+	
   }
   
   public static void loadServiceAmountAssign(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -4341,1361 +4224,219 @@ public class InventoryMethod extends HttpServlet {
     } 
   }
   
-  public static void INVServiceBillingPO(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    // Byte code:
-    //   0: aload_0
-    //   1: invokeinterface getSession : ()Ljavax/servlet/http/HttpSession;
-    //   6: astore_2
-    //   7: new java/lang/StringBuilder
-    //   10: dup
-    //   11: invokespecial <init> : ()V
-    //   14: aload_2
-    //   15: ldc_w 'USRTYPE'
-    //   18: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   23: invokevirtual append : (Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   26: invokevirtual toString : ()Ljava/lang/String;
-    //   29: astore_3
-    //   30: aload_0
-    //   31: ldc_w 'division'
-    //   34: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   39: astore #4
-    //   41: aload_0
-    //   42: ldc_w 'customer'
-    //   45: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   50: astore #5
-    //   52: aload_0
-    //   53: ldc_w 'Branch'
-    //   56: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   61: astore #6
-    //   63: new java/lang/StringBuilder
-    //   66: dup
-    //   67: invokespecial <init> : ()V
-    //   70: aload_0
-    //   71: ldc_w 'id'
-    //   74: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   79: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   82: invokevirtual toString : ()Ljava/lang/String;
-    //   85: astore #7
-    //   87: aload_0
-    //   88: ldc_w 'month'
-    //   91: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   96: astore #8
-    //   98: aload_0
-    //   99: ldc_w 'year'
-    //   102: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   107: astore #9
-    //   109: aload_0
-    //   110: ldc_w 'day'
-    //   113: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   118: astore #10
-    //   120: aload_0
-    //   121: ldc_w 'type'
-    //   124: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   129: astore #11
-    //   131: ldc_w '-'
-    //   134: astore #12
-    //   136: ldc_w 'F'
-    //   139: aload_3
-    //   140: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   143: ifne -> 180
-    //   146: ldc_w 'SELECT CHR_DELETEUSER  FROM m_inventorysetting  WHERE INT_ROWID=1'
-    //   149: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   152: iconst_0
-    //   153: aaload
-    //   154: iconst_0
-    //   155: aaload
-    //   156: ldc_w ','
-    //   159: invokevirtual split : (Ljava/lang/String;)[Ljava/lang/String;
-    //   162: aload_2
-    //   163: ldc_w 'USRID'
-    //   166: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   171: invokevirtual toString : ()Ljava/lang/String;
-    //   174: invokestatic contains : ([Ljava/lang/Object;Ljava/lang/Object;)Z
-    //   177: ifeq -> 185
-    //   180: ldc_w 'F'
-    //   183: astore #12
-    //   185: ldc ''
-    //   187: astore #13
-    //   189: ldc_w '  SELECT a.INT_SERVICEPOID, a.CHR_SERVICEPOREF,DATE_FORMAT(a.DAT_PODATE,'%d-%b-%Y'),  '
-    //   192: astore #13
-    //   194: new java/lang/StringBuilder
-    //   197: dup
-    //   198: aload #13
-    //   200: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   203: invokespecial <init> : (Ljava/lang/String;)V
-    //   206: ldc_w ' FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID),FUN_INV_DIVISION(a.INT_DIVIID),a.DOU_AMOUNT,  '
-    //   209: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   212: invokevirtual toString : ()Ljava/lang/String;
-    //   215: astore #13
-    //   217: new java/lang/StringBuilder
-    //   220: dup
-    //   221: aload #13
-    //   223: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   226: invokespecial <init> : (Ljava/lang/String;)V
-    //   229: ldc_w ' FIND_A_EMPLOYEE_ID_NAME(a.CHR_REF),a.CHR_STATUS,a.CHR_CANCEL,FUN_INV_SERVICE_PO_BILLEDAMOUNT(a.CHR_SERVICEPOREF),  '
-    //   232: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   235: invokevirtual toString : ()Ljava/lang/String;
-    //   238: astore #13
-    //   240: new java/lang/StringBuilder
-    //   243: dup
-    //   244: aload #13
-    //   246: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   249: invokespecial <init> : (Ljava/lang/String;)V
-    //   252: ldc_w ' ( a.DOU_AMOUNT -FUN_INV_SERVICE_PO_BILLEDAMOUNT(a.CHR_SERVICEPOREF)  ) '
-    //   255: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   258: invokevirtual toString : ()Ljava/lang/String;
-    //   261: astore #13
-    //   263: new java/lang/StringBuilder
-    //   266: dup
-    //   267: aload #13
-    //   269: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   272: invokespecial <init> : (Ljava/lang/String;)V
-    //   275: ldc_w ' FROM inv_t_servicebillingpo a   '
-    //   278: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   281: invokevirtual toString : ()Ljava/lang/String;
-    //   284: astore #13
-    //   286: new java/lang/StringBuilder
-    //   289: dup
-    //   290: aload #13
-    //   292: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   295: invokespecial <init> : (Ljava/lang/String;)V
-    //   298: ldc_w ' WHERE  a.INT_SERVICEPOID > 0 '
-    //   301: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   304: invokevirtual toString : ()Ljava/lang/String;
-    //   307: astore #13
-    //   309: new java/lang/StringBuilder
-    //   312: dup
-    //   313: aload #13
-    //   315: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   318: invokespecial <init> : (Ljava/lang/String;)V
-    //   321: ldc_w ' AND a.INT_BRANCHID='
-    //   324: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   327: aload #6
-    //   329: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   332: ldc_w ' '
-    //   335: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   338: invokevirtual toString : ()Ljava/lang/String;
-    //   341: astore #13
-    //   343: new java/lang/StringBuilder
-    //   346: dup
-    //   347: aload #13
-    //   349: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   352: invokespecial <init> : (Ljava/lang/String;)V
-    //   355: ldc_w ' AND YEAR(a.DAT_PODATE)='
-    //   358: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   361: aload #9
-    //   363: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   366: ldc_w ' '
-    //   369: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   372: invokevirtual toString : ()Ljava/lang/String;
-    //   375: astore #13
-    //   377: ldc '0'
-    //   379: aload #8
-    //   381: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   384: ifne -> 421
-    //   387: new java/lang/StringBuilder
-    //   390: dup
-    //   391: aload #13
-    //   393: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   396: invokespecial <init> : (Ljava/lang/String;)V
-    //   399: ldc_w ' AND MONTH(a.DAT_PODATE)='
-    //   402: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   405: aload #8
-    //   407: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   410: ldc_w ' '
-    //   413: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   416: invokevirtual toString : ()Ljava/lang/String;
-    //   419: astore #13
-    //   421: ldc '0'
-    //   423: aload #10
-    //   425: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   428: ifne -> 459
-    //   431: new java/lang/StringBuilder
-    //   434: dup
-    //   435: aload #13
-    //   437: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   440: invokespecial <init> : (Ljava/lang/String;)V
-    //   443: ldc_w ' AND DAY(a.DAT_PODATE)= '
-    //   446: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   449: aload #10
-    //   451: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   454: invokevirtual toString : ()Ljava/lang/String;
-    //   457: astore #13
-    //   459: ldc '0'
-    //   461: aload #5
-    //   463: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   466: ifne -> 497
-    //   469: new java/lang/StringBuilder
-    //   472: dup
-    //   473: aload #13
-    //   475: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   478: invokespecial <init> : (Ljava/lang/String;)V
-    //   481: ldc_w ' AND a.INT_CUSTOMERID='
-    //   484: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   487: aload #5
-    //   489: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   492: invokevirtual toString : ()Ljava/lang/String;
-    //   495: astore #13
-    //   497: ldc '0'
-    //   499: aload #4
-    //   501: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   504: ifne -> 535
-    //   507: new java/lang/StringBuilder
-    //   510: dup
-    //   511: aload #13
-    //   513: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   516: invokespecial <init> : (Ljava/lang/String;)V
-    //   519: ldc_w ' AND a.INT_DIVIID='
-    //   522: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   525: aload #4
-    //   527: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   530: invokevirtual toString : ()Ljava/lang/String;
-    //   533: astore #13
-    //   535: ldc_w '1'
-    //   538: aload #11
-    //   540: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   543: ifeq -> 595
-    //   546: ldc '0'
-    //   548: aload #7
-    //   550: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   553: ifne -> 643
-    //   556: new java/lang/StringBuilder
-    //   559: dup
-    //   560: aload #13
-    //   562: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   565: invokespecial <init> : (Ljava/lang/String;)V
-    //   568: ldc_w ' AND FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) LIKE ''
-    //   571: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   574: aload #7
-    //   576: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   579: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   582: ldc '%''
-    //   584: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   587: invokevirtual toString : ()Ljava/lang/String;
-    //   590: astore #13
-    //   592: goto -> 643
-    //   595: new java/lang/StringBuilder
-    //   598: dup
-    //   599: aload #13
-    //   601: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   604: invokespecial <init> : (Ljava/lang/String;)V
-    //   607: ldc_w ' AND ( (a.CHR_SERVICEPOREF LIKE '%'
-    //   610: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   613: aload #7
-    //   615: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   618: ldc_w '%') OR ( FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) LIKE '%'
-    //   621: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   624: aload #7
-    //   626: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   629: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   632: ldc_w '%') )'
-    //   635: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   638: invokevirtual toString : ()Ljava/lang/String;
-    //   641: astore #13
-    //   643: new java/lang/StringBuilder
-    //   646: dup
-    //   647: aload #13
-    //   649: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   652: invokespecial <init> : (Ljava/lang/String;)V
-    //   655: ldc_w '  ORDER BY  FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) '
-    //   658: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   661: invokevirtual toString : ()Ljava/lang/String;
-    //   664: astore #13
-    //   666: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   669: aload #13
-    //   671: invokevirtual println : (Ljava/lang/String;)V
-    //   674: aload #13
-    //   676: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   679: astore #14
-    //   681: new java/lang/StringBuffer
-    //   684: dup
-    //   685: invokespecial <init> : ()V
-    //   688: astore #15
-    //   690: aload_0
-    //   691: ldc_w '/'
-    //   694: invokeinterface getRealPath : (Ljava/lang/String;)Ljava/lang/String;
-    //   699: astore #16
-    //   701: aconst_null
-    //   702: astore #17
-    //   704: aload #14
-    //   706: arraylength
-    //   707: ifle -> 1340
-    //   710: iconst_0
-    //   711: istore #18
-    //   713: goto -> 1277
-    //   716: aload #15
-    //   718: ldc '<Row>'
-    //   720: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   723: pop
-    //   724: aload #15
-    //   726: new java/lang/StringBuilder
-    //   729: dup
-    //   730: ldc '<Rowid>'
-    //   732: invokespecial <init> : (Ljava/lang/String;)V
-    //   735: aload #14
-    //   737: iload #18
-    //   739: aaload
-    //   740: iconst_0
-    //   741: aaload
-    //   742: invokevirtual trim : ()Ljava/lang/String;
-    //   745: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   748: ldc '</Rowid>'
-    //   750: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   753: invokevirtual toString : ()Ljava/lang/String;
-    //   756: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   759: pop
-    //   760: aload #15
-    //   762: new java/lang/StringBuilder
-    //   765: dup
-    //   766: ldc_w '<Invoiceno>'
-    //   769: invokespecial <init> : (Ljava/lang/String;)V
-    //   772: aload #14
-    //   774: iload #18
-    //   776: aaload
-    //   777: iconst_1
-    //   778: aaload
-    //   779: invokevirtual trim : ()Ljava/lang/String;
-    //   782: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   785: ldc_w '</Invoiceno>'
-    //   788: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   791: invokevirtual toString : ()Ljava/lang/String;
-    //   794: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   797: pop
-    //   798: aload #15
-    //   800: new java/lang/StringBuilder
-    //   803: dup
-    //   804: ldc_w '<Date>'
-    //   807: invokespecial <init> : (Ljava/lang/String;)V
-    //   810: aload #14
-    //   812: iload #18
-    //   814: aaload
-    //   815: iconst_2
-    //   816: aaload
-    //   817: invokevirtual trim : ()Ljava/lang/String;
-    //   820: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   823: ldc_w '</Date>'
-    //   826: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   829: invokevirtual toString : ()Ljava/lang/String;
-    //   832: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   835: pop
-    //   836: aload #15
-    //   838: new java/lang/StringBuilder
-    //   841: dup
-    //   842: ldc_w '<Customer>'
-    //   845: invokespecial <init> : (Ljava/lang/String;)V
-    //   848: aload #14
-    //   850: iload #18
-    //   852: aaload
-    //   853: iconst_3
-    //   854: aaload
-    //   855: ldc '&'
-    //   857: ldc ''
-    //   859: invokevirtual replace : (Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-    //   862: invokevirtual trim : ()Ljava/lang/String;
-    //   865: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   868: ldc_w '</Customer>'
-    //   871: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   874: invokevirtual toString : ()Ljava/lang/String;
-    //   877: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   880: pop
-    //   881: aload #15
-    //   883: new java/lang/StringBuilder
-    //   886: dup
-    //   887: ldc_w '<Division>'
-    //   890: invokespecial <init> : (Ljava/lang/String;)V
-    //   893: aload #14
-    //   895: iload #18
-    //   897: aaload
-    //   898: iconst_4
-    //   899: aaload
-    //   900: invokevirtual trim : ()Ljava/lang/String;
-    //   903: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   906: ldc_w '</Division>'
-    //   909: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   912: invokevirtual toString : ()Ljava/lang/String;
-    //   915: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   918: pop
-    //   919: aload #15
-    //   921: new java/lang/StringBuilder
-    //   924: dup
-    //   925: ldc_w '<Amount>'
-    //   928: invokespecial <init> : (Ljava/lang/String;)V
-    //   931: aload #14
-    //   933: iload #18
-    //   935: aaload
-    //   936: iconst_5
-    //   937: aaload
-    //   938: invokevirtual trim : ()Ljava/lang/String;
-    //   941: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   944: ldc_w '</Amount>'
-    //   947: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   950: invokevirtual toString : ()Ljava/lang/String;
-    //   953: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   956: pop
-    //   957: aload #15
-    //   959: new java/lang/StringBuilder
-    //   962: dup
-    //   963: ldc_w '<Ref>'
-    //   966: invokespecial <init> : (Ljava/lang/String;)V
-    //   969: aload #14
-    //   971: iload #18
-    //   973: aaload
-    //   974: bipush #6
-    //   976: aaload
-    //   977: invokevirtual trim : ()Ljava/lang/String;
-    //   980: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   983: ldc_w '</Ref>'
-    //   986: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   989: invokevirtual toString : ()Ljava/lang/String;
-    //   992: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   995: pop
-    //   996: aload #15
-    //   998: new java/lang/StringBuilder
-    //   1001: dup
-    //   1002: ldc_w '<Status>'
-    //   1005: invokespecial <init> : (Ljava/lang/String;)V
-    //   1008: aload #14
-    //   1010: iload #18
-    //   1012: aaload
-    //   1013: bipush #7
-    //   1015: aaload
-    //   1016: invokevirtual trim : ()Ljava/lang/String;
-    //   1019: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1022: ldc_w '</Status>'
-    //   1025: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1028: invokevirtual toString : ()Ljava/lang/String;
-    //   1031: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1034: pop
-    //   1035: aload #15
-    //   1037: new java/lang/StringBuilder
-    //   1040: dup
-    //   1041: ldc_w '<Cancel>'
-    //   1044: invokespecial <init> : (Ljava/lang/String;)V
-    //   1047: aload #14
-    //   1049: iload #18
-    //   1051: aaload
-    //   1052: bipush #8
-    //   1054: aaload
-    //   1055: invokevirtual trim : ()Ljava/lang/String;
-    //   1058: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1061: ldc_w '</Cancel>'
-    //   1064: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1067: invokevirtual toString : ()Ljava/lang/String;
-    //   1070: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1073: pop
-    //   1074: aload #15
-    //   1076: new java/lang/StringBuilder
-    //   1079: dup
-    //   1080: ldc_w '<Billed>'
-    //   1083: invokespecial <init> : (Ljava/lang/String;)V
-    //   1086: aload #14
-    //   1088: iload #18
-    //   1090: aaload
-    //   1091: bipush #9
-    //   1093: aaload
-    //   1094: invokevirtual trim : ()Ljava/lang/String;
-    //   1097: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1100: ldc_w '</Billed>'
-    //   1103: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1106: invokevirtual toString : ()Ljava/lang/String;
-    //   1109: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1112: pop
-    //   1113: aload #15
-    //   1115: new java/lang/StringBuilder
-    //   1118: dup
-    //   1119: ldc_w '<Balance>'
-    //   1122: invokespecial <init> : (Ljava/lang/String;)V
-    //   1125: aload #14
-    //   1127: iload #18
-    //   1129: aaload
-    //   1130: bipush #10
-    //   1132: aaload
-    //   1133: invokevirtual trim : ()Ljava/lang/String;
-    //   1136: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1139: ldc_w '</Balance>'
-    //   1142: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1145: invokevirtual toString : ()Ljava/lang/String;
-    //   1148: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1151: pop
-    //   1152: aload #15
-    //   1154: new java/lang/StringBuilder
-    //   1157: dup
-    //   1158: ldc_w '<Usertype>'
-    //   1161: invokespecial <init> : (Ljava/lang/String;)V
-    //   1164: aload #12
-    //   1166: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1169: ldc_w '</Usertype>'
-    //   1172: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1175: invokevirtual toString : ()Ljava/lang/String;
-    //   1178: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1181: pop
-    //   1182: new java/io/File
-    //   1185: dup
-    //   1186: new java/lang/StringBuilder
-    //   1189: dup
-    //   1190: aload #16
-    //   1192: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   1195: invokespecial <init> : (Ljava/lang/String;)V
-    //   1198: ldc_w 'uploadfiles/SERVICEPO/'
-    //   1201: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1204: aload #14
-    //   1206: iload #18
-    //   1208: aaload
-    //   1209: iconst_1
-    //   1210: aaload
-    //   1211: ldc_w '/'
-    //   1214: ldc_w '_'
-    //   1217: invokevirtual replaceAll : (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    //   1220: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1223: ldc_w '.pdf'
-    //   1226: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1229: invokevirtual toString : ()Ljava/lang/String;
-    //   1232: invokespecial <init> : (Ljava/lang/String;)V
-    //   1235: astore #17
-    //   1237: aload #17
-    //   1239: invokevirtual exists : ()Z
-    //   1242: ifeq -> 1257
-    //   1245: aload #15
-    //   1247: ldc_w '<Download>Y</Download>'
-    //   1250: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1253: pop
-    //   1254: goto -> 1266
-    //   1257: aload #15
-    //   1259: ldc_w '<Download>N</Download>'
-    //   1262: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1265: pop
-    //   1266: aload #15
-    //   1268: ldc '</Row>'
-    //   1270: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1273: pop
-    //   1274: iinc #18, 1
-    //   1277: iload #18
-    //   1279: aload #14
-    //   1281: arraylength
-    //   1282: if_icmplt -> 716
-    //   1285: aload_1
-    //   1286: ldc 'text/xml'
-    //   1288: invokeinterface setContentType : (Ljava/lang/String;)V
-    //   1293: aload_1
-    //   1294: ldc 'Cache-Control'
-    //   1296: ldc 'no-cache'
-    //   1298: invokeinterface setHeader : (Ljava/lang/String;Ljava/lang/String;)V
-    //   1303: aload_1
-    //   1304: invokeinterface getWriter : ()Ljava/io/PrintWriter;
-    //   1309: new java/lang/StringBuilder
-    //   1312: dup
-    //   1313: ldc '<Rows>'
-    //   1315: invokespecial <init> : (Ljava/lang/String;)V
-    //   1318: aload #15
-    //   1320: invokevirtual toString : ()Ljava/lang/String;
-    //   1323: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1326: ldc '</Rows>'
-    //   1328: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1331: invokevirtual toString : ()Ljava/lang/String;
-    //   1334: invokevirtual write : (Ljava/lang/String;)V
-    //   1337: goto -> 1392
-    //   1340: aload_1
-    //   1341: sipush #204
-    //   1344: invokeinterface setStatus : (I)V
-    //   1349: goto -> 1392
-    //   1352: astore_2
-    //   1353: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   1356: aload_2
-    //   1357: invokevirtual getMessage : ()Ljava/lang/String;
-    //   1360: invokevirtual println : (Ljava/lang/String;)V
-    //   1363: aload_0
-    //   1364: ldc 'error'
-    //   1366: aload_2
-    //   1367: invokevirtual getMessage : ()Ljava/lang/String;
-    //   1370: invokeinterface setAttribute : (Ljava/lang/String;Ljava/lang/Object;)V
-    //   1375: aload_0
-    //   1376: ldc '/error/index.jsp'
-    //   1378: invokeinterface getRequestDispatcher : (Ljava/lang/String;)Ljavax/servlet/RequestDispatcher;
-    //   1383: astore_3
-    //   1384: aload_3
-    //   1385: aload_0
-    //   1386: aload_1
-    //   1387: invokeinterface forward : (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
-    //   1392: return
-    // Line number table:
-    //   Java source line number -> byte code offset
-    //   #5050	-> 0
-    //   #5051	-> 7
-    //   #5053	-> 30
-    //   #5054	-> 41
-    //   #5055	-> 52
-    //   #5056	-> 63
-    //   #5057	-> 87
-    //   #5058	-> 98
-    //   #5059	-> 109
-    //   #5060	-> 120
-    //   #5061	-> 131
-    //   #5062	-> 136
-    //   #5066	-> 146
-    //   #5065	-> 153
-    //   #5066	-> 154
-    //   #5065	-> 155
-    //   #5067	-> 156
-    //   #5068	-> 162
-    //   #5064	-> 174
-    //   #5068	-> 177
-    //   #5069	-> 180
-    //   #5071	-> 185
-    //   #5072	-> 189
-    //   #5073	-> 194
-    //   #5074	-> 217
-    //   #5075	-> 240
-    //   #5076	-> 263
-    //   #5077	-> 286
-    //   #5078	-> 309
-    //   #5079	-> 343
-    //   #5080	-> 377
-    //   #5081	-> 387
-    //   #5082	-> 421
-    //   #5083	-> 431
-    //   #5084	-> 459
-    //   #5085	-> 469
-    //   #5086	-> 497
-    //   #5087	-> 507
-    //   #5089	-> 535
-    //   #5091	-> 546
-    //   #5092	-> 556
-    //   #5093	-> 592
-    //   #5096	-> 595
-    //   #5098	-> 643
-    //   #5099	-> 666
-    //   #5100	-> 674
-    //   #5101	-> 681
-    //   #5104	-> 690
-    //   #5105	-> 701
-    //   #5108	-> 704
-    //   #5110	-> 710
-    //   #5112	-> 716
-    //   #5113	-> 724
-    //   #5114	-> 760
-    //   #5115	-> 798
-    //   #5116	-> 836
-    //   #5117	-> 881
-    //   #5118	-> 919
-    //   #5119	-> 957
-    //   #5120	-> 996
-    //   #5121	-> 1035
-    //   #5122	-> 1074
-    //   #5123	-> 1113
-    //   #5124	-> 1152
-    //   #5125	-> 1182
-    //   #5126	-> 1237
-    //   #5127	-> 1245
-    //   #5129	-> 1257
-    //   #5130	-> 1266
-    //   #5110	-> 1274
-    //   #5133	-> 1285
-    //   #5134	-> 1293
-    //   #5135	-> 1303
-    //   #5136	-> 1337
-    //   #5139	-> 1340
-    //   #5142	-> 1349
-    //   #5143	-> 1352
-    //   #5145	-> 1353
-    //   #5146	-> 1363
-    //   #5147	-> 1375
-    //   #5148	-> 1384
-    //   #5150	-> 1392
-    // Local variable table:
-    //   start	length	slot	name	descriptor
-    //   0	1393	0	request	Ljavax/servlet/http/HttpServletRequest;
-    //   0	1393	1	response	Ljavax/servlet/http/HttpServletResponse;
-    //   7	1342	2	session	Ljavax/servlet/http/HttpSession;
-    //   30	1319	3	usertype	Ljava/lang/String;
-    //   41	1308	4	division	Ljava/lang/String;
-    //   52	1297	5	customer	Ljava/lang/String;
-    //   63	1286	6	Branch	Ljava/lang/String;
-    //   87	1262	7	StartLetter	Ljava/lang/String;
-    //   98	1251	8	month	Ljava/lang/String;
-    //   109	1240	9	year	Ljava/lang/String;
-    //   120	1229	10	day	Ljava/lang/String;
-    //   131	1218	11	type	Ljava/lang/String;
-    //   136	1213	12	Usertype	Ljava/lang/String;
-    //   189	1160	13	sql	Ljava/lang/String;
-    //   681	668	14	readData	[[Ljava/lang/String;
-    //   690	659	15	sb	Ljava/lang/StringBuffer;
-    //   701	648	16	filepath	Ljava/lang/String;
-    //   704	645	17	f	Ljava/io/File;
-    //   713	572	18	u	I
-    //   1353	39	2	e	Ljava/lang/Exception;
-    //   1384	8	3	dispatchers	Ljavax/servlet/RequestDispatcher;
-    // Exception table:
-    //   from	to	target	type
-    //   0	1349	1352	java/lang/Exception
+  public static void INVServiceBillingPO(HttpServletRequest request, HttpServletResponse response) 
+		  throws IOException, ServletException {
+	  
+
+		try 
+		{
+			HttpSession session = request.getSession();
+			String usertype = "" + session.getAttribute("USRTYPE");
+			
+			String division = request.getParameter("division");
+			String customer = request.getParameter("customer");
+			String Branch = request.getParameter("Branch");
+			String StartLetter = "" + request.getParameter("id");
+			String month = request.getParameter("month");
+			String year = request.getParameter("year");
+			String day = request.getParameter("day");
+			String type = request.getParameter("type");
+			String Usertype = "-";
+			if ("F".equals(usertype)
+					|| ArrayUtils
+							.contains(
+									CommonFunctions
+											.QueryExecute("SELECT CHR_DELETEUSER  FROM m_inventorysetting  WHERE INT_ROWID=1")[0][0]
+											.split(","),
+									session.getAttribute("USRID").toString()))
+				Usertype = "F";
+
+			String sql = "";
+			sql = "  SELECT a.INT_SERVICEPOID, a.CHR_SERVICEPOREF,DATE_FORMAT(a.DAT_PODATE,'%d-%b-%Y'),  ";
+			sql = sql + " FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID),FUN_INV_DIVISION(a.INT_DIVIID),a.DOU_AMOUNT,  ";
+			sql = sql + " FIND_A_EMPLOYEE_ID_NAME(a.CHR_REF),a.CHR_STATUS,a.CHR_CANCEL,FUN_INV_SERVICE_PO_BILLEDAMOUNT(a.CHR_SERVICEPOREF),  ";
+			sql = sql + " ( a.DOU_AMOUNT -FUN_INV_SERVICE_PO_BILLEDAMOUNT(a.CHR_SERVICEPOREF)  ) ";  
+			sql = sql + " FROM inv_t_servicebillingpo a   ";
+			sql = sql + " WHERE  a.INT_SERVICEPOID > 0 ";
+			sql = sql + " AND a.INT_BRANCHID=" + Branch + " ";
+			sql = sql + " AND YEAR(a.DAT_PODATE)=" + year + " ";
+			if (!"0".equals(month))
+				sql = sql + " AND MONTH(a.DAT_PODATE)=" + month + " ";
+			if (!"0".equals(day))
+				sql = sql + " AND DAY(a.DAT_PODATE)= " + day;
+			if (!"0".equals(customer))
+				sql = sql + " AND a.INT_CUSTOMERID=" + customer;
+			if (!"0".equals(division))
+				sql = sql + " AND a.INT_DIVIID=" + division;
+			 
+			if("1".equals(type))
+			{	
+				if (!"0".equals(StartLetter))
+					sql = sql + " AND FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) LIKE '" + StartLetter.toUpperCase() + "%'";
+			}
+			else
+			{
+				sql = sql+ " AND ( (a.CHR_SERVICEPOREF LIKE '%"+StartLetter+"%') OR ( FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) LIKE '%" + StartLetter.toUpperCase() + "%') )";
+			}
+			sql = sql + "  ORDER BY  FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) ";
+			System.out.println(sql);
+			String readData[][] = CommonFunctions.QueryExecute(sql);
+			StringBuffer sb = new StringBuffer();
+			
+
+			String filepath = request.getRealPath("/");
+			File f = null;
+			
+				
+			if (readData.length > 0) 
+			{
+				for (int u = 0; u < readData.length; u++) 
+				{
+					sb.append("<Row>");
+					sb.append("<Rowid>" + readData[u][0].trim()	+ "</Rowid>");
+					sb.append("<Invoiceno>" + readData[u][1].trim()	+ "</Invoiceno>");
+					sb.append("<Date>" + readData[u][2].trim() + "</Date>");
+					sb.append("<Customer>"+ readData[u][3].replace("&", "").trim()+ "</Customer>");
+					sb.append("<Division>" + readData[u][4].trim() + "</Division>");
+					sb.append("<Amount>" + readData[u][5].trim() + "</Amount>");
+					sb.append("<Ref>" + readData[u][6].trim() + "</Ref>");
+					sb.append("<Status>" + readData[u][7].trim() + "</Status>");
+					sb.append("<Cancel>" + readData[u][8].trim() + "</Cancel>");
+					sb.append("<Billed>" + readData[u][9].trim() + "</Billed>");
+					sb.append("<Balance>" + readData[u][10].trim() + "</Balance>");
+					sb.append("<Usertype>" + Usertype + "</Usertype>");
+					f = new File(filepath+"uploadfiles/SERVICEPO/"+readData[u][1].replaceAll("/","_")+".pdf");
+						if(f.exists())
+							sb.append("<Download>Y</Download>");
+						else
+							sb.append("<Download>N</Download>");
+					sb.append("</Row>");
+					
+				}
+				response.setContentType("text/xml");
+				response.setHeader("Cache-Control", "no-cache");
+				response.getWriter().write("<Rows>" + sb.toString() + "</Rows>");
+			} 
+			else 
+			{
+				response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e.getMessage());
+			request.setAttribute("error", e.getMessage());
+			RequestDispatcher dispatchers = request.getRequestDispatcher("/error/index.jsp");
+			dispatchers.forward(request, response);
+		}
+	
   }
   
-  public static void LoadServiceBilling(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    // Byte code:
-    //   0: aload_0
-    //   1: invokeinterface getSession : ()Ljavax/servlet/http/HttpSession;
-    //   6: astore_2
-    //   7: new java/lang/StringBuilder
-    //   10: dup
-    //   11: invokespecial <init> : ()V
-    //   14: aload_2
-    //   15: ldc_w 'USRTYPE'
-    //   18: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   23: invokevirtual append : (Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   26: invokevirtual toString : ()Ljava/lang/String;
-    //   29: astore_3
-    //   30: aload_0
-    //   31: ldc_w 'division'
-    //   34: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   39: astore #4
-    //   41: aload_0
-    //   42: ldc_w 'customer'
-    //   45: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   50: astore #5
-    //   52: aload_0
-    //   53: ldc_w 'Branch'
-    //   56: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   61: astore #6
-    //   63: new java/lang/StringBuilder
-    //   66: dup
-    //   67: invokespecial <init> : ()V
-    //   70: aload_0
-    //   71: ldc_w 'id'
-    //   74: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   79: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   82: invokevirtual toString : ()Ljava/lang/String;
-    //   85: astore #7
-    //   87: aload_0
-    //   88: ldc_w 'month'
-    //   91: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   96: astore #8
-    //   98: aload_0
-    //   99: ldc_w 'year'
-    //   102: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   107: astore #9
-    //   109: aload_0
-    //   110: ldc_w 'day'
-    //   113: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   118: astore #10
-    //   120: aload_0
-    //   121: ldc_w 'type'
-    //   124: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   129: astore #11
-    //   131: ldc_w '-'
-    //   134: astore #12
-    //   136: ldc_w 'F'
-    //   139: aload_3
-    //   140: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   143: ifne -> 180
-    //   146: ldc_w 'SELECT CHR_DELETEUSER  FROM m_inventorysetting  WHERE INT_ROWID=1'
-    //   149: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   152: iconst_0
-    //   153: aaload
-    //   154: iconst_0
-    //   155: aaload
-    //   156: ldc_w ','
-    //   159: invokevirtual split : (Ljava/lang/String;)[Ljava/lang/String;
-    //   162: aload_2
-    //   163: ldc_w 'USRID'
-    //   166: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   171: invokevirtual toString : ()Ljava/lang/String;
-    //   174: invokestatic contains : ([Ljava/lang/Object;Ljava/lang/Object;)Z
-    //   177: ifeq -> 185
-    //   180: ldc_w 'F'
-    //   183: astore #12
-    //   185: ldc ''
-    //   187: astore #13
-    //   189: ldc_w '  SELECT a.CHR_SALESNO ,date_format(a.DAT_SALESDATE,'%d-%b-%Y'),FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID), '
-    //   192: astore #13
-    //   194: new java/lang/StringBuilder
-    //   197: dup
-    //   198: aload #13
-    //   200: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   203: invokespecial <init> : (Ljava/lang/String;)V
-    //   206: ldc_w ' a.CHR_REF , a.DOU_NETAMOUNT,a.CHR_PAYMENTSTATUS,c.CHR_STAFFNAME ,  '
-    //   209: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   212: invokevirtual toString : ()Ljava/lang/String;
-    //   215: astore #13
-    //   217: new java/lang/StringBuilder
-    //   220: dup
-    //   221: aload #13
-    //   223: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   226: invokespecial <init> : (Ljava/lang/String;)V
-    //   229: ldc_w ' (SELECT   count(*) FROM inv_t_paymentcommitment e WHERE   e.CHR_SALESNO =a.CHR_SALESNO  AND e.CHR_STATUS='N' GROUP BY  e.CHR_SALESNO ),'
-    //   232: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   235: invokevirtual toString : ()Ljava/lang/String;
-    //   238: astore #13
-    //   240: new java/lang/StringBuilder
-    //   243: dup
-    //   244: aload #13
-    //   246: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   249: invokespecial <init> : (Ljava/lang/String;)V
-    //   252: ldc_w ' (SELECT f.CHR_STAFFNAME FROM com_m_staff  f WHERE f.CHR_USERID= a.CHR_USRNAME) ,'
-    //   255: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   258: invokevirtual toString : ()Ljava/lang/String;
-    //   261: astore #13
-    //   263: new java/lang/StringBuilder
-    //   266: dup
-    //   267: aload #13
-    //   269: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   272: invokespecial <init> : (Ljava/lang/String;)V
-    //   275: ldc_w ' d.CHR_STATUS,a.CHR_CANCEL,FUN_INV_DIVISION(a.INT_DIVIID) , '
-    //   278: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   281: invokevirtual toString : ()Ljava/lang/String;
-    //   284: astore #13
-    //   286: new java/lang/StringBuilder
-    //   289: dup
-    //   290: aload #13
-    //   292: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   295: invokespecial <init> : (Ljava/lang/String;)V
-    //   298: ldc_w ' (NOW() > DATE_ADD(DAT_SALESDATE, INTERVAL (SELECT INT_INVOCECHANGES FROM m_inventorysetting WHERE INT_ROWID= 1) DAY )) '
-    //   301: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   304: invokevirtual toString : ()Ljava/lang/String;
-    //   307: astore #13
-    //   309: new java/lang/StringBuilder
-    //   312: dup
-    //   313: aload #13
-    //   315: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   318: invokespecial <init> : (Ljava/lang/String;)V
-    //   321: ldc_w ' FROM inv_t_servicebilling a, inv_m_customerinfo b ,com_m_staff c ,'
-    //   324: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   327: invokevirtual toString : ()Ljava/lang/String;
-    //   330: astore #13
-    //   332: new java/lang/StringBuilder
-    //   335: dup
-    //   336: aload #13
-    //   338: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   341: invokespecial <init> : (Ljava/lang/String;)V
-    //   344: ldc_w ' inv_t_paymentcommitment d   WHERE  a.CHR_SALESNO =d.CHR_SALESNO  '
-    //   347: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   350: invokevirtual toString : ()Ljava/lang/String;
-    //   353: astore #13
-    //   355: new java/lang/StringBuilder
-    //   358: dup
-    //   359: aload #13
-    //   361: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   364: invokespecial <init> : (Ljava/lang/String;)V
-    //   367: ldc_w '  AND a.INT_CUSTOMERID=b.INT_CUSTOMERID AND c.CHR_EMPID = a.CHR_REF    '
-    //   370: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   373: invokevirtual toString : ()Ljava/lang/String;
-    //   376: astore #13
-    //   378: new java/lang/StringBuilder
-    //   381: dup
-    //   382: aload #13
-    //   384: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   387: invokespecial <init> : (Ljava/lang/String;)V
-    //   390: ldc_w ' AND a.INT_BRANCHID='
-    //   393: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   396: aload #6
-    //   398: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   401: ldc_w ' '
-    //   404: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   407: invokevirtual toString : ()Ljava/lang/String;
-    //   410: astore #13
-    //   412: new java/lang/StringBuilder
-    //   415: dup
-    //   416: aload #13
-    //   418: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   421: invokespecial <init> : (Ljava/lang/String;)V
-    //   424: ldc_w ' AND YEAR(a.DAT_SALESDATE)='
-    //   427: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   430: aload #9
-    //   432: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   435: ldc_w ' '
-    //   438: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   441: invokevirtual toString : ()Ljava/lang/String;
-    //   444: astore #13
-    //   446: ldc '0'
-    //   448: aload #8
-    //   450: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   453: ifne -> 490
-    //   456: new java/lang/StringBuilder
-    //   459: dup
-    //   460: aload #13
-    //   462: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   465: invokespecial <init> : (Ljava/lang/String;)V
-    //   468: ldc_w ' AND MONTH(a.DAT_SALESDATE)='
-    //   471: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   474: aload #8
-    //   476: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   479: ldc_w ' '
-    //   482: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   485: invokevirtual toString : ()Ljava/lang/String;
-    //   488: astore #13
-    //   490: ldc '0'
-    //   492: aload #10
-    //   494: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   497: ifne -> 528
-    //   500: new java/lang/StringBuilder
-    //   503: dup
-    //   504: aload #13
-    //   506: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   509: invokespecial <init> : (Ljava/lang/String;)V
-    //   512: ldc_w ' AND DAY(a.DAT_SALESDATE)= '
-    //   515: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   518: aload #10
-    //   520: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   523: invokevirtual toString : ()Ljava/lang/String;
-    //   526: astore #13
-    //   528: ldc '0'
-    //   530: aload #5
-    //   532: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   535: ifne -> 566
-    //   538: new java/lang/StringBuilder
-    //   541: dup
-    //   542: aload #13
-    //   544: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   547: invokespecial <init> : (Ljava/lang/String;)V
-    //   550: ldc_w ' AND a.INT_CUSTOMERID='
-    //   553: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   556: aload #5
-    //   558: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   561: invokevirtual toString : ()Ljava/lang/String;
-    //   564: astore #13
-    //   566: ldc '0'
-    //   568: aload #4
-    //   570: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   573: ifne -> 604
-    //   576: new java/lang/StringBuilder
-    //   579: dup
-    //   580: aload #13
-    //   582: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   585: invokespecial <init> : (Ljava/lang/String;)V
-    //   588: ldc_w ' AND a.INT_DIVIID='
-    //   591: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   594: aload #4
-    //   596: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   599: invokevirtual toString : ()Ljava/lang/String;
-    //   602: astore #13
-    //   604: ldc_w '1'
-    //   607: aload #11
-    //   609: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   612: ifeq -> 664
-    //   615: ldc '0'
-    //   617: aload #7
-    //   619: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   622: ifne -> 712
-    //   625: new java/lang/StringBuilder
-    //   628: dup
-    //   629: aload #13
-    //   631: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   634: invokespecial <init> : (Ljava/lang/String;)V
-    //   637: ldc_w ' AND FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID) LIKE ''
-    //   640: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   643: aload #7
-    //   645: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   648: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   651: ldc '%''
-    //   653: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   656: invokevirtual toString : ()Ljava/lang/String;
-    //   659: astore #13
-    //   661: goto -> 712
-    //   664: new java/lang/StringBuilder
-    //   667: dup
-    //   668: aload #13
-    //   670: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   673: invokespecial <init> : (Ljava/lang/String;)V
-    //   676: ldc_w ' AND ( (a.CHR_SALESNO LIKE '%'
-    //   679: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   682: aload #7
-    //   684: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   687: ldc_w '%') OR ( FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID) LIKE '%'
-    //   690: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   693: aload #7
-    //   695: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   698: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   701: ldc_w '%') )'
-    //   704: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   707: invokevirtual toString : ()Ljava/lang/String;
-    //   710: astore #13
-    //   712: new java/lang/StringBuilder
-    //   715: dup
-    //   716: aload #13
-    //   718: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   721: invokespecial <init> : (Ljava/lang/String;)V
-    //   724: ldc_w '  GROUP BY  a.INT_ID'
-    //   727: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   730: invokevirtual toString : ()Ljava/lang/String;
-    //   733: astore #13
-    //   735: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   738: aload #13
-    //   740: invokevirtual println : (Ljava/lang/String;)V
-    //   743: aload #13
-    //   745: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   748: astore #14
-    //   750: new java/lang/StringBuffer
-    //   753: dup
-    //   754: invokespecial <init> : ()V
-    //   757: astore #15
-    //   759: aload #14
-    //   761: arraylength
-    //   762: ifle -> 1318
-    //   765: iconst_0
-    //   766: istore #16
-    //   768: goto -> 1253
-    //   771: aload #15
-    //   773: ldc_w '<Service>'
-    //   776: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   779: pop
-    //   780: aload #15
-    //   782: new java/lang/StringBuilder
-    //   785: dup
-    //   786: ldc_w '<Invoiceno>'
-    //   789: invokespecial <init> : (Ljava/lang/String;)V
-    //   792: aload #14
-    //   794: iload #16
-    //   796: aaload
-    //   797: iconst_0
-    //   798: aaload
-    //   799: invokevirtual trim : ()Ljava/lang/String;
-    //   802: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   805: ldc_w '</Invoiceno>'
-    //   808: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   811: invokevirtual toString : ()Ljava/lang/String;
-    //   814: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   817: pop
-    //   818: aload #15
-    //   820: new java/lang/StringBuilder
-    //   823: dup
-    //   824: ldc_w '<Date>'
-    //   827: invokespecial <init> : (Ljava/lang/String;)V
-    //   830: aload #14
-    //   832: iload #16
-    //   834: aaload
-    //   835: iconst_1
-    //   836: aaload
-    //   837: invokevirtual trim : ()Ljava/lang/String;
-    //   840: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   843: ldc_w '</Date>'
-    //   846: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   849: invokevirtual toString : ()Ljava/lang/String;
-    //   852: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   855: pop
-    //   856: aload #15
-    //   858: new java/lang/StringBuilder
-    //   861: dup
-    //   862: ldc_w '<Customer>'
-    //   865: invokespecial <init> : (Ljava/lang/String;)V
-    //   868: aload #14
-    //   870: iload #16
-    //   872: aaload
-    //   873: iconst_2
-    //   874: aaload
-    //   875: ldc '&'
-    //   877: ldc ''
-    //   879: invokevirtual replace : (Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-    //   882: invokevirtual trim : ()Ljava/lang/String;
-    //   885: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   888: ldc_w '</Customer>'
-    //   891: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   894: invokevirtual toString : ()Ljava/lang/String;
-    //   897: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   900: pop
-    //   901: aload #15
-    //   903: new java/lang/StringBuilder
-    //   906: dup
-    //   907: ldc_w '<Ref>'
-    //   910: invokespecial <init> : (Ljava/lang/String;)V
-    //   913: aload #14
-    //   915: iload #16
-    //   917: aaload
-    //   918: bipush #6
-    //   920: aaload
-    //   921: invokevirtual trim : ()Ljava/lang/String;
-    //   924: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   927: ldc_w '</Ref>'
-    //   930: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   933: invokevirtual toString : ()Ljava/lang/String;
-    //   936: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   939: pop
-    //   940: aload #15
-    //   942: new java/lang/StringBuilder
-    //   945: dup
-    //   946: ldc_w '<Amount>'
-    //   949: invokespecial <init> : (Ljava/lang/String;)V
-    //   952: aload #14
-    //   954: iload #16
-    //   956: aaload
-    //   957: iconst_4
-    //   958: aaload
-    //   959: invokevirtual trim : ()Ljava/lang/String;
-    //   962: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   965: ldc_w '</Amount>'
-    //   968: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   971: invokevirtual toString : ()Ljava/lang/String;
-    //   974: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   977: pop
-    //   978: aload #15
-    //   980: new java/lang/StringBuilder
-    //   983: dup
-    //   984: ldc_w '<Status>'
-    //   987: invokespecial <init> : (Ljava/lang/String;)V
-    //   990: aload #14
-    //   992: iload #16
-    //   994: aaload
-    //   995: iconst_5
-    //   996: aaload
-    //   997: invokevirtual trim : ()Ljava/lang/String;
-    //   1000: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1003: ldc_w '</Status>'
-    //   1006: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1009: invokevirtual toString : ()Ljava/lang/String;
-    //   1012: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1015: pop
-    //   1016: aload #15
-    //   1018: new java/lang/StringBuilder
-    //   1021: dup
-    //   1022: ldc_w '<Commitment>'
-    //   1025: invokespecial <init> : (Ljava/lang/String;)V
-    //   1028: aload #14
-    //   1030: iload #16
-    //   1032: aaload
-    //   1033: bipush #9
-    //   1035: aaload
-    //   1036: invokevirtual trim : ()Ljava/lang/String;
-    //   1039: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1042: ldc_w '</Commitment>'
-    //   1045: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1048: invokevirtual toString : ()Ljava/lang/String;
-    //   1051: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1054: pop
-    //   1055: aload #15
-    //   1057: new java/lang/StringBuilder
-    //   1060: dup
-    //   1061: ldc_w '<Userid>'
-    //   1064: invokespecial <init> : (Ljava/lang/String;)V
-    //   1067: aload #14
-    //   1069: iload #16
-    //   1071: aaload
-    //   1072: bipush #8
-    //   1074: aaload
-    //   1075: invokevirtual trim : ()Ljava/lang/String;
-    //   1078: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1081: ldc_w '</Userid>'
-    //   1084: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1087: invokevirtual toString : ()Ljava/lang/String;
-    //   1090: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1093: pop
-    //   1094: aload #15
-    //   1096: new java/lang/StringBuilder
-    //   1099: dup
-    //   1100: ldc_w '<Cancel>'
-    //   1103: invokespecial <init> : (Ljava/lang/String;)V
-    //   1106: aload #14
-    //   1108: iload #16
-    //   1110: aaload
-    //   1111: bipush #10
-    //   1113: aaload
-    //   1114: invokevirtual trim : ()Ljava/lang/String;
-    //   1117: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1120: ldc_w '</Cancel>'
-    //   1123: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1126: invokevirtual toString : ()Ljava/lang/String;
-    //   1129: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1132: pop
-    //   1133: aload #15
-    //   1135: new java/lang/StringBuilder
-    //   1138: dup
-    //   1139: ldc_w '<Division>'
-    //   1142: invokespecial <init> : (Ljava/lang/String;)V
-    //   1145: aload #14
-    //   1147: iload #16
-    //   1149: aaload
-    //   1150: bipush #11
-    //   1152: aaload
-    //   1153: invokevirtual trim : ()Ljava/lang/String;
-    //   1156: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1159: ldc_w '</Division>'
-    //   1162: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1165: invokevirtual toString : ()Ljava/lang/String;
-    //   1168: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1171: pop
-    //   1172: aload #15
-    //   1174: new java/lang/StringBuilder
-    //   1177: dup
-    //   1178: ldc_w '<Dtcheck>'
-    //   1181: invokespecial <init> : (Ljava/lang/String;)V
-    //   1184: aload #14
-    //   1186: iload #16
-    //   1188: aaload
-    //   1189: bipush #12
-    //   1191: aaload
-    //   1192: invokevirtual trim : ()Ljava/lang/String;
-    //   1195: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1198: ldc_w '</Dtcheck>'
-    //   1201: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1204: invokevirtual toString : ()Ljava/lang/String;
-    //   1207: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1210: pop
-    //   1211: aload #15
-    //   1213: new java/lang/StringBuilder
-    //   1216: dup
-    //   1217: ldc_w '<Usertype>'
-    //   1220: invokespecial <init> : (Ljava/lang/String;)V
-    //   1223: aload #12
-    //   1225: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1228: ldc_w '</Usertype>'
-    //   1231: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1234: invokevirtual toString : ()Ljava/lang/String;
-    //   1237: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1240: pop
-    //   1241: aload #15
-    //   1243: ldc_w '</Service>'
-    //   1246: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1249: pop
-    //   1250: iinc #16, 1
-    //   1253: iload #16
-    //   1255: aload #14
-    //   1257: arraylength
-    //   1258: if_icmplt -> 771
-    //   1261: aload_1
-    //   1262: ldc 'text/xml'
-    //   1264: invokeinterface setContentType : (Ljava/lang/String;)V
-    //   1269: aload_1
-    //   1270: ldc 'Cache-Control'
-    //   1272: ldc 'no-cache'
-    //   1274: invokeinterface setHeader : (Ljava/lang/String;Ljava/lang/String;)V
-    //   1279: aload_1
-    //   1280: invokeinterface getWriter : ()Ljava/io/PrintWriter;
-    //   1285: new java/lang/StringBuilder
-    //   1288: dup
-    //   1289: ldc_w '<Services>'
-    //   1292: invokespecial <init> : (Ljava/lang/String;)V
-    //   1295: aload #15
-    //   1297: invokevirtual toString : ()Ljava/lang/String;
-    //   1300: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1303: ldc_w '</Services>'
-    //   1306: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1309: invokevirtual toString : ()Ljava/lang/String;
-    //   1312: invokevirtual write : (Ljava/lang/String;)V
-    //   1315: goto -> 1370
-    //   1318: aload_1
-    //   1319: sipush #204
-    //   1322: invokeinterface setStatus : (I)V
-    //   1327: goto -> 1370
-    //   1330: astore_2
-    //   1331: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   1334: aload_2
-    //   1335: invokevirtual getMessage : ()Ljava/lang/String;
-    //   1338: invokevirtual println : (Ljava/lang/String;)V
-    //   1341: aload_0
-    //   1342: ldc 'error'
-    //   1344: aload_2
-    //   1345: invokevirtual getMessage : ()Ljava/lang/String;
-    //   1348: invokeinterface setAttribute : (Ljava/lang/String;Ljava/lang/Object;)V
-    //   1353: aload_0
-    //   1354: ldc '/error/index.jsp'
-    //   1356: invokeinterface getRequestDispatcher : (Ljava/lang/String;)Ljavax/servlet/RequestDispatcher;
-    //   1361: astore_3
-    //   1362: aload_3
-    //   1363: aload_0
-    //   1364: aload_1
-    //   1365: invokeinterface forward : (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
-    //   1370: return
-    // Line number table:
-    //   Java source line number -> byte code offset
-    //   #5156	-> 0
-    //   #5157	-> 7
-    //   #5159	-> 30
-    //   #5160	-> 41
-    //   #5161	-> 52
-    //   #5162	-> 63
-    //   #5163	-> 87
-    //   #5164	-> 98
-    //   #5165	-> 109
-    //   #5166	-> 120
-    //   #5167	-> 131
-    //   #5168	-> 136
-    //   #5172	-> 146
-    //   #5171	-> 153
-    //   #5172	-> 154
-    //   #5171	-> 155
-    //   #5173	-> 156
-    //   #5174	-> 162
-    //   #5170	-> 174
-    //   #5174	-> 177
-    //   #5175	-> 180
-    //   #5177	-> 185
-    //   #5178	-> 189
-    //   #5179	-> 194
-    //   #5180	-> 217
-    //   #5181	-> 240
-    //   #5182	-> 263
-    //   #5183	-> 286
-    //   #5184	-> 309
-    //   #5185	-> 332
-    //   #5186	-> 355
-    //   #5187	-> 378
-    //   #5188	-> 412
-    //   #5189	-> 446
-    //   #5190	-> 456
-    //   #5191	-> 490
-    //   #5192	-> 500
-    //   #5193	-> 528
-    //   #5194	-> 538
-    //   #5195	-> 566
-    //   #5196	-> 576
-    //   #5198	-> 604
-    //   #5200	-> 615
-    //   #5201	-> 625
-    //   #5202	-> 661
-    //   #5205	-> 664
-    //   #5207	-> 712
-    //   #5214	-> 735
-    //   #5216	-> 743
-    //   #5217	-> 750
-    //   #5218	-> 759
-    //   #5220	-> 765
-    //   #5222	-> 771
-    //   #5223	-> 780
-    //   #5224	-> 818
-    //   #5225	-> 856
-    //   #5226	-> 901
-    //   #5227	-> 940
-    //   #5228	-> 978
-    //   #5229	-> 1016
-    //   #5230	-> 1055
-    //   #5231	-> 1094
-    //   #5232	-> 1133
-    //   #5233	-> 1172
-    //   #5234	-> 1211
-    //   #5235	-> 1241
-    //   #5220	-> 1250
-    //   #5237	-> 1261
-    //   #5238	-> 1269
-    //   #5239	-> 1279
-    //   #5240	-> 1315
-    //   #5243	-> 1318
-    //   #5246	-> 1327
-    //   #5247	-> 1330
-    //   #5249	-> 1331
-    //   #5250	-> 1341
-    //   #5251	-> 1353
-    //   #5252	-> 1362
-    //   #5254	-> 1370
-    // Local variable table:
-    //   start	length	slot	name	descriptor
-    //   0	1371	0	request	Ljavax/servlet/http/HttpServletRequest;
-    //   0	1371	1	response	Ljavax/servlet/http/HttpServletResponse;
-    //   7	1320	2	session	Ljavax/servlet/http/HttpSession;
-    //   30	1297	3	usertype	Ljava/lang/String;
-    //   41	1286	4	division	Ljava/lang/String;
-    //   52	1275	5	customer	Ljava/lang/String;
-    //   63	1264	6	Branch	Ljava/lang/String;
-    //   87	1240	7	StartLetter	Ljava/lang/String;
-    //   98	1229	8	month	Ljava/lang/String;
-    //   109	1218	9	year	Ljava/lang/String;
-    //   120	1207	10	day	Ljava/lang/String;
-    //   131	1196	11	type	Ljava/lang/String;
-    //   136	1191	12	Usertype	Ljava/lang/String;
-    //   189	1138	13	sql	Ljava/lang/String;
-    //   750	577	14	readData	[[Ljava/lang/String;
-    //   759	568	15	sb	Ljava/lang/StringBuffer;
-    //   768	493	16	u	I
-    //   1331	39	2	e	Ljava/lang/Exception;
-    //   1362	8	3	dispatchers	Ljavax/servlet/RequestDispatcher;
-    // Exception table:
-    //   from	to	target	type
-    //   0	1327	1330	java/lang/Exception
+  public static void LoadServiceBilling(HttpServletRequest request, HttpServletResponse response) 
+		  throws IOException, ServletException {
+
+		try 
+		{
+			HttpSession session = request.getSession();
+			String usertype = "" + session.getAttribute("USRTYPE");
+			
+			String division = request.getParameter("division");
+			String customer = request.getParameter("customer");
+			String Branch = request.getParameter("Branch");
+			String StartLetter = "" + request.getParameter("id");
+			String month = request.getParameter("month");
+			String year = request.getParameter("year");
+			String day = request.getParameter("day");
+			String type = request.getParameter("type");
+			String Usertype = "-";
+			if ("F".equals(usertype)
+					|| ArrayUtils
+							.contains(
+									CommonFunctions
+											.QueryExecute("SELECT CHR_DELETEUSER  FROM m_inventorysetting  WHERE INT_ROWID=1")[0][0]
+											.split(","),
+									session.getAttribute("USRID").toString()))
+				Usertype = "F";
+
+			String sql = "";
+			sql = "  SELECT a.CHR_SALESNO ,date_format(a.DAT_SALESDATE,'%d-%b-%Y'),FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID), ";
+			sql = sql + " a.CHR_REF , a.DOU_NETAMOUNT,a.CHR_PAYMENTSTATUS,c.CHR_STAFFNAME ,  ";
+			sql = sql + " (SELECT   count(*) FROM inv_t_paymentcommitment e WHERE   e.CHR_SALESNO =a.CHR_SALESNO  AND e.CHR_STATUS='N' GROUP BY  e.CHR_SALESNO ),";
+			sql = sql + " (SELECT f.CHR_STAFFNAME FROM com_m_staff  f WHERE f.CHR_USERID= a.CHR_USRNAME) ,";
+			sql = sql + " d.CHR_STATUS,a.CHR_CANCEL,FUN_INV_DIVISION(a.INT_DIVIID) , ";
+			sql = sql + " (NOW() > DATE_ADD(DAT_SALESDATE, INTERVAL (SELECT INT_INVOCECHANGES FROM m_inventorysetting WHERE INT_ROWID= 1) DAY )) ";
+			sql = sql + " FROM inv_t_servicebilling a, inv_m_customerinfo b ,com_m_staff c ,";
+			sql = sql + " inv_t_paymentcommitment d   WHERE  a.CHR_SALESNO =d.CHR_SALESNO  ";
+			sql = sql + "  AND a.INT_CUSTOMERID=b.INT_CUSTOMERID AND c.CHR_EMPID = a.CHR_REF    ";
+			sql = sql + " AND a.INT_BRANCHID=" + Branch + " ";
+			sql = sql + " AND YEAR(a.DAT_SALESDATE)=" + year + " ";
+			if (!"0".equals(month))
+				sql = sql + " AND MONTH(a.DAT_SALESDATE)=" + month + " ";
+			if (!"0".equals(day))
+				sql = sql + " AND DAY(a.DAT_SALESDATE)= " + day;
+			if (!"0".equals(customer))
+				sql = sql + " AND a.INT_CUSTOMERID=" + customer;
+			if (!"0".equals(division))
+				sql = sql + " AND a.INT_DIVIID=" + division;
+			 
+			if("1".equals(type))
+			{	
+				if (!"0".equals(StartLetter))
+					sql = sql + " AND FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID) LIKE '" + StartLetter.toUpperCase() + "%'";
+			}
+			else
+			{
+				sql = sql+ " AND ( (a.CHR_SALESNO LIKE '%"+StartLetter+"%') OR ( FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID) LIKE '%" + StartLetter.toUpperCase() + "%') )";
+			}
+			sql = sql + "  GROUP BY  a.INT_ID";
+			
+			
+
+			// sql=sql+" GROUP BY a.CHR_SALESNO ORDER BY  a.INT_ID ";
+			// GROUP BY a.CHR_SALESNO ORDER BY a.INT_ID
+			// SUBSTRING_INDEX(a.CHR_SALESNO, '/',1) ";
+			System.out.println(sql);
+
+			String readData[][] = CommonFunctions.QueryExecute(sql);
+			StringBuffer sb = new StringBuffer();
+			if (readData.length > 0) 
+			{
+				for (int u = 0; u < readData.length; u++) 
+				{
+					sb.append("<Service>");
+					sb.append("<Invoiceno>" + readData[u][0].trim()	+ "</Invoiceno>");
+					sb.append("<Date>" + readData[u][1].trim() + "</Date>");
+					sb.append("<Customer>"+ readData[u][2].replace("&", "").trim()+ "</Customer>");
+					sb.append("<Ref>" + readData[u][6].trim() + "</Ref>");
+					sb.append("<Amount>" + readData[u][4].trim() + "</Amount>");
+					sb.append("<Status>" + readData[u][5].trim() + "</Status>");
+					sb.append("<Commitment>" + readData[u][9].trim()+ "</Commitment>");
+					sb.append("<Userid>" + readData[u][8].trim() + "</Userid>");
+					sb.append("<Cancel>" + readData[u][10].trim() + "</Cancel>");
+					sb.append("<Division>" + readData[u][11].trim() + "</Division>");
+					sb.append("<Dtcheck>" + readData[u][12].trim() + "</Dtcheck>");
+					sb.append("<Usertype>" + Usertype + "</Usertype>");
+					sb.append("</Service>");
+				}
+				response.setContentType("text/xml");
+				response.setHeader("Cache-Control", "no-cache");
+				response.getWriter().write("<Services>" + sb.toString() + "</Services>");
+			} 
+			else 
+			{
+				response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e.getMessage());
+			request.setAttribute("error", e.getMessage());
+			RequestDispatcher dispatchers = request.getRequestDispatcher("/error/index.jsp");
+			dispatchers.forward(request, response);
+		}
+	
   }
   
   public static void loadAdvanceAmount(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -5795,6 +4536,7 @@ public class InventoryMethod extends HttpServlet {
       } 
       sql = String.valueOf(sql) + " ORDER BY b.CHR_NAME limit 1000 ";
       System.out.println(sql);
+      
       String[][] readData = CommonFunctions.QueryExecute(sql);
       StringBuffer sb = new StringBuffer();
       if (readData.length > 0) {
@@ -5802,7 +4544,7 @@ public class InventoryMethod extends HttpServlet {
           sb.append("<Row>");
           sb.append("<Rowid>" + readData[u][0].trim() + "</Rowid>");
           sb.append("<Group>" + readData[u][1].replace("&", " AND ").trim() + "</Group>");
-          sb.append("<City>" + readData[u][6].trim() + "</City>");
+          sb.append("<City>" + readData[u][6].replace("&", "").trim() + "</City>");
           sb.append("<District>" + readData[u][7].trim() + "</District>");
           sb.append("<State>" + readData[u][8].trim() + "</State>");
           sb.append("<Country>" + readData[u][9].trim() + "</Country>");
@@ -6746,750 +5488,108 @@ public class InventoryMethod extends HttpServlet {
     } 
   }
   
-  public static void loadPOVerification(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    // Byte code:
-    //   0: aload_0
-    //   1: invokeinterface getSession : ()Ljavax/servlet/http/HttpSession;
-    //   6: astore_2
-    //   7: new java/lang/StringBuilder
-    //   10: dup
-    //   11: invokespecial <init> : ()V
-    //   14: aload_2
-    //   15: ldc_w 'INVBRANCH'
-    //   18: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   23: invokevirtual append : (Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   26: invokevirtual toString : ()Ljava/lang/String;
-    //   29: astore_3
-    //   30: new java/lang/StringBuilder
-    //   33: dup
-    //   34: invokespecial <init> : ()V
-    //   37: aload_2
-    //   38: ldc_w 'USRTYPE'
-    //   41: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   46: invokevirtual append : (Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   49: invokevirtual toString : ()Ljava/lang/String;
-    //   52: astore #4
-    //   54: aload_0
-    //   55: ldc_w 'division'
-    //   58: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   63: astore #5
-    //   65: aload_0
-    //   66: ldc_w 'customer'
-    //   69: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   74: astore #6
-    //   76: aload_0
-    //   77: ldc_w 'day'
-    //   80: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   85: astore #7
-    //   87: aload_0
-    //   88: ldc_w 'month'
-    //   91: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   96: astore #8
-    //   98: aload_0
-    //   99: ldc_w 'year'
-    //   102: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   107: astore #9
-    //   109: aload_0
-    //   110: ldc_w 'startletter'
-    //   113: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   118: astore #10
-    //   120: aload_0
-    //   121: ldc_w 'status'
-    //   124: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   129: astore #11
-    //   131: aload_0
-    //   132: ldc_w 'cancel'
-    //   135: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   140: astore #12
-    //   142: ldc_w '-'
-    //   145: astore #13
-    //   147: ldc_w 'F'
-    //   150: aload #4
-    //   152: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   155: ifne -> 192
-    //   158: ldc_w 'SELECT CHR_DELETEUSER  FROM m_inventorysetting  WHERE INT_ROWID=1'
-    //   161: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   164: iconst_0
-    //   165: aaload
-    //   166: iconst_0
-    //   167: aaload
-    //   168: ldc_w ','
-    //   171: invokevirtual split : (Ljava/lang/String;)[Ljava/lang/String;
-    //   174: aload_2
-    //   175: ldc_w 'USRID'
-    //   178: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   183: invokevirtual toString : ()Ljava/lang/String;
-    //   186: invokestatic contains : ([Ljava/lang/Object;Ljava/lang/Object;)Z
-    //   189: ifeq -> 197
-    //   192: ldc_w 'F'
-    //   195: astore #13
-    //   197: ldc_w '  SELECT a.INT_ROWID,FUN_GET_BRANCH_NAME(a.INT_BRANCHID),a.CHR_SALESORDERNO,a.CHR_QUOTATIONNO,FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID), '
-    //   200: astore #14
-    //   202: new java/lang/StringBuilder
-    //   205: dup
-    //   206: aload #14
-    //   208: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   211: invokespecial <init> : (Ljava/lang/String;)V
-    //   214: ldc_w '  FUN_INV_DIVISION(a.INT_DIVIID) ,a.CHR_VERIFICATIED,DATE_FORMAT(a.DAT_SALEDATE,'%d-%b-%Y'), '
-    //   217: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   220: invokevirtual toString : ()Ljava/lang/String;
-    //   223: astore #14
-    //   225: new java/lang/StringBuilder
-    //   228: dup
-    //   229: aload #14
-    //   231: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   234: invokespecial <init> : (Ljava/lang/String;)V
-    //   237: ldc_w '  IF(a.CHR_PR_AVAILABLE='Y' ,a.CHR_POREQUESTNO,'No'), '
-    //   240: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   243: invokevirtual toString : ()Ljava/lang/String;
-    //   246: astore #14
-    //   248: new java/lang/StringBuilder
-    //   251: dup
-    //   252: aload #14
-    //   254: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   257: invokespecial <init> : (Ljava/lang/String;)V
-    //   260: ldc_w '  IF(a.CHR_PR_AVAILABLE='Y',(SELECT IF( b.CHR_CLOSEDSTATUS = 'Y','Closed','Pending') FROM inv_t_purchaserequest b WHERE b.CHR_POREQUESTNO=Trim(a.CHR_POREQUESTNO) ),''), '
-    //   263: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   266: invokevirtual toString : ()Ljava/lang/String;
-    //   269: astore #14
-    //   271: new java/lang/StringBuilder
-    //   274: dup
-    //   275: aload #14
-    //   277: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   280: invokespecial <init> : (Ljava/lang/String;)V
-    //   283: ldc_w '  IF(a.CHR_PR_AVAILABLE='Y',(SELECT IF(c.CHR_PR_PARTIALLY_RECEIVED='P','Partillay received',IF(c.CHR_PR_PARTIALLY_RECEIVED='Y','Fully Receive','Pending') ) FROM inv_t_purchaserequest c WHERE c.CHR_POREQUESTNO=Trim(a.CHR_POREQUESTNO) ),'') ,'
-    //   286: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   289: invokevirtual toString : ()Ljava/lang/String;
-    //   292: astore #14
-    //   294: new java/lang/StringBuilder
-    //   297: dup
-    //   298: aload #14
-    //   300: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   303: invokespecial <init> : (Ljava/lang/String;)V
-    //   306: ldc_w '  a.DOU_TOTALAMOUNT , a.CHR_RFC , a.CHR_PR_MODIFICATION , a.CHR_CANCEL, a.CHR_BILLED ,a.INT_PROGRESSBAR '
-    //   309: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   312: invokevirtual toString : ()Ljava/lang/String;
-    //   315: astore #14
-    //   317: new java/lang/StringBuilder
-    //   320: dup
-    //   321: aload #14
-    //   323: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   326: invokespecial <init> : (Ljava/lang/String;)V
-    //   329: ldc_w '  FROM  inv_t_customersalesorder a WHERE  a.INT_ROWID >0     '
-    //   332: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   335: invokevirtual toString : ()Ljava/lang/String;
-    //   338: astore #14
-    //   340: ldc '0'
-    //   342: aload #6
-    //   344: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   347: ifne -> 378
-    //   350: new java/lang/StringBuilder
-    //   353: dup
-    //   354: aload #14
-    //   356: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   359: invokespecial <init> : (Ljava/lang/String;)V
-    //   362: ldc_w ' AND  a.INT_CUSTOMERID = '
-    //   365: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   368: aload #6
-    //   370: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   373: invokevirtual toString : ()Ljava/lang/String;
-    //   376: astore #14
-    //   378: ldc '0'
-    //   380: aload #5
-    //   382: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   385: ifne -> 416
-    //   388: new java/lang/StringBuilder
-    //   391: dup
-    //   392: aload #14
-    //   394: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   397: invokespecial <init> : (Ljava/lang/String;)V
-    //   400: ldc_w ' AND  a.INT_DIVIID = '
-    //   403: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   406: aload #5
-    //   408: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   411: invokevirtual toString : ()Ljava/lang/String;
-    //   414: astore #14
-    //   416: ldc '0'
-    //   418: aload #7
-    //   420: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   423: ifne -> 454
-    //   426: new java/lang/StringBuilder
-    //   429: dup
-    //   430: aload #14
-    //   432: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   435: invokespecial <init> : (Ljava/lang/String;)V
-    //   438: ldc_w ' AND DAY(a.DAT_SALEDATE) = '
-    //   441: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   444: aload #7
-    //   446: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   449: invokevirtual toString : ()Ljava/lang/String;
-    //   452: astore #14
-    //   454: ldc '0'
-    //   456: aload #8
-    //   458: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   461: ifne -> 492
-    //   464: new java/lang/StringBuilder
-    //   467: dup
-    //   468: aload #14
-    //   470: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   473: invokespecial <init> : (Ljava/lang/String;)V
-    //   476: ldc_w ' AND MONTH(a.DAT_SALEDATE) = '
-    //   479: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   482: aload #8
-    //   484: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   487: invokevirtual toString : ()Ljava/lang/String;
-    //   490: astore #14
-    //   492: ldc '0'
-    //   494: aload #9
-    //   496: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   499: ifne -> 530
-    //   502: new java/lang/StringBuilder
-    //   505: dup
-    //   506: aload #14
-    //   508: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   511: invokespecial <init> : (Ljava/lang/String;)V
-    //   514: ldc_w ' AND YEAR(a.DAT_SALEDATE) = '
-    //   517: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   520: aload #9
-    //   522: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   525: invokevirtual toString : ()Ljava/lang/String;
-    //   528: astore #14
-    //   530: ldc '0'
-    //   532: aload #11
-    //   534: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   537: ifne -> 574
-    //   540: new java/lang/StringBuilder
-    //   543: dup
-    //   544: aload #14
-    //   546: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   549: invokespecial <init> : (Ljava/lang/String;)V
-    //   552: ldc_w ' AND a.CHR_VERIFICATIED = ''
-    //   555: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   558: aload #11
-    //   560: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   563: ldc_w ''  '
-    //   566: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   569: invokevirtual toString : ()Ljava/lang/String;
-    //   572: astore #14
-    //   574: ldc '0'
-    //   576: aload #12
-    //   578: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   581: ifne -> 618
-    //   584: new java/lang/StringBuilder
-    //   587: dup
-    //   588: aload #14
-    //   590: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   593: invokespecial <init> : (Ljava/lang/String;)V
-    //   596: ldc_w ' AND a.CHR_CANCEL = ''
-    //   599: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   602: aload #12
-    //   604: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   607: ldc_w ''  '
-    //   610: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   613: invokevirtual toString : ()Ljava/lang/String;
-    //   616: astore #14
-    //   618: ldc '0'
-    //   620: aload #10
-    //   622: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   625: ifne -> 661
-    //   628: new java/lang/StringBuilder
-    //   631: dup
-    //   632: aload #14
-    //   634: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   637: invokespecial <init> : (Ljava/lang/String;)V
-    //   640: ldc_w ' AND  FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) LIKE ''
-    //   643: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   646: aload #10
-    //   648: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   651: ldc '%' '
-    //   653: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   656: invokevirtual toString : ()Ljava/lang/String;
-    //   659: astore #14
-    //   661: new java/lang/StringBuilder
-    //   664: dup
-    //   665: aload #14
-    //   667: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   670: invokespecial <init> : (Ljava/lang/String;)V
-    //   673: ldc_w ' AND a.INT_BRANCHID='
-    //   676: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   679: aload_3
-    //   680: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   683: ldc_w ' ORDER BY  a.DAT_SALEDATE'
-    //   686: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   689: invokevirtual toString : ()Ljava/lang/String;
-    //   692: astore #14
-    //   694: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   697: aload #14
-    //   699: invokevirtual println : (Ljava/lang/String;)V
-    //   702: aload #14
-    //   704: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   707: astore #15
-    //   709: new java/lang/StringBuffer
-    //   712: dup
-    //   713: invokespecial <init> : ()V
-    //   716: astore #16
-    //   718: aload #15
-    //   720: arraylength
-    //   721: ifle -> 1457
-    //   724: iconst_0
-    //   725: istore #17
-    //   727: goto -> 1394
-    //   730: aload #16
-    //   732: ldc '<Row>'
-    //   734: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   737: pop
-    //   738: aload #16
-    //   740: new java/lang/StringBuilder
-    //   743: dup
-    //   744: ldc '<id>'
-    //   746: invokespecial <init> : (Ljava/lang/String;)V
-    //   749: aload #15
-    //   751: iload #17
-    //   753: aaload
-    //   754: iconst_0
-    //   755: aaload
-    //   756: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   759: ldc '</id>'
-    //   761: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   764: invokevirtual toString : ()Ljava/lang/String;
-    //   767: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   770: pop
-    //   771: aload #16
-    //   773: new java/lang/StringBuilder
-    //   776: dup
-    //   777: ldc_w '<Branch>'
-    //   780: invokespecial <init> : (Ljava/lang/String;)V
-    //   783: aload #15
-    //   785: iload #17
-    //   787: aaload
-    //   788: iconst_1
-    //   789: aaload
-    //   790: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   793: ldc_w '</Branch>'
-    //   796: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   799: invokevirtual toString : ()Ljava/lang/String;
-    //   802: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   805: pop
-    //   806: aload #16
-    //   808: new java/lang/StringBuilder
-    //   811: dup
-    //   812: ldc_w '<CPOref>'
-    //   815: invokespecial <init> : (Ljava/lang/String;)V
-    //   818: aload #15
-    //   820: iload #17
-    //   822: aaload
-    //   823: iconst_2
-    //   824: aaload
-    //   825: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   828: ldc_w '</CPOref>'
-    //   831: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   834: invokevirtual toString : ()Ljava/lang/String;
-    //   837: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   840: pop
-    //   841: aload #16
-    //   843: new java/lang/StringBuilder
-    //   846: dup
-    //   847: ldc_w '<Quotation>'
-    //   850: invokespecial <init> : (Ljava/lang/String;)V
-    //   853: aload #15
-    //   855: iload #17
-    //   857: aaload
-    //   858: iconst_3
-    //   859: aaload
-    //   860: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   863: ldc_w '</Quotation>'
-    //   866: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   869: invokevirtual toString : ()Ljava/lang/String;
-    //   872: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   875: pop
-    //   876: aload #16
-    //   878: new java/lang/StringBuilder
-    //   881: dup
-    //   882: ldc_w '<customerName>'
-    //   885: invokespecial <init> : (Ljava/lang/String;)V
-    //   888: aload #15
-    //   890: iload #17
-    //   892: aaload
-    //   893: iconst_4
-    //   894: aaload
-    //   895: ldc '&'
-    //   897: ldc_w ' AND '
-    //   900: invokevirtual replaceAll : (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    //   903: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   906: ldc_w '</customerName>'
-    //   909: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   912: invokevirtual toString : ()Ljava/lang/String;
-    //   915: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   918: pop
-    //   919: aload #16
-    //   921: new java/lang/StringBuilder
-    //   924: dup
-    //   925: ldc_w '<Division>'
-    //   928: invokespecial <init> : (Ljava/lang/String;)V
-    //   931: aload #15
-    //   933: iload #17
-    //   935: aaload
-    //   936: iconst_5
-    //   937: aaload
-    //   938: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   941: ldc_w '</Division>'
-    //   944: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   947: invokevirtual toString : ()Ljava/lang/String;
-    //   950: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   953: pop
-    //   954: aload #16
-    //   956: new java/lang/StringBuilder
-    //   959: dup
-    //   960: ldc_w '<Verified>'
-    //   963: invokespecial <init> : (Ljava/lang/String;)V
-    //   966: aload #15
-    //   968: iload #17
-    //   970: aaload
-    //   971: bipush #6
-    //   973: aaload
-    //   974: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   977: ldc_w '</Verified>'
-    //   980: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   983: invokevirtual toString : ()Ljava/lang/String;
-    //   986: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   989: pop
-    //   990: aload #16
-    //   992: new java/lang/StringBuilder
-    //   995: dup
-    //   996: ldc_w '<CPODate>'
-    //   999: invokespecial <init> : (Ljava/lang/String;)V
-    //   1002: aload #15
-    //   1004: iload #17
-    //   1006: aaload
-    //   1007: bipush #7
-    //   1009: aaload
-    //   1010: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1013: ldc_w '</CPODate>'
-    //   1016: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1019: invokevirtual toString : ()Ljava/lang/String;
-    //   1022: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1025: pop
-    //   1026: aload #16
-    //   1028: new java/lang/StringBuilder
-    //   1031: dup
-    //   1032: ldc_w '<PR>'
-    //   1035: invokespecial <init> : (Ljava/lang/String;)V
-    //   1038: aload #15
-    //   1040: iload #17
-    //   1042: aaload
-    //   1043: bipush #8
-    //   1045: aaload
-    //   1046: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1049: ldc_w '</PR>'
-    //   1052: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1055: invokevirtual toString : ()Ljava/lang/String;
-    //   1058: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1061: pop
-    //   1062: aload #16
-    //   1064: new java/lang/StringBuilder
-    //   1067: dup
-    //   1068: ldc_w '<PRStatus>'
-    //   1071: invokespecial <init> : (Ljava/lang/String;)V
-    //   1074: aload #15
-    //   1076: iload #17
-    //   1078: aaload
-    //   1079: bipush #9
-    //   1081: aaload
-    //   1082: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1085: ldc_w '</PRStatus>'
-    //   1088: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1091: invokevirtual toString : ()Ljava/lang/String;
-    //   1094: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1097: pop
-    //   1098: aload #16
-    //   1100: new java/lang/StringBuilder
-    //   1103: dup
-    //   1104: ldc_w '<Inward>'
-    //   1107: invokespecial <init> : (Ljava/lang/String;)V
-    //   1110: aload #15
-    //   1112: iload #17
-    //   1114: aaload
-    //   1115: bipush #10
-    //   1117: aaload
-    //   1118: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1121: ldc_w '</Inward>'
-    //   1124: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1127: invokevirtual toString : ()Ljava/lang/String;
-    //   1130: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1133: pop
-    //   1134: aload #16
-    //   1136: new java/lang/StringBuilder
-    //   1139: dup
-    //   1140: ldc_w '<Amount>'
-    //   1143: invokespecial <init> : (Ljava/lang/String;)V
-    //   1146: aload #15
-    //   1148: iload #17
-    //   1150: aaload
-    //   1151: bipush #11
-    //   1153: aaload
-    //   1154: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1157: ldc_w '</Amount>'
-    //   1160: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1163: invokevirtual toString : ()Ljava/lang/String;
-    //   1166: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1169: pop
-    //   1170: aload #16
-    //   1172: new java/lang/StringBuilder
-    //   1175: dup
-    //   1176: ldc_w '<RFC>'
-    //   1179: invokespecial <init> : (Ljava/lang/String;)V
-    //   1182: aload #15
-    //   1184: iload #17
-    //   1186: aaload
-    //   1187: bipush #12
-    //   1189: aaload
-    //   1190: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1193: ldc_w '</RFC>'
-    //   1196: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1199: invokevirtual toString : ()Ljava/lang/String;
-    //   1202: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1205: pop
-    //   1206: aload #16
-    //   1208: new java/lang/StringBuilder
-    //   1211: dup
-    //   1212: ldc_w '<PRModify>'
-    //   1215: invokespecial <init> : (Ljava/lang/String;)V
-    //   1218: aload #15
-    //   1220: iload #17
-    //   1222: aaload
-    //   1223: bipush #13
-    //   1225: aaload
-    //   1226: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1229: ldc_w '</PRModify>'
-    //   1232: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1235: invokevirtual toString : ()Ljava/lang/String;
-    //   1238: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1241: pop
-    //   1242: aload #16
-    //   1244: new java/lang/StringBuilder
-    //   1247: dup
-    //   1248: ldc_w '<Cancel>'
-    //   1251: invokespecial <init> : (Ljava/lang/String;)V
-    //   1254: aload #15
-    //   1256: iload #17
-    //   1258: aaload
-    //   1259: bipush #14
-    //   1261: aaload
-    //   1262: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1265: ldc_w '</Cancel>'
-    //   1268: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1271: invokevirtual toString : ()Ljava/lang/String;
-    //   1274: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1277: pop
-    //   1278: aload #16
-    //   1280: new java/lang/StringBuilder
-    //   1283: dup
-    //   1284: ldc_w '<Billed>'
-    //   1287: invokespecial <init> : (Ljava/lang/String;)V
-    //   1290: aload #15
-    //   1292: iload #17
-    //   1294: aaload
-    //   1295: bipush #15
-    //   1297: aaload
-    //   1298: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1301: ldc_w '</Billed>'
-    //   1304: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1307: invokevirtual toString : ()Ljava/lang/String;
-    //   1310: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1313: pop
-    //   1314: aload #16
-    //   1316: new java/lang/StringBuilder
-    //   1319: dup
-    //   1320: ldc_w '<Bar>'
-    //   1323: invokespecial <init> : (Ljava/lang/String;)V
-    //   1326: aload #15
-    //   1328: iload #17
-    //   1330: aaload
-    //   1331: bipush #16
-    //   1333: aaload
-    //   1334: invokevirtual trim : ()Ljava/lang/String;
-    //   1337: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1340: ldc_w '</Bar>'
-    //   1343: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1346: invokevirtual toString : ()Ljava/lang/String;
-    //   1349: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1352: pop
-    //   1353: aload #16
-    //   1355: new java/lang/StringBuilder
-    //   1358: dup
-    //   1359: ldc_w '<Usertype>'
-    //   1362: invokespecial <init> : (Ljava/lang/String;)V
-    //   1365: aload #13
-    //   1367: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1370: ldc_w '</Usertype>'
-    //   1373: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1376: invokevirtual toString : ()Ljava/lang/String;
-    //   1379: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1382: pop
-    //   1383: aload #16
-    //   1385: ldc '</Row>'
-    //   1387: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1390: pop
-    //   1391: iinc #17, 1
-    //   1394: iload #17
-    //   1396: aload #15
-    //   1398: arraylength
-    //   1399: if_icmplt -> 730
-    //   1402: aload_1
-    //   1403: ldc 'text/xml'
-    //   1405: invokeinterface setContentType : (Ljava/lang/String;)V
-    //   1410: aload_1
-    //   1411: ldc 'Cache-Control'
-    //   1413: ldc 'no-cache'
-    //   1415: invokeinterface setHeader : (Ljava/lang/String;Ljava/lang/String;)V
-    //   1420: aload_1
-    //   1421: invokeinterface getWriter : ()Ljava/io/PrintWriter;
-    //   1426: new java/lang/StringBuilder
-    //   1429: dup
-    //   1430: ldc '<Rows>'
-    //   1432: invokespecial <init> : (Ljava/lang/String;)V
-    //   1435: aload #16
-    //   1437: invokevirtual toString : ()Ljava/lang/String;
-    //   1440: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1443: ldc '</Rows>'
-    //   1445: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1448: invokevirtual toString : ()Ljava/lang/String;
-    //   1451: invokevirtual write : (Ljava/lang/String;)V
-    //   1454: goto -> 1509
-    //   1457: aload_1
-    //   1458: sipush #204
-    //   1461: invokeinterface setStatus : (I)V
-    //   1466: goto -> 1509
-    //   1469: astore_2
-    //   1470: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   1473: aload_2
-    //   1474: invokevirtual getMessage : ()Ljava/lang/String;
-    //   1477: invokevirtual println : (Ljava/lang/String;)V
-    //   1480: aload_0
-    //   1481: ldc 'error'
-    //   1483: aload_2
-    //   1484: invokevirtual getMessage : ()Ljava/lang/String;
-    //   1487: invokeinterface setAttribute : (Ljava/lang/String;Ljava/lang/Object;)V
-    //   1492: aload_0
-    //   1493: ldc '/error/index.jsp'
-    //   1495: invokeinterface getRequestDispatcher : (Ljava/lang/String;)Ljavax/servlet/RequestDispatcher;
-    //   1500: astore_3
-    //   1501: aload_3
-    //   1502: aload_0
-    //   1503: aload_1
-    //   1504: invokeinterface forward : (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
-    //   1509: return
-    // Line number table:
-    //   Java source line number -> byte code offset
-    //   #6571	-> 0
-    //   #6572	-> 7
-    //   #6573	-> 30
-    //   #6574	-> 54
-    //   #6575	-> 65
-    //   #6576	-> 76
-    //   #6577	-> 87
-    //   #6578	-> 98
-    //   #6579	-> 109
-    //   #6580	-> 120
-    //   #6581	-> 131
-    //   #6582	-> 142
-    //   #6583	-> 147
-    //   #6587	-> 158
-    //   #6586	-> 165
-    //   #6587	-> 166
-    //   #6586	-> 167
-    //   #6588	-> 168
-    //   #6589	-> 174
-    //   #6585	-> 186
-    //   #6589	-> 189
-    //   #6590	-> 192
-    //   #6592	-> 197
-    //   #6593	-> 202
-    //   #6594	-> 225
-    //   #6595	-> 248
-    //   #6596	-> 271
-    //   #6597	-> 294
-    //   #6599	-> 317
-    //   #6600	-> 340
-    //   #6601	-> 350
-    //   #6602	-> 378
-    //   #6603	-> 388
-    //   #6604	-> 416
-    //   #6605	-> 426
-    //   #6606	-> 454
-    //   #6607	-> 464
-    //   #6608	-> 492
-    //   #6609	-> 502
-    //   #6610	-> 530
-    //   #6611	-> 540
-    //   #6612	-> 574
-    //   #6613	-> 584
-    //   #6615	-> 618
-    //   #6616	-> 628
-    //   #6617	-> 661
-    //   #6619	-> 694
-    //   #6620	-> 702
-    //   #6621	-> 709
-    //   #6623	-> 718
-    //   #6625	-> 724
-    //   #6628	-> 730
-    //   #6629	-> 738
-    //   #6630	-> 771
-    //   #6631	-> 806
-    //   #6632	-> 841
-    //   #6633	-> 876
-    //   #6634	-> 919
-    //   #6635	-> 954
-    //   #6636	-> 990
-    //   #6637	-> 1026
-    //   #6638	-> 1062
-    //   #6639	-> 1098
-    //   #6640	-> 1134
-    //   #6641	-> 1170
-    //   #6642	-> 1206
-    //   #6643	-> 1242
-    //   #6644	-> 1278
-    //   #6645	-> 1314
-    //   #6646	-> 1353
-    //   #6647	-> 1383
-    //   #6625	-> 1391
-    //   #6651	-> 1402
-    //   #6652	-> 1410
-    //   #6653	-> 1420
-    //   #6654	-> 1454
-    //   #6657	-> 1457
-    //   #6659	-> 1466
-    //   #6660	-> 1469
-    //   #6662	-> 1470
-    //   #6663	-> 1480
-    //   #6664	-> 1492
-    //   #6665	-> 1501
-    //   #6667	-> 1509
-    // Local variable table:
-    //   start	length	slot	name	descriptor
-    //   0	1510	0	request	Ljavax/servlet/http/HttpServletRequest;
-    //   0	1510	1	response	Ljavax/servlet/http/HttpServletResponse;
-    //   7	1459	2	session	Ljavax/servlet/http/HttpSession;
-    //   30	1436	3	branchid	Ljava/lang/String;
-    //   54	1412	4	usertype	Ljava/lang/String;
-    //   65	1401	5	division	Ljava/lang/String;
-    //   76	1390	6	customer	Ljava/lang/String;
-    //   87	1379	7	day	Ljava/lang/String;
-    //   98	1368	8	month	Ljava/lang/String;
-    //   109	1357	9	year	Ljava/lang/String;
-    //   120	1346	10	startletter	Ljava/lang/String;
-    //   131	1335	11	status	Ljava/lang/String;
-    //   142	1324	12	cancel	Ljava/lang/String;
-    //   147	1319	13	Usertype	Ljava/lang/String;
-    //   202	1264	14	sql	Ljava/lang/String;
-    //   709	757	15	readData	[[Ljava/lang/String;
-    //   718	748	16	sb	Ljava/lang/StringBuffer;
-    //   727	675	17	u	I
-    //   1470	39	2	e	Ljava/lang/Exception;
-    //   1501	8	3	dispatchers	Ljavax/servlet/RequestDispatcher;
-    // Exception table:
-    //   from	to	target	type
-    //   0	1466	1469	java/lang/Exception
+  public static void loadPOVerification(HttpServletRequest request, HttpServletResponse response) 
+		  throws IOException, ServletException {
+
+		try 
+		{
+			HttpSession session = request.getSession();
+			String branchid = "" + session.getAttribute("INVBRANCH");
+			String usertype = "" + session.getAttribute("USRTYPE");
+			String division = request.getParameter("division");
+			String customer = request.getParameter("customer");
+			String day = request.getParameter("day");
+			String month = request.getParameter("month");
+			String year = request.getParameter("year");
+			String startletter = request.getParameter("startletter");
+			String status = request.getParameter("status");
+			String cancel = request.getParameter("cancel");
+			String Usertype = "-";
+			if ("F".equals(usertype)
+					|| ArrayUtils
+							.contains(
+									CommonFunctions
+											.QueryExecute("SELECT CHR_DELETEUSER  FROM m_inventorysetting  WHERE INT_ROWID=1")[0][0]
+											.split(","),
+									session.getAttribute("USRID").toString()))
+				Usertype = "F";
+
+			String sql = "  SELECT a.INT_ROWID,FUN_GET_BRANCH_NAME(a.INT_BRANCHID),a.CHR_SALESORDERNO,a.CHR_QUOTATIONNO,FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID), ";
+			sql = sql + "  FUN_INV_DIVISION(a.INT_DIVIID) ,a.CHR_VERIFICATIED,DATE_FORMAT(a.DAT_SALEDATE,'%d-%b-%Y'), ";
+			sql = sql + "  IF(a.CHR_PR_AVAILABLE='Y' ,a.CHR_POREQUESTNO,'No'), ";
+			sql = sql + "  IF(a.CHR_PR_AVAILABLE='Y',(SELECT IF( b.CHR_CLOSEDSTATUS = 'Y','Closed','Pending') FROM inv_t_purchaserequest b WHERE b.CHR_POREQUESTNO=Trim(a.CHR_POREQUESTNO) ),''), ";
+			sql = sql + "  IF(a.CHR_PR_AVAILABLE='Y',(SELECT IF(c.CHR_PR_PARTIALLY_RECEIVED='P','Partillay received',IF(c.CHR_PR_PARTIALLY_RECEIVED='Y','Fully Receive','Pending') ) FROM inv_t_purchaserequest c WHERE c.CHR_POREQUESTNO=Trim(a.CHR_POREQUESTNO) ),'') ,";
+			sql = sql + "  a.DOU_TOTALAMOUNT , a.CHR_RFC , a.CHR_PR_MODIFICATION , a.CHR_CANCEL, a.CHR_BILLED ,a.INT_PROGRESSBAR ";
+			//b.CHR_APPROVEDSTATUS
+			sql = sql + "  FROM  inv_t_customersalesorder a WHERE  a.INT_ROWID >0     ";
+			if(!"0".equals(customer))
+				sql = sql + " AND  a.INT_CUSTOMERID = "+customer;
+			if(!"0".equals(division))
+				sql = sql + " AND  a.INT_DIVIID = "+division;
+			if(!"0".equals(day))
+				sql = sql + " AND DAY(a.DAT_SALEDATE) = "+day;
+			if(!"0".equals(month))
+				sql = sql + " AND MONTH(a.DAT_SALEDATE) = "+month;
+			if(!"0".equals(year))
+				sql = sql + " AND YEAR(a.DAT_SALEDATE) = "+year;
+			if(!"0".equals(status))
+				sql = sql + " AND a.CHR_VERIFICATIED = '"+status+"'  ";
+			if(!"0".equals(cancel))
+				sql = sql + " AND a.CHR_CANCEL = '"+cancel+"'  ";
+			
+			if(!"0".equals(startletter))
+				sql = sql + " AND  FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) LIKE '"+startletter+"%' " ;
+			sql = sql + " AND a.INT_BRANCHID=" + branchid+ " ORDER BY  a.DAT_SALEDATE";
+			
+			System.out.println(sql);
+			String readData[][] = CommonFunctions.QueryExecute(sql);
+			StringBuffer sb = new StringBuffer();
+			 
+			if (readData.length > 0)
+			{
+				for (int u = 0; u < readData.length; u++) 
+				{
+					 
+						sb.append("<Row>");
+						sb.append("<id>" + readData[u][0] + "</id>");
+						sb.append("<Branch>" + readData[u][1]+ "</Branch>");
+						sb.append("<CPOref>" + readData[u][2]+ "</CPOref>");
+						sb.append("<Quotation>" + readData[u][3]+ "</Quotation>");
+						sb.append("<customerName>" + readData[u][4].replaceAll("&"," AND ")+ "</customerName>");
+						sb.append("<Division>" + readData[u][5]+ "</Division>");
+						sb.append("<Verified>" + readData[u][6]+ "</Verified>");
+						sb.append("<CPODate>" + readData[u][7]+ "</CPODate>");
+						sb.append("<PR>" + readData[u][8]+ "</PR>");
+						sb.append("<PRStatus>" + readData[u][9]+ "</PRStatus>");
+						sb.append("<Inward>" + readData[u][10]+ "</Inward>");
+						sb.append("<Amount>" + readData[u][11]+ "</Amount>");
+						sb.append("<RFC>" + readData[u][12]+ "</RFC>");
+						sb.append("<PRModify>" + readData[u][13]+ "</PRModify>");
+						sb.append("<Cancel>" + readData[u][14]+ "</Cancel>");
+						sb.append("<Billed>" + readData[u][15]+ "</Billed>");
+						sb.append("<Bar>" + readData[u][16].trim() + "</Bar>"); 
+						sb.append("<Usertype>" + Usertype + "</Usertype>");
+						sb.append("</Row>");
+						
+					 
+				}
+				response.setContentType("text/xml");
+				response.setHeader("Cache-Control", "no-cache");
+				response.getWriter().write("<Rows>" + sb.toString() + "</Rows>");
+			} 
+			else 
+			{
+				response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e.getMessage());
+			request.setAttribute("error", e.getMessage());
+			RequestDispatcher dispatchers = request.getRequestDispatcher("/error/index.jsp");
+			dispatchers.forward(request, response);
+		}
+	
   }
   
   public static void POSaleOrder(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -7563,866 +5663,124 @@ public class InventoryMethod extends HttpServlet {
     } 
   }
   
-  public static void loadPOBilling(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    // Byte code:
-    //   0: aload_0
-    //   1: invokeinterface getSession : ()Ljavax/servlet/http/HttpSession;
-    //   6: astore_2
-    //   7: new java/lang/StringBuilder
-    //   10: dup
-    //   11: invokespecial <init> : ()V
-    //   14: aload_2
-    //   15: ldc_w 'INVBRANCH'
-    //   18: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   23: invokevirtual append : (Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   26: invokevirtual toString : ()Ljava/lang/String;
-    //   29: astore_3
-    //   30: new java/lang/StringBuilder
-    //   33: dup
-    //   34: invokespecial <init> : ()V
-    //   37: aload_2
-    //   38: ldc_w 'USRTYPE'
-    //   41: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   46: invokevirtual append : (Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   49: invokevirtual toString : ()Ljava/lang/String;
-    //   52: astore #4
-    //   54: aload_0
-    //   55: ldc_w 'division'
-    //   58: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   63: astore #5
-    //   65: aload_0
-    //   66: ldc_w 'customer'
-    //   69: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   74: astore #6
-    //   76: aload_0
-    //   77: ldc_w 'status'
-    //   80: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   85: astore #7
-    //   87: aload_0
-    //   88: ldc_w 'day'
-    //   91: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   96: astore #8
-    //   98: aload_0
-    //   99: ldc_w 'month'
-    //   102: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   107: astore #9
-    //   109: aload_0
-    //   110: ldc_w 'year'
-    //   113: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   118: astore #10
-    //   120: aload_0
-    //   121: ldc_w 'startletter'
-    //   124: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   129: astore #11
-    //   131: aload_0
-    //   132: ldc_w 'cancel'
-    //   135: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   140: astore #12
-    //   142: aload_0
-    //   143: ldc_w 'type'
-    //   146: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   151: astore #13
-    //   153: new java/lang/StringBuilder
-    //   156: dup
-    //   157: invokespecial <init> : ()V
-    //   160: aload_0
-    //   161: ldc_w 'txtSer'
-    //   164: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   169: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   172: invokevirtual toString : ()Ljava/lang/String;
-    //   175: astore #14
-    //   177: aload #14
-    //   179: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   182: astore #14
-    //   184: ldc_w '-'
-    //   187: astore #15
-    //   189: ldc_w 'F'
-    //   192: aload #4
-    //   194: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   197: ifne -> 234
-    //   200: ldc_w 'SELECT CHR_DELETEUSER  FROM m_inventorysetting  WHERE INT_ROWID=1'
-    //   203: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   206: iconst_0
-    //   207: aaload
-    //   208: iconst_0
-    //   209: aaload
-    //   210: ldc_w ','
-    //   213: invokevirtual split : (Ljava/lang/String;)[Ljava/lang/String;
-    //   216: aload_2
-    //   217: ldc_w 'USRID'
-    //   220: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   225: invokevirtual toString : ()Ljava/lang/String;
-    //   228: invokestatic contains : ([Ljava/lang/Object;Ljava/lang/Object;)Z
-    //   231: ifeq -> 239
-    //   234: ldc_w 'F'
-    //   237: astore #15
-    //   239: ldc_w '  SELECT a.INT_ROWID,FUN_GET_BRANCH_NAME(a.INT_BRANCHID),a.CHR_SALESORDERNO,a.CHR_QUOTATIONNO,FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID), '
-    //   242: astore #16
-    //   244: new java/lang/StringBuilder
-    //   247: dup
-    //   248: aload #16
-    //   250: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   253: invokespecial <init> : (Ljava/lang/String;)V
-    //   256: ldc_w '  FUN_INV_DIVISION(a.INT_DIVIID) ,a.CHR_VERIFICATIED,DATE_FORMAT(a.DAT_SALEDATE,'%d-%b-%Y'), '
-    //   259: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   262: invokevirtual toString : ()Ljava/lang/String;
-    //   265: astore #16
-    //   267: new java/lang/StringBuilder
-    //   270: dup
-    //   271: aload #16
-    //   273: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   276: invokespecial <init> : (Ljava/lang/String;)V
-    //   279: ldc_w '  IF(a.CHR_PR_AVAILABLE='Y' ,a.CHR_POREQUESTNO,'-'), '
-    //   282: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   285: invokevirtual toString : ()Ljava/lang/String;
-    //   288: astore #16
-    //   290: new java/lang/StringBuilder
-    //   293: dup
-    //   294: aload #16
-    //   296: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   299: invokespecial <init> : (Ljava/lang/String;)V
-    //   302: ldc_w '  IF(a.CHR_PR_AVAILABLE='Y',(SELECT IF( b.CHR_CLOSEDSTATUS = 'Y','Closed','Pending') FROM inv_t_purchaserequest b WHERE b.CHR_POREQUESTNO=Trim(a.CHR_POREQUESTNO) ),''), '
-    //   305: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   308: invokevirtual toString : ()Ljava/lang/String;
-    //   311: astore #16
-    //   313: new java/lang/StringBuilder
-    //   316: dup
-    //   317: aload #16
-    //   319: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   322: invokespecial <init> : (Ljava/lang/String;)V
-    //   325: ldc_w '  IF(a.CHR_PR_AVAILABLE='Y',(SELECT IF(c.CHR_PR_PARTIALLY_RECEIVED='P','Partillay received',IF(c.CHR_PR_PARTIALLY_RECEIVED='Y','Fully Receive','Pending') ) FROM inv_t_purchaserequest c WHERE c.CHR_POREQUESTNO=Trim(a.CHR_POREQUESTNO) ),'') ,'
-    //   328: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   331: invokevirtual toString : ()Ljava/lang/String;
-    //   334: astore #16
-    //   336: new java/lang/StringBuilder
-    //   339: dup
-    //   340: aload #16
-    //   342: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   345: invokespecial <init> : (Ljava/lang/String;)V
-    //   348: ldc_w '  a.DOU_TOTALAMOUNT ,a.CHR_BILLED,a.CHR_SALEORDER_APPROVAL, '
-    //   351: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   354: invokevirtual toString : ()Ljava/lang/String;
-    //   357: astore #16
-    //   359: new java/lang/StringBuilder
-    //   362: dup
-    //   363: aload #16
-    //   365: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   368: invokespecial <init> : (Ljava/lang/String;)V
-    //   371: ldc_w '  FUN_INV_GET_CPO_SALESINVOICE_COUNT(a.CHR_SALESORDERNO),  '
-    //   374: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   377: invokevirtual toString : ()Ljava/lang/String;
-    //   380: astore #16
-    //   382: new java/lang/StringBuilder
-    //   385: dup
-    //   386: aload #16
-    //   388: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   391: invokespecial <init> : (Ljava/lang/String;)V
-    //   394: ldc_w '   a.CHR_CANCEL, a.CHR_BILLED,a.INT_PROGRESSBAR   '
-    //   397: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   400: invokevirtual toString : ()Ljava/lang/String;
-    //   403: astore #16
-    //   405: new java/lang/StringBuilder
-    //   408: dup
-    //   409: aload #16
-    //   411: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   414: invokespecial <init> : (Ljava/lang/String;)V
-    //   417: ldc_w '  FROM  inv_t_customersalesorder a WHERE  a.INT_ROWID >0   AND CHR_VERIFICATIED='Y' '
-    //   420: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   423: invokevirtual toString : ()Ljava/lang/String;
-    //   426: astore #16
-    //   428: ldc '0'
-    //   430: aload #6
-    //   432: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   435: ifne -> 466
-    //   438: new java/lang/StringBuilder
-    //   441: dup
-    //   442: aload #16
-    //   444: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   447: invokespecial <init> : (Ljava/lang/String;)V
-    //   450: ldc_w ' AND  a.INT_CUSTOMERID = '
-    //   453: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   456: aload #6
-    //   458: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   461: invokevirtual toString : ()Ljava/lang/String;
-    //   464: astore #16
-    //   466: ldc '0'
-    //   468: aload #7
-    //   470: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   473: ifne -> 510
-    //   476: new java/lang/StringBuilder
-    //   479: dup
-    //   480: aload #16
-    //   482: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   485: invokespecial <init> : (Ljava/lang/String;)V
-    //   488: ldc_w ' AND a.CHR_BILLED = ''
-    //   491: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   494: aload #7
-    //   496: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   499: ldc_w '''
-    //   502: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   505: invokevirtual toString : ()Ljava/lang/String;
-    //   508: astore #16
-    //   510: ldc '0'
-    //   512: aload #12
-    //   514: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   517: ifne -> 554
-    //   520: new java/lang/StringBuilder
-    //   523: dup
-    //   524: aload #16
-    //   526: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   529: invokespecial <init> : (Ljava/lang/String;)V
-    //   532: ldc_w ' AND a.CHR_CANCEL = ''
-    //   535: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   538: aload #12
-    //   540: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   543: ldc_w '''
-    //   546: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   549: invokevirtual toString : ()Ljava/lang/String;
-    //   552: astore #16
-    //   554: ldc '0'
-    //   556: aload #5
-    //   558: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   561: ifne -> 592
-    //   564: new java/lang/StringBuilder
-    //   567: dup
-    //   568: aload #16
-    //   570: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   573: invokespecial <init> : (Ljava/lang/String;)V
-    //   576: ldc_w ' AND  a.INT_DIVIID = '
-    //   579: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   582: aload #5
-    //   584: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   587: invokevirtual toString : ()Ljava/lang/String;
-    //   590: astore #16
-    //   592: ldc '0'
-    //   594: aload #8
-    //   596: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   599: ifne -> 630
-    //   602: new java/lang/StringBuilder
-    //   605: dup
-    //   606: aload #16
-    //   608: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   611: invokespecial <init> : (Ljava/lang/String;)V
-    //   614: ldc_w ' AND DAY(a.DAT_SALEDATE) = '
-    //   617: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   620: aload #8
-    //   622: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   625: invokevirtual toString : ()Ljava/lang/String;
-    //   628: astore #16
-    //   630: ldc '0'
-    //   632: aload #9
-    //   634: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   637: ifne -> 668
-    //   640: new java/lang/StringBuilder
-    //   643: dup
-    //   644: aload #16
-    //   646: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   649: invokespecial <init> : (Ljava/lang/String;)V
-    //   652: ldc_w ' AND MONTH(a.DAT_SALEDATE) = '
-    //   655: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   658: aload #9
-    //   660: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   663: invokevirtual toString : ()Ljava/lang/String;
-    //   666: astore #16
-    //   668: ldc '0'
-    //   670: aload #10
-    //   672: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   675: ifne -> 706
-    //   678: new java/lang/StringBuilder
-    //   681: dup
-    //   682: aload #16
-    //   684: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   687: invokespecial <init> : (Ljava/lang/String;)V
-    //   690: ldc_w ' AND YEAR(a.DAT_SALEDATE) = '
-    //   693: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   696: aload #10
-    //   698: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   701: invokevirtual toString : ()Ljava/lang/String;
-    //   704: astore #16
-    //   706: ldc_w '1'
-    //   709: aload #13
-    //   711: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   714: ifeq -> 763
-    //   717: ldc '0'
-    //   719: aload #11
-    //   721: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   724: ifne -> 811
-    //   727: new java/lang/StringBuilder
-    //   730: dup
-    //   731: aload #16
-    //   733: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   736: invokespecial <init> : (Ljava/lang/String;)V
-    //   739: ldc_w ' AND FIND_A_CUSTOMER_NAME(A.INT_CUSTOMERID) LIKE ''
-    //   742: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   745: aload #11
-    //   747: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   750: ldc '%''
-    //   752: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   755: invokevirtual toString : ()Ljava/lang/String;
-    //   758: astore #16
-    //   760: goto -> 811
-    //   763: new java/lang/StringBuilder
-    //   766: dup
-    //   767: aload #16
-    //   769: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   772: invokespecial <init> : (Ljava/lang/String;)V
-    //   775: ldc_w ' AND ( (a.CHR_SALESORDERNO LIKE '%'
-    //   778: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   781: aload #14
-    //   783: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   786: ldc_w '%') OR ( FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) LIKE ''
-    //   789: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   792: aload #14
-    //   794: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   797: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   800: ldc_w '%') )'
-    //   803: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   806: invokevirtual toString : ()Ljava/lang/String;
-    //   809: astore #16
-    //   811: new java/lang/StringBuilder
-    //   814: dup
-    //   815: aload #16
-    //   817: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   820: invokespecial <init> : (Ljava/lang/String;)V
-    //   823: ldc_w ' AND a.INT_BRANCHID='
-    //   826: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   829: aload_3
-    //   830: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   833: ldc_w ' ORDER BY  a.DAT_SALEDATE'
-    //   836: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   839: invokevirtual toString : ()Ljava/lang/String;
-    //   842: astore #16
-    //   844: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   847: aload #16
-    //   849: invokevirtual println : (Ljava/lang/String;)V
-    //   852: aload #16
-    //   854: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   857: astore #17
-    //   859: new java/lang/StringBuffer
-    //   862: dup
-    //   863: invokespecial <init> : ()V
-    //   866: astore #18
-    //   868: aload #17
-    //   870: arraylength
-    //   871: ifle -> 1707
-    //   874: iconst_0
-    //   875: istore #19
-    //   877: goto -> 1644
-    //   880: aload #18
-    //   882: ldc '<Row>'
-    //   884: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   887: pop
-    //   888: aload #18
-    //   890: new java/lang/StringBuilder
-    //   893: dup
-    //   894: ldc '<id>'
-    //   896: invokespecial <init> : (Ljava/lang/String;)V
-    //   899: aload #17
-    //   901: iload #19
-    //   903: aaload
-    //   904: iconst_0
-    //   905: aaload
-    //   906: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   909: ldc '</id>'
-    //   911: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   914: invokevirtual toString : ()Ljava/lang/String;
-    //   917: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   920: pop
-    //   921: aload #18
-    //   923: new java/lang/StringBuilder
-    //   926: dup
-    //   927: ldc_w '<Branch>'
-    //   930: invokespecial <init> : (Ljava/lang/String;)V
-    //   933: aload #17
-    //   935: iload #19
-    //   937: aaload
-    //   938: iconst_1
-    //   939: aaload
-    //   940: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   943: ldc_w '</Branch>'
-    //   946: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   949: invokevirtual toString : ()Ljava/lang/String;
-    //   952: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   955: pop
-    //   956: aload #18
-    //   958: new java/lang/StringBuilder
-    //   961: dup
-    //   962: ldc_w '<CPOref>'
-    //   965: invokespecial <init> : (Ljava/lang/String;)V
-    //   968: aload #17
-    //   970: iload #19
-    //   972: aaload
-    //   973: iconst_2
-    //   974: aaload
-    //   975: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   978: ldc_w '</CPOref>'
-    //   981: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   984: invokevirtual toString : ()Ljava/lang/String;
-    //   987: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   990: pop
-    //   991: aload #18
-    //   993: new java/lang/StringBuilder
-    //   996: dup
-    //   997: ldc_w '<Quotation>'
-    //   1000: invokespecial <init> : (Ljava/lang/String;)V
-    //   1003: aload #17
-    //   1005: iload #19
-    //   1007: aaload
-    //   1008: iconst_3
-    //   1009: aaload
-    //   1010: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1013: ldc_w '</Quotation>'
-    //   1016: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1019: invokevirtual toString : ()Ljava/lang/String;
-    //   1022: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1025: pop
-    //   1026: aload #18
-    //   1028: new java/lang/StringBuilder
-    //   1031: dup
-    //   1032: ldc_w '<customerName>'
-    //   1035: invokespecial <init> : (Ljava/lang/String;)V
-    //   1038: aload #17
-    //   1040: iload #19
-    //   1042: aaload
-    //   1043: iconst_4
-    //   1044: aaload
-    //   1045: ldc '&'
-    //   1047: ldc_w ' AND '
-    //   1050: invokevirtual replaceAll : (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    //   1053: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1056: ldc_w '</customerName>'
-    //   1059: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1062: invokevirtual toString : ()Ljava/lang/String;
-    //   1065: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1068: pop
-    //   1069: aload #18
-    //   1071: new java/lang/StringBuilder
-    //   1074: dup
-    //   1075: ldc_w '<Division>'
-    //   1078: invokespecial <init> : (Ljava/lang/String;)V
-    //   1081: aload #17
-    //   1083: iload #19
-    //   1085: aaload
-    //   1086: iconst_5
-    //   1087: aaload
-    //   1088: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1091: ldc_w '</Division>'
-    //   1094: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1097: invokevirtual toString : ()Ljava/lang/String;
-    //   1100: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1103: pop
-    //   1104: aload #18
-    //   1106: new java/lang/StringBuilder
-    //   1109: dup
-    //   1110: ldc_w '<Verified>'
-    //   1113: invokespecial <init> : (Ljava/lang/String;)V
-    //   1116: aload #17
-    //   1118: iload #19
-    //   1120: aaload
-    //   1121: bipush #6
-    //   1123: aaload
-    //   1124: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1127: ldc_w '</Verified>'
-    //   1130: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1133: invokevirtual toString : ()Ljava/lang/String;
-    //   1136: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1139: pop
-    //   1140: aload #18
-    //   1142: new java/lang/StringBuilder
-    //   1145: dup
-    //   1146: ldc_w '<CPODate>'
-    //   1149: invokespecial <init> : (Ljava/lang/String;)V
-    //   1152: aload #17
-    //   1154: iload #19
-    //   1156: aaload
-    //   1157: bipush #7
-    //   1159: aaload
-    //   1160: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1163: ldc_w '</CPODate>'
-    //   1166: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1169: invokevirtual toString : ()Ljava/lang/String;
-    //   1172: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1175: pop
-    //   1176: aload #18
-    //   1178: new java/lang/StringBuilder
-    //   1181: dup
-    //   1182: ldc_w '<PR>'
-    //   1185: invokespecial <init> : (Ljava/lang/String;)V
-    //   1188: aload #17
-    //   1190: iload #19
-    //   1192: aaload
-    //   1193: bipush #8
-    //   1195: aaload
-    //   1196: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1199: ldc_w '</PR>'
-    //   1202: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1205: invokevirtual toString : ()Ljava/lang/String;
-    //   1208: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1211: pop
-    //   1212: aload #18
-    //   1214: new java/lang/StringBuilder
-    //   1217: dup
-    //   1218: ldc_w '<PRStatus>'
-    //   1221: invokespecial <init> : (Ljava/lang/String;)V
-    //   1224: aload #17
-    //   1226: iload #19
-    //   1228: aaload
-    //   1229: bipush #9
-    //   1231: aaload
-    //   1232: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1235: ldc_w '</PRStatus>'
-    //   1238: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1241: invokevirtual toString : ()Ljava/lang/String;
-    //   1244: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1247: pop
-    //   1248: aload #18
-    //   1250: new java/lang/StringBuilder
-    //   1253: dup
-    //   1254: ldc_w '<Inward>'
-    //   1257: invokespecial <init> : (Ljava/lang/String;)V
-    //   1260: aload #17
-    //   1262: iload #19
-    //   1264: aaload
-    //   1265: bipush #10
-    //   1267: aaload
-    //   1268: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1271: ldc_w '</Inward>'
-    //   1274: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1277: invokevirtual toString : ()Ljava/lang/String;
-    //   1280: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1283: pop
-    //   1284: aload #18
-    //   1286: new java/lang/StringBuilder
-    //   1289: dup
-    //   1290: ldc_w '<Amount>'
-    //   1293: invokespecial <init> : (Ljava/lang/String;)V
-    //   1296: aload #17
-    //   1298: iload #19
-    //   1300: aaload
-    //   1301: bipush #11
-    //   1303: aaload
-    //   1304: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1307: ldc_w '</Amount>'
-    //   1310: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1313: invokevirtual toString : ()Ljava/lang/String;
-    //   1316: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1319: pop
-    //   1320: aload #18
-    //   1322: new java/lang/StringBuilder
-    //   1325: dup
-    //   1326: ldc_w '<Billing>'
-    //   1329: invokespecial <init> : (Ljava/lang/String;)V
-    //   1332: aload #17
-    //   1334: iload #19
-    //   1336: aaload
-    //   1337: bipush #12
-    //   1339: aaload
-    //   1340: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1343: ldc_w '</Billing>'
-    //   1346: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1349: invokevirtual toString : ()Ljava/lang/String;
-    //   1352: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1355: pop
-    //   1356: aload #18
-    //   1358: new java/lang/StringBuilder
-    //   1361: dup
-    //   1362: ldc_w '<SaleOrder>'
-    //   1365: invokespecial <init> : (Ljava/lang/String;)V
-    //   1368: aload #17
-    //   1370: iload #19
-    //   1372: aaload
-    //   1373: bipush #13
-    //   1375: aaload
-    //   1376: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1379: ldc_w '</SaleOrder>'
-    //   1382: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1385: invokevirtual toString : ()Ljava/lang/String;
-    //   1388: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1391: pop
-    //   1392: ldc_w 'Y'
-    //   1395: aload #17
-    //   1397: iload #19
-    //   1399: aaload
-    //   1400: bipush #12
-    //   1402: aaload
-    //   1403: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   1406: ifne -> 1450
-    //   1409: aload #18
-    //   1411: new java/lang/StringBuilder
-    //   1414: dup
-    //   1415: ldc_w '<CPOFlag>'
-    //   1418: invokespecial <init> : (Ljava/lang/String;)V
-    //   1421: aload #17
-    //   1423: iload #19
-    //   1425: aaload
-    //   1426: iconst_2
-    //   1427: aaload
-    //   1428: invokestatic CPOReasdytoBill : (Ljava/lang/String;)Ljava/lang/String;
-    //   1431: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1434: ldc_w '</CPOFlag>'
-    //   1437: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1440: invokevirtual toString : ()Ljava/lang/String;
-    //   1443: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1446: pop
-    //   1447: goto -> 1459
-    //   1450: aload #18
-    //   1452: ldc_w '<CPOFlag>-</CPOFlag>'
-    //   1455: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1458: pop
-    //   1459: aload #18
-    //   1461: new java/lang/StringBuilder
-    //   1464: dup
-    //   1465: ldc_w '<NoofBilling>'
-    //   1468: invokespecial <init> : (Ljava/lang/String;)V
-    //   1471: aload #17
-    //   1473: iload #19
-    //   1475: aaload
-    //   1476: bipush #14
-    //   1478: aaload
-    //   1479: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1482: ldc_w '</NoofBilling>'
-    //   1485: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1488: invokevirtual toString : ()Ljava/lang/String;
-    //   1491: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1494: pop
-    //   1495: aload #18
-    //   1497: new java/lang/StringBuilder
-    //   1500: dup
-    //   1501: ldc_w '<Cancel>'
-    //   1504: invokespecial <init> : (Ljava/lang/String;)V
-    //   1507: aload #17
-    //   1509: iload #19
-    //   1511: aaload
-    //   1512: bipush #15
-    //   1514: aaload
-    //   1515: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1518: ldc_w '</Cancel>'
-    //   1521: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1524: invokevirtual toString : ()Ljava/lang/String;
-    //   1527: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1530: pop
-    //   1531: aload #18
-    //   1533: new java/lang/StringBuilder
-    //   1536: dup
-    //   1537: ldc_w '<Billed>'
-    //   1540: invokespecial <init> : (Ljava/lang/String;)V
-    //   1543: aload #17
-    //   1545: iload #19
-    //   1547: aaload
-    //   1548: bipush #16
-    //   1550: aaload
-    //   1551: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1554: ldc_w '</Billed>'
-    //   1557: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1560: invokevirtual toString : ()Ljava/lang/String;
-    //   1563: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1566: pop
-    //   1567: aload #18
-    //   1569: new java/lang/StringBuilder
-    //   1572: dup
-    //   1573: ldc_w '<Bar>'
-    //   1576: invokespecial <init> : (Ljava/lang/String;)V
-    //   1579: aload #17
-    //   1581: iload #19
-    //   1583: aaload
-    //   1584: bipush #17
-    //   1586: aaload
-    //   1587: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1590: ldc_w '</Bar>'
-    //   1593: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1596: invokevirtual toString : ()Ljava/lang/String;
-    //   1599: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1602: pop
-    //   1603: aload #18
-    //   1605: new java/lang/StringBuilder
-    //   1608: dup
-    //   1609: ldc_w '<Usertype>'
-    //   1612: invokespecial <init> : (Ljava/lang/String;)V
-    //   1615: aload #15
-    //   1617: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1620: ldc_w '</Usertype>'
-    //   1623: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1626: invokevirtual toString : ()Ljava/lang/String;
-    //   1629: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1632: pop
-    //   1633: aload #18
-    //   1635: ldc '</Row>'
-    //   1637: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1640: pop
-    //   1641: iinc #19, 1
-    //   1644: iload #19
-    //   1646: aload #17
-    //   1648: arraylength
-    //   1649: if_icmplt -> 880
-    //   1652: aload_1
-    //   1653: ldc 'text/xml'
-    //   1655: invokeinterface setContentType : (Ljava/lang/String;)V
-    //   1660: aload_1
-    //   1661: ldc 'Cache-Control'
-    //   1663: ldc 'no-cache'
-    //   1665: invokeinterface setHeader : (Ljava/lang/String;Ljava/lang/String;)V
-    //   1670: aload_1
-    //   1671: invokeinterface getWriter : ()Ljava/io/PrintWriter;
-    //   1676: new java/lang/StringBuilder
-    //   1679: dup
-    //   1680: ldc '<Rows>'
-    //   1682: invokespecial <init> : (Ljava/lang/String;)V
-    //   1685: aload #18
-    //   1687: invokevirtual toString : ()Ljava/lang/String;
-    //   1690: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1693: ldc '</Rows>'
-    //   1695: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1698: invokevirtual toString : ()Ljava/lang/String;
-    //   1701: invokevirtual write : (Ljava/lang/String;)V
-    //   1704: goto -> 1759
-    //   1707: aload_1
-    //   1708: sipush #204
-    //   1711: invokeinterface setStatus : (I)V
-    //   1716: goto -> 1759
-    //   1719: astore_2
-    //   1720: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   1723: aload_2
-    //   1724: invokevirtual getMessage : ()Ljava/lang/String;
-    //   1727: invokevirtual println : (Ljava/lang/String;)V
-    //   1730: aload_0
-    //   1731: ldc 'error'
-    //   1733: aload_2
-    //   1734: invokevirtual getMessage : ()Ljava/lang/String;
-    //   1737: invokeinterface setAttribute : (Ljava/lang/String;Ljava/lang/Object;)V
-    //   1742: aload_0
-    //   1743: ldc '/error/index.jsp'
-    //   1745: invokeinterface getRequestDispatcher : (Ljava/lang/String;)Ljavax/servlet/RequestDispatcher;
-    //   1750: astore_3
-    //   1751: aload_3
-    //   1752: aload_0
-    //   1753: aload_1
-    //   1754: invokeinterface forward : (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
-    //   1759: return
-    // Line number table:
-    //   Java source line number -> byte code offset
-    //   #6759	-> 0
-    //   #6760	-> 7
-    //   #6761	-> 30
-    //   #6762	-> 54
-    //   #6763	-> 65
-    //   #6764	-> 76
-    //   #6765	-> 87
-    //   #6766	-> 98
-    //   #6767	-> 109
-    //   #6768	-> 120
-    //   #6769	-> 131
-    //   #6770	-> 142
-    //   #6771	-> 153
-    //   #6772	-> 177
-    //   #6773	-> 184
-    //   #6774	-> 189
-    //   #6778	-> 200
-    //   #6777	-> 207
-    //   #6778	-> 208
-    //   #6777	-> 209
-    //   #6779	-> 210
-    //   #6780	-> 216
-    //   #6776	-> 228
-    //   #6780	-> 231
-    //   #6781	-> 234
-    //   #6782	-> 239
-    //   #6783	-> 244
-    //   #6784	-> 267
-    //   #6785	-> 290
-    //   #6786	-> 313
-    //   #6787	-> 336
-    //   #6788	-> 359
-    //   #6789	-> 382
-    //   #6790	-> 405
-    //   #6791	-> 428
-    //   #6792	-> 438
-    //   #6793	-> 466
-    //   #6794	-> 476
-    //   #6795	-> 510
-    //   #6796	-> 520
-    //   #6797	-> 554
-    //   #6798	-> 564
-    //   #6799	-> 592
-    //   #6800	-> 602
-    //   #6801	-> 630
-    //   #6802	-> 640
-    //   #6803	-> 668
-    //   #6804	-> 678
-    //   #6805	-> 706
-    //   #6807	-> 717
-    //   #6808	-> 727
-    //   #6809	-> 760
-    //   #6812	-> 763
-    //   #6814	-> 811
-    //   #6816	-> 844
-    //   #6817	-> 852
-    //   #6818	-> 859
-    //   #6820	-> 868
-    //   #6822	-> 874
-    //   #6825	-> 880
-    //   #6826	-> 888
-    //   #6827	-> 921
-    //   #6828	-> 956
-    //   #6829	-> 991
-    //   #6830	-> 1026
-    //   #6831	-> 1069
-    //   #6832	-> 1104
-    //   #6833	-> 1140
-    //   #6834	-> 1176
-    //   #6835	-> 1212
-    //   #6836	-> 1248
-    //   #6837	-> 1284
-    //   #6838	-> 1320
-    //   #6839	-> 1356
-    //   #6840	-> 1392
-    //   #6841	-> 1409
-    //   #6843	-> 1450
-    //   #6844	-> 1459
-    //   #6845	-> 1495
-    //   #6846	-> 1531
-    //   #6847	-> 1567
-    //   #6849	-> 1603
-    //   #6851	-> 1633
-    //   #6822	-> 1641
-    //   #6855	-> 1652
-    //   #6856	-> 1660
-    //   #6857	-> 1670
-    //   #6858	-> 1704
-    //   #6861	-> 1707
-    //   #6863	-> 1716
-    //   #6864	-> 1719
-    //   #6866	-> 1720
-    //   #6867	-> 1730
-    //   #6868	-> 1742
-    //   #6869	-> 1751
-    //   #6871	-> 1759
-    // Local variable table:
-    //   start	length	slot	name	descriptor
-    //   0	1760	0	request	Ljavax/servlet/http/HttpServletRequest;
-    //   0	1760	1	response	Ljavax/servlet/http/HttpServletResponse;
-    //   7	1709	2	session	Ljavax/servlet/http/HttpSession;
-    //   30	1686	3	branchid	Ljava/lang/String;
-    //   54	1662	4	usertype	Ljava/lang/String;
-    //   65	1651	5	division	Ljava/lang/String;
-    //   76	1640	6	customer	Ljava/lang/String;
-    //   87	1629	7	status	Ljava/lang/String;
-    //   98	1618	8	day	Ljava/lang/String;
-    //   109	1607	9	month	Ljava/lang/String;
-    //   120	1596	10	year	Ljava/lang/String;
-    //   131	1585	11	startletter	Ljava/lang/String;
-    //   142	1574	12	cancel	Ljava/lang/String;
-    //   153	1563	13	type	Ljava/lang/String;
-    //   177	1539	14	txtSer	Ljava/lang/String;
-    //   189	1527	15	Usertype	Ljava/lang/String;
-    //   244	1472	16	sql	Ljava/lang/String;
-    //   859	857	17	readData	[[Ljava/lang/String;
-    //   868	848	18	sb	Ljava/lang/StringBuffer;
-    //   877	775	19	u	I
-    //   1720	39	2	e	Ljava/lang/Exception;
-    //   1751	8	3	dispatchers	Ljavax/servlet/RequestDispatcher;
-    // Exception table:
-    //   from	to	target	type
-    //   0	1716	1719	java/lang/Exception
+  public static void loadPOBilling(HttpServletRequest request, HttpServletResponse response)
+		  throws IOException, ServletException {
+
+		try 
+		{
+			HttpSession session = request.getSession();
+			String branchid = "" + session.getAttribute("INVBRANCH");
+			String usertype = "" + session.getAttribute("USRTYPE");
+			String division = request.getParameter("division");
+			String customer = request.getParameter("customer");
+			String status = request.getParameter("status");
+			String day = request.getParameter("day");
+			String month = request.getParameter("month");
+			String year = request.getParameter("year");
+			String startletter = request.getParameter("startletter");
+			String cancel = request.getParameter("cancel");
+			String type = request.getParameter("type");
+			String txtSer = "" + request.getParameter("txtSer");
+			txtSer = txtSer.toUpperCase();
+			String Usertype = "-";
+			if ("F".equals(usertype)
+					|| ArrayUtils
+							.contains(
+									CommonFunctions
+											.QueryExecute("SELECT CHR_DELETEUSER  FROM m_inventorysetting  WHERE INT_ROWID=1")[0][0]
+											.split(","),
+									session.getAttribute("USRID").toString()))
+			Usertype = "F";
+			String sql = "  SELECT a.INT_ROWID,FUN_GET_BRANCH_NAME(a.INT_BRANCHID),a.CHR_SALESORDERNO,a.CHR_QUOTATIONNO,FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID), ";
+			sql = sql + "  FUN_INV_DIVISION(a.INT_DIVIID) ,a.CHR_VERIFICATIED,DATE_FORMAT(a.DAT_SALEDATE,'%d-%b-%Y'), ";
+			sql = sql + "  IF(a.CHR_PR_AVAILABLE='Y' ,a.CHR_POREQUESTNO,'-'), ";
+			sql = sql + "  IF(a.CHR_PR_AVAILABLE='Y',(SELECT IF( b.CHR_CLOSEDSTATUS = 'Y','Closed','Pending') FROM inv_t_purchaserequest b WHERE b.CHR_POREQUESTNO=Trim(a.CHR_POREQUESTNO) ),''), ";
+			sql = sql + "  IF(a.CHR_PR_AVAILABLE='Y',(SELECT IF(c.CHR_PR_PARTIALLY_RECEIVED='P','Partillay received',IF(c.CHR_PR_PARTIALLY_RECEIVED='Y','Fully Receive','Pending') ) FROM inv_t_purchaserequest c WHERE c.CHR_POREQUESTNO=Trim(a.CHR_POREQUESTNO) ),'') ,";
+			sql = sql + "  a.DOU_TOTALAMOUNT ,a.CHR_BILLED,a.CHR_SALEORDER_APPROVAL, ";
+			sql = sql + "  FUN_INV_GET_CPO_SALESINVOICE_COUNT(a.CHR_SALESORDERNO),  ";
+			sql = sql + "   a.CHR_CANCEL, a.CHR_BILLED,a.INT_PROGRESSBAR   ";
+			sql = sql + "  FROM  inv_t_customersalesorder a WHERE  a.INT_ROWID >0   AND CHR_VERIFICATIED='Y' ";
+			if(!"0".equals(customer))
+				sql = sql + " AND  a.INT_CUSTOMERID = "+customer;
+			if(!"0".equals(status))
+				sql = sql + " AND a.CHR_BILLED = '"+status+"'";
+			if(!"0".equals(cancel))
+				sql = sql + " AND a.CHR_CANCEL = '"+cancel+"'";
+			if(!"0".equals(division))
+				sql = sql + " AND  a.INT_DIVIID = "+division;
+			if(!"0".equals(day))
+				sql = sql + " AND DAY(a.DAT_SALEDATE) = "+day;
+			if(!"0".equals(month))
+				sql = sql + " AND MONTH(a.DAT_SALEDATE) = "+month;
+			if(!"0".equals(year))
+				sql = sql + " AND YEAR(a.DAT_SALEDATE) = "+year;
+			if("1".equals(type))
+			{	
+				if (!"0".equals(startletter))
+					sql = sql + " AND FIND_A_CUSTOMER_NAME(A.INT_CUSTOMERID) LIKE '" + startletter+ "%'";
+			}
+			else
+			{
+				sql = sql + " AND ( (a.CHR_SALESORDERNO LIKE '%"+txtSer+"%') OR ( FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) LIKE '" + txtSer.toUpperCase() + "%') )";
+			}
+			sql = sql + " AND a.INT_BRANCHID=" + branchid+ " ORDER BY  a.DAT_SALEDATE";
+			
+			System.out.println(sql);
+			String readData[][] = CommonFunctions.QueryExecute(sql);
+			StringBuffer sb = new StringBuffer();
+			 
+			if (readData.length > 0)
+			{
+				for (int u = 0; u < readData.length; u++) 
+				{
+					 
+						sb.append("<Row>");
+						sb.append("<id>" + readData[u][0] + "</id>");
+						sb.append("<Branch>" + readData[u][1]+ "</Branch>");
+						sb.append("<CPOref>" + readData[u][2]+ "</CPOref>");
+						sb.append("<Quotation>" + readData[u][3]+ "</Quotation>");
+						sb.append("<customerName>" + readData[u][4].replaceAll("&"," AND ")+ "</customerName>");
+						sb.append("<Division>" + readData[u][5]+ "</Division>");
+						sb.append("<Verified>" + readData[u][6]+ "</Verified>");
+						sb.append("<CPODate>" + readData[u][7]+ "</CPODate>");
+						sb.append("<PR>" + readData[u][8]+ "</PR>");
+						sb.append("<PRStatus>" + readData[u][9]+ "</PRStatus>");
+						sb.append("<Inward>" + readData[u][10]+ "</Inward>");
+						sb.append("<Amount>" + readData[u][11]+ "</Amount>");
+						sb.append("<Billing>" + readData[u][12]+ "</Billing>");
+						sb.append("<SaleOrder>" + readData[u][13]+ "</SaleOrder>");
+						if(!"Y".equals(readData[u][12]))
+							sb.append("<CPOFlag>" + InventoryInvoiceFunctions.CPOReasdytoBill(readData[u][2])+ "</CPOFlag>");
+						else
+							sb.append("<CPOFlag>-</CPOFlag>");
+						sb.append("<NoofBilling>" + readData[u][14]+ "</NoofBilling>");
+						sb.append("<Cancel>" + readData[u][15]+ "</Cancel>");
+						sb.append("<Billed>" + readData[u][16]+ "</Billed>");
+						sb.append("<Bar>" + readData[u][17]+ "</Bar>");
+						
+						sb.append("<Usertype>" + Usertype + "</Usertype>");
+						
+						sb.append("</Row>");
+						
+					 
+				}
+				response.setContentType("text/xml");
+				response.setHeader("Cache-Control", "no-cache");
+				response.getWriter().write("<Rows>" + sb.toString() + "</Rows>");
+			} 
+			else 
+			{
+				response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e.getMessage());
+			request.setAttribute("error", e.getMessage());
+			RequestDispatcher dispatchers = request.getRequestDispatcher("/error/index.jsp");
+			dispatchers.forward(request, response);
+		}
+	
   }
   
   public static void PurchaseIdCheck(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -8867,933 +6225,139 @@ public class InventoryMethod extends HttpServlet {
   }
   
   public static void loadDSwapSale(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    // Byte code:
-    //   0: aload_0
-    //   1: invokeinterface getSession : ()Ljavax/servlet/http/HttpSession;
-    //   6: astore_2
-    //   7: new java/lang/StringBuilder
-    //   10: dup
-    //   11: invokespecial <init> : ()V
-    //   14: aload_2
-    //   15: ldc_w 'BRANCHID'
-    //   18: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   23: invokevirtual append : (Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   26: invokevirtual toString : ()Ljava/lang/String;
-    //   29: astore_3
-    //   30: new java/lang/StringBuilder
-    //   33: dup
-    //   34: invokespecial <init> : ()V
-    //   37: aload_2
-    //   38: ldc_w 'USRTYPE'
-    //   41: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   46: invokevirtual append : (Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   49: invokevirtual toString : ()Ljava/lang/String;
-    //   52: astore #4
-    //   54: new java/lang/StringBuilder
-    //   57: dup
-    //   58: invokespecial <init> : ()V
-    //   61: aload_0
-    //   62: ldc_w 'txtSer'
-    //   65: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   70: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   73: invokevirtual toString : ()Ljava/lang/String;
-    //   76: astore #5
-    //   78: aload #5
-    //   80: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   83: astore #5
-    //   85: aload_0
-    //   86: ldc_w 'month'
-    //   89: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   94: astore #6
-    //   96: new java/lang/StringBuilder
-    //   99: dup
-    //   100: invokespecial <init> : ()V
-    //   103: aload_0
-    //   104: ldc_w 'customer'
-    //   107: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   112: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   115: invokevirtual toString : ()Ljava/lang/String;
-    //   118: astore #7
-    //   120: new java/lang/StringBuilder
-    //   123: dup
-    //   124: invokespecial <init> : ()V
-    //   127: aload_0
-    //   128: ldc_w 'division'
-    //   131: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   136: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   139: invokevirtual toString : ()Ljava/lang/String;
-    //   142: astore #8
-    //   144: aload_0
-    //   145: ldc_w 'year'
-    //   148: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   153: invokestatic parseInt : (Ljava/lang/String;)I
-    //   156: istore #9
-    //   158: aload_0
-    //   159: ldc_w 'day'
-    //   162: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   167: astore #10
-    //   169: aload_0
-    //   170: ldc_w 'delivery'
-    //   173: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   178: astore #11
-    //   180: aload_0
-    //   181: ldc_w 'type'
-    //   184: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   189: astore #12
-    //   191: aload_0
-    //   192: ldc_w 'cancel'
-    //   195: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   200: astore #13
-    //   202: aload_0
-    //   203: ldc_w 'taxtype'
-    //   206: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   211: astore #14
-    //   213: ldc_w '-'
-    //   216: astore #15
-    //   218: ldc_w 'F'
-    //   221: aload #4
-    //   223: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   226: ifne -> 263
-    //   229: ldc_w 'SELECT CHR_DELETEUSER  FROM m_inventorysetting  WHERE INT_ROWID=1'
-    //   232: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   235: iconst_0
-    //   236: aaload
-    //   237: iconst_0
-    //   238: aaload
-    //   239: ldc_w ','
-    //   242: invokevirtual split : (Ljava/lang/String;)[Ljava/lang/String;
-    //   245: aload_2
-    //   246: ldc_w 'USRID'
-    //   249: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   254: invokevirtual toString : ()Ljava/lang/String;
-    //   257: invokestatic contains : ([Ljava/lang/Object;Ljava/lang/Object;)Z
-    //   260: ifeq -> 268
-    //   263: ldc_w 'F'
-    //   266: astore #15
-    //   268: ldc ''
-    //   270: astore #16
-    //   272: ldc_w ' SELECT a.INT_SALESID,a.CHR_SALESNO,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,'
-    //   275: astore #16
-    //   277: new java/lang/StringBuilder
-    //   280: dup
-    //   281: aload #16
-    //   283: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   286: invokespecial <init> : (Ljava/lang/String;)V
-    //   289: ldc_w ' a.DOU_TOTALAMOUNT,a.CHR_PAYMENTSTATUS,a.INT_SALESSTATUS,'
-    //   292: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   295: invokevirtual toString : ()Ljava/lang/String;
-    //   298: astore #16
-    //   300: new java/lang/StringBuilder
-    //   303: dup
-    //   304: aload #16
-    //   306: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   309: invokespecial <init> : (Ljava/lang/String;)V
-    //   312: ldc_w '  FUN_INV_GET_PAYMENTCOMMITMENTCOUNT(a.CHR_SALESNO ), '
-    //   315: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   318: invokevirtual toString : ()Ljava/lang/String;
-    //   321: astore #16
-    //   323: new java/lang/StringBuilder
-    //   326: dup
-    //   327: aload #16
-    //   329: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   332: invokespecial <init> : (Ljava/lang/String;)V
-    //   335: ldc_w ' a.DOU_TOTALAMOUNT,  FUN_INV_GET_STAFFNAMEBYUSERNAME(a.CHR_USRNAME), '
-    //   338: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   341: invokevirtual toString : ()Ljava/lang/String;
-    //   344: astore #16
-    //   346: new java/lang/StringBuilder
-    //   349: dup
-    //   350: aload #16
-    //   352: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   355: invokespecial <init> : (Ljava/lang/String;)V
-    //   358: ldc_w ' a.CHR_INVOICEBLOCK,a.CHR_SALESTYPE,a.CHR_DELIVERY,DATEDIFF(DATE(a.DAT_COURIERDATE),a.DAT_SALESDATE),a.CHR_CANCEL,   '
-    //   361: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   364: invokevirtual toString : ()Ljava/lang/String;
-    //   367: astore #16
-    //   369: new java/lang/StringBuilder
-    //   372: dup
-    //   373: aload #16
-    //   375: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   378: invokespecial <init> : (Ljava/lang/String;)V
-    //   381: ldc_w ' FUN_INV_DIVISION(a.INT_DIVIID) ,a.CHR_CPONUMBER ,'
-    //   384: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   387: invokevirtual toString : ()Ljava/lang/String;
-    //   390: astore #16
-    //   392: new java/lang/StringBuilder
-    //   395: dup
-    //   396: aload #16
-    //   398: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   401: invokespecial <init> : (Ljava/lang/String;)V
-    //   404: ldc_w ' (NOW() > DATE_ADD(a.DAT_SALESDATE, INTERVAL (SELECT INT_INVOCECHANGES FROM m_inventorysetting WHERE INT_ROWID= 1) DAY ))  dd'
-    //   407: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   410: invokevirtual toString : ()Ljava/lang/String;
-    //   413: astore #16
-    //   415: new java/lang/StringBuilder
-    //   418: dup
-    //   419: aload #16
-    //   421: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   424: invokespecial <init> : (Ljava/lang/String;)V
-    //   427: ldc_w ' ,IF(CHR_GST_TYPE='S','State','Central'),CHR_DISCOUNTBILL FROM inv_t_directsales  a ,inv_m_customerinfo b   '
-    //   430: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   433: invokevirtual toString : ()Ljava/lang/String;
-    //   436: astore #16
-    //   438: new java/lang/StringBuilder
-    //   441: dup
-    //   442: aload #16
-    //   444: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   447: invokespecial <init> : (Ljava/lang/String;)V
-    //   450: ldc_w ' where  a.INT_CUSTOMERID = b.INT_CUSTOMERID   '
-    //   453: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   456: invokevirtual toString : ()Ljava/lang/String;
-    //   459: astore #16
-    //   461: ldc '0'
-    //   463: aload #6
-    //   465: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   468: ifne -> 499
-    //   471: new java/lang/StringBuilder
-    //   474: dup
-    //   475: aload #16
-    //   477: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   480: invokespecial <init> : (Ljava/lang/String;)V
-    //   483: ldc_w ' AND MONTH(a.DAT_SALESDATE) ='
-    //   486: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   489: aload #6
-    //   491: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   494: invokevirtual toString : ()Ljava/lang/String;
-    //   497: astore #16
-    //   499: ldc '0'
-    //   501: iload #9
-    //   503: invokestatic valueOf : (I)Ljava/lang/Integer;
-    //   506: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   509: ifne -> 540
-    //   512: new java/lang/StringBuilder
-    //   515: dup
-    //   516: aload #16
-    //   518: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   521: invokespecial <init> : (Ljava/lang/String;)V
-    //   524: ldc_w ' AND YEAR(a.DAT_SALESDATE) ='
-    //   527: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   530: iload #9
-    //   532: invokevirtual append : (I)Ljava/lang/StringBuilder;
-    //   535: invokevirtual toString : ()Ljava/lang/String;
-    //   538: astore #16
-    //   540: ldc '0'
-    //   542: aload #11
-    //   544: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   547: ifne -> 584
-    //   550: new java/lang/StringBuilder
-    //   553: dup
-    //   554: aload #16
-    //   556: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   559: invokespecial <init> : (Ljava/lang/String;)V
-    //   562: ldc_w ' AND  a.CHR_DELIVERY  = ''
-    //   565: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   568: aload #11
-    //   570: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   573: ldc_w '' '
-    //   576: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   579: invokevirtual toString : ()Ljava/lang/String;
-    //   582: astore #16
-    //   584: ldc '0'
-    //   586: aload #13
-    //   588: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   591: ifne -> 628
-    //   594: new java/lang/StringBuilder
-    //   597: dup
-    //   598: aload #16
-    //   600: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   603: invokespecial <init> : (Ljava/lang/String;)V
-    //   606: ldc_w ' AND  a.CHR_CANCEL  = ''
-    //   609: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   612: aload #13
-    //   614: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   617: ldc_w '' '
-    //   620: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   623: invokevirtual toString : ()Ljava/lang/String;
-    //   626: astore #16
-    //   628: ldc '0'
-    //   630: aload #10
-    //   632: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   635: ifne -> 666
-    //   638: new java/lang/StringBuilder
-    //   641: dup
-    //   642: aload #16
-    //   644: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   647: invokespecial <init> : (Ljava/lang/String;)V
-    //   650: ldc_w ' AND DAY(a.DAT_SALESDATE)='
-    //   653: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   656: aload #10
-    //   658: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   661: invokevirtual toString : ()Ljava/lang/String;
-    //   664: astore #16
-    //   666: ldc '0'
-    //   668: aload #7
-    //   670: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   673: ifne -> 704
-    //   676: new java/lang/StringBuilder
-    //   679: dup
-    //   680: aload #16
-    //   682: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   685: invokespecial <init> : (Ljava/lang/String;)V
-    //   688: ldc_w '  AND a.INT_CUSTOMERID = '
-    //   691: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   694: aload #7
-    //   696: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   699: invokevirtual toString : ()Ljava/lang/String;
-    //   702: astore #16
-    //   704: ldc '0'
-    //   706: aload #8
-    //   708: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   711: ifne -> 742
-    //   714: new java/lang/StringBuilder
-    //   717: dup
-    //   718: aload #16
-    //   720: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   723: invokespecial <init> : (Ljava/lang/String;)V
-    //   726: ldc_w '  AND a.INT_DIVIID = '
-    //   729: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   732: aload #8
-    //   734: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   737: invokevirtual toString : ()Ljava/lang/String;
-    //   740: astore #16
-    //   742: ldc_w 'S'
-    //   745: aload #14
-    //   747: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   750: ifeq -> 779
-    //   753: new java/lang/StringBuilder
-    //   756: dup
-    //   757: aload #16
-    //   759: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   762: invokespecial <init> : (Ljava/lang/String;)V
-    //   765: ldc_w '  AND a.CHR_GST_TYPE = 'S''
-    //   768: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   771: invokevirtual toString : ()Ljava/lang/String;
-    //   774: astore #16
-    //   776: goto -> 813
-    //   779: ldc_w 'D'
-    //   782: aload #14
-    //   784: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   787: ifeq -> 813
-    //   790: new java/lang/StringBuilder
-    //   793: dup
-    //   794: aload #16
-    //   796: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   799: invokespecial <init> : (Ljava/lang/String;)V
-    //   802: ldc_w '  AND a.CHR_GST_TYPE = 'D''
-    //   805: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   808: invokevirtual toString : ()Ljava/lang/String;
-    //   811: astore #16
-    //   813: ldc_w '1'
-    //   816: aload #12
-    //   818: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   821: ifeq -> 873
-    //   824: ldc '0'
-    //   826: aload #5
-    //   828: invokevirtual equals : (Ljava/lang/Object;)Z
-    //   831: ifne -> 921
-    //   834: new java/lang/StringBuilder
-    //   837: dup
-    //   838: aload #16
-    //   840: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   843: invokespecial <init> : (Ljava/lang/String;)V
-    //   846: ldc_w ' AND FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID) LIKE ''
-    //   849: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   852: aload #5
-    //   854: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   857: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   860: ldc '%''
-    //   862: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   865: invokevirtual toString : ()Ljava/lang/String;
-    //   868: astore #16
-    //   870: goto -> 921
-    //   873: new java/lang/StringBuilder
-    //   876: dup
-    //   877: aload #16
-    //   879: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   882: invokespecial <init> : (Ljava/lang/String;)V
-    //   885: ldc_w ' AND ( (a.CHR_SALESNO LIKE '%'
-    //   888: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   891: aload #5
-    //   893: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   896: ldc_w '%') OR ( FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID) LIKE ''
-    //   899: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   902: aload #5
-    //   904: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   907: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   910: ldc_w '%') )'
-    //   913: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   916: invokevirtual toString : ()Ljava/lang/String;
-    //   919: astore #16
-    //   921: new java/lang/StringBuilder
-    //   924: dup
-    //   925: aload #16
-    //   927: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   930: invokespecial <init> : (Ljava/lang/String;)V
-    //   933: ldc_w '   GROUP BY  a.INT_SALESID '
-    //   936: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   939: invokevirtual toString : ()Ljava/lang/String;
-    //   942: astore #16
-    //   944: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   947: aload #16
-    //   949: invokevirtual println : (Ljava/lang/String;)V
-    //   952: aload #16
-    //   954: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   957: astore #17
-    //   959: new java/lang/StringBuffer
-    //   962: dup
-    //   963: invokespecial <init> : ()V
-    //   966: astore #18
-    //   968: aload #17
-    //   970: arraylength
-    //   971: ifle -> 1872
-    //   974: iconst_0
-    //   975: istore #19
-    //   977: goto -> 1780
-    //   980: aload #18
-    //   982: ldc_w '<directSale>'
-    //   985: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   988: pop
-    //   989: aload #18
-    //   991: new java/lang/StringBuilder
-    //   994: dup
-    //   995: ldc_w '<salId>'
-    //   998: invokespecial <init> : (Ljava/lang/String;)V
-    //   1001: aload #17
-    //   1003: iload #19
-    //   1005: aaload
-    //   1006: iconst_0
-    //   1007: aaload
-    //   1008: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1011: ldc_w '</salId>'
-    //   1014: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1017: invokevirtual toString : ()Ljava/lang/String;
-    //   1020: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1023: pop
-    //   1024: aload #18
-    //   1026: new java/lang/StringBuilder
-    //   1029: dup
-    //   1030: ldc_w '<salNo>'
-    //   1033: invokespecial <init> : (Ljava/lang/String;)V
-    //   1036: aload #17
-    //   1038: iload #19
-    //   1040: aaload
-    //   1041: iconst_1
-    //   1042: aaload
-    //   1043: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1046: ldc_w '</salNo>'
-    //   1049: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1052: invokevirtual toString : ()Ljava/lang/String;
-    //   1055: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1058: pop
-    //   1059: aload #18
-    //   1061: new java/lang/StringBuilder
-    //   1064: dup
-    //   1065: ldc_w '<salDate>'
-    //   1068: invokespecial <init> : (Ljava/lang/String;)V
-    //   1071: aload #17
-    //   1073: iload #19
-    //   1075: aaload
-    //   1076: iconst_3
-    //   1077: aaload
-    //   1078: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1081: ldc_w '</salDate>'
-    //   1084: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1087: invokevirtual toString : ()Ljava/lang/String;
-    //   1090: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1093: pop
-    //   1094: aload #18
-    //   1096: new java/lang/StringBuilder
-    //   1099: dup
-    //   1100: ldc_w '<salTotal>'
-    //   1103: invokespecial <init> : (Ljava/lang/String;)V
-    //   1106: aload #17
-    //   1108: iload #19
-    //   1110: aaload
-    //   1111: iconst_4
-    //   1112: aaload
-    //   1113: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1116: ldc_w '</salTotal>'
-    //   1119: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1122: invokevirtual toString : ()Ljava/lang/String;
-    //   1125: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1128: pop
-    //   1129: aload #18
-    //   1131: new java/lang/StringBuilder
-    //   1134: dup
-    //   1135: ldc_w '<quoCust>'
-    //   1138: invokespecial <init> : (Ljava/lang/String;)V
-    //   1141: aload #17
-    //   1143: iload #19
-    //   1145: aaload
-    //   1146: iconst_2
-    //   1147: aaload
-    //   1148: ldc '&'
-    //   1150: ldc_w '9865043008'
-    //   1153: invokevirtual replace : (Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-    //   1156: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1159: ldc_w '</quoCust>'
-    //   1162: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1165: invokevirtual toString : ()Ljava/lang/String;
-    //   1168: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1171: pop
-    //   1172: aload #18
-    //   1174: new java/lang/StringBuilder
-    //   1177: dup
-    //   1178: ldc_w '<Status>'
-    //   1181: invokespecial <init> : (Ljava/lang/String;)V
-    //   1184: aload #17
-    //   1186: iload #19
-    //   1188: aaload
-    //   1189: bipush #6
-    //   1191: aaload
-    //   1192: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1195: ldc_w '</Status>'
-    //   1198: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1201: invokevirtual toString : ()Ljava/lang/String;
-    //   1204: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1207: pop
-    //   1208: aload #18
-    //   1210: new java/lang/StringBuilder
-    //   1213: dup
-    //   1214: ldc_w '<PStatus>'
-    //   1217: invokespecial <init> : (Ljava/lang/String;)V
-    //   1220: aload #17
-    //   1222: iload #19
-    //   1224: aaload
-    //   1225: iconst_5
-    //   1226: aaload
-    //   1227: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1230: ldc_w '</PStatus>'
-    //   1233: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1236: invokevirtual toString : ()Ljava/lang/String;
-    //   1239: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1242: pop
-    //   1243: aload #18
-    //   1245: new java/lang/StringBuilder
-    //   1248: dup
-    //   1249: ldc_w '<PayCommitment>'
-    //   1252: invokespecial <init> : (Ljava/lang/String;)V
-    //   1255: aload #17
-    //   1257: iload #19
-    //   1259: aaload
-    //   1260: bipush #7
-    //   1262: aaload
-    //   1263: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1266: ldc_w '</PayCommitment>'
-    //   1269: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1272: invokevirtual toString : ()Ljava/lang/String;
-    //   1275: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1278: pop
-    //   1279: aload #18
-    //   1281: new java/lang/StringBuilder
-    //   1284: dup
-    //   1285: ldc_w '<Entryby>'
-    //   1288: invokespecial <init> : (Ljava/lang/String;)V
-    //   1291: aload #17
-    //   1293: iload #19
-    //   1295: aaload
-    //   1296: bipush #9
-    //   1298: aaload
-    //   1299: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1302: ldc_w '</Entryby>'
-    //   1305: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1308: invokevirtual toString : ()Ljava/lang/String;
-    //   1311: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1314: pop
-    //   1315: aload #18
-    //   1317: new java/lang/StringBuilder
-    //   1320: dup
-    //   1321: ldc_w '<Block>'
-    //   1324: invokespecial <init> : (Ljava/lang/String;)V
-    //   1327: aload #17
-    //   1329: iload #19
-    //   1331: aaload
-    //   1332: bipush #10
-    //   1334: aaload
-    //   1335: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1338: ldc_w '</Block>'
-    //   1341: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1344: invokevirtual toString : ()Ljava/lang/String;
-    //   1347: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1350: pop
-    //   1351: aload #18
-    //   1353: new java/lang/StringBuilder
-    //   1356: dup
-    //   1357: ldc_w '<Saletype>'
-    //   1360: invokespecial <init> : (Ljava/lang/String;)V
-    //   1363: aload #17
-    //   1365: iload #19
-    //   1367: aaload
-    //   1368: bipush #11
-    //   1370: aaload
-    //   1371: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1374: ldc_w '</Saletype>'
-    //   1377: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1380: invokevirtual toString : ()Ljava/lang/String;
-    //   1383: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1386: pop
-    //   1387: aload #18
-    //   1389: new java/lang/StringBuilder
-    //   1392: dup
-    //   1393: ldc_w '<Courier>'
-    //   1396: invokespecial <init> : (Ljava/lang/String;)V
-    //   1399: aload #17
-    //   1401: iload #19
-    //   1403: aaload
-    //   1404: bipush #12
-    //   1406: aaload
-    //   1407: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1410: ldc_w '</Courier>'
-    //   1413: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1416: invokevirtual toString : ()Ljava/lang/String;
-    //   1419: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1422: pop
-    //   1423: aload #18
-    //   1425: new java/lang/StringBuilder
-    //   1428: dup
-    //   1429: ldc_w '<Courierdiff>'
-    //   1432: invokespecial <init> : (Ljava/lang/String;)V
-    //   1435: aload #17
-    //   1437: iload #19
-    //   1439: aaload
-    //   1440: bipush #13
-    //   1442: aaload
-    //   1443: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1446: ldc_w '</Courierdiff>'
-    //   1449: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1452: invokevirtual toString : ()Ljava/lang/String;
-    //   1455: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1458: pop
-    //   1459: aload #18
-    //   1461: new java/lang/StringBuilder
-    //   1464: dup
-    //   1465: ldc_w '<Cancel>'
-    //   1468: invokespecial <init> : (Ljava/lang/String;)V
-    //   1471: aload #17
-    //   1473: iload #19
-    //   1475: aaload
-    //   1476: bipush #14
-    //   1478: aaload
-    //   1479: invokevirtual trim : ()Ljava/lang/String;
-    //   1482: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1485: ldc_w '</Cancel>'
-    //   1488: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1491: invokevirtual toString : ()Ljava/lang/String;
-    //   1494: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1497: pop
-    //   1498: aload #18
-    //   1500: new java/lang/StringBuilder
-    //   1503: dup
-    //   1504: ldc_w '<Division>'
-    //   1507: invokespecial <init> : (Ljava/lang/String;)V
-    //   1510: aload #17
-    //   1512: iload #19
-    //   1514: aaload
-    //   1515: bipush #15
-    //   1517: aaload
-    //   1518: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1521: ldc_w '</Division>'
-    //   1524: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1527: invokevirtual toString : ()Ljava/lang/String;
-    //   1530: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1533: pop
-    //   1534: aload #18
-    //   1536: new java/lang/StringBuilder
-    //   1539: dup
-    //   1540: ldc_w '<CPO>'
-    //   1543: invokespecial <init> : (Ljava/lang/String;)V
-    //   1546: aload #17
-    //   1548: iload #19
-    //   1550: aaload
-    //   1551: bipush #16
-    //   1553: aaload
-    //   1554: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1557: ldc_w '</CPO>'
-    //   1560: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1563: invokevirtual toString : ()Ljava/lang/String;
-    //   1566: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1569: pop
-    //   1570: aload #18
-    //   1572: new java/lang/StringBuilder
-    //   1575: dup
-    //   1576: ldc_w '<Dtcheck>'
-    //   1579: invokespecial <init> : (Ljava/lang/String;)V
-    //   1582: aload #17
-    //   1584: iload #19
-    //   1586: aaload
-    //   1587: bipush #17
-    //   1589: aaload
-    //   1590: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1593: ldc_w '</Dtcheck>'
-    //   1596: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1599: invokevirtual toString : ()Ljava/lang/String;
-    //   1602: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1605: pop
-    //   1606: aload #18
-    //   1608: new java/lang/StringBuilder
-    //   1611: dup
-    //   1612: ldc_w '<Taxtype>'
-    //   1615: invokespecial <init> : (Ljava/lang/String;)V
-    //   1618: aload #17
-    //   1620: iload #19
-    //   1622: aaload
-    //   1623: bipush #18
-    //   1625: aaload
-    //   1626: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1629: ldc_w '</Taxtype>'
-    //   1632: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1635: invokevirtual toString : ()Ljava/lang/String;
-    //   1638: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1641: pop
-    //   1642: aload #18
-    //   1644: new java/lang/StringBuilder
-    //   1647: dup
-    //   1648: ldc_w '<Discount>'
-    //   1651: invokespecial <init> : (Ljava/lang/String;)V
-    //   1654: aload #17
-    //   1656: iload #19
-    //   1658: aaload
-    //   1659: bipush #19
-    //   1661: aaload
-    //   1662: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1665: ldc_w '</Discount>'
-    //   1668: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1671: invokevirtual toString : ()Ljava/lang/String;
-    //   1674: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1677: pop
-    //   1678: aload #18
-    //   1680: new java/lang/StringBuilder
-    //   1683: dup
-    //   1684: ldc_w '<Usertype>'
-    //   1687: invokespecial <init> : (Ljava/lang/String;)V
-    //   1690: aload #15
-    //   1692: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1695: ldc_w '</Usertype>'
-    //   1698: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1701: invokevirtual toString : ()Ljava/lang/String;
-    //   1704: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1707: pop
-    //   1708: aload #18
-    //   1710: new java/lang/StringBuilder
-    //   1713: dup
-    //   1714: ldc_w '<CpyShortName>'
-    //   1717: invokespecial <init> : (Ljava/lang/String;)V
-    //   1720: new java/lang/StringBuilder
-    //   1723: dup
-    //   1724: ldc_w 'SELECT CHR_SHORTNAME from com_m_company  WHERE INT_COMPANYID='
-    //   1727: invokespecial <init> : (Ljava/lang/String;)V
-    //   1730: aload_2
-    //   1731: ldc_w 'INVCOMPANY'
-    //   1734: invokeinterface getAttribute : (Ljava/lang/String;)Ljava/lang/Object;
-    //   1739: invokevirtual append : (Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   1742: invokevirtual toString : ()Ljava/lang/String;
-    //   1745: invokestatic QueryExecute : (Ljava/lang/String;)[[Ljava/lang/String;
-    //   1748: iconst_0
-    //   1749: aaload
-    //   1750: iconst_0
-    //   1751: aaload
-    //   1752: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1755: ldc_w '</CpyShortName>'
-    //   1758: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1761: invokevirtual toString : ()Ljava/lang/String;
-    //   1764: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1767: pop
-    //   1768: aload #18
-    //   1770: ldc_w '</directSale>'
-    //   1773: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   1776: pop
-    //   1777: iinc #19, 1
-    //   1780: iload #19
-    //   1782: aload #17
-    //   1784: arraylength
-    //   1785: if_icmplt -> 980
-    //   1788: aload_1
-    //   1789: ldc 'text/xml'
-    //   1791: invokeinterface setContentType : (Ljava/lang/String;)V
-    //   1796: aload_1
-    //   1797: ldc 'Cache-Control'
-    //   1799: ldc 'no-cache'
-    //   1801: invokeinterface setHeader : (Ljava/lang/String;Ljava/lang/String;)V
-    //   1806: aload_1
-    //   1807: invokeinterface getWriter : ()Ljava/io/PrintWriter;
-    //   1812: new java/lang/StringBuilder
-    //   1815: dup
-    //   1816: ldc_w '<directSales>'
-    //   1819: invokespecial <init> : (Ljava/lang/String;)V
-    //   1822: aload #18
-    //   1824: invokevirtual toString : ()Ljava/lang/String;
-    //   1827: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1830: ldc_w '</directSales>'
-    //   1833: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1836: invokevirtual toString : ()Ljava/lang/String;
-    //   1839: invokevirtual write : (Ljava/lang/String;)V
-    //   1842: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   1845: new java/lang/StringBuilder
-    //   1848: dup
-    //   1849: ldc_w '============='
-    //   1852: invokespecial <init> : (Ljava/lang/String;)V
-    //   1855: aload #18
-    //   1857: invokevirtual toString : ()Ljava/lang/String;
-    //   1860: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   1863: invokevirtual toString : ()Ljava/lang/String;
-    //   1866: invokevirtual println : (Ljava/lang/String;)V
-    //   1869: goto -> 1924
-    //   1872: aload_1
-    //   1873: sipush #204
-    //   1876: invokeinterface setStatus : (I)V
-    //   1881: goto -> 1924
-    //   1884: astore_2
-    //   1885: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   1888: aload_2
-    //   1889: invokevirtual getMessage : ()Ljava/lang/String;
-    //   1892: invokevirtual println : (Ljava/lang/String;)V
-    //   1895: aload_0
-    //   1896: ldc 'error'
-    //   1898: aload_2
-    //   1899: invokevirtual getMessage : ()Ljava/lang/String;
-    //   1902: invokeinterface setAttribute : (Ljava/lang/String;Ljava/lang/Object;)V
-    //   1907: aload_0
-    //   1908: ldc '/error/index.jsp'
-    //   1910: invokeinterface getRequestDispatcher : (Ljava/lang/String;)Ljavax/servlet/RequestDispatcher;
-    //   1915: astore_3
-    //   1916: aload_3
-    //   1917: aload_0
-    //   1918: aload_1
-    //   1919: invokeinterface forward : (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
-    //   1924: return
-    // Line number table:
-    //   Java source line number -> byte code offset
-    //   #7360	-> 0
-    //   #7361	-> 7
-    //   #7362	-> 30
-    //   #7363	-> 54
-    //   #7364	-> 78
-    //   #7365	-> 85
-    //   #7366	-> 96
-    //   #7367	-> 120
-    //   #7368	-> 144
-    //   #7369	-> 158
-    //   #7370	-> 169
-    //   #7371	-> 180
-    //   #7372	-> 191
-    //   #7373	-> 202
-    //   #7375	-> 213
-    //   #7376	-> 218
-    //   #7380	-> 229
-    //   #7379	-> 236
-    //   #7380	-> 237
-    //   #7379	-> 238
-    //   #7381	-> 239
-    //   #7382	-> 245
-    //   #7378	-> 257
-    //   #7382	-> 260
-    //   #7383	-> 263
-    //   #7385	-> 268
-    //   #7386	-> 272
-    //   #7387	-> 277
-    //   #7389	-> 300
-    //   #7390	-> 323
-    //   #7391	-> 346
-    //   #7392	-> 369
-    //   #7393	-> 392
-    //   #7395	-> 415
-    //   #7396	-> 438
-    //   #7400	-> 461
-    //   #7401	-> 471
-    //   #7403	-> 499
-    //   #7404	-> 512
-    //   #7406	-> 540
-    //   #7407	-> 550
-    //   #7409	-> 584
-    //   #7410	-> 594
-    //   #7412	-> 628
-    //   #7413	-> 638
-    //   #7415	-> 666
-    //   #7416	-> 676
-    //   #7417	-> 704
-    //   #7418	-> 714
-    //   #7420	-> 742
-    //   #7421	-> 753
-    //   #7422	-> 779
-    //   #7423	-> 790
-    //   #7425	-> 813
-    //   #7427	-> 824
-    //   #7428	-> 834
-    //   #7429	-> 870
-    //   #7432	-> 873
-    //   #7434	-> 921
-    //   #7437	-> 944
-    //   #7439	-> 952
-    //   #7440	-> 959
-    //   #7442	-> 968
-    //   #7443	-> 974
-    //   #7444	-> 980
-    //   #7445	-> 989
-    //   #7446	-> 1024
-    //   #7447	-> 1059
-    //   #7448	-> 1094
-    //   #7449	-> 1129
-    //   #7450	-> 1172
-    //   #7451	-> 1208
-    //   #7452	-> 1243
-    //   #7453	-> 1279
-    //   #7454	-> 1315
-    //   #7455	-> 1351
-    //   #7456	-> 1387
-    //   #7457	-> 1423
-    //   #7458	-> 1459
-    //   #7459	-> 1498
-    //   #7460	-> 1534
-    //   #7461	-> 1570
-    //   #7462	-> 1606
-    //   #7463	-> 1642
-    //   #7464	-> 1678
-    //   #7465	-> 1708
-    //   #7466	-> 1768
-    //   #7443	-> 1777
-    //   #7468	-> 1788
-    //   #7469	-> 1796
-    //   #7470	-> 1806
-    //   #7471	-> 1812
-    //   #7470	-> 1839
-    //   #7472	-> 1842
-    //   #7473	-> 1869
-    //   #7474	-> 1872
-    //   #7476	-> 1881
-    //   #7477	-> 1885
-    //   #7478	-> 1895
-    //   #7479	-> 1907
-    //   #7480	-> 1908
-    //   #7479	-> 1915
-    //   #7481	-> 1916
-    //   #7483	-> 1924
-    // Local variable table:
-    //   start	length	slot	name	descriptor
-    //   0	1925	0	request	Ljavax/servlet/http/HttpServletRequest;
-    //   0	1925	1	response	Ljavax/servlet/http/HttpServletResponse;
-    //   7	1874	2	session	Ljavax/servlet/http/HttpSession;
-    //   30	1851	3	branchid	Ljava/lang/String;
-    //   54	1827	4	usertype	Ljava/lang/String;
-    //   78	1803	5	txtSer	Ljava/lang/String;
-    //   96	1785	6	month	Ljava/lang/String;
-    //   120	1761	7	customer	Ljava/lang/String;
-    //   144	1737	8	division	Ljava/lang/String;
-    //   158	1723	9	year	I
-    //   169	1712	10	day	Ljava/lang/String;
-    //   180	1701	11	delivery	Ljava/lang/String;
-    //   191	1690	12	type	Ljava/lang/String;
-    //   202	1679	13	cancel	Ljava/lang/String;
-    //   213	1668	14	taxtype	Ljava/lang/String;
-    //   218	1663	15	Usertype	Ljava/lang/String;
-    //   272	1609	16	query	Ljava/lang/String;
-    //   959	922	17	readData	[[Ljava/lang/String;
-    //   968	913	18	sb	Ljava/lang/StringBuffer;
-    //   977	811	19	u	I
-    //   1885	39	2	e	Ljava/lang/Exception;
-    //   1916	8	3	dispatchers	Ljavax/servlet/RequestDispatcher;
-    // Exception table:
-    //   from	to	target	type
-    //   0	1881	1884	java/lang/Exception
+
+		try {
+
+			HttpSession session = request.getSession();
+			String branchid = "" + session.getAttribute("BRANCHID");
+			String usertype = "" + session.getAttribute("USRTYPE");
+			String txtSer = "" + request.getParameter("txtSer");
+			txtSer = txtSer.toUpperCase();
+			String month = request.getParameter("month");
+			String customer = "" + request.getParameter("customer");
+			String division = "" + request.getParameter("division");
+			int year = Integer.parseInt(request.getParameter("year"));
+			String day = request.getParameter("day");
+			String delivery = request.getParameter("delivery");
+			String type = request.getParameter("type");
+			String cancel = request.getParameter("cancel");
+			String taxtype = request.getParameter("taxtype");
+			
+			String Usertype = "-";
+			if ("F".equals(usertype)
+					|| ArrayUtils
+							.contains(
+									CommonFunctions
+											.QueryExecute("SELECT CHR_DELETEUSER  FROM m_inventorysetting  WHERE INT_ROWID=1")[0][0]
+											.split(","),
+									session.getAttribute("USRID").toString()))
+				Usertype = "F";
+
+			String query = "";
+			query = " SELECT a.INT_SALESID,a.CHR_SALESNO,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID),DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y') ,";
+			query = query + " a.DOU_TOTALAMOUNT,a.CHR_PAYMENTSTATUS,a.INT_SALESSTATUS,";
+			//query = query + " (SELECT   count(*) FROM inv_t_paymentcommitment d WHERE   d.CHR_SALESNO =a.CHR_SALESNO  AND d.CHR_STATUS='N' GROUP BY  d.CHR_SALESNO ),";
+			query = query + "  FUN_INV_GET_PAYMENTCOMMITMENTCOUNT(a.CHR_SALESNO ), ";
+			query = query + " a.DOU_TOTALAMOUNT,  FUN_INV_GET_STAFFNAMEBYUSERNAME(a.CHR_USRNAME), ";
+			query = query + " a.CHR_INVOICEBLOCK,a.CHR_SALESTYPE,a.CHR_DELIVERY,DATEDIFF(DATE(a.DAT_COURIERDATE),a.DAT_SALESDATE),a.CHR_CANCEL,   ";
+			query = query + " FUN_INV_DIVISION(a.INT_DIVIID) ,a.CHR_CPONUMBER ,";
+			query = query + " (NOW() > DATE_ADD(a.DAT_SALESDATE, INTERVAL (SELECT INT_INVOCECHANGES FROM m_inventorysetting WHERE INT_ROWID= 1) DAY ))  dd";
+
+			query = query + " ,IF(CHR_GST_TYPE='S','State','Central'),CHR_DISCOUNTBILL FROM inv_t_directsales  a ,inv_m_customerinfo b   ";//,inv_t_paymentcommitment c
+			query = query + " where  a.INT_CUSTOMERID = b.INT_CUSTOMERID   ";// AND a.CHR_SALESNO =c.CHR_SALESNO  AND
+			
+			// a.CHR_SALESTYPE='S'taxtype
+			//query = query + " AND a.INT_BRANCHID = " + branchid + "  ";
+			if (!"0".equals(month))
+				query = query + " AND MONTH(a.DAT_SALESDATE) =" + month;
+
+			if (!"0".equals(year))
+				query = query + " AND YEAR(a.DAT_SALESDATE) =" + year;
+
+			if (!"0".equals(delivery))
+				query = query + " AND  a.CHR_DELIVERY  = '" + delivery + "' ";
+			
+			if (!"0".equals(cancel))
+				query = query + " AND  a.CHR_CANCEL  = '" + cancel + "' ";
+
+			if (!"0".equals(day))
+				query = query + " AND DAY(a.DAT_SALESDATE)=" + day;
+
+			if (!"0".equals(customer))
+				query = query + "  AND a.INT_CUSTOMERID = " + customer;
+			if (!"0".equals(division))
+				query = query + "  AND a.INT_DIVIID = " + division;
+			
+			if ("S".equals(taxtype))
+				query = query + "  AND a.CHR_GST_TYPE = 'S'"  ;
+			else if ("D".equals(taxtype))
+				query = query + "  AND a.CHR_GST_TYPE = 'D'"  ;
+			
+			if("1".equals(type))
+			{	
+				if (!"0".equals(txtSer))
+					query = query + " AND FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID) LIKE '" + txtSer.toUpperCase() + "%'";
+			}
+			else
+			{
+				query = query+ " AND ( (a.CHR_SALESNO LIKE '%"+txtSer+"%') OR ( FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID) LIKE '" + txtSer.toUpperCase() + "%') )";
+			}
+			query = query + "   GROUP BY  a.INT_SALESID ";
+
+		 
+			System.out.println(query);
+
+			String readData[][] = CommonFunctions.QueryExecute(query);
+			System.out.println("Record Size::"+readData.length);
+			StringBuffer sb = new StringBuffer();
+
+			String asql = "SELECT CHR_SHORTNAME from com_m_company  WHERE INT_COMPANYID=" + session.getAttribute("INVCOMPANY");
+			System.out.println(asql);
+			String CpyShortName=CommonFunctions.QueryExecute(asql)[0][0];
+					
+			if (readData.length > 0) {
+				for (int u = 0; u < readData.length; u++) {
+					sb.append("<directSale>");
+					sb.append("<salId>" + readData[u][0] + "</salId>");
+					sb.append("<salNo>" + readData[u][1] + "</salNo>");
+					sb.append("<salDate>" + readData[u][3] + "</salDate>");
+					sb.append("<salTotal>" + readData[u][4] + "</salTotal>");
+					sb.append("<quoCust>"+ readData[u][2].replace("&", "9865043008")+ "</quoCust>");
+					sb.append("<Status>" + readData[u][6] + "</Status>");
+					sb.append("<PStatus>" + readData[u][5] + "</PStatus>");
+					sb.append("<PayCommitment>" + readData[u][7]+ "</PayCommitment>");
+					sb.append("<Entryby>" + readData[u][9] + "</Entryby>");
+					sb.append("<Block>" + readData[u][10] + "</Block>");
+					sb.append("<Saletype>" + readData[u][11] + "</Saletype>");
+					sb.append("<Courier>" + readData[u][12] + "</Courier>");
+					sb.append("<Courierdiff>" + readData[u][13]+ "</Courierdiff>");
+					sb.append("<Cancel>" + readData[u][14].trim() + "</Cancel>");
+					sb.append("<Division>" + readData[u][15] + "</Division>");
+					sb.append("<CPO>" + readData[u][16] + "</CPO>");
+					sb.append("<Dtcheck>" + readData[u][17] + "</Dtcheck>");
+					sb.append("<Taxtype>" + readData[u][18] + "</Taxtype>");
+					sb.append("<Discount>" + readData[u][19] + "</Discount>");
+					sb.append("<Usertype>" + Usertype + "</Usertype>");
+					sb.append("<CpyShortName>" + CpyShortName + "</CpyShortName>");
+					sb.append("</directSale>");
+				}
+				response.setContentType("text/xml");
+				response.setHeader("Cache-Control", "no-cache");
+				response.getWriter().write(
+						"<directSales>" + sb.toString() + "</directSales>");
+				System.out.println("============="+sb.toString());
+			} 
+			else {
+				response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			request.setAttribute("error", e.getMessage());
+			RequestDispatcher dispatchers = request
+					.getRequestDispatcher("/error/index.jsp");
+			dispatchers.forward(request, response);
+		}
+	
   }
   
   public static void loadDACCSwapSale(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -10142,297 +6706,67 @@ public class InventoryMethod extends HttpServlet {
     } 
   }
   
-  public static synchronized void loadcheckSerial(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    // Byte code:
-    //   0: aload_0
-    //   1: ldc_w 'serial'
-    //   4: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   9: ldc_w ','
-    //   12: invokevirtual split : (Ljava/lang/String;)[Ljava/lang/String;
-    //   15: astore_2
-    //   16: ldc ''
-    //   18: astore_3
-    //   19: iconst_0
-    //   20: istore #4
-    //   22: ldc ''
-    //   24: astore #5
-    //   26: ldc ''
-    //   28: astore #6
-    //   30: ldc ''
-    //   32: astore #7
-    //   34: ldc ''
-    //   36: astore #8
-    //   38: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   41: invokevirtual println : ()V
-    //   44: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   47: invokevirtual println : ()V
-    //   50: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   53: ldc_w 'Serial number Checking'
-    //   56: invokevirtual println : (Ljava/lang/String;)V
-    //   59: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   62: ldc_w '======================'
-    //   65: invokevirtual println : (Ljava/lang/String;)V
-    //   68: iconst_0
-    //   69: istore #9
-    //   71: goto -> 283
-    //   74: aload_2
-    //   75: iload #9
-    //   77: aaload
-    //   78: ldc_w '~'
-    //   81: invokevirtual split : (Ljava/lang/String;)[Ljava/lang/String;
-    //   84: astore #10
-    //   86: aload #10
-    //   88: iconst_0
-    //   89: aaload
-    //   90: astore #6
-    //   92: aload #10
-    //   94: iconst_1
-    //   95: aaload
-    //   96: astore #7
-    //   98: aload #10
-    //   100: iconst_2
-    //   101: aaload
-    //   102: astore #8
-    //   104: new java/lang/StringBuilder
-    //   107: dup
-    //   108: ldc_w 'SELECT COUNT(*) FROM inv_t_vendorgoodsreceived  WHERE CHR_FLAG = 'N' AND CHR_SERIALNO=''
-    //   111: invokespecial <init> : (Ljava/lang/String;)V
-    //   114: aload #6
-    //   116: invokevirtual trim : ()Ljava/lang/String;
-    //   119: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   122: ldc_w '''
-    //   125: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   128: invokevirtual toString : ()Ljava/lang/String;
-    //   131: astore_3
-    //   132: new java/lang/StringBuilder
-    //   135: dup
-    //   136: aload_3
-    //   137: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   140: invokespecial <init> : (Ljava/lang/String;)V
-    //   143: ldc_w ' AND CHR_TYPE=''
-    //   146: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   149: aload #8
-    //   151: invokevirtual trim : ()Ljava/lang/String;
-    //   154: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   157: ldc_w ''  AND CHR_ITEMID = ''
-    //   160: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   163: aload #7
-    //   165: invokevirtual trim : ()Ljava/lang/String;
-    //   168: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   171: ldc_w '' '
-    //   174: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   177: invokevirtual toString : ()Ljava/lang/String;
-    //   180: astore_3
-    //   181: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   184: new java/lang/StringBuilder
-    //   187: dup
-    //   188: aload_3
-    //   189: invokestatic valueOf : (Ljava/lang/Object;)Ljava/lang/String;
-    //   192: invokespecial <init> : (Ljava/lang/String;)V
-    //   195: ldc_w ' \\nSwap Serial Number checking '
-    //   198: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   201: iload #9
-    //   203: iconst_1
-    //   204: iadd
-    //   205: invokevirtual append : (I)Ljava/lang/StringBuilder;
-    //   208: ldc_w '    '
-    //   211: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   214: aload #6
-    //   216: invokevirtual trim : ()Ljava/lang/String;
-    //   219: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   222: ldc_w '/'
-    //   225: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   228: iload #4
-    //   230: invokevirtual append : (Z)Ljava/lang/StringBuilder;
-    //   233: ldc_w '/'
-    //   236: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   239: aload_3
-    //   240: invokestatic RecordExist : (Ljava/lang/String;)Z
-    //   243: ifeq -> 250
-    //   246: iconst_0
-    //   247: goto -> 251
-    //   250: iconst_1
-    //   251: invokevirtual append : (Z)Ljava/lang/StringBuilder;
-    //   254: invokevirtual toString : ()Ljava/lang/String;
-    //   257: invokevirtual println : (Ljava/lang/String;)V
-    //   260: aload_3
-    //   261: invokestatic RecordExist : (Ljava/lang/String;)Z
-    //   264: ifne -> 277
-    //   267: iconst_0
-    //   268: istore #4
-    //   270: aload #6
-    //   272: astore #5
-    //   274: goto -> 290
-    //   277: iconst_1
-    //   278: istore #4
-    //   280: iinc #9, 1
-    //   283: iload #9
-    //   285: aload_2
-    //   286: arraylength
-    //   287: if_icmplt -> 74
-    //   290: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   293: ldc_w '======================'
-    //   296: invokevirtual println : (Ljava/lang/String;)V
-    //   299: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   302: invokevirtual println : ()V
-    //   305: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   308: invokevirtual println : ()V
-    //   311: new java/lang/StringBuffer
-    //   314: dup
-    //   315: invokespecial <init> : ()V
-    //   318: astore #9
-    //   320: aload_2
-    //   321: arraylength
-    //   322: ifle -> 476
-    //   325: aload #9
-    //   327: ldc_w '<Serial>'
-    //   330: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   333: pop
-    //   334: aload #9
-    //   336: new java/lang/StringBuilder
-    //   339: dup
-    //   340: ldc_w '<Id>'
-    //   343: invokespecial <init> : (Ljava/lang/String;)V
-    //   346: aload #5
-    //   348: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   351: ldc_w '</Id>'
-    //   354: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   357: invokevirtual toString : ()Ljava/lang/String;
-    //   360: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   363: pop
-    //   364: aload #9
-    //   366: new java/lang/StringBuilder
-    //   369: dup
-    //   370: ldc_w '<Flag>'
-    //   373: invokespecial <init> : (Ljava/lang/String;)V
-    //   376: new java/lang/StringBuilder
-    //   379: dup
-    //   380: invokespecial <init> : ()V
-    //   383: iload #4
-    //   385: invokevirtual append : (Z)Ljava/lang/StringBuilder;
-    //   388: invokevirtual toString : ()Ljava/lang/String;
-    //   391: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   394: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   397: ldc_w '</Flag>'
-    //   400: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   403: invokevirtual toString : ()Ljava/lang/String;
-    //   406: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   409: pop
-    //   410: aload #9
-    //   412: ldc_w '</Serial>'
-    //   415: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   418: pop
-    //   419: aload_1
-    //   420: ldc 'text/xml'
-    //   422: invokeinterface setContentType : (Ljava/lang/String;)V
-    //   427: aload_1
-    //   428: ldc 'Cache-Control'
-    //   430: ldc 'no-cache'
-    //   432: invokeinterface setHeader : (Ljava/lang/String;Ljava/lang/String;)V
-    //   437: aload_1
-    //   438: invokeinterface getWriter : ()Ljava/io/PrintWriter;
-    //   443: new java/lang/StringBuilder
-    //   446: dup
-    //   447: ldc_w '<Serials>'
-    //   450: invokespecial <init> : (Ljava/lang/String;)V
-    //   453: aload #9
-    //   455: invokevirtual toString : ()Ljava/lang/String;
-    //   458: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   461: ldc_w '</Serials>'
-    //   464: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   467: invokevirtual toString : ()Ljava/lang/String;
-    //   470: invokevirtual write : (Ljava/lang/String;)V
-    //   473: goto -> 528
-    //   476: aload_1
-    //   477: sipush #204
-    //   480: invokeinterface setStatus : (I)V
-    //   485: goto -> 528
-    //   488: astore_2
-    //   489: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   492: aload_2
-    //   493: invokevirtual getMessage : ()Ljava/lang/String;
-    //   496: invokevirtual println : (Ljava/lang/String;)V
-    //   499: aload_0
-    //   500: ldc 'error'
-    //   502: aload_2
-    //   503: invokevirtual getMessage : ()Ljava/lang/String;
-    //   506: invokeinterface setAttribute : (Ljava/lang/String;Ljava/lang/Object;)V
-    //   511: aload_0
-    //   512: ldc '/error/index.jsp'
-    //   514: invokeinterface getRequestDispatcher : (Ljava/lang/String;)Ljavax/servlet/RequestDispatcher;
-    //   519: astore_3
-    //   520: aload_3
-    //   521: aload_0
-    //   522: aload_1
-    //   523: invokeinterface forward : (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
-    //   528: return
-    // Line number table:
-    //   Java source line number -> byte code offset
-    //   #7897	-> 0
-    //   #7898	-> 16
-    //   #7899	-> 19
-    //   #7900	-> 22
-    //   #7901	-> 26
-    //   #7902	-> 30
-    //   #7903	-> 34
-    //   #7904	-> 38
-    //   #7905	-> 44
-    //   #7906	-> 50
-    //   #7907	-> 59
-    //   #7908	-> 68
-    //   #7910	-> 74
-    //   #7911	-> 86
-    //   #7912	-> 92
-    //   #7913	-> 98
-    //   #7915	-> 104
-    //   #7916	-> 132
-    //   #7917	-> 181
-    //   #7918	-> 260
-    //   #7920	-> 267
-    //   #7921	-> 270
-    //   #7922	-> 274
-    //   #7924	-> 277
-    //   #7908	-> 280
-    //   #7926	-> 290
-    //   #7927	-> 299
-    //   #7928	-> 305
-    //   #7929	-> 311
-    //   #7930	-> 320
-    //   #7932	-> 325
-    //   #7933	-> 334
-    //   #7934	-> 364
-    //   #7935	-> 410
-    //   #7936	-> 419
-    //   #7937	-> 427
-    //   #7938	-> 437
-    //   #7939	-> 473
-    //   #7942	-> 476
-    //   #7944	-> 485
-    //   #7945	-> 488
-    //   #7947	-> 489
-    //   #7948	-> 499
-    //   #7949	-> 511
-    //   #7950	-> 520
-    //   #7952	-> 528
-    // Local variable table:
-    //   start	length	slot	name	descriptor
-    //   0	529	0	request	Ljavax/servlet/http/HttpServletRequest;
-    //   0	529	1	response	Ljavax/servlet/http/HttpServletResponse;
-    //   16	469	2	serial	[Ljava/lang/String;
-    //   19	466	3	sql	Ljava/lang/String;
-    //   22	463	4	flag	Z
-    //   26	459	5	id	Ljava/lang/String;
-    //   30	455	6	serials	Ljava/lang/String;
-    //   34	451	7	item	Ljava/lang/String;
-    //   38	447	8	type	Ljava/lang/String;
-    //   71	219	9	x	I
-    //   86	194	10	cserial	[Ljava/lang/String;
-    //   320	165	9	sb	Ljava/lang/StringBuffer;
-    //   489	39	2	e	Ljava/lang/Exception;
-    //   520	8	3	dispatchers	Ljavax/servlet/RequestDispatcher;
-    // Exception table:
-    //   from	to	target	type
-    //   0	485	488	java/lang/Exception
+  public static synchronized void loadcheckSerial(HttpServletRequest request, HttpServletResponse response)
+		  throws IOException, ServletException {
+
+		try 
+		{
+			String serial[] = (request.getParameter("serial")).split(",");
+			String sql = "";
+			boolean flag = false;
+			String id = "";
+			String serials = "";
+			String item = "";
+			String type = "";
+			System.out.println();
+			System.out.println();
+			System.out.println("Serial number Checking");
+			System.out.println("======================");
+			for (int x = 0; x < serial.length; x++) 
+			{
+				String cserial[] = serial[x].split("~");
+				serials = cserial[0];
+				item = cserial[1];
+				type = cserial[2];
+
+				sql = "SELECT COUNT(*) FROM inv_t_vendorgoodsreceived  WHERE CHR_FLAG = 'N' AND CHR_SERIALNO='"	+ serials.trim() + "'";
+				sql = sql + " AND CHR_TYPE='" + type.trim()+ "'  AND CHR_ITEMID = '" + item.trim()+"' ";//	+ "' AND CHR_QUALITY='Y'";
+				System.out.println(sql+" \nSwap Serial Number checking " + (x + 1)	+ "    " + serials.trim()+"/"+flag+"/"+(!CommonFunction.RecordExist(sql)) );
+				if (!CommonFunction.RecordExist(sql)) 
+				{
+					flag = false;
+					id = serials;
+					break;
+				}
+				flag = true;
+			}
+			System.out.println("======================");
+			System.out.println();
+			System.out.println();
+			StringBuffer sb = new StringBuffer();
+			if (serial.length > 0) 
+			{
+				sb.append("<Serial>");
+				sb.append("<Id>" + id + "</Id>");
+				sb.append("<Flag>" + ("" + flag).toUpperCase() + "</Flag>");
+				sb.append("</Serial>");
+				response.setContentType("text/xml");
+				response.setHeader("Cache-Control", "no-cache");
+				response.getWriter().write("<Serials>" + sb.toString() + "</Serials>");
+			} 
+			else 
+			{
+				response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e.getMessage());
+			request.setAttribute("error", e.getMessage());
+			RequestDispatcher dispatchers = request.getRequestDispatcher("/error/index.jsp");
+			dispatchers.forward(request, response);
+		}
+	
   }
   
   public static synchronized void LoadSwapcheckSerial(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -10468,196 +6802,53 @@ public class InventoryMethod extends HttpServlet {
     } 
   }
   
-  public static void loadcremovedItemSerial(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    // Byte code:
-    //   0: aload_0
-    //   1: ldc_w 'serial'
-    //   4: invokeinterface getParameter : (Ljava/lang/String;)Ljava/lang/String;
-    //   9: ldc_w ','
-    //   12: invokevirtual split : (Ljava/lang/String;)[Ljava/lang/String;
-    //   15: astore_2
-    //   16: ldc ''
-    //   18: astore_3
-    //   19: iconst_0
-    //   20: istore #4
-    //   22: ldc ''
-    //   24: astore #5
-    //   26: iconst_0
-    //   27: istore #6
-    //   29: goto -> 93
-    //   32: aload_2
-    //   33: iload #6
-    //   35: aaload
-    //   36: astore #7
-    //   38: new java/lang/StringBuilder
-    //   41: dup
-    //   42: ldc_w 'SELECT COUNT(*) FROM inv_t_vendorgoodsreceived  WHERE CHR_FLAG = 'N' AND CHR_SERIALNO=''
-    //   45: invokespecial <init> : (Ljava/lang/String;)V
-    //   48: aload #7
-    //   50: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   53: ldc_w '''
-    //   56: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   59: invokevirtual toString : ()Ljava/lang/String;
-    //   62: astore_3
-    //   63: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   66: aload_3
-    //   67: invokevirtual println : (Ljava/lang/String;)V
-    //   70: aload_3
-    //   71: invokestatic RecordExist : (Ljava/lang/String;)Z
-    //   74: ifeq -> 87
-    //   77: iconst_0
-    //   78: istore #4
-    //   80: aload #7
-    //   82: astore #5
-    //   84: goto -> 100
-    //   87: iconst_1
-    //   88: istore #4
-    //   90: iinc #6, 1
-    //   93: iload #6
-    //   95: aload_2
-    //   96: arraylength
-    //   97: if_icmplt -> 32
-    //   100: new java/lang/StringBuffer
-    //   103: dup
-    //   104: invokespecial <init> : ()V
-    //   107: astore #6
-    //   109: aload_2
-    //   110: arraylength
-    //   111: ifle -> 265
-    //   114: aload #6
-    //   116: ldc_w '<Serial>'
-    //   119: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   122: pop
-    //   123: aload #6
-    //   125: new java/lang/StringBuilder
-    //   128: dup
-    //   129: ldc_w '<Id>'
-    //   132: invokespecial <init> : (Ljava/lang/String;)V
-    //   135: aload #5
-    //   137: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   140: ldc_w '</Id>'
-    //   143: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   146: invokevirtual toString : ()Ljava/lang/String;
-    //   149: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   152: pop
-    //   153: aload #6
-    //   155: new java/lang/StringBuilder
-    //   158: dup
-    //   159: ldc_w '<Flag>'
-    //   162: invokespecial <init> : (Ljava/lang/String;)V
-    //   165: new java/lang/StringBuilder
-    //   168: dup
-    //   169: invokespecial <init> : ()V
-    //   172: iload #4
-    //   174: invokevirtual append : (Z)Ljava/lang/StringBuilder;
-    //   177: invokevirtual toString : ()Ljava/lang/String;
-    //   180: invokevirtual toUpperCase : ()Ljava/lang/String;
-    //   183: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   186: ldc_w '</Flag>'
-    //   189: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   192: invokevirtual toString : ()Ljava/lang/String;
-    //   195: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   198: pop
-    //   199: aload #6
-    //   201: ldc_w '</Serial>'
-    //   204: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuffer;
-    //   207: pop
-    //   208: aload_1
-    //   209: ldc 'text/xml'
-    //   211: invokeinterface setContentType : (Ljava/lang/String;)V
-    //   216: aload_1
-    //   217: ldc 'Cache-Control'
-    //   219: ldc 'no-cache'
-    //   221: invokeinterface setHeader : (Ljava/lang/String;Ljava/lang/String;)V
-    //   226: aload_1
-    //   227: invokeinterface getWriter : ()Ljava/io/PrintWriter;
-    //   232: new java/lang/StringBuilder
-    //   235: dup
-    //   236: ldc_w '<Serials>'
-    //   239: invokespecial <init> : (Ljava/lang/String;)V
-    //   242: aload #6
-    //   244: invokevirtual toString : ()Ljava/lang/String;
-    //   247: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   250: ldc_w '</Serials>'
-    //   253: invokevirtual append : (Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   256: invokevirtual toString : ()Ljava/lang/String;
-    //   259: invokevirtual write : (Ljava/lang/String;)V
-    //   262: goto -> 317
-    //   265: aload_1
-    //   266: sipush #204
-    //   269: invokeinterface setStatus : (I)V
-    //   274: goto -> 317
-    //   277: astore_2
-    //   278: getstatic java/lang/System.out : Ljava/io/PrintStream;
-    //   281: aload_2
-    //   282: invokevirtual getMessage : ()Ljava/lang/String;
-    //   285: invokevirtual println : (Ljava/lang/String;)V
-    //   288: aload_0
-    //   289: ldc 'error'
-    //   291: aload_2
-    //   292: invokevirtual getMessage : ()Ljava/lang/String;
-    //   295: invokeinterface setAttribute : (Ljava/lang/String;Ljava/lang/Object;)V
-    //   300: aload_0
-    //   301: ldc '/error/index.jsp'
-    //   303: invokeinterface getRequestDispatcher : (Ljava/lang/String;)Ljavax/servlet/RequestDispatcher;
-    //   308: astore_3
-    //   309: aload_3
-    //   310: aload_0
-    //   311: aload_1
-    //   312: invokeinterface forward : (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
-    //   317: return
-    // Line number table:
-    //   Java source line number -> byte code offset
-    //   #8003	-> 0
-    //   #8004	-> 16
-    //   #8005	-> 19
-    //   #8006	-> 22
-    //   #8007	-> 26
-    //   #8009	-> 32
-    //   #8010	-> 38
-    //   #8011	-> 63
-    //   #8012	-> 70
-    //   #8014	-> 77
-    //   #8015	-> 80
-    //   #8016	-> 84
-    //   #8018	-> 87
-    //   #8007	-> 90
-    //   #8020	-> 100
-    //   #8021	-> 109
-    //   #8023	-> 114
-    //   #8024	-> 123
-    //   #8025	-> 153
-    //   #8026	-> 199
-    //   #8027	-> 208
-    //   #8028	-> 216
-    //   #8029	-> 226
-    //   #8030	-> 232
-    //   #8029	-> 259
-    //   #8031	-> 262
-    //   #8034	-> 265
-    //   #8036	-> 274
-    //   #8037	-> 277
-    //   #8039	-> 278
-    //   #8040	-> 288
-    //   #8041	-> 300
-    //   #8042	-> 309
-    //   #8044	-> 317
-    // Local variable table:
-    //   start	length	slot	name	descriptor
-    //   0	318	0	request	Ljavax/servlet/http/HttpServletRequest;
-    //   0	318	1	response	Ljavax/servlet/http/HttpServletResponse;
-    //   16	258	2	serial	[Ljava/lang/String;
-    //   19	255	3	sql	Ljava/lang/String;
-    //   22	252	4	flag	Z
-    //   26	248	5	id	Ljava/lang/String;
-    //   29	71	6	x	I
-    //   38	52	7	serials	Ljava/lang/String;
-    //   109	165	6	sb	Ljava/lang/StringBuffer;
-    //   278	39	2	e	Ljava/lang/Exception;
-    //   309	8	3	dispatchers	Ljavax/servlet/RequestDispatcher;
-    // Exception table:
-    //   from	to	target	type
-    //   0	274	277	java/lang/Exception
+  public static void loadcremovedItemSerial(HttpServletRequest request, HttpServletResponse response) 
+		  throws IOException, ServletException {
+
+		try 
+		{
+			String serial[] = (request.getParameter("serial")).split(",");
+			String sql = "";
+			boolean flag = false;
+			String id = "";
+			for (int x = 0; x < serial.length; x++) 
+			{
+				String serials = serial[x];
+				sql = "SELECT COUNT(*) FROM inv_t_vendorgoodsreceived  WHERE CHR_FLAG = 'N' AND CHR_SERIALNO='"+ serials + "'";
+				System.out.println(sql);
+				if (CommonFunction.RecordExist(sql)) 
+				{
+					flag = false;
+					id = serials;
+					break;
+				}
+				flag = true;
+			}
+			StringBuffer sb = new StringBuffer();
+			if (serial.length > 0) 
+			{
+				sb.append("<Serial>");
+				sb.append("<Id>" + id + "</Id>");
+				sb.append("<Flag>" + ("" + flag).toUpperCase() + "</Flag>");
+				sb.append("</Serial>");
+				response.setContentType("text/xml");
+				response.setHeader("Cache-Control", "no-cache");
+				response.getWriter().write(
+						"<Serials>" + sb.toString() + "</Serials>");
+			} 
+			else 
+			{
+				response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e.getMessage());
+			request.setAttribute("error", e.getMessage());
+			RequestDispatcher dispatchers = request.getRequestDispatcher("/error/index.jsp");
+			dispatchers.forward(request, response);
+		}
+	
   }
   
   public static void loadSalesReturn(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

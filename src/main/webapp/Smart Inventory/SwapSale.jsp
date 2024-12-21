@@ -323,7 +323,7 @@ function sendSMS(query)
 						if(month1<10) month1="0"+month1;
 						var year1=d.getFullYear();
 						var day=d.getDate();
-						setOptionValue('day',day);	
+						//setOptionValue('day',day);	
 						setOptionValue('month',month1);
 						setOptionValue('year',year1);	
 				//-->

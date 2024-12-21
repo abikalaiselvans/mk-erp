@@ -38,6 +38,13 @@ public class SalesPaymentMultipleInvoiceActionHandler extends AbstractActionHand
         String totalrecords = request.getParameter("totalrecords");
         int count = Integer.parseInt(totalrecords);
         System.out.println(count);
+        
+        String pagerepeat = request.getParameter("pagerepeat");
+        String diffamount = request.getParameter("diffamount");
+        String salesnumberids = request.getParameter("salesnumberids");
+        
+        
+        
         if (count > 0) {
           String customerid = request.getParameter("customerid");
           for (int u = 0; u < count; u++) {
@@ -168,7 +175,26 @@ public class SalesPaymentMultipleInvoiceActionHandler extends AbstractActionHand
           } 
         } 
         con.close();
-        response.sendRedirect("Smart Inventory/InventoryMains.jsp");
+        
+        
+        System.out.println("pagerepeat============>"+pagerepeat);
+        System.out.println("salesnumberids============>"+salesnumberids);
+        if(pagerepeat.equalsIgnoreCase("Y")) {
+        	/*request.setAttribute("To", salesnumberids.split(","));
+        	request.setAttribute("repeatsalesnumber", salesnumberids);
+        	request.setAttribute("reqpagerepeat", pagerepeat);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/Smart Inventory/MultiPaymentsresponse.jsp?reqpagerepeat="+pagerepeat+"&repeatsalesnumber="+salesnumberids);
+            dispatcher.forward(request, response);*/
+            response.sendRedirect("Smart Inventory/MultiPaymentsresponse.jsp?reqpagerepeat="+pagerepeat+"&repeatsalesnumber="+salesnumberids);
+            
+        }
+        else
+        {
+        	 response.sendRedirect("Smart Inventory/InventoryMains.jsp");
+        }
+       
+        
+        
       } 
     } catch (Exception e) {
       request.setAttribute("error", e.getMessage());

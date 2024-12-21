@@ -91,8 +91,8 @@
                   </select></td>
                 </tr>
                 <tr>
-                  <td height="17" class="boldEleven"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                  <td colspan="2" align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
+                  <td height="17" class="boldEleven">Zero Stock </td>
+                  <td colspan="2" align="left"><input name="zerostock" type="checkbox" id="zerostock" value="Y"></td>
                 </tr>
                  
                  

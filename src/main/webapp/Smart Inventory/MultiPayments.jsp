@@ -121,9 +121,16 @@ try
 					 	}
 					 	else if(pType.equals("Direct"))
 					 	{
-				         	sql="SELECT CHR_SALESNO FROM inv_t_directsales ";
-							sql = sql + " WHERE INT_BRANCHID="+branchId+" AND CHR_PAYMENTSTATUS<>'Y'";
-							sql = sql + "   AND CHR_CANCEL='N' AND FIND_A_PAYMENTCOMMITMENT(CHR_SALESNO,'C') > 0  ORDER BY CHR_SALESNO ";  
+				         	/*sql="SELECT CHR_SALESNO FROM inv_t_directsales ";
+							sql = sql + " WHERE INT_BRANCHID="+branchId+" AND CHR_PAYMENTSTATUS<>'Y' ";
+							sql = sql + "   AND CHR_CANCEL='N' AND FIND_A_PAYMENTCOMMITMENT(CHR_SALESNO,'C') > 0  ORDER BY CHR_SALESNO  ,DAT_SALESDATE";  
+							 */
+							  
+							sql="SELECT CHR_SALESNO, DOU_TOTALAMOUNT, FUN_INV_GET_CUSTOMER_PAIDAMOUNT(CHR_SALESNO),";
+							sql = sql + " (DOU_TOTALAMOUNT - FUN_INV_GET_CUSTOMER_PAIDAMOUNT(CHR_SALESNO))  FROM inv_t_directsales  ";
+							sql = sql + " WHERE  INT_BRANCHID="+branchId+" AND CHR_CANCEL='N'  ";
+							sql = sql + " AND (DOU_TOTALAMOUNT - FUN_INV_GET_CUSTOMER_PAIDAMOUNT(CHR_SALESNO)) > 10  ORDER BY DAT_SALESDATE  "; 
+   
 							   
 				         	salesSQL="SELECT CHR_SALESNO , DATE_FORMAT(DAT_SALESDATE,'%d-%m-%Y'), INT_CUSTOMERID,DOU_TOTALAMOUNT "
 				         	 +"FROM inv_t_directsales WHERE INT_BRANCHID="+branchId+" AND CHR_CANCEL='N'  AND CHR_PAYMENTSTATUS<>'Y'";
@@ -137,10 +144,10 @@ try
                         <td class="boldEleven">From</td>
                         <td><div id='Fromstaff'>
                             <select name="From" size='10' class="formText135" id="From" style="width:300; height:400">
-                              <option value="">Select</option>
+                              <option value="" >Select</option>
                               <%
 							for(int u=0;u<data.length;u++)
-								out.println("<option   value='"+data[u][0]+"'>"+data[u][0]+"</option>");
+								out.println("<option onDblClick=\"addItem()\"   value='"+data[u][0]+"'>"+data[u][0]+"</option>");
 						%>
                             </select>
                         </div></td>
@@ -203,7 +210,38 @@ function removeItem()
                   <td colspan="2"><table width="100%" border="0">
                       <tr>
                         <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td><input name="selectAll" id="selectAll" type="checkbox" value="Y" onClick="selectDeselect()">Select All
+						<script language="javascript">
+						
+							function selectDeselect() {  
+							try
+							{
+								var listb = document.getElementById('To');  
+								var len = listb.options.length;  
+								
+								if(document.getElementById('selectAll').checked){
+									for (var i = 0; i < len; i++) {  
+										if(listb.options[i].value != "")
+											listb.options[i].selected = true;  
+									}
+								}
+								else {
+									for (var i = 0; i < len; i++) {  
+										if(listb.options[i].value != "")
+											listb.options[i].selected = false;  
+									}
+								}
+								
+							}
+							catch(err)
+							{
+								alert(err)
+							}	  
+						}
+						  
+						</script>
+						
+						</td>
                       </tr>
                       <tr>
                         <td>&nbsp;</td>

@@ -37,6 +37,7 @@ try
 		String Branch=request.getParameter("Branch");
 		String division=request.getParameter("division");
 		String product=request.getParameter("product");
+		String zerostock=request.getParameter("zerostock");
 	 
 		String sql ="";
 		sql = " SELECT  e.CHR_COMPANYNAME,c.CHR_BRANCHNAME,a.CHR_ITEMID,'PRODUCT',b.CHR_PRODUCTCODE, ";
@@ -60,7 +61,7 @@ try
 		sql = sql + " GROUP BY a.INT_BRANCHID,a.CHR_ITEMID  ";
 		sql = sql + " ORDER BY b.CHR_PRODUCTCODE, a.INT_BRANCHID ";
 		//out.println(sql);
-		 
+		// out.println("================"+zerostock);
 		String data[][] = CommonFunctions.QueryExecute(sql);
 		
 		Vector mn = new Vector();
@@ -78,11 +79,17 @@ try
 				child.addElement(data[u][4]);
 				child.addElement(data[u][5]);
 				child.addElement(data[u][6]);
+				 
 				child.addElement(data[u][9]);
 				child.addElement(data[u][10]);
 				child.addElement(data[u][11]);
 				child.addElement(data[u][2]);
-				mn.add(child); 
+				if("Y".equals(zerostock)) {
+					mn.add(child); 
+				}
+				else if(  Integer.parseInt(data[u][9]) >0)  { 
+					mn.add(child); 
+				}
 			}
 		} 
 		
