@@ -56,21 +56,21 @@ try
 			sql = sql + " j.CHR_MODELCODE Brand ,  b1.CHR_GROUPNAME ProductGroup, c.CHR_DES PCODEDESCRIPTION ,   ";
 			sql = sql + " FUN_INV_GET_WARRANTY_IN_YEAR(b.INT_WARRANTY) Warranty, c.CHR_HSNCODE HSNorSAC,   FUN_INV_GET_SALES_SERIALNUMBER_CONCATS( b.CHR_TYPE,b.CHR_ITEMID,a.CHR_SALESNO) SlNos, ";
 			sql = sql + "B.INT_QUANTITY Qty,  b.DOU_UNITPRICE UnitCost, ROUND((b.INT_QUANTITY  * b.DOU_UNITPRICE),2) BeforeTax,   b.DOU_TAX_AMOUNT TaxAmt, b.DOU_TOTAL Total, a.DOU_AMOUNT NetValue, a.DOU_TCS_AMOUNT TCS,   ";
-			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue , k.CHR_TAXNAME GST, g.CHR_STAFFNAME AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname, FUN_INV_DIVISION(a.INT_DIVIID) division  ";
-			sql = sql + "from inv_t_directsales a,inv_t_swapsalesitem b,inv_m_item c, inv_m_itemgroup b1, inv_m_division d,inv_m_customerinfo e,inv_m_itemgroup f, com_m_staff g ,  ";
+			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue , k.CHR_TAXNAME GST,  FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname, FUN_INV_DIVISION(a.INT_DIVIID) division , FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF1) ";
+			sql = sql + "from inv_t_directsales a,inv_t_swapsalesitem b,inv_m_item c, inv_m_itemgroup b1, inv_m_division d,inv_m_customerinfo e,inv_m_itemgroup f,   ";
 			sql = sql + "inv_m_customertype i, inv_m_model j, inv_m_tax k  ";
 			sql = sql + "WHERE a.CHR_SALESNO = b.CHR_SALESNO  AND b.CHR_TYPE ='I'    ";
 			sql = sql + "AND b.CHR_ITEMID =c.CHR_ITEMID   ";
 			sql = sql + "AND a.INT_DIVIID= d.INT_DIVIID   ";
 			sql = sql + "AND a.INT_CUSTOMERID = e.INT_CUSTOMERID   ";
-			sql = sql + "AND c.INT_ITEMGROUPID = f.INT_ITEMGROUPID   ";
-			sql = sql + "AND a.CHR_REF=g.CHR_EMPID   ";
+			sql = sql + "AND c.INT_ITEMGROUPID = f.INT_ITEMGROUPID   "; 
 			sql = sql + "AND c.INT_ITEMGROUPID = b1.INT_ITEMGROUPID   ";
 			sql = sql + "AND e.INT_CUSTOMERTYPEID = i.INT_CUSTOMERTYPEID  ";
 			sql = sql + "AND j.INT_MODELID = c.INT_MODELCODE  ";
 			sql = sql + "AND b.INT_TAXID = k.INT_TAXID  ";
 			if(!"F".equals(""+session.getAttribute("USRTYPE")) )
-				sql = sql + "  AND a.CHR_REF IN("+empids+"'0') ";
+				sql = sql + " AND(   a.CHR_REF IN("+empids+"'')  OR   a.CHR_REF1 IN("+empids+"'') )";
+			 
 			if(!"0".equals(Branch))
 				sql = sql + " AND a.INT_BRANCHID = "+Branch;
 			if(!"0".equals(division))
@@ -88,8 +88,8 @@ try
 			sql = sql + "j.CHR_MODELCODE Brand ,  b1.CHR_NAME ProductGroup, c.CHR_PRODUCTDESC PCODEDESCRIPTION ,    ";
 			sql = sql + "FUN_INV_GET_WARRANTY_IN_YEAR(b.INT_WARRANTY) Warranty,  c.CHR_HSNCODE HSNorSAC ,   FUN_INV_GET_SALES_SERIALNUMBER_CONCATS(b.CHR_TYPE,b.CHR_ITEMID, a.CHR_SALESNO) SlNos,";
 			sql = sql + "b.INT_QUANTITY Qty, b.DOU_UNITPRICE UnitCost, ROUND((b.INT_QUANTITY  * b.DOU_UNITPRICE),2) BeforeTax,b.DOU_TAX_AMOUNT TaxAmt, b.DOU_TOTAL Total, a.DOU_AMOUNT NetValue, a.DOU_TCS_AMOUNT TCS,   ";
-			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue ,  k.CHR_TAXNAME GST, g.CHR_STAFFNAME AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname , FUN_INV_DIVISION(a.INT_DIVIID) division ";
-			sql = sql + "from inv_t_directsales a,inv_t_swapsalesitem b,inv_m_produtlist c,  inv_m_productgroup b1, inv_m_division d,inv_m_customerinfo e,inv_m_productgroup f, com_m_staff g ,  ";
+			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue ,  k.CHR_TAXNAME GST, FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname , FUN_INV_DIVISION(a.INT_DIVIID) division  , FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF1) ";
+			sql = sql + "from inv_t_directsales a,inv_t_swapsalesitem b,inv_m_produtlist c,  inv_m_productgroup b1, inv_m_division d,inv_m_customerinfo e,inv_m_productgroup f,  ";
 			sql = sql + "inv_m_customertype i, inv_m_model j, inv_m_tax k  ";
 			sql = sql + "WHERE a.CHR_SALESNO = b.CHR_SALESNO  AND b.CHR_TYPE ='P'    ";
 			sql = sql + "AND b.CHR_ITEMID =c.CHR_PRODUCTID   ";
@@ -97,12 +97,11 @@ try
 			sql = sql + "AND a.INT_CUSTOMERID = e.INT_CUSTOMERID   ";
 			sql = sql + "AND c.INT_PRODUCTGROUPID = f.INT_PRODUCTGROUPID   ";
 			sql = sql + "AND c.INT_PRODUCTGROUPID = b1.INT_PRODUCTGROUPID   ";
-			sql = sql + "AND a.CHR_REF=g.CHR_EMPID   ";
 			sql = sql + "AND e.INT_CUSTOMERTYPEID = i.INT_CUSTOMERTYPEID  ";
 			sql = sql + "AND j.INT_MODELID = c.CHR_MODEL  ";
 			sql = sql + "AND b.INT_TAXID = k.INT_TAXID  ";
 			if(!"F".equals(""+session.getAttribute("USRTYPE")) )
-				sql = sql + "  AND a.CHR_REF IN("+empids+"'0') ";
+				sql = sql + " AND(   a.CHR_REF IN("+empids+"'')  OR   a.CHR_REF1 IN("+empids+"'') )";
 			if(!"0".equals(Branch))
 				sql = sql + " AND a.INT_BRANCHID = "+Branch;
 			if(!"0".equals(division))
@@ -117,7 +116,7 @@ try
 			sql = sql + ")  ";
 			
  			//out.println(sql);
- 
+ 			//out.println(empids);
 			//System.out.println(sql);
 			
 				 
@@ -154,8 +153,9 @@ try
 						child.addElement(data[u][19]);
 						child.addElement(data[u][20]);
 						child.addElement(data[u][21]);
-						
 						child.addElement((u+1));
+						child.addElement(data[u][22]);
+						
 						mn.add(child); 
 					}
 				}
@@ -196,7 +196,8 @@ try
 					<display:column title="TCS"  style="text-align:right" sortable="true"><%=temp.elementAt(16)%></display:column>
 					<display:column title="FINALVALUE"   style="text-align:right" ><%=temp.elementAt(17)%></display:column>  
 					<display:column title="GST"   sortable="true"><%=temp.elementAt(18)%></display:column>  
-					<display:column title="ACCOUNTMANAGER"   sortable="true"><%=temp.elementAt(19)%></display:column>  	
+					<display:column title="ACCOUNTMANAGER1"   sortable="true"><%=temp.elementAt(19)%></display:column>  	
+					<display:column title="ACCOUNTMANAGER2"   sortable="true"><%=temp.elementAt(23)%></display:column>  	
 					
 	
 	

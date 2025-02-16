@@ -144,6 +144,7 @@ String vendor[][]=CommonFunctions.QueryExecute(sql);
 							<td height="9">
 							<%
 					sql = "SELECT CHR_SALESNO,CHR_ITEMID,CHR_TYPE ,INT_QUANTITY,DOU_UNITPRICE,DOU_DISCOUNT,DOU_UNITDISCOUNT,DOU_TOTAL  FROM inv_t_swapsalesitem WHERE CHR_SALESNO ='"+salesno+"'";
+					//out.println(sql);
 					String iname="";
 					String itemname="";
 					String cons="";

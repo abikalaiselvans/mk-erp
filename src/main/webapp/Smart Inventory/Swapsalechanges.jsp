@@ -6,11 +6,12 @@ try
  
 String salesno=request.getParameter("salesno");
 String sql = " SELECT a.CHR_SALESNO,DATE_FORMAT(a.DAT_SALESDATE,'%d-%m-%Y'),a.INT_CUSTOMERID,FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID), ";
-sql = sql + " a.CHR_SHIPPINGADDRESS,a.CHR_REF,FIND_A_EMPLOYEE_ID_NAME(a.CHR_REF),a.INT_DIVIID ,c.CHR_DIVICODE ,a.DAT_SALESDATE ,a.CHR_SHIPPING,a.CHR_OTHERREF,a.CHR_CONTACTNO,a.CHR_CONTACTDETAILS";
+sql = sql + " a.CHR_SHIPPINGADDRESS,a.CHR_REF,FIND_A_EMPLOYEE_ID_NAME(a.CHR_REF),a.INT_DIVIID ,c.CHR_DIVICODE ,a.DAT_SALESDATE ,a.CHR_SHIPPING,a.CHR_OTHERREF,a.CHR_CONTACTNO,a.CHR_CONTACTDETAILS  ,a.CHR_REF1, FIND_A_EMPLOYEE_ID_NAME(a.CHR_REF1)";
 sql = sql + " FROM inv_t_directsales a, inv_m_customerinfo b, inv_m_division c ";
 sql = sql + " WHERE a.INT_CUSTOMERID = b.INT_CUSTOMERID ";
 sql = sql + " AND a.INT_DIVIID = c.INT_DIVIID ";
 sql = sql + " AND a.CHR_SALESNO ='"+salesno+"'";
+//out.println(sql);
 String data[][]=CommonFunctions.QueryExecute(sql);
 String diff = CommonFunctions.QueryExecute(" SELECT (datediff(now(),'"+data[0][9]+"') <= INT_ME_NAME_CHANGE )  FROM m_inventorysetting WHERE INT_ROWID=1 ")[0][0];
 boolean flag = true;
@@ -130,7 +131,7 @@ function Validate()
   <tr>
     <td>
 	 <form  AUTOCOMPLETE = "off"   action="../SmartLoginAuth" method="post" name="frm" id="frm" onSubmit="return Validate()">
-	<table class="BackGround1" cellspacing="0" cellpadding="0" width="424"
+	<table class="BackGround1" cellspacing="0" cellpadding="0" width="600"
 			align="center" border="0">
       <tbody>
         <tr>
@@ -160,7 +161,7 @@ function Validate()
               <tr>
                 <td class="boldEleven">Sale Date <font
 									color="ff0000"> *</font></td>
-                <td class="boldEleven"><%=data[0][1]%></td>
+                <td class="errormessage"><%=data[0][1]%></td>
                 <td class="boldEleven">Sale Date</td>
                 <td class="boldEleven">
 <input value="<%=data[0][1]%>"  readonly="readonly"  name="saledate" type="text" class="formText135" id="saledate" size="15" maxlength="10"> 
@@ -168,7 +169,7 @@ function Validate()
               </tr>
               <tr>
                 <td class="boldEleven">Customer Name </td>
-                <td class="boldEleven"><%=data[0][3]%></td>
+                <td class="errormessage"><%=data[0][3]%></td>
                 <td class="boldEleven">Customer Name </td>
                 <td class="boldEleven">
 				<select name="customer" id="customer" class="formText135" style="width: 150px"  onchange="loadAddress('customer','shippingaddress') ">  
@@ -178,7 +179,7 @@ function Validate()
               </tr>
               <tr>
                 <td rowspan="2" class="boldEleven">Shipping Address </td>
-                <td rowspan="2" class="boldEleven"><%=data[0][4]%></td>
+                <td rowspan="2" class="errormessage"><%=data[0][4]%></td>
                 <td rowspan="2" align="left" valign="top" class="boldEleven">Shipping Address 
 				<%
 				String ss="";
@@ -204,8 +205,8 @@ function Validate()
 										cols="40" rows="7" class="formText135" id="shippingaddress"><%=data[0][4]%></textarea></td>
               </tr>
               <tr>
-                <td width="24%" class="boldEleven">M.E Name </td>
-                <td width="20%" class="boldEleven"><%=data[0][6]%> </td>
+                <td width="24%" class="boldEleven">M.E Name-1 </td>
+                <td width="20%" class="errormessage"><%=data[0][6]%> </td>
                 <td width="6%" class="boldEleven">M.E Name </td>
                 <td width="50%" class="boldEleven">
 				<select name="ref" id="ref"	class="formText135" size="5" style="width:200">
@@ -215,8 +216,19 @@ function Validate()
 									<script language="javascript">setOptionValue('ref','<%=data[0][5]%>')</script>					</td>
               </tr>
               <tr>
+                <td class="boldEleven">M.E Name-2 </td>
+                <td class="errormessage"><%=data[0][15]%> </td>
+                <td class="boldEleven">M.E Name </td>
+                <td class="boldEleven"><select name="ref1" id="ref1"	class="formText135" size="5" style="width:200">
+                    <option value="0">Select M.E Name</option>
+                    <jsp:include page="Staffload.jsp" flush="true" />              
+                </select>
+                    <script language="javascript">setOptionValue('ref1','<%=data[0][14]%>')</script>
+                </td>
+              </tr>
+              <tr>
                 <td class="boldEleven">Division</td>
-                <td class="boldEleven"><%=data[0][8]%></td>
+                <td class="errormessage"><%=data[0][8]%></td>
                 <td class="boldEleven">Division</td>
                 <td class="boldEleven"><select
 										name="division" class="formText135" id="division" tabindex="1" onChange="">
@@ -231,7 +243,7 @@ function Validate()
               </tr>
               <tr>
                 <td class="boldEleven">Order Reference</td>
-                <td class="boldEleven"><%=data[0][11]%></td>
+                <td class="errormessage"><%=data[0][11]%></td>
                 <td class="boldEleven"><div align="left">Order Reference<span class="ui-state-error-text">* </span></div></td>
                 <td class="boldEleven"><div align="left">
                     <input name="oref" type="text"
@@ -241,7 +253,7 @@ function Validate()
               </tr>
               <tr>
                 <td class="boldEleven"> Contact Person</td>
-                <td class="boldEleven"><%=data[0][13]%></td>
+                <td class="errormessage"><%=data[0][13]%></td>
                 <td class="boldEleven">Contact Person <span class="ui-state-error-text">* </span></td>
                 <td class="boldEleven"><input name="cdetails" type="text"
 										class="formText135" id="cdetails"
@@ -249,7 +261,7 @@ function Validate()
               </tr>
               <tr>
                 <td class="boldEleven">Contact No.</td>
-                <td class="boldEleven"><%=data[0][12]%></td>
+                <td class="errormessage"><%=data[0][12]%></td>
                 <td class="boldEleven"><div align="left">Contact No.<span class="ui-state-error-text">* </span></div></td>
                 <td class="boldEleven"><div align="left">
                     <input name="cnumber" type="text"

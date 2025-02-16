@@ -34,6 +34,7 @@ public class QRCodeServlet extends HttpServlet {
         response.setContentType("image/png");
         response.setContentLength(out.size());
          
+        
         OutputStream outStream = response.getOutputStream();
  
         outStream.write(out.toByteArray());

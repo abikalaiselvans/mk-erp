@@ -113,9 +113,9 @@
 							<tr>
 							  <td align="left" valign="top" class="boldEleven">13.</td>
 							  <td height="19" align="left" valign="top"><div align="left"><span class="boldEleven"> <a href="PaymentPending1.jsp" target="_blank">Payment Pending -1 </a></span></div></td>
-							  <td align="left" valign="top" class="boldEleven"><!--DWLayoutEmptyCell-->&nbsp;</td>
-							  <td align="left" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
-					      </tr>
+							  <td align="left" class="boldEleven">13</td>
+							  <td align="left" class="boldEleven"><a href="TransactionPayment.jsp" target="_blank">TDS Receivable Updates</a></td>
+						  </tr>
 							<tr>
 							  <td height="19" colspan="4" align="left" valign="top">
 							    <table align="center">
