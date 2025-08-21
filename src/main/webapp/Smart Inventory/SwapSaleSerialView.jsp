@@ -217,7 +217,7 @@ sql = sql +" CHR_COURIER_EMPID,CHR_COURIER_EMPID_MOBILE,INT_COURIERID,DAT_COURIE
 sql = sql +" CHR_STARTING_PLACE,CHR_ENDING_PLACE,INT_COURIER_KILOMETER,CHR_COURIER_DESC,  ";
 sql = sql +" DOU_COURIERAMOUNT,CHR_RECEIVERNAME,CHR_RECEIVER_MOBILE,DAT_DISPATCHEDDATE,  ";
 sql = sql +" CHR_CLOSEDBY,CHR_RECEIVER_DESC,CHR_CANCEL,INT_PROJECTID,CHR_USRNAME,  ";
-sql = sql +" DT_UPDATEDATE,CHR_UPDATESTATUS  ";
+sql = sql +" DT_UPDATEDATE,CHR_UPDATESTATUS, CHR_TCS,DOU_TCS_PERCENTAGE,DOU_TCS_AMOUNT   ";
 sql = sql +" FROM inv_t_directsales WHERE CHR_SALESNO='"+salesno+"'";
 //out.println(sql);
 String perdata[][]=CommonFunctions.QueryExecute(sql );
@@ -519,23 +519,32 @@ sql = sql +" WHERE CHR_SALESNO ='"+salesno+"' ORDER By INT_ID  ";
 								border="0">
 								<tbody>
 									<tr>
-										<td width="114" rowspan="3" valign="top" class="boldEleven">
+										<td width="114" rowspan="4" valign="top" class="boldEleven">
 										<%
 										if("Y".equals(perdata[0][31]))
 					  						out.println("<b>Buy Back Description ::</b>");
 									
 										%></td>
-										<td width="197" rowspan="3" valign="top" class="boldEleven">
+										<td width="197" rowspan="4" valign="top" class="boldEleven">
 										<%
 										if("Y".equals(perdata[0][31]))
 					  						out.println(perdata[0][32]);
-										%>
-										</td>
+										%>										</td>
 										<td width="107" valign="top" class="boldEleven">
 										<div align="left">Total</div>										</td>
 										<td width="169" valign="top" class="boldEleven" id="totals1">
 										<div align="right"><%=perdata[0][9]%></div>										</td>
 									</tr>
+									<tr>
+									  <td valign="top" class="boldEleven">TCS 
+									  <%
+									  	if("Y".equals(perdata[0][65]))
+					  						out.println(""+perdata[0][66] +"%");
+									  %>
+									  </td>
+									  <td align="right" valign="top" class="boldEleven" width="169">
+									  <%out.println(perdata[0][67]); %></td>
+								  </tr>
 									<tr>
 										<td valign="top" class="boldEleven">
 										<div align="left">Total Discount</div>										</td>
@@ -561,8 +570,7 @@ sql = sql +" WHERE CHR_SALESNO ='"+salesno+"' ORDER By INT_ID  ";
 									  <%
 									  if("Y".equals(perdata[0][31]))
 					  					out.println("<b>Buy Back Amount</b>");
-									  %>
-									  </td>
+									  %>									  </td>
 										<td width="197" valign="top" class="boldEleven">
 										
 									      <div align="right">

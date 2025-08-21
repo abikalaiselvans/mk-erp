@@ -181,6 +181,7 @@
 							  <td height="17" class="boldEleven"><strong>Order by <span class="boldred">*</span></strong></td>
 							  <td colspan="2" align="left">
 							  <select name="order" id="order" style="width:200" >
+							  	<option selected="selected" value="a.CHR_SALESNO">Invoice Number</option>
 							  	<option value="a.DAT_SALESDATE">Date</option>
 							  	<option value="FIND_A_CUSTOMER_NAME(b.INT_CUSTOMERID)">Customername</option>
 							    </select>							  </td>

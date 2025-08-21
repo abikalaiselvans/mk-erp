@@ -248,7 +248,7 @@ sql = sql+ "INT_CITYID ,INT_DISTRICTID ,INT_STATEID ,  INT_COUNTRYID ,INT_PINCOD
 sql = sql+ "CHR_AREACODE ,CHR_PHONE ,CHR_MOBILE ,CHR_FAX ,  CHR_EMAIL ,CHR_WEBSITE , ";
 sql = sql+ "INT_ACTIVE ,DATE_FORMAT(DAT_SINCE,'%d-%m-%Y') ,CHR_ACCNO ,INT_BANKGROUPID ,  DOU_BALANCE ,DATE_FORMAT(DAT_BALANCEASOF,'%d-%m-%Y') , ";
 sql = sql+ "DOU_CREDITLIMIT ,INT_CUSTOMERTYPEID ,  CHR_TIN ,CHR_CST ,CHR_VERIFIED,CHR_ALIASNAME, CHR_PAN ,CHR_GSTNO,CHR_USRNAME , ";
-sql = sql+ "DT_UPDATEDATE ,CHR_UPDATESTATUS,CHR_DEPARTYMENT ,CHR_BILLING,CHR_BILLINGADDRESS ,CHR_TAXEXAMPTION,CHR_TAXEXAMPTIONNO  ";
+sql = sql+ "DT_UPDATEDATE ,CHR_UPDATESTATUS,CHR_DEPARTYMENT ,CHR_BILLING,CHR_BILLINGADDRESS ,CHR_TAXEXAMPTION,CHR_TAXEXAMPTIONNO, CHR_ACCOUNTTYPE  ";
 sql = sql+ "FROM inv_m_customerinfo   WHERE INT_CUSTOMERID="+custid;
 //out.println(sql);
  String Data[][] =  CommonFunctions.QueryExecute(sql);
@@ -460,7 +460,8 @@ for(int u=0; u<bdata.length; u++)
 
 %>
                                 </select>
-								  <script language="javascript">setOptionValue('bank','<%=Data[0][20]%>')</script>								</td>
+								  <script language="javascript">setOptionValue('bank','<%=Data[0][20]%>')</script>
+								  </td>
 							</tr>
 							<tr>
 								<td height="17" class="boldEleven">Balance</td>
@@ -482,14 +483,13 @@ for(int u=0; u<bdata.length; u++)
 							<tr>
                       <td height="17" class="boldEleven">Account Type </td>
                       <td colspan="3" align="left">
-					  <select name="accounttype"  id="accounttype">
-					  	<option value="Acquition" selected="selected">Acquition</option>
-						<option value="Farming">Farming</option>
-						<option value="Home">Home</option>
-						<option value="OTR">OTR</option>
-						<option value="SOHO">SOHO</option>
-						<option value="Others">Others</option>
-					  </select>
+					  <select name="accounttype"  id="accounttype"  class="formText135">
+					  <%
+				 String accounttype[][] =  CommonFunctions.QueryExecute("SELECT INT_ACCOUNTTYPEID, CHR_ACCOUNTTYPENAME FROM  inv_m_accounttype  ORDER BY CHR_ACCOUNTTYPENAME");
+				  for(int u=0; u<accounttype.length; u++)
+				  	out.print("<option value ='"+accounttype[u][1]+"'>" +accounttype[u][1]+"</option>");
+				  %></select>
+					  <script language="javascript">setOptionValue('accounttype','<%=Data[0][39]%>')</script>
 					  </td>
                     </tr>
 							<tr>

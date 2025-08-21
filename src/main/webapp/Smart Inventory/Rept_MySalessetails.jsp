@@ -188,6 +188,17 @@ $(function() {
                           </script></td>
 							</tr>
 							<tr>
+							  <td height="17" class="boldEleven">Account Type</td>
+							  <td colspan="2" align="left"><select name="accounttype"  id="accounttype">
+					  	<option value="All" selected="selected">All</option>
+						 <%
+				 String accounttype[][] =  CommonFunctions.QueryExecute("SELECT INT_ACCOUNTTYPEID, CHR_ACCOUNTTYPENAME FROM  inv_m_accounttype  ORDER BY CHR_ACCOUNTTYPENAME");
+				  for(int u=0; u<accounttype.length; u++)
+				  	out.print("<option value ='"+accounttype[u][1]+"'>" +accounttype[u][1]+"</option>");
+				  %>
+					  </select> </td>
+						  </tr>
+							<tr>
 							  <td height="17" class="boldEleven">SerialNumber</td>
 							  <td colspan="2" align="left"><span class="boldEleven">
 							    <select name="serial" id="serial"  style="width:150" >

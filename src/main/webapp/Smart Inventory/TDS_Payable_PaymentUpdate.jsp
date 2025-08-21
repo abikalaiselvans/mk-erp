@@ -97,10 +97,9 @@ try
    
    				String fromdate = request.getParameter("fromdate");
 				String todate = request.getParameter("todate"); 
-				String customer = request.getParameter("customer");
+				String vendor = request.getParameter("vendor");
 				String Branch = request.getParameter("Branch");
 				String division=request.getParameter("division");
-				String Direct=request.getParameter("payType"); 
 				String creditto = request.getParameter("creditto"); 
 				
 				String refsql="";
@@ -112,31 +111,34 @@ try
 				String sql="";
 				String fdt=com.my.org.erp.ServiceLogin.DateUtil.FormateDateSQL(fromdate);
 				String tdt=com.my.org.erp.ServiceLogin.DateUtil.FormateDateSQL(todate);
-				String mode="";
+				String mode="VENDOR PURCHASE";
 				
-				sql = "SELECT a.CHR_SALESNO saleno, DATE_FORMAT(a.DAT_SALESDATE,'%e-%M-%Y') saledate, FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) customer,   "; 
-				sql = sql + " SUM(a1.DOU_TOTAL - a1.DOU_TAX_AMOUNT)  beforetax,   "; // FUN_INV_DIRECT_SALE_BEFORE_TAX_AMOUNT( a.CHR_SALESNO)
-				sql = sql + " a.DOU_TOTALAMOUNT netamount, b.DOU_PAIDAMOUNT tdsamount,c.CHR_DEPOSITNAME tds,  b.CHR_PAYNO tdsP, b.DAT_PAYMENTDATE tdsdate,   ";
-				sql = sql + " FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) manager1,FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF1) manager2  , b.INT_PAYMENTID , b.DOU_TDS_RECEIVED_AMOUNT, ";
-				sql = sql + " ( b.DOU_PAIDAMOUNT-b.DOU_TDS_RECEIVED_AMOUNT)";
-				sql = sql + " from inv_t_directsales a, inv_t_swapsalesitem a1, inv_t_customersalespayment b, com_m_deposit_to c,inv_m_division d   ";
-				sql = sql + " WHERE a.CHR_CANCEL ='N' AND a.CHR_SALESTYPE !='R' AND a.DOU_TOTALAMOUNT >0 AND a.CHR_SALESNO = a1.CHR_SALESNO  ";
-				sql = sql + "  AND a.CHR_SALESNO= b.CHR_SALESORDERNO AND b.INT_DEPOSITID = b.INT_DEPOSITID   ";
-				sql = sql + " AND a.INT_DIVIID=d.INT_DIVIID  AND DOU_TDS_RECEIVED_AMOUNT < b.DOU_PAIDAMOUNT";
+				sql = "SELECT a.CHR_VENDORPO vendorno, DATE_FORMAT(a.DAT_ORDERDATE,'%e-%M-%Y') purdate, FUN_INV_GET_VENDORNAME(a.INT_VENDORID) vendor,    "; 
+				sql = sql + " SUM(a1.DOU_TOTAL - a1.DOU_TAX_AMOUNT) beforetax, a.DOU_TOTALAMOUNT netamount, b.DOU_PAIDAMOUNT tdsamount,c.CHR_DEPOSITNAME tds,    "; 
+				sql = sql + " b.CHR_DDNUMBER tdsP, b.DAT_PAYMENTDATE tdsdate, FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) manager1,FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) manager2, "; 
+				sql = sql + "  b.INT_PAYMENTID, b.DOU_TDS_RECEIVED_AMOUNT,   ( b.DOU_PAIDAMOUNT - b.DOU_TDS_RECEIVED_AMOUNT) balance ,a.CHR_PURCHASEORDERNO ,  "; 
+				sql = sql + "  IF(b.DOU_TDS_RECEIVED_AMOUNT>0, 'Y', 'N') ";
+				sql = sql + " from inv_t_directpurchase a, inv_t_directpurchaseitem a1, inv_t_vendorpurchasepayment b, com_m_deposit_to c,inv_m_division d    "; 
+				sql = sql + " WHERE a.CHR_CANCEL ='N' AND a.DOU_TOTALAMOUNT >0   "; 
+				sql = sql + " AND a.CHR_PURCHASEORDERNO = a1.CHR_PURCHASEORDERNO AND a.CHR_PURCHASEORDERNO= b.CHR_PURCHASEORDERNO    "; 
+				sql = sql + " AND a.INT_DIVIID=d.INT_DIVIID    "; 
+				if(!"0".equals(division))
+					sql = sql +" AND a.INT_DIVIID="+division+" ";
 				if(!"0".equals(Branch))
 					sql = sql +" AND a.INT_BRANCHID="+Branch+" ";
 				if(!"0".equals(division))
 					sql = sql +" AND a.INT_DIVIID="+division+" ";
-				if(!"0".equals(customer))
-					sql = sql +" AND a.INT_CUSTOMERID="+customer+" ";	
+				if(!"0".equals(vendor))
+					sql = sql +" AND a.INT_VENDORID="+vendor+" ";
 					
+				sql = sql + " AND b.INT_BANKID =  "+creditto;
+				sql = sql + " AND c.INT_DEPOSITID =  "+creditto; 
 				
-				sql = sql + " AND b.INT_DEPOSITID =  "+creditto;
-				sql = sql + " AND c.INT_DEPOSITID =  "+creditto;
-				sql = sql + " AND a.DAT_SALESDATE<='"+tdt+"' AND a.DAT_SALESDATE>='"+fdt+"' ";
-				sql = sql + " GROUP BY a.CHR_SALESNO  ";
-				sql = sql + " ORDER BY a.DAT_SALESDATE DESC, b.INT_PAYMENTID    ";
-				//out.println(sql);
+				sql = sql + " AND a.DAT_ORDERDATE<='"+tdt+"' AND a.DAT_ORDERDATE>='"+fdt+"' ";
+				sql = sql + " GROUP BY a.CHR_PURCHASEORDERNO ORDER BY a.DAT_ORDERDATE DESC    "; 
+  
+				//out.println(sql); 
+				String reportheader="TDS PAYABLE FOR  "+mode+"   [ FROM -"+fromdate +"  TO-  "+ todate +" ] "; 
 			  	out.println("<br><br>");
 				String data[][] = CommonFunctions.QueryExecute(sql);
 	
@@ -148,7 +150,7 @@ try
 		 
 		out.println("<table width='100%'  class='boldEleven'  id='myTable'     cellpadding=2 cellspacing=1 bgcolor='#9900CC' >");
 		out.println("<TR class='MRow1'  >");
-		out.println("<Td  colspan=16 class='boldEleven'><center><b>TDS RECEIVABLE UPDATE</center></td></tr>");
+		out.println("<Td  colspan=16 class='boldEleven'><center><b>TDS PAYABLE UPDATE</center></td></tr>");
 		out.println("<TR class='MRow1'  >");
 		out.println("<Td colspan=13 class='boldEleven'><center><b> &nbsp; </b></center></td>");
 		out.println("<Td colspan=3 class='boldEleven'>&nbsp;");
@@ -158,7 +160,7 @@ try
                     <td width="20" class="boldEleven"><label>
                       <input id="Astatus" name="status" type="checkbox" value="A" onClick="Acceptall('Astatus')" >
                     </label></td>
-                    <td width="69" class="boldEleven">Received all</td>
+                    <td width="69" class="boldEleven">Paid all</td>
                     <!--<td width="20" class="boldEleven"><input name="Rstatus" id="Rstatus" type="checkbox" value="R" onClick="Rjectall('Rstatus')" ></td>
                     <td width="60" class="boldEleven">Not Received all</td>-->
                   </tr>
@@ -169,9 +171,9 @@ try
 		
 		
 		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Sl.No</b></Th>");
-		out.println("<Th bgColor=#ffffff class='boldEleven'><b>INVOICE NUMBER</b></Th>");
-		out.println("<Th bgColor=#ffffff class='boldEleven'><b>INVOICE DATE</b></Th>");
-		out.println("<Th bgColor=#ffffff class='boldEleven'><b>CUSTOMER</b></Th>");
+		out.println("<Th bgColor=#ffffff class='boldEleven'><b>PO NUMBER</b></Th>");
+		out.println("<Th bgColor=#ffffff class='boldEleven'><b>PO DATE</b></Th>");
+		out.println("<Th bgColor=#ffffff class='boldEleven'><b>VENDOR</b></Th>");
 		out.println("<Th bgColor=#ffffff class='boldEleven'><b>BEFORE TAX </b></Th>");
         out.println("<Th bgColor=#ffffff class='boldEleven'><b>NET AMOUNT</b></Th>");
         out.println("<Th bgColor=#ffffff class='boldEleven'><b>TDS AMOUNT</b></Th>");
@@ -179,23 +181,33 @@ try
         out.println("<Th bgColor=#ffffff class='boldEleven'><b>TDS %</Th>");
         out.println("<Th bgColor=#ffffff class='boldEleven'><b>TDS DATE</b></Th>");
         out.println("<Th bgColor=#ffffff class='boldEleven'>&nbsp;</Th>"); 
-		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Pre Received Amt</b></Th>");
-		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Received Amt</b></Th>");
+		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Pre Payable Amt</b></Th>");
+		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Payable Amt</b></Th>");
 		//out.println("<Th bgColor=#ffffff class='boldEleven'><b>Received Amount2</b></Th>");
 		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Remarks</b></Th>"); 
-		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Received Date</b></Th>"); 
+		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Payable Date</b></Th>"); 
 		//out.println("<Th bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Th>"); 
 		out.println(" </TR>");
+		
+		 
         double invamount=0;
 		double tdsamount=0;
+		double tdspaidamount=0;
 		for(int u=0;u<data.length;u++)
 		{
-		 	
-			if(u%2==1)
-				out.println("<tr class='MRow1'>");
-			else
-				out.println("<tr  class='MRow2'>");	
-		 
+		 	 
+			 
+			if("Y".equals(data[u][15]))
+			{
+				out.println("<tr class='loginTable'>");
+			}
+			else {
+				if(u%2==1)
+					out.println("<tr class='MRow1'>");
+				else
+					out.println("<tr  class='MRow2'>");	
+			 }
+			 
 			out.println("<td class='boldEleven'>"+(u+1) +"</td>");
 			out.println("<td class='boldEleven'>"+data[u][0] +"</td>");
 			out.println("<td class='boldEleven'>"+data[u][1] +"</td>");
@@ -209,21 +221,22 @@ try
 			 
 			invamount=invamount+Double.parseDouble(data[u][4]);
 			tdsamount=tdsamount+Double.parseDouble(data[u][5]);
+			tdspaidamount=tdspaidamount+Double.parseDouble(data[u][12]);
 			
-			out.println("<td class='boldEleven' ><div id='adiv"+u+"'><input type='checkbox' id='accept"+u+"' name='accept"+u+"' value='A'  onclick=Accept('accept"+u+"')>Received</div>  ");
+			out.println("<td class='boldEleven' ><div id='adiv"+u+"'><input type='checkbox' id='accept"+u+"' name='accept"+u+"' value='A'  onclick=Accept('accept"+u+"')>Paid</div>  ");
 			//out.println("<div id='rdiv"+u+"'><input type='checkbox' id='reject"+u+"' name='reject"+u+"' onclick=Reject('reject"+u+"')  value='R'  disabled>Not Received </div>");
 			out.println("<input type='hidden' name='tdsamount"+u+"' id='tdsamount"+u+"' value='"+data[u][5]+"'>");
-			out.println("<input type='hidden' name='salesno"+u+"' id='salesno"+u+"' value='"+data[u][0]+"'>");
+			out.println("<input type='hidden' name='salesno"+u+"' id='salesno"+u+"' value='"+data[u][14]+"'>");
 			out.println("<input type='hidden' name='rowid"+u+"' id='rowid"+u+"' value='"+data[u][11]+"'>"); 
 			out.println("<input type='hidden' name='pamount"+u+"' id='pamount"+u+"' value='"+data[u][12]+"'>"); 
 			out.println("<input type='hidden' name='balance"+u+"' id='balance"+u+"' value='"+data[u][13]+"'>"); 
 			//out.println("<input name='dec"+u+"' type='text' class='formText135' id='dec"+u+"' size='15' maxlength='100'>");
 			out.println("</td>");
 			
-			out.println("<td class='boldEleven' >"+data[u][12] +"</td>");
+			out.println("<td class='boldEleven'  align='right'>"+data[u][12] +"</td>");
 			
 			out.println("<td class='boldEleven' >");
-			out.println("<input name='ramount"+u+"' type='text' value='"+data[u][13] +"' class='formText135' id='ramount"+u+"' size='10' maxlength='10' onkeyup='extractNumber(this,2,true)' onkeypress='return blockNonNumbers(this, event, true, true);'>");
+			out.println("<input name='ramount"+u+"' type='text' value='"+data[u][13] +"' class='formText135' id='ramount"+u+"' size='12' maxlength='10' onkeyup='extractNumber(this,2,true)' onkeypress='return blockNonNumbers(this, event, true, true);'>");
 			
 			
 			out.println("</td>");
@@ -232,23 +245,18 @@ try
 			//out.println("</td>");
 			
 			out.println("<td class='boldEleven' >");
-			out.println("<input name='remark"+u+"' type='text' value='Received' class='formText135' id='remark"+u+"' size='15' maxlength='100'>");
+			out.println("<input name='remark"+u+"' type='text' value='Paid' class='formText135' id='remark"+u+"' size='10' maxlength='100'>");
 			out.println("</td>");
 			//out.println("<td class='boldEleven' >;&nbsp;</td>");
 			 
 			out.println("<td class='boldEleven' >");
 			
-			out.println("<input name='opendate"+u+"' type='text' class='formText135' id='opendate"+u+"' onKeyPress='numericHypenOnly('opendate"+u+"',10)' size='10' maxlength='10' readonly='readonly'>");
+			out.println("<input name='opendate"+u+"' type='hidden' class='formText135' id='opendate"+u+"' onKeyPress='numericHypenOnly('opendate"+u+"',10)' size='10' maxlength='10' readonly='readonly'>");
+			 
+			 out.println("<script>setCurrentDate('opendate"+u+"'); </script>");
 			 
 			
-			out.println("<script>$(function() {");
-			out.println("$( '#opendate"+u+"' ).datepicker({showOn: 'button',");
-			out.println("buttonImage: '../JavaScript/jquery/images/calendar.gif',");
-			out.println("buttonImageOnly: true });");
-			out.println("});");
-			out.println("setCurrentDate( 'opendate"+u+"' );"); 
-			out.println("</script>");
-			  
+			 
 			//out.println("<input name='remark"+u+"' type='text' class='formText135' id='remark"+u+"' size='15' maxlength='100'>");
 			out.println("</td>");
 			
@@ -256,7 +264,24 @@ try
 			
 		}
 		
-	 
+		out.println("<tr>");
+	  	out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Td>");
+		out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Td>");
+		out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Td>");
+		out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Td>");
+		out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp; </b></Td>");
+        out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Td>");
+        out.println("<td bgColor=#ffffff class='boldEleven' align='right'><b>"+tdsamount+"</b></Td>");
+        out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Td>");
+        out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</Td>");
+        out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Td>");
+        out.println("<td bgColor=#ffffff class='boldEleven'>&nbsp;</Td>"); 
+		out.println("<td bgColor=#ffffff class='boldEleven' align='right'><b>"+tdspaidamount+"</b></Td>");
+		out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Td>"); 
+		out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Td>"); 
+		out.println("<td bgColor=#ffffff class='boldEleven'><b>&nbsp;</b></Td>"); 
+		 out.println("</tr>");
+		 
 		 
 		out.println("</TABLE>");
 	}
@@ -273,13 +298,13 @@ try
                 <tr>
 					<td  ><span class="boldEleven">
 					  <input name="filename" type="hidden" id="filename" value="TDSReceivable">
-					  <input	name="actionS" type="hidden" id="actionS" value="INVTDSReceivable">
+					  <input	name="actionS" type="hidden" id="actionS" value="INVTDSPayable">
 					</span></td>
                   <td  ><input name="Submit" type="submit"
 											class="buttonbold13" value="Submit"   accesskey="s"   ></td>
                   <td ><input name="Close" type="button"
 											class="buttonbold13" id="Close"  value="Close"   accesskey="c" 
-											onClick="redirect( 'TDS_REC_Payment.jsp')"></td>
+											onClick="javascirpt:window.close()"></td>
                 </tr>
               </table></td>
           </tr>
@@ -474,7 +499,7 @@ function valid()
 				//alert( ramount +"/" + bamount);
 				if(ramount > bamount )
 				{
-					alert("Kindly check the TDS Received amount.  Sales Number::"+salesno);
+					alert("Kindly check the TDS Payable amount.  PO Number::"+salesno);
 					//document.getElementById("ramount"+i).value="";
 					document.getElementById("ramount"+i).focus();
 					return false;
@@ -490,6 +515,7 @@ function focuss(ctr){
 	document.getElementById(ctr).focus();
 	ctr.focus();
 }	
+
 </script>
 
  <%@ include file="../footer.jsp"%></form>

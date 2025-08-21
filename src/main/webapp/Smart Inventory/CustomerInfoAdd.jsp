@@ -234,7 +234,7 @@ function valid()
             <td class="BorderLine" width="1"><spacer height="1" width="1"
 						type="block" /></td>
             <td width="6"><spacer height="1" width="1" type="block" /></td>
-            <td width="412"><form  AUTOCOMPLETE = "off"   action="../SmartLoginAuth" method="post" name="frm" id="frm" onSubmit="return valid()">
+            <td align="center" valign="middle"><form  AUTOCOMPLETE = "off"   action="../SmartLoginAuth" method="post" name="frm" id="frm" onSubmit="return valid()">
                 <table cellspacing="2" cellpadding="2" width="100%" align="center"
 						border="0">
                   <!--DWLayoutTable-->
@@ -426,13 +426,12 @@ for(int u=0; u<bdata.length; u++)
                       <td height="17" class="boldEleven">Account Type </td>
                       <td colspan="3" align="left">
 					  <select name="accounttype"  id="accounttype">
-					  	<option value="Acquition" selected="selected">Acquition</option>
-						<option value="Farming">Farming</option>
-						<option value="Home">Home</option>
-						<option value="OTR">OTR</option>
-						<option value="SOHO">SOHO</option>
-						<option value="Others">Others</option>
-					  </select>
+					  	 <%
+				 String accounttype[][] =  CommonFunctions.QueryExecute("SELECT INT_ACCOUNTTYPEID, CHR_ACCOUNTTYPENAME FROM  inv_m_accounttype  ORDER BY CHR_ACCOUNTTYPENAME");
+				  for(int u=0; u<accounttype.length; u++)
+				  	out.print("<option value ='"+accounttype[u][1]+"'>" +accounttype[u][1]+"</option>");
+				  %>
+					  </select> 
 					  </td>
                     </tr>
                     <tr>

@@ -55,7 +55,7 @@ public class TDSReceivableActionHandler extends AbstractActionHandler{
  
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-
+			System.out.println(action);
 			if (action.equals("INVTDSReceivable")) {
 				String length = ""+request.getParameter("dec");
 				String sql = "UPDATE inv_t_customersalespayment SET CHR_TDS_ACCEPT=?, DOU_TDS_RECEIVED_AMOUNT=?, "
@@ -93,6 +93,44 @@ public class TDSReceivableActionHandler extends AbstractActionHandler{
 				con.close();
 
 				response.sendRedirect("Smart Inventory/TDS_REC_Payment.jsp");
+			}
+			else if (action.equals("INVTDSPayable")) {
+				String length = ""+request.getParameter("dec");
+				String sql = "UPDATE inv_t_vendorpurchasepayment SET CHR_TDS_ACCEPT=?, DOU_TDS_RECEIVED_AMOUNT=?, "
+						+ "CHR_TDS_REMARK=?,CHR_TDS_RECEIVE_DATE=?";
+				sql = sql + " WHERE CHR_PURCHASEORDERNO=? AND INT_PAYMENTID=?"; 
+				apstm = con.prepareStatement(sql);
+				for (int i = 0; i < Integer.parseInt(length); i++) {
+					String accept =  ""+request.getParameter("accept" + i);
+					if(accept.equalsIgnoreCase("A")) {
+						String ramount = ""+request.getParameter("ramount" + i);
+						String remark = ""+request.getParameter("remark" + i);
+						String pamount = ""+request.getParameter("pamount" + i);
+						String opendate = ""+request.getParameter("opendate" + i);
+						opendate = DateUtil.FormateDateSQL(opendate);
+						String rowid = ""+request.getParameter("rowid" + i);
+						String salesno = ""+request.getParameter("salesno" + i);
+						System.out.println(salesno + "/" + rowid + "/" + accept + "/"  + "/" + ramount + "/" + "/"
+								+ remark + "/" + opendate);
+						double d = Double.parseDouble(pamount)+Double.parseDouble(ramount);
+						apstm.setString(1, accept);
+						apstm.setString(2, ""+d);
+						apstm.setString(3, remark);
+						apstm.setString(4, opendate);
+						apstm.setString(5, salesno);
+						apstm.setString(6, rowid);
+						System.out.println("" + apstm);
+						apstm.execute();
+						System.out.println("==============");
+						//apstm.addBatch();
+					}
+				}
+				//apstm.executeBatch();
+				System.out.println("==============");
+				apstm.close();
+				con.close();
+
+				response.sendRedirect("Smart Inventory/TDS_Payable_Payment.jsp");
 			}
 
 		} 

@@ -1706,6 +1706,48 @@ public class SwapSaleActionHandler extends AbstractActionHandler {
           dispatchers.forward((ServletRequest)request, (ServletResponse)response);
         } 
       } 
+      else if ("INVSwapSaleAdjustment".equals(action)) {
+    	  String salno = request.getParameter("salno");
+          String Paid1 = request.getParameter("Paid1");
+          String Paid2 = request.getParameter("Paid2");
+          String Paid3 = request.getParameter("Paid3");
+          String Paid4 = request.getParameter("Paid4");
+          
+          asql=" UPDATE inv_t_directsales SET DOU_INSTALLAMOUNT=?, DOU_LOGISTICAMOUNT=?, DOU_ORCAMOUNT=?, DOU_OTHERSAMOUNT=?";
+          asql = asql + "  WHERE CHR_SALESNO=? ";
+          apstm = con.prepareStatement(asql);
+          apstm.setString(1, Paid1);
+          apstm.setString(2, Paid2);
+          apstm.setString(3, Paid3);
+          apstm.setString(4, Paid4);
+          apstm.setString(5, salno);
+          System.out.println(""+apstm);
+          apstm.execute();
+          
+          asql=" UPDATE inv_t_contribution SET DOU_INSTALLAMOUNT=?, DOU_LOGISTICAMOUNT=?, DOU_ORCAMOUNT=?, DOU_OTHERSAMOUNT=?";
+          asql = asql + "  WHERE CHR_SALESNO=? ";
+          apstm = con.prepareStatement(asql);
+          apstm.setString(1, Paid1);
+          apstm.setString(2, Paid2);
+          apstm.setString(3, Paid3);
+          apstm.setString(4, Paid4);
+          apstm.setString(5, salno);
+          System.out.println(""+apstm);
+          apstm.execute();
+          
+          asql=" UPDATE inv_t_contribution  ";
+          asql = asql + " SET   DOU_CONTRIBUTION  = ( DOU_CONTRIBUTION  -  ( DOU_INSTALLAMOUNT+ DOU_LOGISTICAMOUNT+DOU_ORCAMOUNT+  DOU_OTHERSAMOUNT) ) ";
+          asql = asql + "  WHERE CHR_SALESNO=? ";
+          apstm = con.prepareStatement(asql);
+          apstm.setString(1,salno);
+          System.out.println(""+apstm);
+          apstm.execute();
+          
+          
+    	  con.close();
+          response.sendRedirect("Smart Inventory/SwapSale.jsp");
+      }
+      
     } catch (Exception e) {
       System.out.println(e.getMessage());
       request.setAttribute("error", e.getMessage());

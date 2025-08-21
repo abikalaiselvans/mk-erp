@@ -95,7 +95,7 @@ try
                   <td colspan="2"><table width="100%" border="0">
                       <tr>
                         <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td >&nbsp;</td>
                       </tr>
                       <tr>
                         <td class="boldEleven">Search By vendor PO
@@ -127,7 +127,8 @@ try
 							 */
 							  
 							sql="SELECT CHR_SALESNO, DOU_TOTALAMOUNT, FUN_INV_GET_CUSTOMER_PAIDAMOUNT(CHR_SALESNO),";
-							sql = sql + " (DOU_TOTALAMOUNT - FUN_INV_GET_CUSTOMER_PAIDAMOUNT(CHR_SALESNO))  FROM inv_t_directsales  ";
+							sql = sql + " (DOU_TOTALAMOUNT - FUN_INV_GET_CUSTOMER_PAIDAMOUNT(CHR_SALESNO))";
+							sql = sql + " ,  FUN_INV_GET_PAYMENTCOMMITMENTCOUNT(CHR_SALESNO) commitment  FROM inv_t_directsales  ";
 							sql = sql + " WHERE  INT_BRANCHID="+branchId+" AND CHR_CANCEL='N'  ";
 							sql = sql + " AND (DOU_TOTALAMOUNT - FUN_INV_GET_CUSTOMER_PAIDAMOUNT(CHR_SALESNO)) > 0  ORDER BY DAT_SALESDATE  "; 
    							//10
@@ -147,7 +148,14 @@ try
                               <option value="" >Select</option>
                               <%
 							for(int u=0;u<data.length;u++)
+							if(!"0".equals(data[u][4]))
+							{
 								out.println("<option onDblClick=\"addItem()\"   value='"+data[u][0]+"'>"+data[u][0]+"</option>");
+							}
+							else
+							{
+								out.println("<option class='headerBackground' onDblClick=\"addItem()\"   value='"+data[u][0]+"'>"+data[u][0]+"(*)</option>");
+							}
 						%>
                             </select>
                         </div></td>

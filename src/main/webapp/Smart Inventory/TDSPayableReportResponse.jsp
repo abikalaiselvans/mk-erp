@@ -37,11 +37,11 @@
 			{
 	  			String fromdate = request.getParameter("fromdate");
 				String todate = request.getParameter("todate"); 
-				String customer = request.getParameter("customer");
+				String vendor = request.getParameter("vendor");
 				String Branch = request.getParameter("Branch");
 				String status=request.getParameter("status");
 				String division=request.getParameter("division");
-				String Direct=request.getParameter("payType"); 
+				 
 				String creditto = request.getParameter("creditto"); 
 				String refsql="";
 				String divsql="";
@@ -49,45 +49,33 @@
 				String fdt=com.my.org.erp.ServiceLogin.DateUtil.FormateDateSQL(fromdate);
 				String tdt=com.my.org.erp.ServiceLogin.DateUtil.FormateDateSQL(todate);
 				String mode="";
-				if("Direct".equals(Direct))
-				{
-					mode = "DIRECT SALES";
-					sql = "SELECT a.CHR_SALESNO saleno, DATE_FORMAT(a.DAT_SALESDATE,'%e-%M-%Y') saledate, FIND_A_CUSTOMER_NAME(a.INT_CUSTOMERID) customer,   "; 
-					sql = sql + " SUM(a1.DOU_TOTAL - a1.DOU_TAX_AMOUNT)  beforetax,   "; // FUN_INV_DIRECT_SALE_BEFORE_TAX_AMOUNT( a.CHR_SALESNO)
-					sql = sql + " a.DOU_TOTALAMOUNT netamount, b.DOU_PAIDAMOUNT tdsamount,c.CHR_DEPOSITNAME tds,  b.CHR_PAYNO tdsP, b.DAT_PAYMENTDATE tdsdate,   ";
-					sql = sql + " FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) manager1,FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF1) manager2,  ";
-					sql = sql + " b.DOU_TDS_RECEIVED_AMOUNT, b.CHR_TDS_RECEIVE_DATE, ( b.DOU_PAIDAMOUNT - b.DOU_TDS_RECEIVED_AMOUNT) balance";
-					sql = sql + " from inv_t_directsales a, inv_t_swapsalesitem a1, inv_t_customersalespayment b, com_m_deposit_to c,inv_m_division d   ";
-					sql = sql + " WHERE a.CHR_CANCEL ='N' AND a.CHR_SALESTYPE !='R' AND a.DOU_TOTALAMOUNT >0 AND a.CHR_SALESNO = a1.CHR_SALESNO  ";
-					sql = sql + " AND a.CHR_SALESNO= b.CHR_SALESORDERNO AND b.INT_DEPOSITID = b.INT_DEPOSITID   ";
-					sql = sql + " AND a.INT_DIVIID=d.INT_DIVIID ";
+			 
+					mode = "VENDOR PURCHASE";
+					
+					sql = "SELECT a.CHR_VENDORPO vendorno, DATE_FORMAT(a.DAT_ORDERDATE,'%e-%M-%Y') purdate, FUN_INV_GET_VENDORNAME(a.INT_VENDORID) vendor,    "; 
+					sql = sql + " SUM(a1.DOU_TOTAL - a1.DOU_TAX_AMOUNT) beforetax, a.DOU_TOTALAMOUNT netamount, b.DOU_PAIDAMOUNT tdsamount,c.CHR_DEPOSITNAME tds,    "; 
+					sql = sql + " b.CHR_DDNUMBER tdsP, b.DAT_PAYMENTDATE tdsdate, FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) manager1,FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) manager2, "; 
+					sql = sql + " b.DOU_TDS_RECEIVED_AMOUNT, b.DAT_PAYMENTDATE, ( b.DOU_PAIDAMOUNT - b.DOU_TDS_RECEIVED_AMOUNT) balance    "; 
+					sql = sql + " from inv_t_directpurchase a, inv_t_directpurchaseitem a1, inv_t_vendorpurchasepayment b, com_m_deposit_to c,inv_m_division d    "; 
+					sql = sql + " WHERE a.CHR_CANCEL ='N' AND a.DOU_TOTALAMOUNT >0   "; 
+					sql = sql + " AND a.CHR_PURCHASEORDERNO = a1.CHR_PURCHASEORDERNO AND a.CHR_PURCHASEORDERNO= b.CHR_PURCHASEORDERNO    "; 
+					sql = sql + " AND a.INT_DIVIID=d.INT_DIVIID    "; 
+					if(!"0".equals(division))
+						sql = sql +" AND a.INT_DIVIID="+division+" ";
+					sql = sql + " AND b.INT_BANKID =  "+creditto;
+					sql = sql + " AND c.INT_DEPOSITID =  "+creditto; 
 					if(status.equals("R")){
 						sql = sql + "  AND b.DOU_TDS_RECEIVED_AMOUNT > 0 ";
 					}
 					else if (status.equals("N")){
 						sql = sql + " AND b.DOU_TDS_RECEIVED_AMOUNT < b.DOU_PAIDAMOUNT ";
 					}
-					 
-					if(!"0".equals(division))
-						sql = sql +" AND a.INT_DIVIID="+division+" ";
-					
-					sql = sql + " AND b.INT_DEPOSITID =  "+creditto;
-					sql = sql + " AND c.INT_DEPOSITID =  "+creditto;
-					sql = sql + " AND a.DAT_SALESDATE<='"+tdt+"' AND a.DAT_SALESDATE>='"+fdt+"' ";
-					sql = sql + " GROUP BY a.CHR_SALESNO  ";
-					sql = sql + " ORDER BY a.DAT_SALESDATE DESC   ";
-					
-				}
-				else if("DirectBilling".equals(Direct))
-				{
-					mode = "DIRECT BILLING ";
-				}
-				else if("ServiceBilling".equals(Direct))
-				{
-					mode = "SERVICE BILLING";
-				}
+					sql = sql + " AND a.DAT_ORDERDATE<='"+tdt+"' AND a.DAT_ORDERDATE>='"+fdt+"' ";
+					sql = sql + " GROUP BY a.CHR_PURCHASEORDERNO ORDER BY a.DAT_ORDERDATE DESC    "; 
+ 
+				 
 				out.println(sql); 
-				String reportheader="TDS RECEIVABLE FOR  "+mode+"   [ FROM -"+fromdate +"  TO-  "+ todate +" ] "; 
+				String reportheader="TDS PAYABLE FOR  "+mode+"   [ FROM -"+fromdate +"  TO-  "+ todate +" ] "; 
 				Vector mn = new Vector();
 				Vector child= null; 
 				String data[][] = CommonFunctions.QueryExecute(sql);
@@ -154,11 +142,11 @@
 	 
 	 				<display:setProperty name="basic.empty.showtable" value="true"/><%Vector temp= (Vector)_table;%>
 					<display:column title="S.NO" sortable="true"><%=temp.elementAt(0)%></display:column>
-					<display:column title="INVOICE Type" sortable="true"><%=temp.elementAt(1)%></display:column>
-					<display:column title="INVOICE NUMBER" sortable="true"><%=temp.elementAt(2)%></display:column>
+					<display:column title="PO Type" sortable="true"><%=temp.elementAt(1)%></display:column>
+					<display:column title="PO NUMBER" sortable="true"><%=temp.elementAt(2)%></display:column>
 					 
-					<display:column title="INVOICE DATE" sortable="true"><%=temp.elementAt(3)%></display:column>
-					<display:column title="CUSTOMER" sortable="true"><%=temp.elementAt(4)%></display:column>
+					<display:column title="PO DATE" sortable="true"><%=temp.elementAt(3)%></display:column>
+					<display:column title="VENDOR" sortable="true"><%=temp.elementAt(4)%></display:column>
 					<display:column title="BEFORE TAX " sortable="true"><%=temp.elementAt(5)%></display:column>
 					<display:column title="NET AMOUNT" sortable="true"><%=temp.elementAt(6)%></display:column>
 					<display:column title="TDS AMOUNT" sortable="true"><%=temp.elementAt(7)%></display:column>
@@ -166,7 +154,7 @@
 					<display:column title="TDS %" sortable="true"><%=temp.elementAt(9)%></display:column>
 					<display:column title="TDS DATE" sortable="true"><%=temp.elementAt(10)%></display:column>
 					
-					<display:column title="TDS RECEIVED AMOUNT" sortable="true"><%=temp.elementAt(13)%></display:column>
+					<display:column title="TDS PAYABLE AMOUNT" sortable="true"><%=temp.elementAt(13)%></display:column>
 					<display:column title="BALANCE" sortable="true"><%=temp.elementAt(15)%></display:column>
 					 
 					<display:column title="ACCOUNT MANAGER-1" sortable="true"><%=temp.elementAt(11)%></display:column>

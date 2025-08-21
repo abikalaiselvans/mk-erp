@@ -36,6 +36,7 @@ try
 		String Branch=request.getParameter("Branch");
 		String division = ""+request.getParameter("division");
 		String type=request.getParameter("type");
+		String accounttype=request.getParameter("accounttype"); 
 		String fromdate = ""+request.getParameter("fromdate");
 		String todate = request.getParameter("todate");
 		String invoicetype = request.getParameter("invoicetype");
@@ -56,9 +57,9 @@ try
 			sql = sql + " j.CHR_MODELCODE Brand ,  b1.CHR_GROUPNAME ProductGroup, c.CHR_DES PCODEDESCRIPTION ,   ";
 			sql = sql + " FUN_INV_GET_WARRANTY_IN_YEAR(b.INT_WARRANTY) Warranty, c.CHR_HSNCODE HSNorSAC,   FUN_INV_GET_SALES_SERIALNUMBER_CONCATS( b.CHR_TYPE,b.CHR_ITEMID,a.CHR_SALESNO) SlNos, ";
 			sql = sql + "B.INT_QUANTITY Qty,  b.DOU_UNITPRICE UnitCost, ROUND((b.INT_QUANTITY  * b.DOU_UNITPRICE),2) BeforeTax,   b.DOU_TAX_AMOUNT TaxAmt, b.DOU_TOTAL Total, a.DOU_AMOUNT NetValue, a.DOU_TCS_AMOUNT TCS,   ";
-			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue , k.CHR_TAXNAME GST,  FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname, FUN_INV_DIVISION(a.INT_DIVIID) division , FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF1) ";
+			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue , k.CHR_TAXNAME GST,  FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname, FUN_INV_DIVISION(a.INT_DIVIID) division , FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF1), e.CHR_ACCOUNTTYPE Accounttype, l.CHR_TYPENAME customertype ";
 			sql = sql + "from inv_t_directsales a,inv_t_swapsalesitem b,inv_m_item c, inv_m_itemgroup b1, inv_m_division d,inv_m_customerinfo e,inv_m_itemgroup f,   ";
-			sql = sql + "inv_m_customertype i, inv_m_model j, inv_m_tax k  ";
+			sql = sql + "inv_m_customertype i, inv_m_model j, inv_m_tax k, inv_m_customertype l  ";
 			sql = sql + "WHERE a.CHR_SALESNO = b.CHR_SALESNO  AND b.CHR_TYPE ='I'    ";
 			sql = sql + "AND b.CHR_ITEMID =c.CHR_ITEMID   ";
 			sql = sql + "AND a.INT_DIVIID= d.INT_DIVIID   ";
@@ -68,6 +69,7 @@ try
 			sql = sql + "AND e.INT_CUSTOMERTYPEID = i.INT_CUSTOMERTYPEID  ";
 			sql = sql + "AND j.INT_MODELID = c.INT_MODELCODE  ";
 			sql = sql + "AND b.INT_TAXID = k.INT_TAXID  ";
+			sql = sql + "AND e.INT_CUSTOMERTYPEID = l.INT_CUSTOMERTYPEID";
 			if(!"F".equals(""+session.getAttribute("USRTYPE")) )
 				sql = sql + " AND(   a.CHR_REF IN("+empids+"'')  OR   a.CHR_REF1 IN("+empids+"'') )";
 			 
@@ -77,7 +79,9 @@ try
 				sql = sql + " AND a.INT_DIVIID = "+division;
 			if(!"0".equals(invoicetype))
 				sql = sql + " AND a.CHR_CANCEL = '"+invoicetype+"' ";
-			
+			if(!"All".equals(accounttype))
+				sql = sql + " AND e.CHR_ACCOUNTTYPE = '"+accounttype+"' ";
+				
 			sql = sql + " AND a.DAT_SALESDATE >= '" +DateUtil.FormateDateSQL(fromdate)+"' ";
 			sql = sql + " AND a.DAT_SALESDATE <= '" +DateUtil.FormateDateSQL(todate)+"' ";  
 			sql = sql + "ORDER BY a.CHR_SALESNO )     ";
@@ -88,9 +92,9 @@ try
 			sql = sql + "j.CHR_MODELCODE Brand ,  b1.CHR_NAME ProductGroup, c.CHR_PRODUCTDESC PCODEDESCRIPTION ,    ";
 			sql = sql + "FUN_INV_GET_WARRANTY_IN_YEAR(b.INT_WARRANTY) Warranty,  c.CHR_HSNCODE HSNorSAC ,   FUN_INV_GET_SALES_SERIALNUMBER_CONCATS(b.CHR_TYPE,b.CHR_ITEMID, a.CHR_SALESNO) SlNos,";
 			sql = sql + "b.INT_QUANTITY Qty, b.DOU_UNITPRICE UnitCost, ROUND((b.INT_QUANTITY  * b.DOU_UNITPRICE),2) BeforeTax,b.DOU_TAX_AMOUNT TaxAmt, b.DOU_TOTAL Total, a.DOU_AMOUNT NetValue, a.DOU_TCS_AMOUNT TCS,   ";
-			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue ,  k.CHR_TAXNAME GST, FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname , FUN_INV_DIVISION(a.INT_DIVIID) division  , FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF1) ";
+			sql = sql + " ROUND(a.DOU_TOTALAMOUNT,2)  FinalValue ,  k.CHR_TAXNAME GST, FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF) AccountManager  , FUN_GET_BRANCH_NAME(a.INT_BRANCHID)  branchname , FUN_INV_DIVISION(a.INT_DIVIID) division  , FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_REF1) , e.CHR_ACCOUNTTYPE Accounttype, l.CHR_TYPENAME customertype ";
 			sql = sql + "from inv_t_directsales a,inv_t_swapsalesitem b,inv_m_produtlist c,  inv_m_productgroup b1, inv_m_division d,inv_m_customerinfo e,inv_m_productgroup f,  ";
-			sql = sql + "inv_m_customertype i, inv_m_model j, inv_m_tax k  ";
+			sql = sql + "inv_m_customertype i, inv_m_model j, inv_m_tax k , inv_m_customertype l ";
 			sql = sql + "WHERE a.CHR_SALESNO = b.CHR_SALESNO  AND b.CHR_TYPE ='P'    ";
 			sql = sql + "AND b.CHR_ITEMID =c.CHR_PRODUCTID   ";
 			sql = sql + "AND a.INT_DIVIID= d.INT_DIVIID   ";
@@ -100,6 +104,7 @@ try
 			sql = sql + "AND e.INT_CUSTOMERTYPEID = i.INT_CUSTOMERTYPEID  ";
 			sql = sql + "AND j.INT_MODELID = c.CHR_MODEL  ";
 			sql = sql + "AND b.INT_TAXID = k.INT_TAXID  ";
+			sql = sql + "AND e.INT_CUSTOMERTYPEID = l.INT_CUSTOMERTYPEID";
 			if(!"F".equals(""+session.getAttribute("USRTYPE")) )
 				sql = sql + " AND(   a.CHR_REF IN("+empids+"'')  OR   a.CHR_REF1 IN("+empids+"'') )";
 			if(!"0".equals(Branch))
@@ -108,7 +113,9 @@ try
 				sql = sql + " AND a.INT_DIVIID = "+division;
 			if(!"0".equals(invoicetype))
 				sql = sql + " AND a.CHR_CANCEL = '"+invoicetype+"' ";
-			
+			if(!"All".equals(accounttype))
+				sql = sql + " AND e.CHR_ACCOUNTTYPE = '"+accounttype+"' ";
+				
 			sql = sql + " AND a.DAT_SALESDATE >= '" +DateUtil.FormateDateSQL(fromdate)+"' ";
 			sql = sql + " AND a.DAT_SALESDATE <= '" +DateUtil.FormateDateSQL(todate)+"' ";  
 			
@@ -155,6 +162,8 @@ try
 						child.addElement(data[u][21]);
 						child.addElement((u+1));
 						child.addElement(data[u][22]);
+						child.addElement(data[u][23]);
+						child.addElement(data[u][24]);
 						
 						mn.add(child); 
 					}
@@ -179,6 +188,10 @@ try
 					 <display:column title="DIVISION"   sortable="true"><%=temp.elementAt(21)%></display:column>           
 	
 					<display:column title="NAMEOFTHECUSTOMER" sortable="true"><%=temp.elementAt(2)%></display:column>
+					<display:column title="ACCOUNT TYPE"   sortable="true"><%=temp.elementAt(24)%></display:column>  	
+					<display:column title="CUSTOMER TYPE"   sortable="true"><%=temp.elementAt(25)%></display:column>  	
+					
+	
 					<display:column title="CUSTOMERGSTNO"   sortable="true"><%=temp.elementAt(3)%></display:column>
 					<display:column title="BRAND"   sortable="true"><%=temp.elementAt(4)%></display:column>
 					<display:column title="PRODUCTGROUP"   sortable="true"><%=temp.elementAt(5)%></display:column>
@@ -199,8 +212,7 @@ try
 					<display:column title="ACCOUNTMANAGER1"   sortable="true"><%=temp.elementAt(19)%></display:column>  	
 					<display:column title="ACCOUNTMANAGER2"   sortable="true"><%=temp.elementAt(23)%></display:column>  	
 					
-	
-	
+					
 		 	
 					<display:setProperty name="export.excel.filename" value="Rept_Salessetails_Template.xls"/>
 					<display:setProperty name="export.pdf.filename" value="Rept_Salessetails_Template.pdf"/>

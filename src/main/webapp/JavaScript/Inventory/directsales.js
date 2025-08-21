@@ -165,6 +165,7 @@ function SwapSalesMessages()
     str=str+"<td class='boldEleven' align='center'><b>Tax-Type</b></td>";
     str=str+"<td class='boldEleven' align='center'><b>Discount</b></td>";
     str=str+"<td class='boldEleven' align='center'><b>Clone Invoice</b></td>";
+    str=str+"<td class='boldEleven' align='center'><b>Inv Adjst</b></td>";
     str=str+"</tr>";
     //alert("");
     for(loop = 0; loop < batchs.childNodes.length; loop++) 
@@ -318,8 +319,11 @@ function SwapSalesMessages()
 		{
 			if("-" == PayCommitment)
 				str=str+"<td width='100' align=right class='boldEleven'><font  class='boldgreen'>Commitment</font> </td>" ;	
-			else						
-				str=str+"<td width='100' align=right class='boldEleven'><a href='PaymentCommitmentEdit.jsp?salno="+salNo+"'><font  class='bolddeepred'>Not Commitment</font></a></td>";		
+			else if("0" == PayCommitment)	
+				str=str+"<td width='100' align=right class='boldEleven'><a href='PaymentCommitmentEdit.jsp?salno="+salNo+"'><font  class='bolddeepred'>Commitment Not available</font></a></td>";		
+			else  				
+				str=str+"<td width='100' align=right class='boldEleven'><a href='PaymentCommitmentEdit.jsp?salno="+salNo+"'>Commitment available</a></td>";
+			 
 		}
 		else
 			str = str +"<td  class='boldEleven' align='right'>&nbsp;</td>";
@@ -380,6 +384,10 @@ function SwapSalesMessages()
 		str = str +"<td  class='boldEleven' >"+Taxtype+"</td>";
 		str = str +"<td  class='boldEleven' >"+((Discount == "Y")? "Yes":"No" )+"</td>";
 		str = str +"<td  class='boldEleven' ><a href=\"javascript:onClick=cloneInvoice('"+salNo+"')\"><font class='boldgreen'>Clone</font></a></td>";
+		str = str +"<td  class='boldEleven' ><a href='SalesInvoiceAdjustment.jsp?salno="+salNo+"'><font class='boldgreen'>Inv Adjst</font></a></td>";
+		
+	 
+		
 		
 		str=str+"</tr>";
      }

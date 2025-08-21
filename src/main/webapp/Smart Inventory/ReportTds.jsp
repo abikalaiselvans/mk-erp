@@ -76,13 +76,13 @@
 </tr>
 <tr>
   <td width="22" align="left" valign="top" class="boldEleven">1.</td>
-							  <td width="222" height="19" align="left" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+							  <td width="222" height="19" align="left" valign="top"><span class="boldEleven"><a href="TDSPayableReport.jsp" target="_blank">TDS Payable Report</a></span></td>
 							  <td width="20" align="left" valign="top" class="boldEleven">1.</td>
 							  <td width="210" align="left" valign="top"><span class="boldEleven"><a href="TDSReport.jsp" target="_blank">TDS Receivable Report</a></span></td>
 						  </tr>
 							<tr>
 							  <td align="left" valign="top" class="boldEleven">2.</td>
-							  <td height="19" align="left" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+							  <td height="19" align="left" valign="top"><span class="boldEleven"><a href="TDS_Payable_Payment.jsp" target="_blank">TDS Payable Updates</a></span></td>
 							  <td align="left" valign="top" class="boldEleven">2.</td>
 							  <td align="left" valign="top"><span class="boldEleven"><a href="TDS_REC_Payment.jsp" target="_blank">TDS Receivable Updates</a></span></td>
 					      </tr>

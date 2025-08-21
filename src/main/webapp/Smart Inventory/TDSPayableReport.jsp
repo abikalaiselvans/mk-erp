@@ -61,7 +61,7 @@
 
 <body >
 <%@ include file="indexinv.jsp"%>
-<form  AUTOCOMPLETE = "off"   name="frm" method="post" action="TDS_REC_PaymentUpdate.jsp" onSubmit="return Validate()">
+<form  AUTOCOMPLETE = "off"   name="frm" method="post" action="TDSPayableReportResponse.jsp" onSubmit="return Validate()">
 <table width="100%" border="0" cellspacing="1" cellpadding="1">
 	<tr>
 		<td>&nbsp;</td>
@@ -99,7 +99,7 @@
 						<tbody>
 
 							<tr>
-							  <td height="19" colspan="2" align="right" valign="top"><div align="center"><strong>TDS RECEIVABLE UPDATE </strong><span class="boldEleven">
+							  <td height="19" colspan="2" align="right" valign="top"><div align="center"><strong>TDS PAYABLE REPORT </strong><span class="boldEleven">
 							    <%
 				String branchid=""+session.getAttribute("BRANCHID");
 				String usertype=""+session.getAttribute("USRTYPE");
@@ -141,21 +141,7 @@
 						      </div></td>
 						  </tr>
 							
-							<tr>
-								<td height="17" class="boldEleven">Payment</td>
-								<td colspan="2" align="left">
-								<select name="payType"	id="payType" style="width:200"   >
-									<!--<option value="0">All Sale Payment</option>-->
-									<option value="Direct">Customer Sale Payment</option>
-									<option value="DirectBilling">Direct Billing Payment</option>
-									<option value="ServiceBilling">Service Billing Payment</option>
-									
-									<!--
-									<option value="Invoice">Invoice Payment</option>
-									<option value="CashPay">Cash Sale Payment</option>
-									-->
-								</select></td>
-							</tr>
+							 
 							<tr>
 							  <td height="19" align="right" valign="top" class="boldEleven"><div align="left">Division</div></td>
 							  <td align="right" valign="top" class="boldEleven">
@@ -171,17 +157,21 @@
 						          </select>
 					            </div></td>
 						  </tr>
-							<tr>
-							  <td height="19" align="right" valign="top" class="boldEleven"><div align="left"><span class="boldEleven">Customer</span></div></td>
-							  <td align="right" valign="top" class="boldEleven"><div align="left">
-							    <select name="customer"
-									id="customer" class="formText135"  style="width:200"  >
-							      <option value="0">All</option>
-							      <jsp:include page="LoadCustomer.jsp" />                              
-                                </select>
-						      </div></td>
-							</tr>
 							 
+							 <tr>
+								<td height="17" class="boldEleven"><span class="boldEleven">Vendor</span></td>
+								<td colspan="2" align="left"> 
+									<select name="vendor"
+										class="formText135" id="vendor" tabindex="1"  style="width:200" >
+										<option value='0'>All</option>
+										<%
+								String vendorids[][] = CommonFunctions.QueryExecute("Select INT_VENDORID,CHR_VENDORNAME from  inv_m_vendorsinformation  ORDER BY CHR_VENDORNAME");
+								for(int u=0; u<vendorids.length; u++)
+									out.print("<option value='"+vendorids[u][0]+"'>"+vendorids[u][1]+" / "+vendorids[u][0] +"</option>");
+							%>
+									</select></td>
+							</tr>
+							
 							<tr>
 							  <td height="17" class="boldEleven">Credit to   <span
 									class="bolddeepred">* </span></td>
@@ -196,7 +186,15 @@
 					  %>
 						      </select>							  </td>
 						  </tr>
-							 
+							<tr>
+							  <td height="17" class="boldEleven">Status</td>
+							  <td colspan="2" align="left">
+							  <select name="status" class="formText135" id="status"  style="width:200"  >
+							  	<option value="R">Received</option>
+								<option value="N">Not Received</option>
+								<option value="A">All</option>
+							  </select>							  </td>
+						  </tr>
 						  <tr>
 							  <td height="19" align="right" valign="top" class="boldEleven"><div align="left"><span class="boldEleven">From Date <span
 									class="bolddeepred">* </span></span> </div></td>
@@ -237,7 +235,7 @@
 											class="buttonbold13" value="Submit"   accesskey="s"   ></td>
                                   <td><input name="Close" type="button"
 											class="buttonbold13" id="Close"  value="Close"   accesskey="c" 
-											onClick="redirect( 'ReportTds.jsp')"></td>
+											onClick="javascirpt:window.close()"></td>
                                 </tr>
                               </table></td>
 						  </tr>
