@@ -66,9 +66,9 @@
 		sql = sql + " AND a.DAT_ORDERDATE >='"+frmdate+"'";
 		sql = sql + " AND a.DAT_ORDERDATE <='"+todate+"'";
 		if(!"0".equals(Branch))
-			sql = sql + " AND a.INT_BRANCHID <= "+Branch ;
+			sql = sql + " AND a.INT_BRANCHID = "+Branch ;
 		if(!"0".equals(division))
-			sql = sql + " AND a.INT_DIVIID <= "+division ;
+			sql = sql + " AND a.INT_DIVIID = "+division ;
 		if(!"0".equals(vendor))
 			sql = sql + " AND a.INT_VENDORID = "+vendor ;
 		  sql = sql + "  ORDER BY INT_PURCHASEORDERID    ";

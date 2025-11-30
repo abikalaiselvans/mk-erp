@@ -472,13 +472,21 @@ function valid()
 				var salesno = document.getElementById("salesno"+i).value;
 				//var rramount = parseFloat(document.getElementById("rramount"+i).value);
 				//alert( ramount +"/" + bamount);
-				if(ramount > bamount )
+				
+				var difference;
+				if (ramount > bamount) {
+					difference = ramount - bamount;
+				} else {
+					difference = ramount - bamount;
+				}
+	
+				/*if(ramount > bamount  )
 				{
 					alert("Kindly check the TDS Received amount.  Sales Number::"+salesno);
 					//document.getElementById("ramount"+i).value="";
 					document.getElementById("ramount"+i).focus();
 					return false;
-				}
+				}*/
 			
 		}
 		

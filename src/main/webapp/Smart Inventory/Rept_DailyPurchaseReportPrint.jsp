@@ -69,17 +69,17 @@
 		sql = sql + " AND a.DAT_ORDERDATE >='"+frmdate+"'";
 		sql = sql + " AND a.DAT_ORDERDATE <='"+todate+"'";
 		if(!"0".equals(Branch))
-			sql = sql + " AND a.INT_BRANCHID <= "+Branch ;
+			sql = sql + " AND a.INT_BRANCHID = "+Branch ;
 		if(!"0".equals(division))
-			sql = sql + " AND a.INT_DIVIID <= "+division ;
+			sql = sql + " AND a.INT_DIVIID = "+division ;
 		if(!"0".equals(division))
-			sql = sql + " AND a.INT_DIVIID <= "+division ;
+			sql = sql + " AND a.INT_DIVIID = "+division ;
 		if(!"0".equals(vendor))
 			sql = sql + " AND a.INT_VENDORID = "+vendor ;
 		if(!"0".equals(account))
 			sql = sql + " AND a.CHR_ACCOUNTFLAG = '"+account+"' " ;
 			
-		sql = sql + " ORDER BY a.DAT_ORDERDATE  ";
+		sql = sql + " ORDER BY a.CHR_PURCHASEORDERNO, a.DAT_ORDERDATE  ";
 		//out.println(sql); 
 		
 		String data[][] =  CommonFunctions.QueryExecute(sql);
