@@ -115,6 +115,7 @@ public class MarketingAJAX extends HttpServlet
 	    		 {
 			    	 MarketingMethods.LoadMovetoCustomerinfos(request, response);
 	    		 }
+			      
 	 		}
 	 		else
 				response.setStatus(HttpServletResponse.SC_NO_CONTENT);

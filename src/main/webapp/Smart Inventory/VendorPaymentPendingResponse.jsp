@@ -39,6 +39,9 @@ try
 		String order=request.getParameter("order");
 		String From=request.getParameter("From");
 		String To=request.getParameter("To");
+		String vendorid=request.getParameter("suggestionsDropdown");
+		//out.println(order);
+		
 		String sql="";
 		if("Direct".equals(Vendortype))
 		{
@@ -50,6 +53,8 @@ try
 			sql = sql+ " WHERE  b.INT_VENDORID= c.INT_VENDORID";
 			sql = sql+ " AND datediff(now(),b.DAT_ORDERDATE)>="+From;
 			sql = sql+ "  AND datediff(now(),b.DAT_ORDERDATE) <="+To;
+			if(!vendorid.equals("0"))
+				sql = sql+ "  AND c.INT_VENDORID="+vendorid;
 			sql = sql+ " Group by b.CHR_PURCHASEORDERNO ORDER BY "+order;
 		
 		}
@@ -62,8 +67,12 @@ try
 			sql = sql+ " WHERE  b.INT_VENDORID= c.INT_VENDORID";
 			sql = sql+ " AND datediff(now(),b.DAT_ORDERDATE)>="+From;
 			sql = sql+ "  AND datediff(now(),b.DAT_ORDERDATE) <="+To;
+			if(!vendorid.equals("0"))
+				sql = sql+ "  AND c.INT_VENDORID="+vendorid;
 			sql = sql+ " Group by b.CHR_PURCHASEORDERNO ORDER BY "+order;
 		}
+		 
+		//out.println(sql);
 		 
 		String data[][] =CommonFunctions.QueryExecute(sql);
 		Vector mn = new Vector();

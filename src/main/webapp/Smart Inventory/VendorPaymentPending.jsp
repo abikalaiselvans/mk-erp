@@ -20,6 +20,11 @@
 </head>
 <script language="javascript" src="../JavaScript/comfunction.js"></script>
 <script language="JavaScript" src="../JavaScript/calendar1.js" 	type="text/javascript"></script>
+<script language="javascript" src="../JavaScript/comfunction.js"></script>
+<script language="javascript" src="../JavaScript/comfunction.js"></script>
+<script language="javascript" src="../JavaScript/jquery/jquery-1.7.1.js"></script>
+<script language="javascript" src="../JavaScript/jquery/ui/jquery.ui.core.js"></script>
+<script language="javascript" src="../JavaScript/jquery/ui/jquery.ui.widget.js"></script>
 <body >
 <%@ include file="indexinv.jsp"%>
 <form  AUTOCOMPLETE = "off"   name="frm" method="post" action="VendorPaymentPendingResponse.jsp" onSubmit="return Validate()">
@@ -75,16 +80,63 @@
 								<select name="Vendortype"	id="Vendortype" >
 									<option value="Direct">Direct Purchase Payment</option>
 									<option value="Purchase">Purchase Order Payment</option>
-								</select>
-								</td>
+								</select>								</td>
 							</tr>
 							 
+							
+							<tr>
+							  <td height="17" class="boldEleven"><strong>Vendor Name </strong></td>
+							  <td colspan="2" align="left">
+							  <input type="text" id="searchInput" placeholder="Start typing..." onKeyUp="fetchSuggestions()">
+    <select id="suggestionsDropdown" name="suggestionsDropdown"  size="5" style="display: none;"><option value='0'>All</option></select>
+
+    <script>
+        function fetchSuggestions() {
+            var inputVal = $("#searchInput").val();
+            if (inputVal.length === 0) {
+                // Hide dropdown if input is empty
+                $("#suggestionsDropdown").hide().empty();
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "../AutocompleteDropDown", // This maps to your server-side servlet
+                data: { actionS: "VENDORNAME", query: inputVal },
+                dataType: "json", // Expecting JSON data from the server
+                success: function(data) {
+                    var dropdown = $("#suggestionsDropdown");
+                    dropdown.empty(); // Clear previous options
+                     dropdown.append($('<option></option>').val('0').text('All'));
+                    // Populate dropdown with new suggestions
+                    $.each(data, function(key, value) {
+                        // Assuming the server returns an array of objects like {id: 1, name: "Item Name"}
+                        dropdown.append($('<option></option>').val(value.id).text(value.name));
+                    });
+
+                    // Show the dropdown if there are suggestions
+                    if (data.length > 0) {
+                        dropdown.show();
+                    } else {
+                        dropdown.hide();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX error: " + status + error);
+                }
+            });
+        }
+    </script>
+
+							  </td>
+						  </tr>
+							
 							<tr>
 							  <td height="17" class="boldEleven"><strong>Order by </strong></td>
 							  <td colspan="2" align="left">
 							  <select name="order" id="order">
-							  	<option value="b.DAT_ORDERDATE">Vendor Name</option>
-							  	<option value="c.CHR_VENDORNAME">Date</option>
+							  	<option value="b.DAT_ORDERDATE">Date</option>
+							  	<option value="c.CHR_VENDORNAME">Vendor Name</option>
 							    </select>							  </td>
 						  </tr>
 							<tr>
@@ -175,6 +227,8 @@ function Validate()
 	if(
 		checkNull( "From","Enter Starting Date" )
 		&& checkNull( "To","Enter Ending Date" )
+		&& checkNullSelect( "suggestionsDropdown","Select Vendor",'' )
+		
 	)
 		return true;
 	else
