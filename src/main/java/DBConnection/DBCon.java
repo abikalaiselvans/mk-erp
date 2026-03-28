@@ -60,6 +60,8 @@ public class DBCon
 			String type =  jdbc.getProperty("DB_TYPE");
 			 
 			//System.out.println(url);
+			
+			//System.out.println(url);
 			if("JNDID".equals(type))
 			{
 				//String DATASOURCE_CONTEXT = "java:comp/env/jdbc/test";
