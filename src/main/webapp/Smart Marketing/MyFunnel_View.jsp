@@ -43,12 +43,102 @@ try
 
 
 
+
 </head>
 <script language="javascript" src="../JavaScript/Marketing/MyFunnelinfo.js"  ></script>
+<script language="JavaScript">
 
-<body onselectstart="return false" onpaste="return false;" onCopy="return false"    onLoad="LoadMyFunnelinfo('0')"   >
+    function Add()
+	{ 
+		document.frm.action="MyFunnelAction.jsp";
+ 	}
+
+	function Edit()
+ 	{		
+		obj = findObj("rowid"); 
+		if(obj == null)
+		{
+			alert("Edit not available");
+			return false;
+		}
+
+
+
+		var count;
+		count=0;
+		coffee1=document.forms[0].rowid
+		txt=""
+		for (i=0;i<coffee1.length;++ i)
+		{
+			if (coffee1[i].checked)
+			{
+			count=count+1;
+			}
+		}
+		if(count==0)
+		{
+			if (document.forms[0].rowid.checked) { count=1;}
+		}
+		if(count==1){			
+			document.frm.action="MyFunnelAction.jsp";
+			return true;
+		}
+		else
+		{
+		    alert("Select Only one Value");
+		    return false;
+		}
+ 	}	
+
+ 	function Delete()
+ 	{		
+		
+		obj = findObj("rowid"); 
+		if(obj == null)
+		{
+			alert("Delete not available");
+			return false;
+		}
+
+
+		var count;
+		count=0;
+		coffee1=document.forms[0].rowid
+		txt=""
+		for (i=0;i<coffee1.length;++ i)
+		{
+			if (coffee1[i].checked)
+			{
+			count=count+1;
+			}
+		}
+		if(count==0)
+		{
+			if (document.forms[0].rowid.checked) { count=1;}
+		}
+		if(count>=1){			
+			var name=confirm("Confirm to Delete")
+			if (name==true)
+			{ 
+				document.frm.action="../SmartLoginAuth";
+				return true;			
+			}
+			else
+				return false;
+		}
+		else
+		{
+		    alert("Select Atleast One Value");
+		    return false;
+		}		
+ 	}
+ 	
+//onselectstart="return false" onpaste="return false;" onCopy="return false"  onLoad="LoadMyFunnelinfo('0')"  
+  
+</script>
+<body  onLoad="LoadMyFunnelinfo('0')"  >
 <%@ include file="index.jsp"%>
-<form  AUTOCOMPLETE = "off"   action="../SmartLoginAuth" method="get" name="frm">
+<form  AUTOCOMPLETE = "off"   name="frm" method="post" >
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td>&nbsp;</td>
@@ -58,10 +148,33 @@ try
     </tr>
 	<tr>
 		<td> <div align="center">
-          <%
+        <%
 			out.println("<table   border='0' align='center' cellpadding='5' cellspacing='1'>");
 			out.println("<tr>");
- 			out.println("<td ' valign='top'>");
+			 
+			out.println("<td ' valign='top'>");
+			if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_ADD_MKT FROM m_user_privilege WHERE CHR_USRNAME ='"+session.getAttribute("USRID").toString()+"'")[0][0]))
+				out.println("<input class='ButtonHead' type='submit' onClick='Add()' name='action1' id='action1' value='Add'>");
+			else	
+				out.println("<input type='hidden' name='action1' id='action1' value='Add'>");
+			out.println("</td>");
+			
+			
+			out.println("<td ' valign='top'>");
+			if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_EDIT_MKT FROM m_user_privilege WHERE CHR_USRNAME ='"+session.getAttribute("USRID").toString()+"'")[0][0]))
+			 out.println("<input class='ButtonHead' type='submit' onClick='return Edit()' name='action1' id='action1' value='Edit'>");
+			else	
+				out.println("<input type='hidden'  name='Edit' id='Edit' value='Edit'>");
+			out.println("</td>");
+			
+			out.println("<td ' valign='top'>");
+			if("Y".equals(CommonFunctions.QueryExecute("SELECT CHR_DELETE_MKT FROM m_user_privilege WHERE CHR_USRNAME ='"+session.getAttribute("USRID").toString()+"'")[0][0]))
+				out.println("<input class='ButtonHead' type='submit' onClick='return  Delete()' name='Submit' id='Submit' value='Delete'>");
+			else	 
+				out.println("<input type='hidden'  name='Delete' id='Delete' value='Delete'>");
+			out.println("</td>");	
+			
+			out.println("<td ' valign='top'>");
 			out.println("<input type='button' class='ButtonHead' name='Button' value='Close' onClick=\"redirect( 'MarketingMain.jsp')\" />");
 			out.println("</td>");
 			
@@ -69,11 +182,11 @@ try
 			out.println("</table>");
 			
 			%>
-        </div></td>
+      </div></td>
 	</tr>
 	 
 	<tr>
-	  <td><div align="right" class="copyright"><a href="MyFunnel_Upload.jsp">Upload</a></div></td>
+	  <td><!--<div align="right" class="copyright"><a href="MyFunnel_Upload.jsp">Upload</a></div>--></td>
     </tr>
 	 
 	<tr>
@@ -244,8 +357,8 @@ int ms = dts.getYear();
     </tr>
 	<tr>
 	  <td><span class="boldEleven">
-	    <input type="hidden" name="filename" value="CustomerInfo" />
-        <input type="hidden" name="actionS" value="MKTCustomerInfoDelete" />
+	    <input type="hidden" name="filename" value="MyFunnel" />
+        <input type="hidden" name="actionS" value="MKTMyFunnelDelete" />
       </span></td>
     </tr>
 	

@@ -8,7 +8,7 @@ function LoadMyFunnelinfo(search)
 	var s ="====day="+day1+"&month="+month1+"&year="+year1+"&me="+me1+"&search="+search;
 	//alert(s);
 	callAjaxFunnelinfo(day1, month1, year1, me1, escape(search)) ;
-}  
+}  https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=6600208
   
 
 function LoadMyFunnelsearchinfo() 
@@ -31,7 +31,7 @@ function callAjaxFunnelinfo(day1, month1, year1, me1, search1)
 	
 	
 	  $.ajax({
-                type: "POST",
+                type: "GET",
                 url: "../FunnelAjax",  
                 data: { actionS:"Loadfunnelinfos", day:day1, month:month1, year:year1, me:me1, search:search1 },
                 dataType: "json",  
@@ -65,13 +65,13 @@ function iterateJSONMessage(result)
 		str=str+"<th align='center'><b>LOB</b></th>";
 		str=str+"<th align='center'><b>OEM</b></th>";
 		str=str+"<th align='center'><b>QTY</b></th>";
-		str=str+"<th align='center'><b>UNIT</b></th>";
-		str=str+"<th align='center'><b>VALUE</b></th>";
+		str=str+"<th align='center'><b>UNIT VALUE</b></th>"; 
 		str=str+"<th align='center'><b>TOTAL</b></th>";
 		str=str+"<th align='center'><b>BOTTOMLINE</b></th>";
 		str=str+"<th align='center'><b>CATEGORY</b></th>";
 		str=str+"<th align='center'><b>STAGE</b></th>";
-		str=str+"<th align='center'><b>APPROX</b></th>";
+		str=str+"<th align='center'><b>APPROX CLOSURE</b></th>";
+		str=str+"<th align='center'><b>STATUS</b></th>";
 		str=str+"<th align='center'><b>PROBABILITY</b></th>";
 		str=str+"<th align='center'><b>PROPOSAL</b></th>";
 		str=str+"<th align='center'><b>REMARKS</b></th>";
@@ -100,25 +100,26 @@ function iterateJSONMessage(result)
 			    	str=str+"<tr  class='MRow2'>";
 			    	
 				str=str+"<td class='boldEleven'>";
-				str=str+"<input required  name='branchid'  id='branchid'   type='checkbox' value='"+result[u].ROWID+"' /> "+result[u].ME_NAME+"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].ME_NAME +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].CLIENT_NAME +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].LOCATION +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].PRODUCT+"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].LOB +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].OEM +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].QTY +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].UNIT +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].VALUE +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].TOTAL +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].BOTTOMLINE +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].CATEGORY +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].STAGE +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].APPROX +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].PROBABILITY +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].PROPOSAL +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].REMARKS +"</td>";
+				str=str+"<input  name='rowid'  id='rowid'   type='checkbox' value='"+result[u].rowid+"' /> "+result[u].mename+"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].clientname +"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].location +"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].product+"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].lob +"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].oem +"</td>";
+				str=str+"<td class='boldEleven' align='right'>"+result[u].qty  +"</td>";
+				str=str+"<td class='boldEleven' align='right'>"+result[u].unitvalue +"</td>"; 
+				str=str+"<td class='boldEleven' align='right'>"+result[u].totalvalue +"</td>";
+				str=str+"<td class='boldEleven' align='right'>"+result[u].bottomlinevalue +"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].category +"</td>";
+				str=str+"<td class='boldEleven'>Stage "+result[u].stage +"%</td>";
+				str=str+"<td class='boldEleven'>"+result[u].approxclosure +"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].status +"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].probabilitywinning +"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].proposal +"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].remarks +"</td>";
 				str=str+"<tr>";
+				
+				 
 			}
 			str=str+"</table>";
 			 

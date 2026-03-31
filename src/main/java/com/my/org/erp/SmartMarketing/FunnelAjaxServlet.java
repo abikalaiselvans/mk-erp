@@ -2,6 +2,7 @@ package com.my.org.erp.SmartMarketing;
 
 import com.google.gson.Gson;
 import com.my.org.erp.SmartAutocompleteServlet.Funnel;
+import com.my.org.erp.bean.SmartMarketing.MyFunnel;
 import com.my.org.erp.common.CommonFunctions;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
 public class FunnelAjaxServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("actionS");
 		String searchText = request.getParameter("query");
@@ -35,9 +36,10 @@ public class FunnelAjaxServlet extends HttpServlet {
     		
     		HttpSession session = request.getSession();
 			String usertype  = (""+session.getAttribute("USERTYPE")).toUpperCase();
-			sql = sql + " SELECT INT_FUNNELID,CHR_ME_NAME,CHR_CLIENT_NAME,CHR_LOCATION,CHR_PRODUCT,CHR_LOB_TYPE,CHR_OEM,INT_QTY, "; 
-			sql = sql + " INT_UNIT,DOU_VALUE,  DOU_TOTAL_VALUE, CHR_STAGE,  DT_UPDATEDATE  from mkt_t_funnel ";
-			sql = sql + " WHERE INT_FUNNELID >0    ";
+			 
+			sql =  " SELECT INT_FUNNELID, CHR_USRNAME, CHR_CLIENT_NAME,CHR_LOCATION,CHR_PRODUCT,CHR_LOB_TYPE,CHR_OEM,INT_QTY,  ";
+			sql = sql + " INT_UNITVALUE,  DOU_TOTAL_VALUE, DOU_BOTTOM_VALUE, CHR_CATEGORY,CHR_STAGE, CHR_APPR_CLOSURE,CHR_SATUS,CHR_WINNING,CHR_PROPOSAL, ";
+			sql = sql + "  CHR_REMARK, DT_UPDATEDATE  from mkt_t_funnel  WHERE INT_FUNNELID >0  ";   
 			
 			if(!"0".equals(day))
 				sql = sql + " AND DAY(DT_UPDATEDATE) = "+day;
@@ -63,24 +65,31 @@ public class FunnelAjaxServlet extends HttpServlet {
 
 	 static String getFunnelJsonObject(String sql) {
 			String data[][] = CommonFunctions.QueryExecute(sql);
-			List<Funnel> listdata = new ArrayList<Funnel>();
+			List<MyFunnel> listdata = new ArrayList<MyFunnel>();
 			if (data.length > 0) {
 				for (int i = 0; i < data.length; i++) {
-					Funnel n = new Funnel();
-					n.setROWID(data[i][0]);
-					n.setME_NAME(data[i][1]);
-					n.setCLIENT_NAME(data[i][2]);
-					n.setLOCATION(data[i][3]);
-					n.setPRODUCT(data[i][4]);
-					n.setLOB(data[i][5]);
-					n.setOEM(data[i][6]);
-					n.setQTY(data[i][7]);
-					n.setUNIT(data[i][8]);
-					n.setVALUE(data[i][9]);
-					n.setTOTAL(data[i][10]);
-					n.setSTAGE(data[i][11]);
-					n.setFDATE(data[i][12]);
+					MyFunnel n = new MyFunnel();
+					n.setRowid(data[i][0]);
+					n.setMename(data[i][1]);
+					n.setClientname(data[i][2]);
+					n.setLocation(data[i][3]);
+					n.setProduct(data[i][4]);
+					n.setLob(data[i][5]);
+					n.setOem(data[i][6]);
+					n.setQty(Integer.parseInt(data[i][7]));
+					n.setUnitvalue(Double.parseDouble(data[i][8]));
+					n.setTotalvalue(Double.parseDouble(data[i][9]));
+					n.setBottomlinevalue(Double.parseDouble(data[i][10]));
+					n.setCategory(data[i][11]);
+					n.setStage(data[i][12]);
+					n.setApproxclosure(data[i][13]);
+					n.setStatus(data[i][14]);
+					n.setProbabilitywinning(data[i][15]);
+					n.setProposal(data[i][16]);
+					n.setRemarks(data[i][17]);
 					listdata.add(n);
+					
+					
 
 				}
 			}
