@@ -36,6 +36,9 @@ for(int u=2;u<=10;u++)
 <script language="javascript" src="../JavaScript/jquery/ui/jquery.ui.core.js"></script>
 <script language="javascript" src="../JavaScript/jquery/ui/jquery.ui.widget.js"></script>
 <script language="javascript" src="../JavaScript/jquery/ui/jquery.ui.datepicker.js"></script>
+
+ 
+
 <script>
  
 
@@ -948,7 +951,40 @@ for(int u=0; u<PRequestDatat.length; u++)
 								<tr>
 								  <td valign="top" class="boldEleven">&nbsp;</td>
 								  <td class="boldEleven">&nbsp;</td>
-								  <td class="boldEleven">&nbsp;</td>
+								  <td class="boldEleven">
+								  
+								  <select id="dynamicDropdown"  onBlur="callAjaxProductJson()">
+										<option value="">Search Product</option> 
+									</select>
+									 
+									<script language="javascript" >
+									
+									function callAjaxProductJson() 
+									{
+										  
+										  $.ajax({
+													type: "POST",
+													url: "../Get_Product_Json",  
+													//data: { input: input},
+													dataType: "json",  
+													success: function (data) {
+														 var dropdown = $('#dynamicDropdown');
+														$.each(data, function (index, item) {
+															dropdown.append($('<option>', {
+																value: item.id, // Value attribute of the option
+																text: item.name  // Display text of the option
+															}));
+														});
+													},
+													error: function(xhr, status, error) {
+														console.error("AJAX error: " + status + error);
+													}
+												});
+									}
+
+ 
+									</script>
+									</td>
 								  <td class="boldEleven">&nbsp;</td>
 							  </tr>
 								
