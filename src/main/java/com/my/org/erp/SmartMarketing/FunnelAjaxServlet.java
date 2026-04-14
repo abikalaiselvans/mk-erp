@@ -36,22 +36,32 @@ public class FunnelAjaxServlet extends HttpServlet {
     		
     		HttpSession session = request.getSession();
 			String usertype  = (""+session.getAttribute("USERTYPE")).toUpperCase();
+			String empid [] = CommonFunctions.getReportingEmployeeIds(""+session.getAttribute("EMPID"));
+			String empids ="'"+session.getAttribute("EMPID")+"', ";
+			if(empid.length>0)
+				for(int i=0;i<empid.length;i++)
+					empids = empids +" '"+empid[i]+"' , ";
+					
 			 
-			sql =  " SELECT INT_FUNNELID, CHR_USRNAME, CHR_CLIENT_NAME,CHR_LOCATION,CHR_PRODUCT,CHR_LOB_TYPE,CHR_OEM,INT_QTY,  ";
-			sql = sql + " INT_UNITVALUE,  DOU_TOTAL_VALUE, DOU_BOTTOM_VALUE, CHR_CATEGORY,CHR_STAGE, CHR_APPR_CLOSURE,CHR_SATUS,CHR_WINNING,CHR_PROPOSAL, ";
-			sql = sql + "  CHR_REMARK, DT_UPDATEDATE  from mkt_t_funnel  WHERE INT_FUNNELID >0  ";   
-			
+			sql =  " SELECT INT_FUNNELID, FIND_A_EMPLOYEE_NAME_ONLY(CHR_EMPID), CHR_CLIENT_NAME, CHR_LOCATION, CHR_ACCOUNTTYPE, CHR_VERTICAL, CHR_LOB_TYPE, CHR_OEM, DATE_FORMAT(DT_APPR_CLOSURE,'%d-%M-%Y') ,CHR_WINNING,";
+			sql = sql + " INT_UNITVALUE, INT_QTY, DOU_TOTAL_VALUE, DOU_BOTTOM_VALUE, CHR_STAGE, CHR_SATUS, CHR_REMARK, DATE_FORMAT(DT_ENTRY,'%d-%M-%Y'), "; 
+			sql = sql + " DT_UPDATEDATE  from mkt_t_funnel   WHERE INT_FUNNELID >0  ";
+			 
 			if(!"0".equals(day))
-				sql = sql + " AND DAY(DT_UPDATEDATE) = "+day;
+				sql = sql + " AND DAY(DT_ENTRY) = "+day;
 			if(!"0".equals(month))
-				sql = sql + " AND MONTH(DT_UPDATEDATE) = "+month;
+				sql = sql + " AND MONTH(DT_ENTRY) = "+month;
 			if(!"0".equals(year))
-				sql = sql + " AND YEAR(DT_UPDATEDATE) = "+year;
+				sql = sql + " AND YEAR(DT_ENTRY) = "+year;
+			if(!"F".equals(""+session.getAttribute("USRTYPE")) )
+				sql = sql + " AND  CHR_EMPID IN ("+empids+" '') ";
+			 
 			if(!"0".equals(search))
 				sql = sql + " AND CHR_CLIENT_NAME LIKE '"+search+"%' " ;
-			 
- 	 		sql = sql +" ORDER BY DT_UPDATEDATE ";
+			
+ 	 		sql = sql +" ORDER BY DT_ENTRY DESC ";
  	 		System.out.println(sql);
+ 	 		
  	 		String jsondata = getFunnelJsonObject(sql);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
@@ -60,7 +70,7 @@ public class FunnelAjaxServlet extends HttpServlet {
 		else
 			response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 
-	}
+	} 
 
 
 	 static String getFunnelJsonObject(String sql) {
@@ -73,24 +83,22 @@ public class FunnelAjaxServlet extends HttpServlet {
 					n.setMename(data[i][1]);
 					n.setClientname(data[i][2]);
 					n.setLocation(data[i][3]);
-					n.setProduct(data[i][4]);
-					n.setLob(data[i][5]);
-					n.setOem(data[i][6]);
-					n.setQty(Integer.parseInt(data[i][7]));
-					n.setUnitvalue(Double.parseDouble(data[i][8]));
-					n.setTotalvalue(Double.parseDouble(data[i][9]));
-					n.setBottomlinevalue(Double.parseDouble(data[i][10]));
-					n.setCategory(data[i][11]);
-					n.setStage(data[i][12]);
-					n.setApproxclosure(data[i][13]);
-					n.setStatus(data[i][14]);
-					n.setProbabilitywinning(data[i][15]);
-					n.setProposal(data[i][16]);
-					n.setRemarks(data[i][17]);
+					n.setAccouttype(data[i][4]);
+					n.setVertical(data[i][5]);
+					n.setLob(data[i][6]);
+					n.setOem(data[i][7]);
+					n.setApproxclosure(data[i][8]);
+					n.setProbabilitywinning(data[i][9]);
+					n.setUnitvalue(Double.parseDouble(data[i][10]));
+					n.setQty(Integer.parseInt(data[i][11]));
+					n.setTotalvalue(Double.parseDouble(data[i][12]));
+					n.setBottomlinevalue(Double.parseDouble(data[i][13]));
+					n.setStage(data[i][14]);
+					n.setStatus(data[i][15]);
+					n.setRemarks(data[i][16]);
+					n.setEntrydate(data[i][17]);
 					listdata.add(n);
-					
-					
-
+					 
 				}
 			}
 			System.out.println("Record size:"+listdata.size());

@@ -435,11 +435,11 @@ for(int u=0; u<bdata.length; u++)
 					  </td>
                     </tr>
                     <tr>
-                      <td height="17" class="boldEleven">Customer Type <span
+                      <td height="17" class="boldEleven">Customer Type / Vertical<span
 									class="bolddeepred">* </span></td>
                       <td colspan="3" align="left"><select name="customertype" id="customertype"
-									class="formText135" style="width:300"  title="Select the Customer type">
-                          <option value="0">Select Customer Type</option>
+									class="formText135" style="width:300"  title="Select the Customer Type/Vertical">
+                          <option value="0">Select Customer Type/Vertical</option>
                           <%
 				  String query1 ="SELECT INT_CUSTOMERTYPEID,CHR_TYPENAME FROM inv_m_customertype ORDER BY CHR_TYPENAME";
 				  String customertype[][] =  CommonFunctions.QueryExecute(query1);

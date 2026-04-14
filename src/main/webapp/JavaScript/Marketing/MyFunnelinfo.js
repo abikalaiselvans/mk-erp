@@ -59,24 +59,30 @@ function iterateJSONMessage(result)
 		str=str+" <thead>";
 		str=str+"<tr class='MRow1'>";
 		str=str+"<th align='center'><b>ME_NAME</b></th>";
+		str=str+"<th align='center'><b>Entry Date</b></th>";
 		str=str+"<th align='center'><b>CLIENT_NAME</b></th>";
 		str=str+"<th align='center'><b>LOCATION</b></th>";
-		str=str+"<th align='center'><b>PRODUCT</b></th>";
+		str=str+"<th align='center'><b>ACCOUNT TYPE</b></th>";
+		str=str+"<th align='center'><b>VERTICAL</b></th>";
 		str=str+"<th align='center'><b>LOB</b></th>";
 		str=str+"<th align='center'><b>OEM</b></th>";
-		str=str+"<th align='center'><b>QTY</b></th>";
 		str=str+"<th align='center'><b>UNIT VALUE</b></th>"; 
+		str=str+"<th align='center'><b>QTY</b></th>";
 		str=str+"<th align='center'><b>TOTAL</b></th>";
-		str=str+"<th align='center'><b>BOTTOMLINE</b></th>";
-		str=str+"<th align='center'><b>CATEGORY</b></th>";
+		str=str+"<th align='center'><b>BOTTOMLINE</b></th>"; 
 		str=str+"<th align='center'><b>STAGE</b></th>";
 		str=str+"<th align='center'><b>APPROX CLOSURE</b></th>";
 		str=str+"<th align='center'><b>STATUS</b></th>";
-		str=str+"<th align='center'><b>PROBABILITY</b></th>";
-		str=str+"<th align='center'><b>PROPOSAL</b></th>";
+		str=str+"<th align='center'><b>PROBABILITY</b></th>"; 
 		str=str+"<th align='center'><b>REMARKS</b></th>";
 		str=str+" </thead>";
 		str=str+"</tr>";
+		
+
+		 //clientname, approxclosure,unitvalue,qty,totalvalue,bottomlinevalue,remarks
+		//location,accouttype,vertical,lob,oem,probabilitywinning,stage,status
+
+		 
 		
 		if(rowLength === 0) 
 		{
@@ -86,7 +92,7 @@ function iterateJSONMessage(result)
 			 str=str+"</table>";
 			 
 			
-		}	
+		}	 
 		else 
 		{
 			$("#GroupTable").val("");
@@ -101,22 +107,24 @@ function iterateJSONMessage(result)
 			    	
 				str=str+"<td class='boldEleven'>";
 				str=str+"<input  name='rowid'  id='rowid'   type='checkbox' value='"+result[u].rowid+"' /> "+result[u].mename+"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].entrydate +"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].clientname +"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].location +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].product+"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].accouttype+"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].vertical+"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].lob +"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].oem +"</td>";
-				str=str+"<td class='boldEleven' align='right'>"+result[u].qty  +"</td>";
 				str=str+"<td class='boldEleven' align='right'>"+result[u].unitvalue +"</td>"; 
+				str=str+"<td class='boldEleven' align='right'>"+result[u].qty  +"</td>";
 				str=str+"<td class='boldEleven' align='right'>"+result[u].totalvalue +"</td>";
-				str=str+"<td class='boldEleven' align='right'>"+result[u].bottomlinevalue +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].category +"</td>";
+				str=str+"<td class='boldEleven' align='right'>"+result[u].bottomlinevalue +"</td>"; 
 				str=str+"<td class='boldEleven'>Stage "+result[u].stage +"%</td>";
 				str=str+"<td class='boldEleven'>"+result[u].approxclosure +"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].status +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].probabilitywinning +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].proposal +"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].probabilitywinning +"</td>"; 
 				str=str+"<td class='boldEleven'>"+result[u].remarks +"</td>";
+				 
+						
 				str=str+"<tr>";
 				
 				 

@@ -42,7 +42,7 @@ try
 </style>
 
 
-
+ 
 
 </head>
 <script language="javascript" src="../JavaScript/Marketing/MyFunnelinfo.js"  ></script>
@@ -194,7 +194,7 @@ try
 			cellpadding="0" cellspacing="0" class="TableDesign"  
 			 >
         <tr  >
-          <td height="31"  ><div align="center">CUSTOMER INFORMATION </div></td>
+          <td height="31"  ><div align="center">FUNNEL INFORMATION </div></td>
         </tr>
         <tr  >
           <td height="31" align="center" valign="middle"  ><table width="90%" border="0" align="center" cellpadding="2" cellspacing="2" class="whiteMedium">

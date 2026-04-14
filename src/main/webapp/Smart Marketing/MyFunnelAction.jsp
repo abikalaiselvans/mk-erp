@@ -27,30 +27,39 @@ try
 -->
 </style>
 
+<link href="../JavaScript/jquery/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css">
 
 
 </head>
 <script language="javascript" src="../JavaScript/comfunction.js"></script>
 <script language="JavaScript" src="../JavaScript/ComAJAX.js"></script>
+
+<script language="javascript" src="../JavaScript/jquery/jquery-1.7.1.js"></script>
+<script language="javascript" src="../JavaScript/jquery/jquery-1.7.1.js"></script>
+
+<script language="javascript" src="../JavaScript/jquery/ui/jquery.ui.core.js"></script>
+<script language="javascript" src="../JavaScript/jquery/ui/jquery.ui.widget.js"></script>
+<script language="javascript" src="../JavaScript/jquery/ui/jquery.ui.datepicker.js"></script>
+
 <script language="JavaScript">
 function Validate()
   {
 	if(  
 		checkNull( "clientname","Enter The Client Name" ) 
-		&& checkNull( "location","Enter The Location" ) 
-		&& checkNull( "product","Enter The Product" ) 
-		&& checkNull( "lob","Enter The LOB" ) 
-		&& checkNull( "oem","Enter The OEM" ) 
-		&& checkNull( "category","Enter The Category" ) 
+		&& checkNullSelect( "location","Select The Location", "" ) 
+		&& checkNullSelect( "accouttype","Select The accouttype", "" )
+		&& checkNullSelect( "vertical","Select The Product" ,"") 
+		&& checkNullSelect( "lob","Select The LOB" ,"") 
+		&& checkNullSelect( "oem","Select The OEM","" ) 
 		&& checkNull( "approxclosure","Enter The Approx Closure" ) 
-		&& checkNull( "probabilitywinning","Enter The Probability Winning" ) 
+		&& checkNullSelect( "probabilitywinning","Enter The Probability Winning" ,"") 
 		&& checkNull( "qty","Enter The QTY" ) 
 		&& checkNull( "unitvalue","Enter The Unit Value" ) 
 		&& checkNull( "totalvalue","Enter The Total value" ) 
 		&& checkNull( "bottomlinevalue","Enter The BottomLine value" ) 
-		&& checkNullSelect( "stage","Select stage" ,'0')
+		&& checkNullSelect( "stage","Select stage" ,'')
 		//&& checkNullSelect( "stage","Enter The OEM" ) 
-		&& checkNull( "proposal","Enter The Proposal" ) 
+		//&& checkNull( "proposal","Enter The Proposal" ) 
 		&& checkNull( "status","Enter The Status" ) 
 		&& checkNull( "remarks","Enter The Remarks" )  
 		 
@@ -60,7 +69,10 @@ function Validate()
 	else
 		return false;				
  } 	
- 
+
+//clientname, approxclosure,unitvalue,qty,totalvalue,bottomlinevalue,remarks
+//location,accouttype,vertical,lob,oem,probabilitywinning,stage,status
+
  
  function calculateValue()
 	{
@@ -99,7 +111,6 @@ function Validate()
 
 
 
-<script language="javascript" src="../JavaScript/jquery/jquery-1.7.1.js"></script>
 
 <script type="text/javascript">
 function lookup(SerialNumber) 
@@ -128,6 +139,39 @@ function fill(thisValue)
 
  
 </script>
+
+
+<script>
+	
+	
+$(function() {
+		$( "#approxclosure" ).datepicker({ 
+		minDate: -10, maxDate: "+30D" ,
+			defaultDate: "+1w",
+			showOn: "button",
+			buttonImage: "../JavaScript/jquery/images/calendar.gif",
+			numberOfMonths: 1,
+			buttonImageOnly: true 
+			
+		});
+	});
+ 
+ 
+ $(function() {
+		$( "#entrydate" ).datepicker({ 
+		minDate: -10, maxDate: "+30D" ,
+			defaultDate: "+1w",
+			showOn: "button",
+			buttonImage: "../JavaScript/jquery/images/calendar.gif",
+			numberOfMonths: 1,
+			buttonImageOnly: true 
+			
+		});
+	});
+	
+
+</script>
+
 <style type="text/css">
 body {
 font-family: Helvetica;
@@ -215,8 +259,12 @@ background-color: #99cc99;
 							String msg= ""+request.getParameter("msg");
 							String rowid= ""+request.getParameter("rowid");
 							
-							String clientname="",location="",product="",lob="",oem="",category="",approxclosure="",probabilitywinning="";
-							String qty="", unitvalue="",totalvalue="",bottomlinevalue="",stage="",proposal="",status="",remarks="";
+							String clientname="", approxclosure="",unitvalue="",qty="",totalvalue="",bottomlinevalue="",remarks="";
+							String location="",accouttype="",vertical="",lob="",oem="",probabilitywinning,stage="",status="";
+							String entrydate = "";
+							
+							String  product="" ,category="" ;
+							String  proposal="";
 
 							String id="", value="", actionS="" ;
 							String sql="";
@@ -226,9 +274,11 @@ background-color: #99cc99;
 							if("Add".equals(action))
 							{
 								id=""; 
+								clientname=""; approxclosure="";unitvalue="";qty="";totalvalue="";bottomlinevalue="";remarks="";
+								location="";accouttype="";vertical="";lob="";oem=""; probabilitywinning=""; stage="";status="";
 								clientname="";location="";product="";lob="";oem="";category="";approxclosure="";probabilitywinning="";
-							    qty=""; unitvalue="";totalvalue="";bottomlinevalue="";stage="";proposal="";status="";remarks="";
-
+							    qty=""; unitvalue="";totalvalue="";bottomlinevalue="0";stage="";proposal="";status="";remarks="";
+								entrydate="";
 								actionS="MKTMyFunnelAdd";
 								value="Add"; taxValue=""; 
 								
@@ -237,97 +287,209 @@ background-color: #99cc99;
 							{
 								id="";  
 								id=request.getParameter("rowid");
-								sql = " SELECT INT_FUNNELID, CHR_CLIENT_NAME,CHR_LOCATION,CHR_PRODUCT,CHR_LOB_TYPE,CHR_OEM, ";
-								sql = sql + " INT_QTY,  INT_UNITVALUE,  DOU_TOTAL_VALUE, DOU_BOTTOM_VALUE, CHR_CATEGORY,CHR_STAGE,  ";
-								sql = sql + " CHR_APPR_CLOSURE,CHR_SATUS,CHR_WINNING, CHR_PROPOSAL,CHR_REMARK, DT_UPDATEDATE  from mkt_t_funnel   ";
-  								sql = sql + " WHERE INT_FUNNELID="+id;
+								 
+  								sql = sql + " SELECT INT_FUNNELID, CHR_CLIENT_NAME, CHR_LOCATION, CHR_ACCOUNTTYPE, CHR_VERTICAL,  ";
+  								sql = sql + "  CHR_LOB_TYPE, CHR_OEM,  DATE_FORMAT(DT_APPR_CLOSURE,'%d-%m-%Y')  ,CHR_WINNING, ";
+  								sql = sql + " INT_UNITVALUE, INT_QTY, DOU_TOTAL_VALUE, DOU_BOTTOM_VALUE, CHR_STAGE, CHR_SATUS, CHR_REMARK,  ";
+  								sql = sql + " DT_UPDATEDATE,  DATE_FORMAT(DT_ENTRY,'%d-%m-%Y') from mkt_t_funnel  ";  
+  								sql = sql + " WHERE INT_FUNNELID="+id;  
+  								//out.println(sql);
 								String data[][]=CommonFunctions.QueryExecute(sql);
 								id=data[0][0];
-								clientname=data[0][1];location=data[0][2];product=data[0][3];lob=data[0][4];oem=data[0][5];
-								qty=data[0][6]; unitvalue=data[0][7];totalvalue=data[0][8];bottomlinevalue=data[0][9];category=data[0][10]; stage=data[0][11];
-								approxclosure=data[0][12];status=data[0][13];probabilitywinning=data[0][14];
-							    proposal=data[0][15];remarks=data[0][16]; 
+								clientname=data[0][1];location=data[0][2];accouttype=data[0][3];vertical=data[0][4];
+								lob=data[0][5];oem=data[0][6];approxclosure=data[0][7];probabilitywinning=data[0][8];
+								unitvalue=data[0][9];qty=data[0][10]; totalvalue=data[0][11];bottomlinevalue=data[0][12];
+								stage=data[0][13];
+								status=data[0][14]; remarks=data[0][15];  entrydate=data[0][17]; 
 								
 								actionS="MKTMyFunnelEdit";
 								value="Update";
 								link=" onBlur=\"upperMe(this),fill()\"  ";
 								link1="";
+								out.println(approxclosure);
+								out.println(entrydate);
 							}
 							
 						%>
               </div></td>
             </tr>
             <tr>
+              <td class="boldEleven">&nbsp;</td>
+              <td class="boldEleven">&nbsp;</td>
+              <td class="boldEleven">&nbsp;</td>
+              <td class="boldEleven">&nbsp;</td>
+              <td class="boldEleven">&nbsp;</td>
+            </tr>
+            <tr>
               <td width="23%" class="boldEleven">Client Name</td>
               <td width="22%" class="boldEleven"><input name="clientname" type="text" id="clientname" value="<%=clientname%>"  onBlur="upperMe(this)" /></td>
               <td width="7%" class="boldEleven">&nbsp;</td>
-              <td width="26%" class="boldEleven">Qty</td>
-              <td width="22%" class="boldEleven"><input name="qty" type="text" id="qty" value="<%=qty%>" onKeyPress="return numeric_only(event,'qty','25')" onBlur="calculateValue()"/></td>
+              <td width="26%" class="boldEleven">Unit Value</td>
+              <td width="22%" class="boldEleven"><span class="boldred">
+                <input name="unitvalue" type="text" id="unitvalue" value="<%=unitvalue%>"  onKeyPress="return numeric_only(event,'unitvalue','25')" onBlur="calculateValue()"/>
+              </span></td>
             </tr>
             <tr>
               <td   class="boldEleven">Location</td>
-              <td  class="boldEleven"><input name="location" type="text" id="location" value="<%=location%>"  onBlur="upperMe(this)" /></td>
+              <td  class="boldEleven">
+			  				<select name="location" id="location">
+			  				<option value="">Select location</option>
+							<option value="Coimbatore">Coimbatore</option>
+							<option value="Chennai">Chennai</option>
+							<option value="Madurai">Madurai</option>
+							<option value="Bengaluru">Bengaluru</option>
+							</select>
+							<script language="javascript">setOptionValue('location','<%=location%>')</script> </td>
               <td   class="boldEleven">&nbsp;</td>
-              <td   class="boldEleven">Unit Value</td>
+              <td   class="boldEleven">Qty</td>
+              <td   class="boldEleven"><input name="qty" type="text" id="qty" value="<%=qty%>" onKeyPress="return numeric_only(event,'qty','25')" onBlur="calculateValue()"/></td>
+            </tr>
+            <tr>
+              <td   class="boldEleven">Account Type </td>
+              <td  class="boldEleven"><select name="accouttype" id="accouttype">
+                <option value="">Select Account Type</option>
+                <option value="House Account">House Account</option>
+                <option value="Prime Account">Prime Account</option>
+                <option value="Farming">Farming</option>
+                <option value="Acquisition">Acquisition</option>
+				<option value="SOHO / OTR">SOHO / OTR</option>
+              </select>
+			  <script language="javascript">setOptionValue('accouttype','<%=accouttype%>')</script>			  </td>
+              <td   class="boldEleven">&nbsp;</td>
+              <td   class="boldEleven">Total Value</td>
               <td   class="boldEleven"><div class="suggestionsBox" id="suggestions" style="display: none; width:440">
                   <div class="suggestionList" id="autoSuggestionsList" style="OVERFLOW:auto;width:100%;height:100px" ></div>
-              </div>
-                  <span class="boldred">
-                  <input name="unitvalue" type="text" id="unitvalue" value="<%=unitvalue%>"  onKeyPress="return numeric_only(event,'unitvalue','25')" onBlur="calculateValue()"/>
-                </span></td>
+              </div>                
+                <input name="totalvalue" type="text" id="totalvalue" value="<%=totalvalue%>"  onBlur="upperMe(this)"  readonly=""/></td>
             </tr>
             <tr>
-              <td class="boldEleven">Product</td>
-              <td class="boldEleven"><input name="product" type="text" id="product" value="<%=product%>"  onBlur="upperMe(this)" /></td>
-              <td class="boldEleven">&nbsp;</td>
-              <td class="boldEleven">Total Value</td>
-              <td class="boldEleven"><input name="totalvalue" type="text" id="totalvalue" value="<%=totalvalue%>"  onBlur="upperMe(this)"  readonly=""/></td>
-            </tr>
-            <tr>
-              <td class="boldEleven">LOB Type</td>
-              <td class="boldEleven"><input name="lob" type="text" id="lob" value="<%=lob%>"  onBlur="upperMe(this)" /></td>
+              <td class="boldEleven">Vertical</td>
+              <td class="boldEleven">
+			  <select name="vertical" id="vertical">
+                <option value="">Select Vertical</option>
+                <option value="BFSI">BFSI</option>
+				<option value="Education">Education</option>
+				<option value="Government">Government</option>
+				<option value="Health Care">Health Care</option>
+				<option value="IT / ITES">IT / ITES</option>
+				<option value="Manufacturing">Manufacturing</option>
+				<option value="SMB">SMB</option>
+				<option value="SOHO">SOHO</option>
+				<option value="Others">Others</option> 
+  			</select>
+			  <script language="javascript">setOptionValue('vertical','<%=vertical%>')</script>  </td>
               <td class="boldEleven">&nbsp;</td>
               <td class="boldEleven">Bottomline Value</td>
               <td class="boldEleven"><input name="bottomlinevalue" type="text" id="bottomlinevalue" value="<%=bottomlinevalue%>"    onKeyPress="return numeric_only(event,'bottomlinevalue','25')" onBlur="upperMe(this)" /></td>
             </tr>
             <tr>
-              <td class="boldEleven">OEM</td>
-              <td class="boldEleven"><input name="oem" type="text" id="oem" value="<%=oem%>"  onBlur="upperMe(this)" /></td>
+              <td class="boldEleven">LOB Type</td>
+              <td class="boldEleven">
+			   <select name="lob" id="lob">
+                <option value="">Select LOB</option>
+                <option value="Desktop">Desktop</option>
+				<option value="Laptop">Laptop</option>
+				<option value="Networking">Networking</option>
+				<option value="End Point Security">End Point Security</option>
+				<option value="Firewall Security">Firewall Security</option>
+				<option value="Server">Server</option>
+				<option value="Storage">Storage</option>
+				<option value="Workstation">Workstation</option>
+				<option value="Upgrade">Upgrade</option>
+				<option value="Consumables">Consumables</option>
+				<option value="AMC / Warranty Extension">AMC / Warranty Extension</option>
+				<option value="Others">Others</option>
+				<option value="Printer">Printer</option>
+				<option value="Backup">Backup</option>
+  			</select>
+			  <script language="javascript">setOptionValue('lob','<%=lob%>')</script>			   </td>
               <td class="boldEleven">&nbsp;</td>
               <td class="boldEleven">Stage</td>
-              <td class="boldEleven"><select name="stage" id="stage">
-			  				<option value="0">Select</option>
-			  				<%
-							 for(int i=0; i<=100; i=i+5)
-							 {
-							 	out.println("<option value='"+i+"'>Stage "+i+"%</option>");
-							 }
-							%>
-                            </select>
-							<script language="javascript">setOptionValue('stage','<%=stage%>')</script>
-							</td>
+              <td class="boldEleven">
+			  <select name="stage" id="stage">
+			  				<option value="">Select Stage</option>
+							<option value="0">Stage 0%</option>
+							<option value="1">Stage 1%</option>
+							<option value="10">Stage 10%</option>
+							<option value="30">Stage 30%</option>
+							<option value="60">Stage 60%</option>
+							<option value="90">Stage 70%</option>
+							<option value="100">Stage 100%</option>
+						    </select>
+							<script language="javascript">setOptionValue('stage','<%=stage%>')</script>			  </td>
             </tr>
             <tr>
-              <td class="boldEleven">Category</td>
-              <td class="boldEleven"><input name="category" type="text" id="category" value="<%=category%>"  onBlur="upperMe(this)" /></td>
-              <td class="boldEleven">&nbsp;</td>
-              <td class="boldEleven">Proposal</td>
-              <td class="boldEleven"><input name="proposal" type="text" id="proposal" value="<%=proposal%>"  onBlur="upperMe(this)" /></td>
-            </tr>
-            <tr>
-              <td class="boldEleven">Approx Closure</td>
-              <td class="boldEleven"><input name="approxclosure" type="text" id="approxclosure" value="<%=approxclosure%>"  onBlur="upperMe(this)" /></td>
+              <td class="boldEleven">OEM</td>
+              <td class="boldEleven">
+			   <select name="oem" id="oem">
+                <option value="">Select OEM</option>
+                <option value="DELL">DELL</option>
+				<option value="HP">HP</option>
+				<option value="Lenovo">Lenovo</option>
+				<option value="HPE">HPE</option>
+				<option value="Acer">Acer</option>
+				<option value="Epson">Epson</option>
+				<option value="Canon">Canon</option>
+				<option value="Microsoft">Microsoft</option>
+				<option value="Adobe">Adobe</option>
+				<option value="Others">Others</option>
+			 </select>	
+			  <script language="javascript">setOptionValue('oem','<%=oem%>')</script>	</td>
               <td class="boldEleven">&nbsp;</td>
               <td class="boldEleven">Status</td>
-              <td class="boldEleven"><input name="status" type="text" id="status" value="<%=status%>"  onBlur="upperMe(this)" /></td>
+              <td class="boldEleven"><select name="status" id="status">
+				 <option value="">Select Status</option>
+				 <option value="Live">Live</option>
+				 <option value="Hold">Hold</option>
+				 <option value="Lost">Lost</option>
+				 <option value="Won">Won</option>
+			</select><script language="javascript">setOptionValue('status','<%=status%>')</script>							</td>
             </tr>
             <tr>
-              <td class="boldEleven">Probability    Winning&nbsp;</td>
-              <td class="boldEleven"><input name="probabilitywinning" type="text" id="probabilitywinning" value="<%=probabilitywinning%>"  onBlur="upperMe(this)" /></td>
+              <td class="boldEleven">Approx Closure <% out.println(approxclosure);%></td>
+              <td class="boldEleven"> 
+			  <div align="left"><input name="approxclosure" type="text" class="formText135" id="approxclosure" size="15" readonly value="<%=approxclosure%>" /> 
+				 <%
+				 	if("Add".equals(action))
+					{
+				 %>
+				 <script language='JavaScript' type="text/javascript"> setCurrentDate('approxclosure');  </script>
+				 <%
+				 }
+				 %>
+				 </div>			  </td>
               <td class="boldEleven">&nbsp;</td>
-              <td class="boldEleven">Remarks</td>
+              <td class="boldEleven">Remarks </td>
               <td class="boldEleven"><input name="remarks" type="text" id="remarks" value="<%=remarks%>" /></td>
             </tr>
+            <tr>
+              <td class="boldEleven">Probability    Winning </td>
+              <td class="boldEleven"><select name="probabilitywinning" id="probabilitywinning">
+				 <option value="">Select Probability Winning</option>
+				 <option value="10%">10%</option>
+				  <option value="25%">25%</option>
+				   <option value="50%">50%</option>
+				    <option value="75%">75%</option>
+					 <option value="90%">90%</option>
+					 <option value="100%">100%</option>
+			  </select>
+			  <script language="javascript">setOptionValue('probabilitywinning','<%=probabilitywinning%>')</script> </td>
+              <td class="boldEleven">&nbsp;</td>
+              <td class="boldEleven">Entry Date </td>
+              <td class="boldEleven"><div align="left"><input name="entrydate" type="text" class="formText135" id="entrydate" size="15" readonly value="<%=entrydate%>" /> 
+				 <%
+				 	if("Add".equals(action))
+					{
+				 %>
+				 <script language='JavaScript' type="text/javascript"> setCurrentDate('entrydate');  </script>
+				 <%
+				 }
+				 %></td>
+            </tr>
+            <tr>
+              <td colspan="5" class="boldEleven"><!--<p>clientname, approxclosure,unitvalue,qty,totalvalue,bottomlinevalue,remarks</p>
+                <p>location,accouttype,vertical,lob,oem,probabilitywinning,stage,status</p>--></td>
+              </tr>
             <tr>
               <td class="boldEleven">&nbsp;</td>
               <td class="boldEleven"><span class="boldThirteen">
@@ -336,10 +498,8 @@ background-color: #99cc99;
                 <input name="rowid" type="hidden" id="rowid" value="<%=id%>" />
               </span></td>
               <td class="boldEleven">&nbsp;</td>
-              <td class="boldEleven"><p>&nbsp;</p>
-                </td>
-              <td class="boldEleven"><p>&nbsp;</p>
-                </td>
+              <td class="boldEleven"><p>&nbsp;</p>                </td>
+              <td class="boldEleven"><p>&nbsp;</p>                </td>
             </tr>
             <%
 					if(!"Add".equals(action))

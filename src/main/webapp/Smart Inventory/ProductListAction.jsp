@@ -323,10 +323,10 @@ function eclicked()
 									size="30" maxlength="7"></td>
 							</tr>
 							<tr>
-							  <td height="17" class="boldEleven">Make <span class="bolddeepred">*</span></td>
+							  <td height="17" class="boldEleven">Make / OEM <span class="bolddeepred">*</span></td>
 							  <td colspan="2" align="left">
 <select name="make" id="make" style="width: 200" class="formText135">
-	<option value="0">Select Make</option>
+	<option value="0">Select Make / OEM</option>
 	<%
 	String makata[][] = CommonFunctions.QueryExecute("SELECT INT_MAKEID,CHR_MAKENAME  FROM inv_m_make  ORDER BY CHR_MAKENAME");
 	for (int i = 0; i < makata.length; i++)  
@@ -428,12 +428,12 @@ for(int u=0;u<unitsdata.length;u++)
 								</table>								</td>
 							</tr>
 							<tr>
-								<td height="17" class="boldEleven">Group Name <span
+								<td height="17" class="boldEleven">Group Name/LOB <span
 									class="bolddeepred">*</span></td>
 								<td colspan="2" align="left">
 								<select name="productGroupId"
 									id="productGroupId" style="width: 175" class="formText135">
-									<option value="0">Select Group</option>
+									<option value="0">Select Group/LOB</option>
 									<%
 										query = "SELECT INT_PRODUCTGROUPID,CHR_NAME FROM inv_m_productgroup ORDER BY CHR_NAME";
 										String branch[][] = CommonFunctions.QueryExecute(query);

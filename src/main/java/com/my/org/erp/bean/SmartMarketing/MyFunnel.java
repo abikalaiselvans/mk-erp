@@ -2,16 +2,18 @@ package com.my.org.erp.bean.SmartMarketing;
 
 public class MyFunnel {
 	
+
+	 
+	String  accouttype="",vertical="";
+
+	
 	String clientname="",location="",product="",lob="",oem="",category="",approxclosure="",probabilitywinning="";
-	String stage="",proposal="",status="",remarks="";
+	String stage="",proposal="",status="",remarks="", entrydate="", updatedate="";
 	String id="", value="", actionS="" ;
 	
 	int qty=0;
-	
 	String rowid="";
-	
 	double unitvalue=0, totalvalue=0,bottomlinevalue=0;
-
 	String mename="";
 
 	public String getClientname() {
@@ -221,6 +223,46 @@ public class MyFunnel {
 
 	public void setMename(String mename) {
 		this.mename = mename;
+	}
+
+
+	public String getAccouttype() {
+		return accouttype;
+	}
+
+
+	public void setAccouttype(String accouttype) {
+		this.accouttype = accouttype;
+	}
+
+
+	public String getVertical() {
+		return vertical; 
+	}
+
+
+	public void setVertical(String vertical) {
+		this.vertical = vertical;
+	}
+
+
+	public String getEntrydate() {
+		return entrydate;
+	}
+
+
+	public void setEntrydate(String entrydate) {
+		this.entrydate = entrydate;
+	}
+
+
+	public String getUpdatedate() {
+		return updatedate;
+	}
+
+
+	public void setUpdatedate(String updatedate) {
+		this.updatedate = updatedate;
 	}
 
  	 
