@@ -134,7 +134,7 @@ try
 									<td class="boldEleven">Branch</td>
 									<td class="boldEleven"><select name="branch" id="branch"
 										class="formText135" style="width:200px">
-										<option value="-1">All</option>
+										<option value="0">All</option>
 									</select></td>
 								</tr>
 								<tr>

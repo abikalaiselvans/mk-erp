@@ -77,7 +77,8 @@ public class ConveyanceMethod extends HttpServlet
   	 		
   	 		
   	 		sql="SELECT a.INT_CONID,b.CHR_EMPID,b.CHR_STAFFNAME,a.DAT_CONDATE,a.CHR_FROM,a.CHR_TO,a.CHR_CALLID,a.DOU_KM,a.DOU_TRAVEL,a.DOU_TRAIN,a.DOU_AUTO,a.DOU_LUNCH,  "; 
- 			sql = sql +" a.DOU_TELEPHONE,a.CHR_OTHERDESC, a.DOU_OTHERAMT,a.DOU_TOTAL,a.CHR_STATUS,a.CHR_DESC   ";
+ 			sql = sql +" a.DOU_TELEPHONE,a.CHR_OTHERDESC, a.DOU_OTHERAMT,a.DOU_TOTAL,a.CHR_STATUS,a.CHR_DESC,   ";
+ 			sql = sql+"	FIND_A_OFFICENAME(a.INT_OFFICEID) , a.CHR_CONVEYANCETYPE, a.CHR_CUSTOMER    ";
  			sql = sql +" FROM conveyance_t_conveyance  a , com_m_staff b ";
  			sql = sql +" WHERE a.CHR_EMPID = b.CHR_EMPID  AND b.CHR_TYPE!='T'";
  			sql = sql +" AND b.CHR_REPTO='"+empid+"' ";
@@ -97,7 +98,7 @@ public class ConveyanceMethod extends HttpServlet
   	 		sql=sql+" ORDER BY  b.CHR_STAFFNAME";
 
   		 	 
-  		 	// System.out.println(sql);
+  		 	System.out.println(sql);
   		  	String readData[][] = com.my.org.erp.common.CommonFunctions.QueryExecute(sql);
   	     	StringBuffer sb = new StringBuffer();
   	     	for(int u=0; u<readData.length;u++)
@@ -120,6 +121,10 @@ public class ConveyanceMethod extends HttpServlet
   				sb.append("<Otheramount>" +readData[u][14] + "</Otheramount>");
   				sb.append("<Total>" +readData[u][15] + "</Total>");
   				sb.append("<Status>" +readData[u][16] + "</Status>");
+
+  				sb.append("<Office>" +readData[u][18] + "</Office>");
+  				sb.append("<Type>" +readData[u][19] + "</Type>");
+  				sb.append("<Customer>" +readData[u][20] + "</Customer>");
   				sb.append("</Rows>");
   	     	}	          
 

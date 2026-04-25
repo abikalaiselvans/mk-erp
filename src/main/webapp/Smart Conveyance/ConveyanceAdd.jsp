@@ -95,15 +95,30 @@ try
 <script language="JavaScript">
 	var petrol 
 	<%
+	String lofficeid= ""+session.getAttribute("OFFICEID");
+	String officeData[][] = CommonFunctions.QueryExecute("SELECT  INT_OFFICEID, CHR_OFFICENAME FROM  com_m_office WHERE CHR_STATUS != 'N'");
 	String cdata[][]=CommonFunctions.QueryExecute("SELECT DOU_PETROL FROM m_institution  WHERE INT_ID=1");
 	double price = Double.parseDouble(cdata[0][0]);
+	
+	String officeoption="";
+	 
+	for(int i=0; i <officeData.length; i++)
+		if(lofficeid.equals(officeData[i][0]))
+             officeoption = officeoption + "<option value='"+officeData[i][0]+"' selected> "+officeData[i][1] +"</option>";
+        else
+			officeoption = officeoption + "<option value='"+officeData[i][0]+"'> "+officeData[i][1] +"</option>";
+	
 	%>
 	petrol = "<%=price%>";
+	
+	var scriptofficeid = "<%=lofficeid%>";
+	
 	function subformupdate()
 	{
 		document.frm.action="ConveyanceModify.jsp";
 		document.frm.submit();
 	}
+	
 	function subformlist()
 	{
 		var fromdate =document.getElementById('fromdate').value;
@@ -194,6 +209,9 @@ try
 			
 		 	enable();
 			var x=document.getElementById('myTable').insertRow(row)
+			var es0="esoffice"+r;
+			var es1="esremote"+r;
+			var es2="escustomer"+r;
 			var s0= "from"+r;
 			var s1= "to"+r;
 			var s2 = "km"+r;
@@ -215,29 +233,34 @@ try
 			var vf5 = " onKeyPress=\" return numeric_only(event,'"+s8+"','8') \" ";
 			var vf6 = " onKeyPress=\" return numeric_only(event,'"+s9+"','8') \" "; 
 		 
+		 
 			
-			x.insertCell(0).innerHTML="<input type='text' maxlength='280' size=7 onKeyUp=\"upperMe(this)\" class='formText135' onblur='validfrom(this)'  name='"+s0+"' id ='"+s0+"' />";
-			x.insertCell(1).innerHTML="<input type='text' maxlength='280' size=7 onKeyUp=\"upperMe(this)\" class='formText135' onblur='validto(this)'   name='"+s1+"' id ='"+s1+"' />";
+		 
+			x.insertCell(0).innerHTML="<select onblur='selectconveyanceType(this)' name='"+es0+"' id='"+es0+"'class='boldEleven'><%=officeoption%></select> ";
+			x.insertCell(1).innerHTML="<select name='"+es1+"'  id='"+es1+"'  class='boldEleven'><option value='Remote'> Remote</option><option value='Local' selected> Local</option></select>";
+			x.insertCell(2).innerHTML="<input type='text' maxlength='10' size=7 onKeyUp=\"upperMe(this)\" class='formText135' name='"+es2+"' id ='"+es2+"' />";
+			x.insertCell(3).innerHTML="<input type='text' maxlength='280' size=7 onKeyUp=\"upperMe(this)\" class='formText135' onblur='validfrom(this)'  name='"+s0+"' id ='"+s0+"' />";
+			x.insertCell(4).innerHTML="<input type='text' maxlength='280' size=7 onKeyUp=\"upperMe(this)\" class='formText135' onblur='validto(this)'   name='"+s1+"' id ='"+s1+"' />";
 			
-			x.insertCell(2).innerHTML="<input type='text' maxlength='3' size=7 value=0  onblur='calculatekm(this)'  class='formText135'    name='"+s2+"' id ='"+s2+"' " +vf0+" style='text-align:right'   maxlength='7' />";
+			x.insertCell(5).innerHTML="<input type='text' maxlength='3' size=7 value=0  onblur='calculatekm(this)'  class='formText135'    name='"+s2+"' id ='"+s2+"' " +vf0+" style='text-align:right'   maxlength='7' />";
 			
-			x.insertCell(3).innerHTML="<div id="+div+"></div><input type='text' size=7  class='formText135' value='Call-"+r+"'  name='"+ss3+"' id ='"+ss3+"' style='text-align:right' onKeyUp=\"upperMe(this)\" maxlength='16'  />";
+			x.insertCell(6).innerHTML="<div id="+div+"></div><input type='text' size=7  class='formText135' value='Call-"+r+"'  name='"+ss3+"' id ='"+ss3+"' style='text-align:right' onKeyUp=\"upperMe(this)\" maxlength='16'  />";
 			
-			x.insertCell(4).innerHTML="<input type='text' size=7 value=0  onblur='calculatetrain(this)' class='formText135'  name='"+s3+"' id ='"+s3+"' " +vf1+" style='text-align:right'    maxlength='7'  />";
+			x.insertCell(7).innerHTML="<input type='text' size=7 value=0  onblur='calculatetrain(this)' class='formText135'  name='"+s3+"' id ='"+s3+"' " +vf1+" style='text-align:right'    maxlength='7'  />";
 			
-			x.insertCell(5).innerHTML="<input type='text' size=7 value=0  onblur='calculateauto(this)' class='formText135'  name='"+s4+"' id ='"+s4+"' " +vf2+"  style='text-align:right'      maxlength='7' />";
+			x.insertCell(8).innerHTML="<input type='text' size=7 value=0  onblur='calculateauto(this)' class='formText135'  name='"+s4+"' id ='"+s4+"' " +vf2+"  style='text-align:right'      maxlength='7' />";
 			
-			x.insertCell(6).innerHTML="<input type='text' size=7 value=0  onblur='calculatelunch(this)' class='formText135'  name='"+s5+"' id ='"+s5+"' " +vf3+"  style='text-align:right'     maxlength='7'  />";
+			x.insertCell(9).innerHTML="<input type='text' size=7 value=0  onblur='calculatelunch(this)' class='formText135'  name='"+s5+"' id ='"+s5+"' " +vf3+"  style='text-align:right'     maxlength='7'  />";
 			
-			x.insertCell(7).innerHTML="<input type='text' size=7 value=0  onblur='calculatetele(this)' class='formText135'  name='"+s6+"' id ='"+s6+"' " +vf4+" style='text-align:right'    maxlength='7'  />";
+			x.insertCell(10).innerHTML="<input type='text' size=7 value=0  onblur='calculatetele(this)' class='formText135'  name='"+s6+"' id ='"+s6+"' " +vf4+" style='text-align:right'    maxlength='7'  />";
 			
-			x.insertCell(8).innerHTML="<input type='text' size=7      class='formText135'  name='"+s7+"' id ='"+s7+"'    style='text-align:right'  maxlength='200'/> ";
+			x.insertCell(11).innerHTML="<input type='text' size=7      class='formText135'  name='"+s7+"' id ='"+s7+"'    style='text-align:right'  maxlength='200'/> ";
 			
-			x.insertCell(9).innerHTML="<input type='text' size=7 onblur='calculateother(this)' value=0  class='formText135'  name='"+s8+"' id ='"+s8+"' " +vf5+" style='text-align:right'    maxlength='7'   />";
+			x.insertCell(12).innerHTML="<input type='text' size=7 onblur='calculateother(this)' value=0  class='formText135'  name='"+s8+"' id ='"+s8+"' " +vf5+" style='text-align:right'    maxlength='7'   />";
 			
-			x.insertCell(10).innerHTML="<input type='text' size=7   value=0  class='formText135'  name='"+s9+"' id ='"+s9+"' " +vf6+" style='text-align:right' readonly='readonly'   maxlength='7' />";
+			x.insertCell(13).innerHTML="<input type='text' size=7   value=0  class='formText135'  name='"+s9+"' id ='"+s9+"' " +vf6+" style='text-align:right' readonly='readonly'   maxlength='7' />";
 			
-			x.insertCell(11).innerHTML="<input class='buttonbold'  type='button' value='Delete' onclick='deleteRow(this.parentNode.parentNode.rowIndex,"+r+")'>";
+			x.insertCell(14).innerHTML="<input class='buttonbold'  type='button' value='Delete' onclick='deleteRow(this.parentNode.parentNode.rowIndex,"+r+")'>";
 			document.getElementById(s0).focus();
 			 
 			
@@ -323,6 +346,35 @@ function deleteRow(i,rx)
 		 
 		
 	}
+	
+	
+ 
+	 function selectconveyanceType(es0)
+	 {
+		 try
+		 {
+			var position = (es0.name.replace("esoffice",""));	
+		  	var officeid = es0.value;;
+			 
+	     	console.log(position);
+	     	console.log(officeid);
+	     	 
+	  		if(scriptofficeid !=officeid)
+	  		{
+	  			setOptionValue('esremote'+position,"Remote")  
+	  		}
+	  		else
+	  			{
+	  			    setOptionValue('esremote'+position,"Local")
+	  			}
+	     	 
+		 }
+		 catch(err){
+			  
+			 console.log(err);
+		 }
+	  }
+	 
 	
 	 function validfrom(qty)
 	 {
@@ -808,6 +860,9 @@ function datevalid()
 					<TABLE width="100%" border=0 cellPadding=3 cellSpacing=1
 						bgColor=#F0FFFF class=fontclass1 id="myTable">
 						<TR>
+							<Th bgColor=#ffffff class="boldEleven">Office</Th>
+							<Th bgColor=#ffffff class="boldEleven">Remote</Th>
+							<Th bgColor=#ffffff class="boldEleven">Customer</Th>
 							<Th bgColor=#ffffff class="boldEleven">From</Th>
 							<Th bgColor=#ffffff class="boldEleven">To</Th>
 							<Th align=middle bgColor=#ffffff class="boldEleven">Vehicle

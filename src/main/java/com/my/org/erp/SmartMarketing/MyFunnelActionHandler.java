@@ -23,7 +23,7 @@ public class MyFunnelActionHandler extends AbstractActionHandler {
 			String action = request.getParameter("actionS");
 			HttpSession session = request.getSession();
 			String user = (String) session.getAttribute("USRID");
-			String empid ="'"+session.getAttribute("EMPID");
+			String empid =""+session.getAttribute("EMPID");
 			
 			if ("MKTMyFunnelAdd".equals(action)) {
 

@@ -59,11 +59,13 @@ a:active {
 
 var petrol 
 	<%
+	String lofficeid= ""+session.getAttribute("OFFICEID");
 	String cdata[][]=com.my.org.erp.common.CommonFunctions.QueryExecute("SELECT DOU_PETROL FROM m_institution  WHERE INT_ID=1");
 	double price = Double.parseDouble(cdata[0][0]);
 	%>
 	petrol = "<%=price%>";
-
+var scriptofficeid = "<%=lofficeid%>";
+	
 function kmchk(ctr)
  {
  	var v  = ctr.value;
@@ -160,6 +162,30 @@ function Validate()
 		document.a.submit();
 		return true;
   }
+  
+  
+   function selectconveyanceType()
+	 {
+		 try
+		 {
+			 
+		  	var officeid = document.getElementById('esoffice').value;;
+			if(scriptofficeid !=officeid)
+	  		{
+	  			setOptionValue('esremote' ,"Remote")  
+	  		}
+	  		else
+	  			{
+	  			    setOptionValue('esremote' ,"Local")
+	  			}
+	     	 
+		 }
+		 catch(err){
+			  
+			 console.log(err);
+		 }
+	  }
+	  
   </script>
  <%@ include file="../JavaScript/dynamicStylesheet.jsp" %>
 </head>
@@ -187,11 +213,11 @@ function Validate()
 				String 	opendate = request.getParameter("opendate");
 				String row = request.getParameter("id");
 				String sql =" SELECT INT_CONID,CHR_EMPID,DAT_CONDATE,CHR_REPTTO,INT_DIVID,CHR_FROM,CHR_TO,DOU_KM,DOU_TRAVEL,";
-				sql =sql+"DOU_TRAIN,DOU_AUTO,DOU_LUNCH,DOU_TELEPHONE,CHR_OTHERDESC,DOU_OTHERAMT,DOU_TOTAL ,CHR_CALLID,CHR_ACCEPT ";
-				sql =sql+" FROM conveyance_t_conveyance WHERE INT_CONID="+row;
+				sql =sql+"DOU_TRAIN,DOU_AUTO,DOU_LUNCH,DOU_TELEPHONE,CHR_OTHERDESC,DOU_OTHERAMT,DOU_TOTAL ,CHR_CALLID,CHR_ACCEPT, ";
+				sql =sql+" INT_OFFICEID , CHR_CONVEYANCETYPE, CHR_CUSTOMER FROM conveyance_t_conveyance WHERE INT_CONID="+row;
 				String data[][]=com.my.org.erp.common.CommonFunctions.QueryExecute(sql);
 				
-
+				
 					
 				%> <font color=#ffffff>Conveyance Claim for Employee :</font></font></div>
 							</td>
@@ -222,10 +248,14 @@ function Validate()
 
 				<TR>
 					<TD >
-					<table width='100%'  class='boldEleven'  id='myTable'     cellpadding=2 cellspacing=1 bgcolor='#9900CC' >
+					<table width='100%'  class='boldEleven'  id='myTable'     cellpadding=2 cellspacing=1 bgcolor="#CCCCCC"  >
 						<TR class='MRow1'>
 						  <Th  class="boldEleven">Call ID </Th>
 
+ 							<Th  class="boldEleven">Office</Th>
+							 <Th  class="boldEleven">ConveyanceType</Th>
+							  <Th  class="boldEleven">Customer</Th>
+							  
 							<Th  class="boldEleven">From</Th>
 							<Th  class="boldEleven">To</Th>
 							<Th align=middle  class="boldEleven">Vehicle
@@ -256,9 +286,38 @@ function Validate()
 
 
 						<tr class='MRow1'>
+						
+						
 						  <td  class="boldEleven"><input name='callid' type='text' class='formText135'
 								id='callid' onKeyUp="upperMe(this)" value="<%=data[0][16]%>"
 								size=7 maxlength="16"  /></td>
+								
+						 <td  class="boldEleven"> 
+								<select onblur='selectconveyanceType()' name='esoffice' id='esoffice'class='boldEleven'> 
+								<%
+								String officeData[][] = CommonFunctions.QueryExecute("SELECT  INT_OFFICEID, CHR_OFFICENAME FROM  com_m_office ");
+								for(int i=0; i <officeData.length; i++)
+		  							 out.println("<option value='"+officeData[i][0]+"' > "+officeData[i][1] +"</option>");
+							  %>
+							  </select> 
+							  <script language="javascript">setOptionValue('esoffice', '<%=data[0][18]%>');</script>
+								</td>
+								
+						 <td  class="boldEleven"> 
+								<select name='esremote'  id='esremote'  class='boldEleven'>
+									<option value='Remote'> Remote</option>
+									<option value='Local'  > Local</option>
+									</select>
+									 <script language="javascript">setOptionValue('esremote', '<%=data[0][19]%>');</script>
+								</td>
+								
+						 <td  class="boldEleven"><input name='escustomer' type='text' class='formText135'
+								id='escustomer' onKeyUp="upperMe(this)" value="<%=data[0][20]%>"
+								size=7 maxlength="15"  /></td>
+								
+								
+								
+						
 
 							<td  class="boldEleven"><input type='text'
 								size=7 onKeyUp="upperMe(this)" class='formText135' name='from'

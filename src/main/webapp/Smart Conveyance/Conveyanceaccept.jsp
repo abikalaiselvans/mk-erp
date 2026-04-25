@@ -324,14 +324,15 @@ try
 	String pdata[][] = CommonFunctions.QueryExecute(sql);
 	 
    	sql ="SELECT INT_CONID,DATE_FORMAT(DAT_CONDATE,'%d-%b-%Y'),CHR_FROM,CHR_TO,DOU_KM,DOU_TRAVEL,DOU_TRAIN,DOU_AUTO,DOU_LUNCH,";
-	sql = sql+"	DOU_TELEPHONE,CHR_OTHERDESC, DOU_OTHERAMT,DOU_TOTAL,CHR_STATUS,CHR_DESC,CHR_CALLID,CHR_REENTRY,CHR_FLAG   FROM conveyance_t_conveyance ";
+	sql = sql+"	DOU_TELEPHONE,CHR_OTHERDESC, DOU_OTHERAMT,DOU_TOTAL,CHR_STATUS,CHR_DESC,CHR_CALLID,CHR_REENTRY,CHR_FLAG,";
+	sql = sql+"	FIND_A_OFFICENAME(INT_OFFICEID) , CHR_CONVEYANCETYPE, CHR_CUSTOMER   FROM conveyance_t_conveyance ";
 	sql = sql+" WHERE CHR_STATUS='N' ";
 	sql = sql + " AND DAT_CONDATE >= '"+fromdate+"' ";
 	sql = sql + " AND DAT_CONDATE <= '"+todate+"' ";
 	
 	
 	sql = sql+" AND CHR_EMPID='"+empid+"' order by DAT_CONDATE desc"; 
-	//out.println(sql);
+	out.println(sql);
 	out.println("<br><br>");
 	String data[][] = CommonFunctions.QueryExecute(sql);
 	
@@ -343,9 +344,9 @@ try
 		 
 		out.println("<table width='100%'  class='boldEleven'  id='myTable'     cellpadding=2 cellspacing=1 bgcolor='#9900CC' >");
 		out.println("<TR class='MRow1'  >");
-		out.println("<Td  colspan=17 class='boldEleven'><center><b>NAME :: "+pdata[0][0]+"/ "+pdata[0][1]+"</b></center></td></tr>");
+		out.println("<Td  colspan=20 class='boldEleven'><center><b>NAME :: "+pdata[0][0]+"/ "+pdata[0][1]+"</b></center></td></tr>");
 		out.println("<TR class='MRow1'  >");
-		out.println("<Td colspan=14 class='boldEleven'><center><b> &nbsp; </b></center></td>");
+		out.println("<Td colspan=17 class='boldEleven'><center><b> &nbsp; </b></center></td>");
 		out.println("<Td colspan=3 class='boldEleven'>&nbsp;");
 		%>
 		<table width="169" height="22" border="0" cellpadding="0" cellspacing="0" align="center">
@@ -367,6 +368,9 @@ try
 		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Sl.No</Th>");
 		out.println("<Th bgColor=#ffffff class='boldEleven' width=75><b>Date</Th>");
 		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Call Id</Th>");
+		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Office</Th>");
+		out.println("<Th bgColor=#ffffff class='boldEleven'><b>ConveyanceType</Th>");
+		out.println("<Th bgColor=#ffffff class='boldEleven'><b>Customer</Th>");
 		out.println("<Th bgColor=#ffffff class='boldEleven'><b>From</Th>");
 		out.println("<Th bgColor=#ffffff class='boldEleven'><b>To</Th>");
         out.println("<Th bgColor=#ffffff class='boldEleven'><b>Vehicle No of Kms</Th>");
@@ -403,6 +407,9 @@ try
 			out.println("<td class='boldEleven'>"+(u+1));
 			out.println("<td class='boldEleven'>"+data[u][1]);
 			out.println("<td class='boldEleven'>"+data[u][15]);	
+			out.println("<td class='boldEleven'>"+data[u][18]+"</td>");
+			out.println("<td class='boldEleven'>"+data[u][19]+"</td>");
+			out.println("<td class='boldEleven'>"+data[u][20]+"</td>");
 			out.println("<td class='boldEleven'>"+data[u][2]);
 			out.println("<td class='boldEleven'>"+data[u][3]);
 			out.println("<td class='boldEleven' align='right'>"+data[u][4]);
@@ -452,6 +459,9 @@ try
  	    //out.println(sql);
 		String sumdata[][] = CommonFunctions.QueryExecute(sql);
 	
+		out.println("<Td  class='boldEleven' align='right'>&nbsp;</Td>");
+		out.println("<Td  class='boldEleven' align='right'>&nbsp;</Td>");
+		out.println("<Td  class='boldEleven' align='right'>&nbsp;</Td>");
 		out.println("<Td  class='boldEleven' align='right'>&nbsp;</Td>");
 		out.println("<Td  class='boldEleven' align='right'>&nbsp;</Td>");
 		out.println("<Td  class='boldEleven' align='right'>&nbsp;</Td>");

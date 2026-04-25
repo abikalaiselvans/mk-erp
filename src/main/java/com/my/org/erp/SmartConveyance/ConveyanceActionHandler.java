@@ -20,15 +20,21 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ConveyanceActionHandler extends AbstractActionHandler {
+	
+	 String lofficeid="";
+	 
   public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     try {
       String action = request.getParameter("actionS");
       HttpSession session = request.getSession();
       Object object1 = session.getAttribute("EMPID");
       Object object2 = session.getAttribute("USRID");
+      lofficeid= ""+session.getAttribute("OFFICEID");
+      
       String sql = "";
       String[][] cdata = CommonFunctions.QueryExecute("SELECT DOU_PETROL FROM m_institution  WHERE INT_ID=1");
       double price = Double.parseDouble(cdata[0][0]);
+     
       if (action.equals("CONConveyanceAdd")) {
         String[] param = request.getParameter("param").split(",");
         String opendate = request.getParameter("opendate");
@@ -52,7 +58,7 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
         double t7 = 0.0D;
         double t8 = 0.0D;
         if (!fl) {
-          acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,?)}");
+			acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,?  ,?,?,?)}");
           for (int i = 0; i < param.length; i++) {
             t3 = 0.0D;
             t4 = 0.0D;
@@ -60,6 +66,10 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
             t6 = 0.0D;
             t7 = 0.0D;
             t0 = 0.0D;
+            String es0 = request.getParameter("esoffice" + param[i]);
+            String es1 = request.getParameter("esremote" + param[i]);
+            String es2 = request.getParameter("escustomer" + param[i]);
+            
             String s0 = request.getParameter("from" + param[i]);
             String s1 = request.getParameter("to" + param[i]);
             String s2 = request.getParameter("km" + param[i]);
@@ -96,6 +106,10 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
             acs.setString(17, ""+t0);
             acs.setString(18, s10);
             acs.setString(19, (String)object2);
+            acs.setString(20, es0);
+            acs.setString(21, es1);
+            acs.setString(22, es2);
+            System.out.println(""+acs);
             acs.addBatch();
           } 
           acs.executeBatch();
@@ -110,7 +124,7 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
         String rowid = request.getParameter("id");
         String opendate = request.getParameter("opendate");
         String[] rows = request.getParameterValues("row");
-        acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,?)}");
+        acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,? ,?,?,?)}");
         for (int u = 0; u < rows.length; u++) {
           acs.setString(1, "DELETE");
           acs.setString(2, rows[u]);
@@ -131,6 +145,10 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
           acs.setString(17, "");
           acs.setString(18, "");
           acs.setString(19, "");
+          acs.setString(20, "");
+          acs.setString(21, "");
+          acs.setString(22, "");
+          System.out.println(""+acs);
           acs.addBatch();
         } 
         acs.executeBatch();
@@ -177,7 +195,7 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
         double t7 = 0.0D;
         double t8 = 0.0D;
         if (!fl) {
-          acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,?)}");
+          acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,?  ,?,?,?)}");
           for (int i = 0; i < param.length; i++) {
             t3 = 0.0D;
             t4 = 0.0D;
@@ -221,6 +239,10 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
             acs.setString(17, ""+t0);
             acs.setString(18, s10);
             acs.setString(19, (String)object2);
+            acs.setString(20, "");
+            acs.setString(21, "");
+            acs.setString(22, "");
+            System.out.println(""+acs);
             acs.addBatch();
           } 
           acs.executeBatch();
@@ -343,6 +365,12 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
           String total = request.getParameter("total").trim();
           String callid = request.getParameter("callid").trim();
           String reentry = request.getParameter("reentry").trim();
+          
+
+          String esoffice = request.getParameter("esoffice").trim();
+          String esremote = request.getParameter("esremote").trim();
+          String escustomer = request.getParameter("escustomer").trim();
+          
           sql = "UPDATE conveyance_t_conveyance  SET   DAT_MODIFIED_TIME = NOW() , ";
           sql = String.valueOf(sql) + " CHR_FROM =? , ";
           sql = String.valueOf(sql) + " CHR_TO =? , ";
@@ -356,10 +384,17 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
           sql = String.valueOf(sql) + " DOU_OTHERAMT =? , ";
           sql = String.valueOf(sql) + " DOU_TOTAL =? , ";
           sql = String.valueOf(sql) + " CHR_USRNAME =?, ";
+          
           sql = String.valueOf(sql) + " CHR_CALLID =? ,CHR_STATUS='N', CHR_ACCEPT='N',";
           if ("R".equals(reentry))
             sql = String.valueOf(sql) + " CHR_REENTRY='Y' ,"; 
-          sql = String.valueOf(sql) + " DT_UPDATEDATE =now() ,CHR_UPDATESTATUS ='Y' ";
+          sql = String.valueOf(sql) + " DT_UPDATEDATE =now() ,CHR_UPDATESTATUS ='Y' , ";
+          
+
+          sql = String.valueOf(sql) + " INT_OFFICEID =?, ";
+          sql = String.valueOf(sql) + " CHR_CONVEYANCETYPE =?, ";
+          sql = String.valueOf(sql) + " CHR_CUSTOMER =? ";  
+          
           sql = String.valueOf(sql) + " WHERE INT_CONID=?";
           apstm = con.prepareStatement(sql);
           apstm.setString(1, from);
@@ -375,7 +410,11 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
           apstm.setString(11,""+ Double.parseDouble(total));
           apstm.setString(12, (String)object2);
           apstm.setString(13, callid);
-          apstm.setString(14, rowid);
+          apstm.setString(14, esoffice);
+          apstm.setString(15, esremote);
+          apstm.setString(16, escustomer);
+          apstm.setString(17, rowid);
+          System.out.println(""+apstm);
           apstm.execute();
           apstm.close();
           con.close();
@@ -499,9 +538,11 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
         con.close();
         response.sendRedirect("Smart Conveyance/Conveyancemain.jsp");
       } else if (action.equals("CONConveyanceAddUploadedExcel")) {
+    	   String lofficeid= ""+session.getAttribute("OFFICEID");
+    	     
         String filename = request.getParameter("xlsfilename");
         String filepath = String.valueOf(request.getRealPath("/")) + "/uploadfiles/conveyance/" + filename + ".xls";
-        readFromExcel((String)object1, (String)object2, filepath, acs, con);
+        readFromExcel((String)object1, (String)object2, filepath, acs, con,lofficeid);
         con.close();
         response.sendRedirect("Smart Common/exit.jsp");
       } 
@@ -511,7 +552,7 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
     } 
   }
   
-  public static void readFromExcel(String empid, String userid, String file, CallableStatement acs, Connection con) throws IOException, ClassNotFoundException {
+  public static void readFromExcel(String empid, String userid, String file, CallableStatement acs, Connection con, String lofficeid) throws IOException, ClassNotFoundException {
     try {
       Workbook wb = WorkbookFactory.create(new File(file));
       Sheet sheet = wb.getSheetAt(0);
@@ -532,7 +573,7 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
         } 
         rowcount++;
       } 
-      acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,?)}");
+      acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,? ,?,?,?)}");
       String[] rowdata = value.split("~");
       byte b;
       int i;
@@ -573,6 +614,9 @@ public class ConveyanceActionHandler extends AbstractActionHandler {
         acs.setString(17, ""+total);
         acs.setString(18, CallNumber);
         acs.setString(19, userid);
+        acs.setString(20, lofficeid);
+        acs.setString(21, "LOCAL");
+        acs.setString(22, "");
         acs.addBatch();
         System.out.print(acs + "\n");
         b++;

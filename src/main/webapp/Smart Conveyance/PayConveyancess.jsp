@@ -89,23 +89,20 @@ function assign()
 		
 }
 
+function validateCheckboxes() {
+    const checkboxes = document.getElementsByName('accept');
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            return true; // Found a checked one, return true immediately
+        }
+    }
+    return false; // No checked boxes found
+}
+
 function validate()
 {
-	
-	var count;
-	count=0;
-	coffee1=document.forms[0].accept;
-	txt=""
-	alert(coffee1.length);
-	for (i=0;i<coffee1.length;++ i)
-	{
-		if (coffee1[i].checked)
-		{
-		count=count+1;
-		}
-	}
-	 
-	if(count>0)
+	  
+	if(validateCheckboxes())
 		return true;
 	else
 	{
@@ -169,7 +166,7 @@ try
 		%>
 		<table width='90%'  class='boldEleven'  id='myTable'     cellpadding=2 cellspacing=1 bgcolor='#9900CC'  align='center'> 
 		<TR class='MRow1'> 
-		<Td   colspan=18 class='boldEleven'> 
+		<Td   colspan=21 class='boldEleven'> 
 		
 		
 			<center>
@@ -197,11 +194,12 @@ try
 		 
 			
 			sql = "SELECT a.INT_CONID,a.DAT_CONDATE,a.CHR_FROM,a.CHR_TO,a.DOU_KM,a.DOU_TRAVEL,a.DOU_TRAIN,a.DOU_AUTO,a.DOU_LUNCH,a.DOU_TELEPHONE,  ";
-			sql = sql+" a.CHR_OTHERDESC,a.DOU_OTHERAMT,a.DOU_TOTAL,a.CHR_STATUS,a.CHR_DESC,a.CHR_ACCSTATUS,a.CHR_CALLID ,a.CHR_EMPID,b.CHR_STAFFNAME , c.CHR_OFFICENAME ";
+			sql = sql+" a.CHR_OTHERDESC,a.DOU_OTHERAMT,a.DOU_TOTAL,a.CHR_STATUS,a.CHR_DESC,a.CHR_ACCSTATUS,a.CHR_CALLID ,a.CHR_EMPID,b.CHR_STAFFNAME , c.CHR_OFFICENAME, ";
+			sql = sql+"	FIND_A_OFFICENAME(a.INT_OFFICEID) , a.CHR_CONVEYANCETYPE, a.CHR_CUSTOMER    "; 
 			sql = sql+" FROM conveyance_t_conveyance  a  ,com_m_staff b, com_m_office c  ";
 			sql = sql+" WHERE  a.CHR_EMPID=b.CHR_EMPID AND b.INT_OFFICEID = c.INT_OFFICEID  AND a.CHR_STATUS='Y' AND a.CHR_ACCEPT='Y'  AND CHR_ACCSTATUS='N'   ";
 			sql = sql+" AND  b.INT_OFFICEID IN ( "+ids+"   0)  ";
-  			 
+  			out.println(sql);
 			String data[][]= CommonFunctions.QueryExecute(sql);
 			
 			if(data.length>0)
@@ -215,6 +213,9 @@ try
 				out.println("<Th  class='boldEleven'><b>Office</b></Th>");
 				out.println("<Th  class='boldEleven' width=75><b>Date</b></Th>");
 				out.println("<Th  class='boldEleven'><b>Call Id</b></Th>");
+				out.println("<Th  class='boldEleven'><b>Office</Th>");
+				out.println("<Th  class='boldEleven'><b>ConveyanceType</Th>");
+				out.println("<Th  class='boldEleven'><b>Customer</Th>");
 				out.println("<Th  class='boldEleven'><b>From</b></Th>");
 				out.println("<Th  class='boldEleven'><b>To</b></Th>");
 				out.println("<Th  class='boldEleven'><b>Vehicle No of Kms</b></Th>");
@@ -242,6 +243,11 @@ try
 					
 					out.println("<td class='boldEleven'>"+ DateUtil.FormateDateSys(data[x][1]));	
 					out.println("<td class='boldEleven'>"+data[x][16]);
+					
+					out.println("<td class='boldEleven'>"+data[x][20]);
+					out.println("<td class='boldEleven'>"+data[x][21]);
+					out.println("<td class='boldEleven'>"+data[x][22]);
+					
 					out.println("<td class='boldEleven'>"+data[x][2]);
 					out.println("<td class='boldEleven'>"+data[x][3]);
 					out.println("<td class='boldEleven' align='right'>"+data[x][4]);
@@ -260,14 +266,14 @@ try
 					 
 				}
 				out.println("<TR class='MRow1'>");
-				out.println("<Td  colspan=15 class='boldEleven' align='right'><b> SUM :: </b></Td>");
+				out.println("<Td  colspan=18 class='boldEleven' align='right'><b> SUM :: </b></Td>");
 				out.println("<Td  class='boldEleven' align='right'>"+sum+"</Td>");
 				out.println("<Td  class='boldEleven'>&nbsp;</Td>");
 				out.println("<Td  class='boldEleven'>&nbsp;</Td>");
 				out.println(" </TR>"); 
 				 
 				out.println("<TR class='MRow1'>");
-				out.println("<Th  colspan='18' class='boldEleven'>");
+				out.println("<Th  colspan='21' class='boldEleven'>");
 				
 				out.println("<center><table width='120' border='0' cellspacing='2' cellpadding='3' align='center'>");
 				out.println("<tr class='MRow1'>");

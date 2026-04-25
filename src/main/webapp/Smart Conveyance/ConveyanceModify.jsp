@@ -143,6 +143,9 @@ function Validate()
 						<TR class="MRow1">
 							<Th align=middle  class="boldEleven">Sl.No</Th>
 							<Th  class="boldEleven">Call Number </Th>
+							<Th  class="boldEleven">Office</Th>
+							<Th  class="boldEleven">ConveyanceType</Th>
+							<Th  class="boldEleven">Customer</Th>
 							<Th  class="boldEleven">From</Th>
 							<Th  class="boldEleven">To</Th>
 							<Th align=middle  class="boldEleven">Vehicle	No of Kms</Th>
@@ -171,7 +174,7 @@ function Validate()
 						<%
 				opendate = com.my.org.erp.ServiceLogin.DateUtil.FormateDateSQL(opendate);
 				sql = " SELECT INT_CONID,CHR_FROM,CHR_TO,DOU_KM,DOU_TRAVEL,DOU_TRAIN,DOU_AUTO,DOU_LUNCH,DOU_TELEPHONE,";
-				sql = sql+"CHR_OTHERDESC,DOU_OTHERAMT,DOU_TOTAL, CHR_STATUS,CHR_DESC,CHR_CALLID  FROM  conveyance_t_conveyance   ";
+				sql = sql+"CHR_OTHERDESC,DOU_OTHERAMT,DOU_TOTAL, CHR_STATUS,CHR_DESC,CHR_CALLID ,FIND_A_OFFICENAME(INT_OFFICEID) , CHR_CONVEYANCETYPE, CHR_CUSTOMER   FROM  conveyance_t_conveyance   ";
 				sql = sql+"	WHERE CHR_EMPID='"+emp+"' AND DAT_CONDATE='"+opendate+"'";
 				String link="";
 				String data[][]=com.my.org.erp.common.CommonFunctions.QueryExecute(sql);
@@ -189,6 +192,10 @@ function Validate()
 							out.println("<TR  class='MRow2'>");
                   		out.println("<TD  class='boldEleven'>"+(u+1)+"</TD>");
 						out.println("<TD  class='boldEleven'>"+data[u][14]+"</TD>");
+						out.println("<TD  class='boldEleven'>"+data[u][15]+"</TD>");
+						out.println("<TD  class='boldEleven'>"+data[u][16]+"</TD>");
+						out.println("<TD  class='boldEleven'>"+data[u][17]+"</TD>");
+						
 						out.println("<TD  class='boldEleven'>"+data[u][1]+"</TD>");
                  		out.println("<TD  class='boldEleven'>"+data[u][2]+"</TD>");
                   		out.println("<TD  class='boldEleven'>"+data[u][3]+"</TD>");
@@ -234,7 +241,7 @@ function Validate()
 				}
 				else
 				{
-					out.println("<tr  class='MRow1'><td colspan=15><font class='boldred'>Data not found...</font></td></tr>");
+					out.println("<tr  class='MRow1'><td colspan=18><font class='boldred'>Data not found...</font></td></tr>");
 					%>
 						<script language="javascript">
 						document.getElementById('Delete').disabled=true;
@@ -247,7 +254,7 @@ function Validate()
 				%>
 				
 				<TR  class='MRow1'>
-						  <Th colspan="16" align=middle  class="boldEleven"><div align="right">SUM :: </div></Th>
+						  <Th colspan="19" align=middle  class="boldEleven"><div align="right">SUM :: </div></Th>
 						  <Th align=middle  class="boldEleven"><%=sum%></Th>
 					  </TR>
 					</TABLE>

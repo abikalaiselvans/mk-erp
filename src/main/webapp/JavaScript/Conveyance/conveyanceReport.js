@@ -65,6 +65,9 @@ function ConveyanceReportMessages()
 	str=str+"<td class='boldEleven'><b> EmpId </b></td>";
 	str=str+"<td class='boldEleven'><b> EmpName </b></td>";
 	str=str+"<td class='boldEleven'><b> Date</b></td>";
+	str=str+"<td class='boldEleven'><b> Office </b></td>";
+	str=str+"<td class='boldEleven'><b> Type </b></td>";
+	str=str+"<td class='boldEleven'><b> Customer</b></td>";
 	str=str+"<td class='boldEleven'><b> From</b></td>";
 	str=str+"<td class='boldEleven'><b> To</b></td>";	
 	str=str+"<td class='boldEleven'><b> Callid</b></td>";
@@ -96,6 +99,10 @@ function ConveyanceReportMessages()
 	    var EmpId = batch.getElementsByTagName("EmpId")[0].childNodes[0].nodeValue;
 	    var EmpName = batch.getElementsByTagName("EmpName")[0].childNodes[0].nodeValue;
 	    var Date = batch.getElementsByTagName("Date")[0].childNodes[0].nodeValue;
+		var Office = batch.getElementsByTagName("Office")[0].childNodes[0].nodeValue;
+		var Type = batch.getElementsByTagName("Type")[0].childNodes[0].nodeValue;
+		var Customer = batch.getElementsByTagName("Customer")[0].childNodes[0].nodeValue;
+		
         var From = batch.getElementsByTagName("From")[0].childNodes[0].nodeValue; 
         var To = batch.getElementsByTagName("To")[0].childNodes[0].nodeValue; 
         var Callid = batch.getElementsByTagName("Callid")[0].childNodes[0].nodeValue;
@@ -134,6 +141,11 @@ function ConveyanceReportMessages()
 		str=str+"<td class='boldEleven'>&nbsp;"+EmpId+"</td>";
 		str=str+"<td class='boldEleven'>&nbsp;"+EmpName+"</td>";
 		str=str+"<td class='boldEleven'>&nbsp;"+Date+"</td>";
+		
+		str=str+"<td class='boldEleven'>&nbsp;"+Office+"</td>";
+		str=str+"<td class='boldEleven'>&nbsp;"+Type+"</td>";
+		str=str+"<td class='boldEleven'>&nbsp;"+Customer+"</td>";
+		
 		str=str+"<td class='boldEleven'>&nbsp;"+From+"</td>";
 		str=str+"<td class='boldEleven'>&nbsp;"+To+"</td>";	
 		str=str+"<td class='boldEleven'>&nbsp;"+Callid+"</td>";
@@ -162,6 +174,9 @@ function ConveyanceReportMessages()
 		str=str+"<td class='boldEleven'>&nbsp;</td>";	
 		str=str+"<td class='boldEleven'>&nbsp;</td>";
 		str=str+"<td class='boldEleven'>&nbsp;</td>";
+		str=str+"<td class='boldEleven'>&nbsp;</td>";
+		str=str+"<td class='boldEleven'>&nbsp;</td>";
+		str=str+"<td class='boldEleven'>&nbsp;</td>";	
 		str=str+"<td class='boldEleven'>&nbsp;</td>";
 		str=str+"<td class='boldEleven'>&nbsp;</td>";
 		str=str+"<td class='boldEleven'>&nbsp;</td>";	

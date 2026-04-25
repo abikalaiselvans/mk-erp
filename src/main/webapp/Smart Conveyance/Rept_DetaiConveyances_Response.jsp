@@ -85,6 +85,8 @@ try
 		sql=sql+" AND  j.DAT_CONDATE >='"+fromdate+"'";
 		sql=sql+" AND  j.DAT_CONDATE <='"+todate+"'";
 		sql=sql+" ORDER BY  a.CHR_STAFFNAME";
+		
+		out.println(sql);
 		String cdata[][]=CommonFunctions.QueryExecute(sql);
 	 	
 		Vector mn = new Vector();
