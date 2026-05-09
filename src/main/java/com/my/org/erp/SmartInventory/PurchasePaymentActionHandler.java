@@ -152,13 +152,14 @@ public class PurchasePaymentActionHandler extends AbstractActionHandler {
 					{					
 						tableName="inv_t_directpurchase";
 						asql = " SELECT DOU_TOTALAMOUNT,FUN_INV_GET_VENDORBALANCEAMOUNT_DIRECT(CHR_PURCHASEORDERNO) FROM inv_t_directpurchase WHERE  CHR_PURCHASEORDERNO='"+pid+"'";
+						System.out.println(""+asql);
 						String updata[][] = CommonFunctions.QueryExecute(asql);
 						if(updata.length>0)
 						{	
 							double paidamount = Double.parseDouble(updata [0][1]);
 							double poamount = Double.parseDouble(updata [0][0]);
 							double pobalance = poamount - paidamount;
-							
+							System.out.println("Invpice Amount::"+poamount +" Paid Amount::"+paidamount+"  Balance::"+pobalance);
 							asql = "UPDATE inv_t_directpurchase SET ";
 							asql = asql + " DOU_PAIDAMOUNT = " +totPaid +" , ";
 							if(pobalance<1)
@@ -213,17 +214,18 @@ public class PurchasePaymentActionHandler extends AbstractActionHandler {
 				}
 				else if("Direct".equals(payment))		
 				{					
+					asql = "DELETE FROM inv_t_vendorpurchasepayment WHERE CHR_PURCHASEORDERNO='"+pid+"'";
+					apstm = con.prepareStatement(asql);
+					System.out.println(""+apstm);
+					apstm.execute();
+					apstm.close();
+					
 					asql= "UPDATE inv_t_directpurchase SET DOU_PAIDAMOUNT=0.0 ,CHR_PAYMENTSTATUS='N'  WHERE CHR_PURCHASEORDERNO='"+pid+"'";
 					apstm = con.prepareStatement(asql);
 					System.out.println(""+apstm);
 					apstm.execute();
 					apstm.close();
 					
-					asql = "DELETE FROM inv_t_vendorpurchasepayment WHERE CHR_PURCHASEORDERNO='"+pid+"'";
-					apstm = con.prepareStatement(asql);
-					System.out.println(""+apstm);
-					apstm.execute();
-					apstm.close();
 					
 				}
 				 

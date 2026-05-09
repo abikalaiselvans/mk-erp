@@ -60,8 +60,23 @@ String usertype=""+session.getAttribute("USRTYPE");
  
 sql =  " SELECT  FIND_A_EMPLOYEE_NAME_ONLY(CHR_EMPID), CHR_CLIENT_NAME, CHR_LOCATION, CHR_ACCOUNTTYPE, CHR_VERTICAL, ";
 sql = sql + "CHR_LOB_TYPE, CHR_OEM, DATE_FORMAT(DT_APPR_CLOSURE,'%d-%M-%Y') ,CHR_WINNING,";
-sql = sql + " INT_UNITVALUE, INT_QTY, DOU_TOTAL_VALUE, DOU_BOTTOM_VALUE, CHR_STAGE, CHR_SATUS, CHR_REMARK, DATE_FORMAT(DT_ENTRY,'%d-%M-%Y'),"; 
+sql = sql + " INT_UNITVALUE, INT_QTY, DOU_TOTAL_VALUE, DOU_BOTTOM_VALUE,  CONCAT(CHR_STAGE,'%'), CHR_SATUS, CHR_REMARK, DATE_FORMAT(DT_ENTRY,'%d-%M-%Y'),"; 
 sql = sql + " DT_UPDATEDATE  from mkt_t_funnel   WHERE INT_FUNNELID >0  ";
+
+
+ if(!"0".equals(location))
+	sql = sql+ " AND CHR_LOCATION = '"+ location+"' ";
+	
+if(!"0".equals(accouttype))
+	sql = sql+ " AND CHR_ACCOUNTTYPE ='"+accouttype+"' ";
+
+if(!"0".equals(status))
+	sql = sql+ " AND CHR_SATUS ='"+status+"' ";
+		
+		
+	
+		
+
 sql = sql+ " AND DATE(DT_ENTRY)  >='"+fromdate+"'";
 sql = sql+ " AND DATE(DT_ENTRY)  <='"+todate+"'";
  

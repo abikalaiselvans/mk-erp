@@ -55,7 +55,10 @@ try
 			sql = sql+ "AND b.INT_VENDORID= c.INT_VENDORID ";
 			sql = sql+ "AND d.INT_PAYMENTTERMID= a.INT_PAYMENTTERMID ";
 			 
-			sql = sql+ "AND a.CHR_INVOICEFOR ='D' ";
+			if(!vendorid.equals("0"))
+				sql = sql+ "  AND b.INT_VENDORID="+vendorid;
+			
+			sql = sql+ " AND a.CHR_INVOICEFOR ='D' ";
 			if("1".equals(Chequedt))
 			{
 				sql = sql+ " AND  a.DAT_DDDATE >='"+fdt+"'";
@@ -84,7 +87,10 @@ try
 			sql = sql+ "AND b.INT_VENDORID= c.INT_VENDORID ";
 			sql = sql+ "AND d.INT_PAYMENTTERMID= a.INT_PAYMENTTERMID ";
 			 
-			sql = sql+ "AND a.CHR_INVOICEFOR ='D' ";
+			sql = sql+ " AND a.CHR_INVOICEFOR ='D' ";
+			if(!vendorid.equals("0"))
+				sql = sql+ "  AND b.INT_VENDORID="+vendorid;
+			
 			if("1".equals(Chequedt))
 			{
 				sql = sql+ " AND  a.DAT_DDDATE >='"+fdt+"'";

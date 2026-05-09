@@ -93,6 +93,7 @@
 					String rowid = request.getParameter("rowid");
 					String sql = "SELECT INT_PAYMENTTERMID,CHR_DDNUMBER,DAT_PAYMENTDATE,CHR_PAYMENTDESC,DOU_PURCHASEAMOUNT,DOU_PAIDAMOUNT,DOU_BALANCEAMOUNT ,INT_PAYMENTID,FIND_A_DEPOSIT_NAME(INT_BANKID) FROM  inv_t_vendorpurchasepayment  ";
 				  	sql = sql +"WHERE CHR_PURCHASEORDERNO ='"+pid+"' AND INT_PAYMENTID="+rowid;
+					//out.println(sql);
 					String payData[][] = com.my.org.erp.common.CommonFunctions.QueryExecute(sql);
 					
 					String paidamount="0";
@@ -175,7 +176,7 @@
 				  
 				  out.println("<tr><td class='boldEleven'>Paid Amount</td>");
 				  out.println("<td class='boldEleven'>"+
-				  "<input class='formText135' type='text' size=20 name='paidamount'  id='paidamount'value='"+paidamount +"'  readonly='readonly'  />");
+				  "<input class='formText135' type='text' size=20 name='paidamount'  id='paidamount'value='"+lastPaidAmt +"'  readonly='readonly'  />");
 				  
 
 				  out.println("<tr><td class='boldEleven'>Balance</td>");

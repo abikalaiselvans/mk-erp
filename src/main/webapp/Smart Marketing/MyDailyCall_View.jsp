@@ -45,12 +45,12 @@ try
  
 
 </head>
-<script language="javascript" src="../JavaScript/Marketing/MyFunnelinfo.js"  ></script>
+<script language="javascript" src="../JavaScript/Marketing/MyDailyCalls.js"  ></script>
 <script language="JavaScript">
 
     function Add()
 	{ 
-		document.frm.action="MyFunnelAction.jsp";
+		document.frm.action="MyDailyCallAction.jsp";
  	}
 
 	function Edit()
@@ -80,7 +80,7 @@ try
 			if (document.forms[0].rowid.checked) { count=1;}
 		}
 		if(count==1){			
-			document.frm.action="MyFunnelAction.jsp";
+			document.frm.action="MyDailyCallAction.jsp";
 			return true;
 		}
 		else
@@ -133,10 +133,10 @@ try
 		}		
  	}
  	
-//onselectstart="return false" onpaste="return false;" onCopy="return false"  onLoad="LoadMyFunnelinfo('0')"  
+//onselectstart="return false" onpaste="return false;" onCopy="return false"  onLoad="LoadMyDailyCall('0')"  
   
 </script>
-<body  onLoad="LoadMyFunnelinfo('0')"  >
+<body  onLoad="LoadMyDailyCall('0')"  >
 <%@ include file="index.jsp"%>
 <form  AUTOCOMPLETE = "off"   name="frm" method="post" >
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -194,14 +194,14 @@ try
 			cellpadding="0" cellspacing="0" class="TableDesign"  
 			 >
         <tr  >
-          <td height="31"  ><div align="center">FUNNEL INFORMATION </div></td>
+          <td height="31"  ><div align="center">DAILY CALLS </div></td>
         </tr>
         <tr  >
           <td height="31" align="center" valign="middle"  ><table width="90%" border="0" align="center" cellpadding="2" cellspacing="2" class="whiteMedium">
                
               <tr>
               <td  >Day</td>
-              <td  ><select name="day" id="day"  onBlur="LoadMyFunnelinfo('0') ">
+              <td  ><select name="day" id="day"  onBlur="LoadMyDailyCall('0') ">
                 <option value="0" selected>All</option>
                 <%
 						for(int u=1;u<32;u++)
@@ -209,7 +209,7 @@ try
 						%>
               </select></td>
               <td >Month</td>
-              <td ><select name="month" class="formText135" id="month" onBlur="LoadMyFunnelinfo('0')">
+              <td ><select name="month" class="formText135" id="month" onBlur="LoadMyDailyCall('0')">
                 <%
 java.util.Date dt = new java.util.Date();
 int m = dt.getMonth();
@@ -230,7 +230,7 @@ int m = dt.getMonth();
                 <option value="12">December</option>
               </select></td>
               <td >Year</td>
-              <td ><select name="year" class="formText135" id="year" onBlur="LoadMyFunnelinfo('0')">
+              <td ><select name="year" class="formText135" id="year" onBlur="LoadMyDailyCall('0')">
                 <%
 java.util.Date dts = new java.util.Date();
 int ms = dts.getYear();
@@ -259,7 +259,7 @@ int ms = dts.getYear();
               <tr>
                 <td>M.E</td>
                 <td>
-                  <select name="me" class="formText135" id="me" style="width:175"  onBlur="LoadMyFunnelinfo('0')" >
+                  <select name="me" class="formText135" id="me" style="width:175"  onBlur="LoadMyDailyCall('0')" >
                     <option value="0">All</option>
                     <%
 				  if(!"F".equals(usertypes))
@@ -276,17 +276,18 @@ int ms = dts.getYear();
 				  }
 			  %>
                   </select></td>
-                <td>Search</td>
+                <td>Client Search</td>
                 <td><input name="search" type="text" id="search" maxlength="10" onKeyUp="LoadMyFunnelsearchinfo()"></td>
-				<td>Status</td>
+				<td>Type of Call</td>
 				<td><span class="boldEleven">
-				  <select name="status" id="status" onChange="LoadMyFunnelsearchinfo()">
-                    <option value="0">All</option>
-                    <option value="Live" selected="selected">Live</option>
-                    <option value="Hold">Hold</option>
-                    <option value="Lost">Lost</option>
-                    <option value="Won">Won</option>
-                  </select>
+				 <select name="typeofcall" class="formText135" id="typeofcall">
+                <option value="0">All</option>
+                <option value="Follow up">Follow up</option>
+                <option value="Courtesy">Courtesy</option>
+                <option value="Payment">Payment</option>
+                <option value="Negotiation">Negotiation</option> 
+                <option value="Others">Others</option>
+			 </select>
 				</span></td>
                 </tr>
           </table></td>
@@ -309,66 +310,66 @@ int ms = dts.getYear();
 			cellspacing="1" class="TableDesign"  >
 	    <tr class="para">
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('0')">All</a></div></td>
+					href="javascript:LoadMyDailyCall('0')">All</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('A')">A</a></div></td>
+					href="javascript:LoadMyDailyCall('A')">A</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('B')">B</a></div></td>
+					href="javascript:LoadMyDailyCall('B')">B</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('C')">C</a></div></td>
+					href="javascript:LoadMyDailyCall('C')">C</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('D')">D</a></div></td>
+					href="javascript:LoadMyDailyCall('D')">D</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('E')">E</a></div></td>
+					href="javascript:LoadMyDailyCall('E')">E</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('F')">F</a></div></td>
+					href="javascript:LoadMyDailyCall('F')">F</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('G')">G</a></div></td>
+					href="javascript:LoadMyDailyCall('G')">G</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('H')">H</a></div></td>
+					href="javascript:LoadMyDailyCall('H')">H</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('I')">I</a></div></td>
+					href="javascript:LoadMyDailyCall('I')">I</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('J')">J</a></div></td>
+					href="javascript:LoadMyDailyCall('J')">J</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('K')">K</a></div></td>
+					href="javascript:LoadMyDailyCall('K')">K</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('L')">L</a></div></td>
+					href="javascript:LoadMyDailyCall('L')">L</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('M')">M</a></div></td>
+					href="javascript:LoadMyDailyCall('M')">M</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('N')">N</a></div></td>
+					href="javascript:LoadMyDailyCall('N')">N</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('O')">O</a></div></td>
+					href="javascript:LoadMyDailyCall('O')">O</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('P')">P</a></div></td>
+					href="javascript:LoadMyDailyCall('P')">P</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('Q')">Q</a></div></td>
+					href="javascript:LoadMyDailyCall('Q')">Q</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('R')">R</a></div></td>
+					href="javascript:LoadMyDailyCall('R')">R</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('S')">S</a></div></td>
+					href="javascript:LoadMyDailyCall('S')">S</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('T')">T</a></div></td>
+					href="javascript:LoadMyDailyCall('T')">T</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('U')">U</a></div></td>
+					href="javascript:LoadMyDailyCall('U')">U</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('V')">V</a></div></td>
+					href="javascript:LoadMyDailyCall('V')">V</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('W')">W</a></div></td>
+					href="javascript:LoadMyDailyCall('W')">W</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('X')">X</a></div></td>
+					href="javascript:LoadMyDailyCall('X')">X</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('Y')">Y</a></div></td>
+					href="javascript:LoadMyDailyCall('Y')">Y</a></div></td>
 	      <td class="boldEleven"><div align="center"><a class="whiteMedium"
-					href="javascript:LoadMyFunnelinfo('Z')">Z</a></div></td>
+					href="javascript:LoadMyDailyCall('Z')">Z</a></div></td>
 	      </tr>
       </table></td>
     </tr>
 	<tr>
 	  <td><span class="boldEleven">
-	    <input type="hidden" name="filename" value="MyFunnel" />
-        <input type="hidden" name="actionS" value="MKTMyFunnelDelete" />
+	    <input type="hidden" name="filename" value="MyDailyCall" />
+        <input type="hidden" name="actionS" value="MKTMyDailyCallDelete" />
       </span></td>
     </tr>
 	

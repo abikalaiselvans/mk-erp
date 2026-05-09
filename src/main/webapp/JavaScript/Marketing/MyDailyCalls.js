@@ -1,33 +1,33 @@
   
-function LoadMyFunnelinfo(search) 
+function LoadMyDailyCall(search) 
 {
 	var day1 = document.getElementById('day').value;
  	var month1 =document.getElementById('month').value;
  	var year1 =document.getElementById('year').value;
 	var me1 =document.getElementById('me').value;
-	var status =document.getElementById('status').value;
+	var status =document.getElementById('typeofcall').value;
 	var s ="====day="+day1+"&month="+month1+"&year="+year1+"&me="+me1+"&search="+search;
 	//alert(s);
-	callAjaxFunnelinfo(day1, month1, year1, me1,status, escape(search)) ;
+	callAjaxMyDailyCall(day1, month1, year1, me1,status, escape(search)) ;
 }  https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=6600208
   
 
-function LoadMyFunnelsearchinfo() 
+function LoadMyDailyCall() 
 {
 	var day1 = document.getElementById('day').value;
  	var month1 =document.getElementById('month').value;
  	var year1 =document.getElementById('year').value;
 	var search1 =document.getElementById('search').value;
 	var me1 =document.getElementById('me').value;
-	var status =document.getElementById('status').value;
+	var status =document.getElementById('typeofcall').value;
 	var s ="AAAAAAday="+day1+"&month="+month1+"&year="+year1+"&me="+me1+"&search="+search1;
 	//alert(s);
-	callAjaxFunnelinfo(day1, month1, year1, me1, status, search1) ;
+	callAjaxMyDailyCall(day1, month1, year1, me1, status, search1) ;
 }  
   
   
   
-function callAjaxFunnelinfo(day1, month1, year1, me1, status1, search1) 
+function callAjaxMyDailyCall(day1, month1, year1, me1, status1, search1) 
 {
 	 
 	
@@ -35,7 +35,7 @@ function callAjaxFunnelinfo(day1, month1, year1, me1, status1, search1)
 	  $.ajax({
                 type: "GET",
                 url: "../FunnelAjax",  
-                data: { actionS:"Loadfunnelinfos", day:day1, month:month1, year:year1, me:me1,status:status1,  search:search1 },
+                data: { actionS:"LoadMyDailyCall", day:day1, month:month1, year:year1, me:me1,status:status1,  search:search1 },
                 dataType: "json",  
                 success: function(data) { 
                 
@@ -64,27 +64,14 @@ function iterateJSONMessage(result)
 		str=str+"<th align='center'><b>Entry Date</b></th>";
 		str=str+"<th align='center'><b>CLIENT_NAME</b></th>";
 		str=str+"<th align='center'><b>LOCATION</b></th>";
-		str=str+"<th align='center'><b>ACCOUNT TYPE</b></th>";
-		str=str+"<th align='center'><b>VERTICAL</b></th>";
-		str=str+"<th align='center'><b>LOB</b></th>";
-		str=str+"<th align='center'><b>OEM</b></th>";
-		str=str+"<th align='center'><b>UNIT VALUE</b></th>"; 
-		str=str+"<th align='center'><b>QTY</b></th>";
-		str=str+"<th align='center'><b>TOTAL</b></th>";
-		str=str+"<th align='center'><b>BOTTOMLINE</b></th>"; 
-		str=str+"<th align='center'><b>STAGE</b></th>";
-		str=str+"<th align='center'><b>APPROX CLOSURE</b></th>";
-		str=str+"<th align='center'><b>STATUS</b></th>";
-		str=str+"<th align='center'><b>PROBABILITY</b></th>"; 
-		str=str+"<th align='center'><b>REMARKS</b></th>";
+		str=str+"<th align='center'><b>CONTACT PERSON</b></th>";
+		str=str+"<th align='center'><b>DESIGNATION</b></th>";
+		str=str+"<th align='center'><b>CONTACT NUMBER</b></th>";
+		str=str+"<th align='center'><b>CALL TYPE</b></th>";
+		str=str+"<th align='center'><b>DESCRIPTION</b></th>";
 		str=str+" </thead>";
 		str=str+"</tr>";
-		
-
-		 //clientname, approxclosure,unitvalue,qty,totalvalue,bottomlinevalue,remarks
-		//location,accouttype,vertical,lob,oem,probabilitywinning,stage,status
-
-		 
+		 	
 		
 		if(rowLength === 0) 
 		{
@@ -112,20 +99,11 @@ function iterateJSONMessage(result)
 				str=str+"<td class='boldEleven'>"+result[u].entrydate +"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].clientname +"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].location +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].accouttype+"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].vertical+"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].lob +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].oem +"</td>";
-				str=str+"<td class='boldEleven' align='right'>"+result[u].unitvalue +"</td>"; 
-				str=str+"<td class='boldEleven' align='right'>"+result[u].qty  +"</td>";
-				str=str+"<td class='boldEleven' align='right'>"+result[u].totalvalue +"</td>";
-				str=str+"<td class='boldEleven' align='right'>"+result[u].bottomlinevalue +"</td>"; 
-				str=str+"<td class='boldEleven'>Stage "+result[u].stage +"%</td>";
-				str=str+"<td class='boldEleven'>"+result[u].approxclosure +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].status +"</td>";
-				str=str+"<td class='boldEleven'>"+result[u].probabilitywinning +"</td>"; 
-				str=str+"<td class='boldEleven'>"+result[u].remarks +"</td>";
-				 
+				str=str+"<td class='boldEleven'>"+result[u].contactperson+"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].designation+"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].contactnumber +"</td>";
+				str=str+"<td class='boldEleven'>"+result[u].typeofcall +"</td>"; 
+				str=str+"<td class='boldEleven'>"+result[u].description +"</td>"; 
 						
 				str=str+"<tr>";
 				
