@@ -45,7 +45,7 @@ try
 function Validate()
   {
 	if(  
-		checkNull( "clientname","Enter The Client Name" ) 
+		checkNullSelect( "cname","Select The Client Name" ) 
 		&& checkNullSelect( "location","Select The Location", "" )   
 		&& checkNull( "contactperson","Enter TheContact Person" )  
 		&& checkNull( "designation","Enter The Designation" ) 
@@ -185,7 +185,7 @@ background-color: #99cc99;
 							
 							String clientname = "",location = "",contactperson = "",designation = "",contactnumber = "";
 							String typeofcall = "",entrydate = "",description = "",nextfollowdate = "";
-							String id="", value="", actionS="" ;
+							String id="", value="", actionS="" , cname="";
 							String sql="";
 							String link="";
 							String link1="";
@@ -195,7 +195,7 @@ background-color: #99cc99;
 								id=""; 
 								clientname = ""; location = ""; contactperson = ""; designation = ""; contactnumber="";
 								typeofcall = ""; entrydate = ""; description = ""; nextfollowdate = "";
-								 
+								 cname="";
 								actionS="MKTMyDailyCallAdd";
 								value="Add";  
 								
@@ -205,17 +205,17 @@ background-color: #99cc99;
 								id="";  
 								id=request.getParameter("rowid");
 								 
-  								sql = sql + " SELECT INT_CALLID, CHR_CLIENT_NAME, CHR_LOCATION, CHR_CONTACTPERSON, CHR_DESIGNATION, INT_CONTACTNUMBER,  ";
-  								sql = sql + " CHR_TYPEOFCALL,   DATE_FORMAT(DT_ENTRY,'%d-%m-%Y'), CHR_DESCRIPTION,   DATE_FORMAT(DT_FOLLOWUP,'%d-%m-%Y') ";
+  								sql = sql + " SELECT INT_CALLID, INT_CUSTOMERNAMEID, CHR_LOCATION, CHR_CONTACTPERSON, CHR_DESIGNATION, INT_CONTACTNUMBER,  ";
+  								sql = sql + " CHR_TYPEOFCALL,   DATE_FORMAT(DT_ENTRY,'%d-%m-%Y'), CHR_DESCRIPTION,   DATE_FORMAT(DT_FOLLOWUP,'%d-%m-%Y'),CHR_CLIENT_NAME ";
   								sql = sql + "  from mkt_t_mydailycall  ";  
   								sql = sql + " WHERE INT_CALLID ="+id;  
 								String data[][]=CommonFunctions.QueryExecute(sql);
 								//out.println(sql);
 								 
-								
-								clientname=data[0][1]; location=data[0][2]; contactperson=data[0][3]; designation=data[0][4]; contactnumber=data[0][5];
+								cname="";
+								cname=data[0][1]; location=data[0][2]; contactperson=data[0][3]; designation=data[0][4]; contactnumber=data[0][5];
 								typeofcall=data[0][6]; entrydate=data[0][7];description=data[0][8];
-								nextfollowdate=data[0][9] ;
+								nextfollowdate=data[0][9] ; clientname=data[0][10] ;
 								
 								actionS="MKTMyDailyCallEdit";
 								value="Update";
@@ -230,7 +230,18 @@ background-color: #99cc99;
             </tr>
             <tr>
               <td width="23%" class="boldEleven">Client Name</td>
-              <td width="22%" class="boldEleven"><input name="clientname" type="text" class="formText135" id="clientname"  onBlur="upperMe(this)" value="<%=clientname%>" maxlength="80" /></td>
+              <td width="22%" class="boldEleven">
+			  <select name="cname" class="formText135" id="cname" style="width:200px">
+			  	 <option value="">Select Customer Name</option>
+				  <%
+			  String cdata[][]=CommonFunctions.QueryExecute( "SELECT INT_CUSTOMERNAMEID,CHR_NAME  FROM  mkt_m_customername ORDER BY CHR_NAME ASC ");
+			   for(int u=0;u<cdata.length;u++)
+				 out.println("<option value='"+cdata[u][0]+"'>"+cdata[u][1]+"</option>");
+			  %>
+			  </select>
+			  </select><script language="javascript">setOptionValue('cname','<%=cname%>')</script><br>
+			  <%=clientname%>
+			   </td>
               <td width="7%" class="boldEleven">&nbsp;</td>
               <td width="26%" class="boldEleven">Type of Call</td>
               <td width="22%" class="boldEleven"><select name="typeofcall" class="formText135" id="typeofcall">
@@ -238,7 +249,16 @@ background-color: #99cc99;
                 <option value="Follow up">Follow up</option>
                 <option value="Courtesy">Courtesy</option>
                 <option value="Payment">Payment</option>
-                <option value="Negotiation">Negotiation</option> 
+               
+				<option value="Negotiation">Negotiation</option>
+				 <option value="Breakfix">Breakfix</option> 
+				  <option value="Installation">Installation</option> 
+				   <option value="Site Survey">Site Survey</option> 
+				    <option value="Asset Collection">Asset Collection</option> 
+					 <option value="Payment Followup">Payment Followup</option> 
+					  <option value="Software">Software</option> 
+					   <option value="Interactive Panel">Interactive Panel</option> 
+					   
                 <option value="Others">Others</option>
 			 </select><script language="javascript">setOptionValue('typeofcall','<%=typeofcall%>')</script></td>
             </tr>

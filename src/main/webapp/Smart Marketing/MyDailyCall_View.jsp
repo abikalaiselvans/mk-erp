@@ -276,8 +276,8 @@ int ms = dts.getYear();
 				  }
 			  %>
                   </select></td>
-                <td>Client Search</td>
-                <td><input name="search" type="text" id="search" maxlength="10" onKeyUp="LoadMyFunnelsearchinfo()"></td>
+                <td>Client Search </td>
+                <td><input name="search" type="text" id="search" value="" maxlength="10" onKeyUp="LoadMyDailyCall()"></td>
 				<td>Type of Call</td>
 				<td><span class="boldEleven">
 				 <select name="typeofcall" class="formText135" id="typeofcall">

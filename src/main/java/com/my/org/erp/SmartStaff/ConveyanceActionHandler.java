@@ -55,10 +55,16 @@ public class ConveyanceActionHandler extends AbstractActionHandler
 				double t8=0;
 				if(!fl)
 				{	
-					acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,?)}");
+					acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,? ,?,?,?)}");
 					for(int i=0;i<param.length;i++)
 					{
 						t3=0;t4=0;t5=0;t6=0;t7=0;t0=0; 
+						
+					 
+			            String es0 = request.getParameter("esoffice" + param[i]);
+			            String es1 = request.getParameter("esremote" + param[i]);
+			            String es2 = request.getParameter("escustomer" + param[i]);
+			            
 						s0 = request.getParameter("from"+param[i]);
 						s1 = request.getParameter("to"+param[i]);
 						s2 = request.getParameter("km"+param[i]);
@@ -95,7 +101,10 @@ public class ConveyanceActionHandler extends AbstractActionHandler
 						acs.setString(17, ""+t0);
 						acs.setString(18, s10);
 						acs.setString(19, userid);
-						// System.out.println(""+acs);
+						 acs.setString(20, es0);
+				            acs.setString(21, es1);
+				            acs.setString(22, es2);
+						 System.out.println(""+acs);
 						acs.addBatch();
 						 
 				 }
@@ -116,7 +125,7 @@ public class ConveyanceActionHandler extends AbstractActionHandler
 				String rowid = request.getParameter("id");
 				String opendate = request.getParameter("opendate");
 				String rows[]= request.getParameterValues("row");
-				acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,?)}");
+				acs = con.prepareCall("{call CONVEYANCE_PRO_CONVEYANCE(?,?,?,?,?,?,? ,?,?,?,?,?,?,?,?,? ,?,?,? ,?,?,?)}");
 				for(int u=0;u<rows.length;u++)
 				{
 					acs.setString(1, "DELETE");		
@@ -138,6 +147,9 @@ public class ConveyanceActionHandler extends AbstractActionHandler
 					acs.setString(17, "");
 					acs.setString(18, "");
 					acs.setString(19, "");
+					acs.setString(20, "");
+		            acs.setString(21, "");
+		            acs.setString(22, "");
 					acs.addBatch();
 				}
 				acs.executeBatch();

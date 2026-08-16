@@ -97,11 +97,11 @@
 				String refno=request.getParameter("refno").trim();
 				String sql = "SELECT CHR_SERIALNO ,INT_ID,CHR_PURCHASE_WARRANTY ,DOU_UNITPRICE,DAT_PURCHASE_WARRANTY_START FROM inv_t_vendorgoodsreceived ";
 				sql = sql+" WHERE INT_ID = "+rowid;
-				sql = sql +" AND INT_BRANCHID = "+branchid;
+				/*sql = sql +" AND INT_BRANCHID = "+branchid;
 				sql = sql +" AND CHR_PURCHASEORDERNO = '"+refno+"'";
 				sql = sql +" AND CHR_ITEMID = '"+itemid+"'";
-				sql = sql +" AND CHR_TYPE = '"+itype+"'";
-				
+				sql = sql +" AND CHR_TYPE = '"+itype+"'";*/
+				out.println(sql);
 				String data[][] = com.my.org.erp.common.CommonFunctions.QueryExecute(sql);
 				val= data[0][0];
 				String w = data[0][2];

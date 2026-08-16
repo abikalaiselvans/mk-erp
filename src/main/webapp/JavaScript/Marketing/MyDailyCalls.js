@@ -68,7 +68,11 @@ function iterateJSONMessage(result)
 		str=str+"<th align='center'><b>DESIGNATION</b></th>";
 		str=str+"<th align='center'><b>CONTACT NUMBER</b></th>";
 		str=str+"<th align='center'><b>CALL TYPE</b></th>";
+		str=str+"<th align='center'><b>Follow Date</b></th>";
 		str=str+"<th align='center'><b>DESCRIPTION</b></th>";
+		str=str+"<th align='center'><b>STATUS</b></th>";
+		str=str+"<th align='center'><b>Follow-Up</b></th>";
+		str=str+"<th align='center'><b>Close</b></th>";
 		str=str+" </thead>";
 		str=str+"</tr>";
 		 	
@@ -95,7 +99,11 @@ function iterateJSONMessage(result)
 			    	str=str+"<tr  class='MRow2'>";
 			    	
 				str=str+"<td class='boldEleven'>";
-				str=str+"<input  name='rowid'  id='rowid'   type='checkbox' value='"+result[u].rowid+"' /> "+result[u].mename+"</td>";
+				if(result[u].rowid != null && result[u].status != "CLOSED")
+					str=str+"<input  name='rowid'  id='rowid'   type='checkbox' value='"+result[u].rowid+"' /> "+result[u].mename+"</td>";
+				else	
+					str=str+result[u].mename+"</td>";
+				
 				str=str+"<td class='boldEleven'>"+result[u].entrydate +"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].clientname +"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].location +"</td>";
@@ -103,8 +111,22 @@ function iterateJSONMessage(result)
 				str=str+"<td class='boldEleven'>"+result[u].designation+"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].contactnumber +"</td>";
 				str=str+"<td class='boldEleven'>"+result[u].typeofcall +"</td>"; 
+				str=str+"<td class='boldEleven'>"+result[u].nextfollowdate +"</td>"; 
 				str=str+"<td class='boldEleven'>"+result[u].description +"</td>"; 
-						
+				str=str+"<td class='boldEleven'>"+result[u].status +"</td>"; 
+				
+				if(result[u].rowid != null && result[u].status != "CLOSED")
+					str=str+"<td class='boldEleven'><a href='../SmartLoginAuth?filename=MyDailyCall&actionS=MKTMyDailyCallFollowUp&rowid="+result[u].rowid+"' title='Now you want to close it and open a new one under the same tracking id'><font class='boldgreen'>Want to Track</font></a></td>"; 
+				else    
+                    str=str+"<td class='boldEleven	'>&nbsp;</td>";
+
+				  
+				if(result[u].rowid != null && result[u].status != "CLOSED")
+					str=str+"<td class='boldEleven'><a href='../SmartLoginAuth?filename=MyDailyCall&actionS=MKTMyDailyCallClose&rowid="+result[u].rowid+"' title='Do you want to close this'><font class='boldgreen'>Want to Close</font></a></td>"; 
+				else    
+                    str=str+"<td class='boldEleven	'>&nbsp;</td>";
+
+							
 				str=str+"<tr>";
 				
 				 

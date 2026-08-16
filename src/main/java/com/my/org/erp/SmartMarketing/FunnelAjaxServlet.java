@@ -81,10 +81,9 @@ public class FunnelAjaxServlet extends HttpServlet {
     		String year=request.getParameter("year");
     		String search=request.getParameter("search");
     		String status=request.getParameter("status");
-    		
     		String me=request.getParameter("me");
-    		System.out.println(search);
-    		
+    		System.out.println("Search:"+search);
+    		 
     		HttpSession session = request.getSession();
 			String usertype  = (""+session.getAttribute("USERTYPE")).toUpperCase();
 			String empid [] = CommonFunctions.getReportingEmployeeIds(""+session.getAttribute("EMPID"));
@@ -93,27 +92,26 @@ public class FunnelAjaxServlet extends HttpServlet {
 				for(int i=0;i<empid.length;i++)
 					empids = empids +" '"+empid[i]+"' , ";
 			  
-			sql = sql + " SELECT INT_CALLID, FIND_A_EMPLOYEE_NAME_ONLY(CHR_EMPID), CHR_CLIENT_NAME, CHR_LOCATION, CHR_CONTACTPERSON, CHR_DESIGNATION, INT_CONTACTNUMBER,  ";
-			sql = sql + " CHR_TYPEOFCALL,   DATE_FORMAT(DT_ENTRY,'%d-%m-%Y'), CHR_DESCRIPTION,   DATE_FORMAT(DT_FOLLOWUP,'%d-%m-%Y') ";
-			sql = sql + "  from mkt_t_mydailycall  ";  
-			sql = sql + " WHERE INT_CALLID >0  ";
-			
+			sql = sql + " SELECT a.INT_CALLID, FIND_A_EMPLOYEE_NAME_ONLY(a.CHR_EMPID),FIND_A_MKT_CUSTOMER_NAME_ONLY(a.INT_CUSTOMERNAMEID), a.CHR_LOCATION, a.CHR_CONTACTPERSON, a.CHR_DESIGNATION, a.INT_CONTACTNUMBER,  ";
+			sql = sql + " a.CHR_TYPEOFCALL,   DATE_FORMAT(a.DT_ENTRY,'%d-%m-%Y'), a.CHR_DESCRIPTION,   DATE_FORMAT(a.DT_FOLLOWUP,'%d-%m-%Y'), a.CHR_STATUS , a.CHR_CLIENT_NAME ";
+			sql = sql + "  from mkt_t_mydailycall  a  WHERE   a.INT_CALLID >0 ";  
+			 
 			if(!"0".equals(day))
-				sql = sql + " AND DAY(DT_ENTRY) = "+day;
+				sql = sql + " AND DAY(a.DT_ENTRY) = "+day;
 			if(!"0".equals(month))
-				sql = sql + " AND MONTH(DT_ENTRY) = "+month;
+				sql = sql + " AND MONTH(a.DT_ENTRY) = "+month;
 			if(!"0".equals(year))
-				sql = sql + " AND YEAR(DT_ENTRY) = "+year;
+				sql = sql + " AND YEAR(a.DT_ENTRY) = "+year;
 			if(!"0".equals(status))
-				sql = sql + " AND CHR_TYPEOFCALL = '"+status +"' ";
+				sql = sql + " AND a.CHR_TYPEOFCALL = '"+status +"' ";
 			
 			if(!"F".equals(""+session.getAttribute("USRTYPE")) )
-				sql = sql + " AND  CHR_EMPID IN ("+empids+" '') ";
+				sql = sql + " AND  a.CHR_EMPID IN ("+empids+" '') ";
 			 
-			if(!"0".equals(search) || search.length()>2) // 
-				sql = sql + " AND CHR_CLIENT_NAME LIKE '"+search+"%' " ;
+			if(!"0".equals(search)  || !"".equals(search) )  
+				sql = sql + " AND ( ( FIND_A_MKT_CUSTOMER_NAME_ONLY(a.INT_CUSTOMERNAMEID) LIKE '"+search+"%')  OR  (a.CHR_CLIENT_NAME LIKE '"+search+"%' ) )" ;
 			
- 	 		sql = sql +" ORDER BY DT_ENTRY DESC ";
+ 	 		sql = sql +" ORDER BY a.DT_ENTRY DESC ";
  	 		System.out.println(sql);
  	 		
  	 		String jsondata = getMyDailyCallObject(sql);
@@ -138,7 +136,7 @@ public class FunnelAjaxServlet extends HttpServlet {
 					MyDailyCall n = new MyDailyCall();
 					n.setRowid(data[i][0]); 
 					n.setMename(data[i][1]);
-					n.setClientname(data[i][2]);
+					n.setClientname(data[i][2] +"/" + data[i][12]);
 					n.setLocation(data[i][3]);
 					n.setContactperson(data[i][4]);
 					n.setDesignation(data[i][5]);
@@ -147,6 +145,7 @@ public class FunnelAjaxServlet extends HttpServlet {
 					n.setEntrydate(data[i][8]);
 					n.setDescription(data[i][9]);
 					n.setNextfollowdate(data[i][10]);
+					n.setStatus(data[i][11]);
 					listdata.add(n);
 					 
 				}

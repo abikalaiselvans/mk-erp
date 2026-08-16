@@ -820,6 +820,25 @@ public class DirectPurchaseActionHandler extends AbstractActionHandler
 					apstm.close();
 					response.sendRedirect("Smart Inventory/DirectGoodsReceiveModified.jsp?gdreceiveno="+ponumber);
 				}
+				else if("INVSerialUpdates".equals(action))
+				{
+					String currentSerial = request.getParameter("currentSerial");
+					String newSerial = request.getParameter("newSerial");
+					asql = "UPDATE inv_t_vendorgoodsreceived SET CHR_SERIALNO =? WHERE CHR_SERIALNO=?"; 
+					apstm = con.prepareStatement(asql);
+					apstm.setString(1, newSerial);
+					apstm.setString(2, currentSerial);
+					System.out.println(""+apstm);
+					//apstm.execute();
+					int rowsUpdated = apstm.executeUpdate();
+					String message = (rowsUpdated > 0) ? ("Serial Number Updated Successfully. Previous Serial Number: "+currentSerial + ", New Serial Number: "+newSerial) : "Update Failed";
+					apstm.close();
+					response.sendRedirect("Smart Inventory/SerialNumberupdates.jsp?message="+message);
+					
+					
+				}
+				
+				
 				
 	 	}
 				 

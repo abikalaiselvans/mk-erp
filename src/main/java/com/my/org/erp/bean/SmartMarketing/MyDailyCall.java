@@ -1,13 +1,22 @@
 package com.my.org.erp.bean.SmartMarketing;
 
 public class MyDailyCall {
-	
-	String clientname = "",location = "",contactperson = "",designation = "",contactnumber = "";
-	String typeofcall = "",entrydate = "",description = "",nextfollowdate = "", mename;
-	String id="", value="", actionS="" ;
-	String sql="";
-	String link="";
-	String rowid="";
+
+	// make fields private to follow Java conventions, keep default values as before
+	private String clientname = "", location = "", contactperson = "", designation = "", contactnumber = "";
+	private String typeofcall = "", entrydate = "", description = "", nextfollowdate = "", mename;
+	private String id = "", value = "", actionS = "";
+	private String sql = "";
+	private String link = "";
+	private String rowid = "";
+	private String status = ""; 
+	private String cname = "";
+
+	// Default constructor preserved
+	public MyDailyCall() {
+		// no-op; keeps compatibility with existing bean usage
+	}
+
 	public String getClientname() {
 		return clientname;
 	}
@@ -98,9 +107,7 @@ public class MyDailyCall {
 	public void setRowid(String rowid) {
 		this.rowid = rowid;
 	}
-	
-	
-	
+
 	public String getMename() {
 		return mename;
 	}
@@ -115,8 +122,22 @@ public class MyDailyCall {
 				+ ", id=" + id + ", value=" + value + ", actionS=" + actionS + ", sql=" + sql + ", link=" + link
 				+ ", rowid=" + rowid + "]";
 	}
-	
-	
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
 	
 	
 

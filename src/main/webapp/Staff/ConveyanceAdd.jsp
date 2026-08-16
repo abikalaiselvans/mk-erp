@@ -1,11 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
+<%@ page import="com.my.org.erp.common.*"%>
+<%@ page import="com.my.org.erp.common.CommonFunctions"%>
+
 <html>
 <head>
-<title><%=com.my.org.erp.common.CommonFunctions.QueryExecute("SELECT CHR_MODULETITLE FROM m_projectmodule WHERE CHR_SHORTNAME='INV' ")[0][0]%></title>
+
+<title> :: CONVEYANCE ::</title>
+
 <link rel="icon" type="image/ico" href="../images/ERP.ico"></link>
 <link rel="shortcut icon" href="../images/ERP.ico"></link>
-<%@include file="Redirect.jsp" %>
+
+
 
 <meta name="resource-type" content="document" />
 <meta http-equiv="content-type" content="text/html; charset=US-ASCII" />
@@ -15,6 +20,11 @@
 <meta name="copyright" content="Copyright (c)2006-2011 KALAISELVAN K. All Rights Reserved." />
 <meta name="description" content="Office Automation ERP Products." />
 <meta name="keywords" content="HRM, Human Resource Management, HR Planning, Job Design, Job Analysing, Applicant, Company, Branch, Division,Model,Color,Office, Qualification, Attendance, Biometric, Finger Print, Forms, Leave, Holiday, Common Holiday, Shift Master, Shift Allocation. Proximity, Smart Card, Manual attendance, personal inforamtion , Basic, Allowance, Payroll, Salary Slab, Allowance, Recovery, Professional Tax, Employee attendance, Promotion, Trainning, Ressigner, Email, Jonners, PF, ESI, CTC, CTC, Take Home, Admin charge, Attendance, Payroll, Inventory, Product, Item, Customer, Vendor, vendor group, customer group, Purchase, sales, purchase paymeny, vendor payment, Sales return, purchase return, Quotation , Po, Purchase report, sales report, Tax, service tax, vat, c-form, taxes, user, employee id, payslip, consolidation, Attendance, stock, stock book , stock view, stock transfer, consumables, Serial number tracking, " />
+<%
+String dh[][]=CommonFunctions.QueryExecute("SELECT INT_CONVEYANCECLEAR FROM m_institution WHERE INT_ID=1");
+int dd = Integer.parseInt(dh[0][0]);
+%>
+
 <script language="javascript" src="../JavaScript/jquery/jquery-1.7.1.js"></script>
 <script language="javascript" src="../JavaScript/jquery/ui/jquery.ui.core.js"></script>
 <script language="javascript" src="../JavaScript/jquery/ui/jquery.ui.widget.js"></script>
@@ -22,12 +32,13 @@
 <script>
 	
 	$(function() {
-		$( "#opendate" ).datepicker({ minDate: -30, maxDate: "+0D",showOn: "button",
+		$( "#opendate" ).datepicker({ minDate: '-<%=dd%>', maxDate: "+0D",showOn: "button",
 			buttonImage: "../JavaScript/jquery/images/calendar.gif",
 			buttonImageOnly: true });
 	});
 	
-	 
+	
+	
 	$(function() {
 		$( "#fromdate" ).datepicker({ 
 			changeMonth : true, 
@@ -47,6 +58,9 @@
 			buttonImage: "../JavaScript/jquery/images/calendar.gif",
 			buttonImageOnly: true });
 	});
+	
+	
+	 
 function UploadWindow(query)
 {  
 	var width="800", height="400";
@@ -56,20 +70,16 @@ function UploadWindow(query)
 	newWindow = window.open(query,"subWind",styleStr);
 	newWindow.focus( );
 }
- 	
-	
+ 
 </script>
 	
 	
 <link href="../JavaScript/jquery/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css">
 
 <script language="javascript" >
-<%
-String dh[][]=com.my.org.erp.common.CommonFunctions.QueryExecute("SELECT INT_CONVEYANCECLEAR FROM m_institution WHERE INT_ID=1");
-int dd = Integer.parseInt(dh[0][0]);
-%>
+
 var d = parseInt("<%=dh[0][0]%>");
-var datecollections ="<%=com.my.org.erp.common.CommonFunctions.getLastNoofDay(dd)%>";
+var datecollections ="<%=CommonFunctions.getLastNoofDay(dd)%>";
 var datecollection = datecollections.split(",");
 
 </script>
@@ -81,34 +91,34 @@ var datecollection = datecollections.split(",");
 try
 {
 %>
-<style type="text/css">
-<!--
-a:visited {
-	color: #663366;
-}
-a:hover {
-	color: #FF0000;
-}
-a:active {
-	color: #0000FF;
-}
-.style11 {color: #FFFFFF}
--->
-</style>
 
 <script language="JavaScript">
 	var petrol 
 	<%
-	String cdata[][]=com.my.org.erp.common.CommonFunctions.QueryExecute("SELECT DOU_PETROL FROM m_institution  WHERE INT_ID=1");
+	String lofficeid= ""+session.getAttribute("OFFICEID");
+	String officeData[][] = CommonFunctions.QueryExecute("SELECT  INT_OFFICEID, CHR_OFFICENAME FROM  com_m_office WHERE CHR_STATUS != 'N'");
+	String cdata[][]=CommonFunctions.QueryExecute("SELECT DOU_PETROL FROM m_institution  WHERE INT_ID=1");
 	double price = Double.parseDouble(cdata[0][0]);
+	
+	String officeoption="";
+	 
+	for(int i=0; i <officeData.length; i++)
+		if(lofficeid.equals(officeData[i][0]))
+             officeoption = officeoption + "<option value='"+officeData[i][0]+"' selected> "+officeData[i][1] +"</option>";
+        else
+			officeoption = officeoption + "<option value='"+officeData[i][0]+"'> "+officeData[i][1] +"</option>";
+	
 	%>
 	petrol = "<%=price%>";
+	
+	var scriptofficeid = "<%=lofficeid%>";
+	
 	function subformupdate()
 	{
-		 
 		document.frm.action="ConveyanceModify.jsp";
 		document.frm.submit();
 	}
+	
 	function subformlist()
 	{
 		var fromdate =document.getElementById('fromdate').value;
@@ -157,22 +167,31 @@ a:active {
 	
 	function chk()
 	{
-		//checkNullSelect("vtype","Select Type of Vehicle ","Select")
-		var sf = false;
-		if(checkNull('opendate',"Select Date"))
-			sf = true;
-		var df =false;
-		var ddf = false;
-		var op=	document.getElementById('opendate').value;
-		var sp = document.getElementById('serverdate').value;	
-		var fg =Datecheck();
-		
-		if((sf) &&(fg))	
+		try
 		{
-		 	loadConveyance('opendate',"<%=""+session.getAttribute("EMPID")%>");	 
-			if(checkNullSelect("division","Select Division ","Select") )
-				insRow();
-		}		
+			//checkNullSelect("vtype","Select Type of Vehicle ","Select")
+			document.getElementById("limitmessage").innerHTML = "";
+			var sf = false;
+			if(checkNull('opendate',"Select Date"))
+				sf = true;
+			var df =false;
+			var ddf = false;
+			var op=	document.getElementById('opendate').value;
+			var sp = document.getElementById('serverdate').value;	
+			var fg =Datecheck();
+			
+			if((sf) &&(fg))	
+			{
+				
+				loadConveyance('opendate',"<%=""+session.getAttribute("EMPID")%>");	 
+				if(checkNullSelect("division","Select Division ","Select") )
+					insRow();
+			}
+		}
+		catch(err)
+		{
+			alert(err);
+		}			
 		
 	}
 	var plc ="";
@@ -185,15 +204,14 @@ a:active {
 	
 	var row =1;
  	var r =1;
-	
 	function insRow()
-	{	
-		try
-		{
-				
+	{
+			
 		 	enable();
-			 
 			var x=document.getElementById('myTable').insertRow(row)
+			var es0="esoffice"+r;
+			var es1="esremote"+r;
+			var es2="escustomer"+r;
 			var s0= "from"+r;
 			var s1= "to"+r;
 			var s2 = "km"+r;
@@ -206,7 +224,6 @@ a:active {
 			var s8 = "otheramt"+r;
 			var s9 = "total"+r;
 			var div ="div"+r;
-					
 			var vf0 = " onKeyPress=\" return numeric_only(event,'"+s2+"','8') \" ";
 			var vf1 = " onKeyPress=\" return numeric_only(event,'"+s3+"','8') \" ";
 			var vff1 =" onKeyPress=\" return numeric_only(event,'"+s3+"','8') \" ";
@@ -215,24 +232,37 @@ a:active {
 			var vf4 = " onKeyPress=\" return numeric_only(event,'"+s6+"','8') \" ";
 			var vf5 = " onKeyPress=\" return numeric_only(event,'"+s8+"','8') \" ";
 			var vf6 = " onKeyPress=\" return numeric_only(event,'"+s9+"','8') \" "; 
+		 
+		 
 			
-			x.insertCell(0).innerHTML="<input type='text' size=7 onKeyUp=\"upperMe(this)\" class='formText135' onblur='validfrom(this)'  name='"+s0+"' id ='"+s0+"' />";
-			x.insertCell(1).innerHTML="<input type='text' size=7  onKeyUp=\"upperMe(this)\" class='formText135' onblur='validto(this)'   name='"+s1+"' id ='"+s1+"' />";
-			x.insertCell(2).innerHTML="<input type='text' size=7 value=0  onblur='calculatekm(this)'  class='formText135'  name='"+s2+"' id ='"+s2+"' " +vf0+" style='text-align:right'   maxlength='7'  />";
+		 
+			x.insertCell(0).innerHTML="<select onblur='selectconveyanceType(this)' name='"+es0+"' id='"+es0+"'class='boldEleven'><%=officeoption%></select> ";
+			x.insertCell(1).innerHTML="<select name='"+es1+"'  id='"+es1+"'  class='boldEleven'><option value='Remote'> Remote</option><option value='Local' selected> Local</option></select>";
+			x.insertCell(2).innerHTML="<input type='text' maxlength='10' size=7 onKeyUp=\"upperMe(this)\" class='formText135' name='"+es2+"' id ='"+es2+"' />";
+			x.insertCell(3).innerHTML="<input type='text' maxlength='280' size=7 onKeyUp=\"upperMe(this)\" class='formText135' onblur='validfrom(this)'  name='"+s0+"' id ='"+s0+"' />";
+			x.insertCell(4).innerHTML="<input type='text' maxlength='280' size=7 onKeyUp=\"upperMe(this)\" class='formText135' onblur='validto(this)'   name='"+s1+"' id ='"+s1+"' />";
 			
-			x.insertCell(3).innerHTML="<div id="+div+"></div><input type='text' size=7  class='formText135'  name='"+ss3+"' id ='"+ss3+"' style='text-align:right' onKeyUp=\"upperMe(this)\" maxlength='16' />";
+			x.insertCell(5).innerHTML="<input type='text' maxlength='3' size=7 value=0  onblur='calculatekm(this)'  class='formText135'    name='"+s2+"' id ='"+s2+"' " +vf0+" style='text-align:right'   maxlength='7' />";
 			
-			x.insertCell(4).innerHTML="<input type='text' size=7 value=0  onblur='calculatetrain(this)' class='formText135'  name='"+s3+"' id ='"+s3+"' " +vf1+" style='text-align:right'   maxlength='7' />";
-			x.insertCell(5).innerHTML="<input type='text' size=7 value=0  onblur='calculateauto(this)' class='formText135'  name='"+s4+"' id ='"+s4+"' " +vf2+"  style='text-align:right'   maxlength='7' />";
-			x.insertCell(6).innerHTML="<input type='text' size=7 value=0  onblur='calculatelunch(this)' class='formText135'  name='"+s5+"' id ='"+s5+"' " +vf3+"  style='text-align:right'   maxlength='7' />";
+			x.insertCell(6).innerHTML="<div id="+div+"></div><input type='text' size=7  class='formText135' value='Call-"+r+"'  name='"+ss3+"' id ='"+ss3+"' style='text-align:right' onKeyUp=\"upperMe(this)\" maxlength='16'  />";
 			
-			x.insertCell(7).innerHTML="<input type='text' size=7 value=0  onblur='calculatetele(this)' class='formText135'  name='"+s6+"' id ='"+s6+"' " +vf4+" style='text-align:right   maxlength='7' />";
+			x.insertCell(7).innerHTML="<input type='text' size=7 value=0  onblur='calculatetrain(this)' class='formText135'  name='"+s3+"' id ='"+s3+"' " +vf1+" style='text-align:right'    maxlength='7'  />";
 			
-			x.insertCell(8).innerHTML="<input type='text' size=7      class='formText135'  name='"+s7+"' id ='"+s7+"'    style='text-align:right' maxlength='100'/> ";
-			x.insertCell(9).innerHTML="<input type='text' size=7 onblur='calculateother(this)' value=0  class='formText135'  name='"+s8+"' id ='"+s8+"' " +vf5+" style='text-align:right'/>";
-			x.insertCell(10).innerHTML="<input type='text' size=7   value=0  class='formText135'  name='"+s9+"' id ='"+s9+"' " +vf6+" style='text-align:right' readonly='readonly'/>";
-			x.insertCell(11).innerHTML="<input class='buttonbold'  type='button' value='Delete' onclick='deleteRow(this.parentNode.parentNode.rowIndex,"+r+")'>";
+			x.insertCell(8).innerHTML="<input type='text' size=7 value=0  onblur='calculateauto(this)' class='formText135'  name='"+s4+"' id ='"+s4+"' " +vf2+"  style='text-align:right'      maxlength='7' />";
+			
+			x.insertCell(9).innerHTML="<input type='text' size=7 value=0  onblur='calculatelunch(this)' class='formText135'  name='"+s5+"' id ='"+s5+"' " +vf3+"  style='text-align:right'     maxlength='7'  />";
+			
+			x.insertCell(10).innerHTML="<input type='text' size=7 value=0  onblur='calculatetele(this)' class='formText135'  name='"+s6+"' id ='"+s6+"' " +vf4+" style='text-align:right'    maxlength='7'  />";
+			
+			x.insertCell(11).innerHTML="<input type='text' size=7      class='formText135'  name='"+s7+"' id ='"+s7+"'    style='text-align:right'  maxlength='200'/> ";
+			
+			x.insertCell(12).innerHTML="<input type='text' size=7 onblur='calculateother(this)' value=0  class='formText135'  name='"+s8+"' id ='"+s8+"' " +vf5+" style='text-align:right'    maxlength='7'   />";
+			
+			x.insertCell(13).innerHTML="<input type='text' size=7   value=0  class='formText135'  name='"+s9+"' id ='"+s9+"' " +vf6+" style='text-align:right' readonly='readonly'   maxlength='7' />";
+			
+			x.insertCell(14).innerHTML="<input class='buttonbold'  type='button' value='Delete' onclick='deleteRow(this.parentNode.parentNode.rowIndex,"+r+")'>";
 			document.getElementById(s0).focus();
+			 
 			
 			
 			itemArray[idrow] = r	;
@@ -251,11 +281,7 @@ a:active {
 				document.getElementById(s1).focus();
 			}	
 			r = r+1;
-		}
-		catch(err)
-		{
-			alert(err);
-		}		
+			
 		
 	}
 	 
@@ -289,6 +315,8 @@ function deleteRow(i,rx)
 	}		 
 }
 	
+
+	
 	function display()
 	{
 		var hs="";
@@ -298,8 +326,6 @@ function deleteRow(i,rx)
 			hs = hs+itemArray[u]+",";
 		for(u=0; u<deleteArray.length; u++)
 			hs1 = hs1+deleteArray[u]+",";
-		
-		
 		var Array1 = hs.split(",");
 		var Array2 = hs1.split(",");
 		for(u=0; u<Array2.length; u++)
@@ -315,13 +341,40 @@ function deleteRow(i,rx)
 		for(v=0; v<Array1.length; v++)
 			if(Array1[v]!="")
 				hs2 = hs2 +	Array1[v]+",";
-		checkArray = hs2.split(",");
-		
-		
+		checkArray = hs2.split(",");	
 		document.getElementById('param').value=hs2;
 		 
 		
 	}
+	
+	
+ 
+	 function selectconveyanceType(es0)
+	 {
+		 try
+		 {
+			var position = (es0.name.replace("esoffice",""));	
+		  	var officeid = es0.value;;
+			 
+	     	console.log(position);
+	     	console.log(officeid);
+	     	 
+	  		if(scriptofficeid !=officeid)
+	  		{
+	  			setOptionValue('esremote'+position,"Remote")  
+	  		}
+	  		else
+	  			{
+	  			    setOptionValue('esremote'+position,"Local")
+	  			}
+	     	 
+		 }
+		 catch(err){
+			  
+			 console.log(err);
+		 }
+	  }
+	 
 	
 	 function validfrom(qty)
 	 {
@@ -344,36 +397,29 @@ function deleteRow(i,rx)
 	 
 	function calculatekm(qty)
 	{
-		try
-		{
   		
-			var qtyposition = (qty.name.replace("km",""));	
-			var quantity = qty.value;
-			if(quantity>=1)
-			{
-				if(checkNull("from"+qtyposition,"Enter Starting Place") && checkNull("from"+qtyposition,"Enter End Place")) 
-				{
-					var v = parseFloat(quantity)*petrol;
-					var tb=document.getElementById('div'+qtyposition);
-					var v1 = parseFloat(document.getElementById('busfare'+qtyposition).value);
-					var v2 = parseFloat(document.getElementById('autofare'+qtyposition).value);
-					var v3 = parseFloat(document.getElementById('lunch'+qtyposition).value);
-					var v4 = parseFloat(document.getElementById('telephone'+qtyposition).value);
-					var v5 = parseFloat(document.getElementById('otheramt'+qtyposition).value);
-					var tot = v+v1+v2+v3+v4+v5;
-					document.getElementById('total'+qtyposition).value =  Round(tot);
-					totalassign();
-				}	
-					
-			}
-			else
-			{
-				alert("Kilometer Should not be Zero");
-			}
-		}
-		catch(err)
+		var qtyposition = (qty.name.replace("km",""));	
+  		var quantity = qty.value;
+  		if(quantity>=1)
 		{
-			alert(err.description);
+			if(checkNull("from"+qtyposition,"Enter Starting Place") && checkNull("from"+qtyposition,"Enter End Place")) 
+			{
+				var v = parseFloat(quantity)*petrol;
+				var tb=document.getElementById('div'+qtyposition);
+				var v1 = parseFloat(document.getElementById('busfare'+qtyposition).value);
+				var v2 = parseFloat(document.getElementById('autofare'+qtyposition).value);
+				var v3 = parseFloat(document.getElementById('lunch'+qtyposition).value);
+				var v4 = parseFloat(document.getElementById('telephone'+qtyposition).value);
+				var v5 = parseFloat(document.getElementById('otheramt'+qtyposition).value);
+				var tot = v+v1+v2+v3+v4+v5;
+				document.getElementById('total'+qtyposition).value =  Round(tot);
+				totalassign();
+			}	
+				
+		}
+		else
+		{
+			//alert("Kilometer Should not be Zero");
 			
 		}
 	}
@@ -585,13 +631,11 @@ function deleteRow(i,rx)
 	function totalassign()
 	{
 		var par = document.getElementById('param').value;
-		 
 		var Array1 = par.split(",");
 		var tot=0 ;
 		var postion;
 		var tvalue;
 		var d = Array1.length;
-		 
 		for(i=0;i<d-1;i++)
 		{
 			position = Array1[i];
@@ -599,19 +643,31 @@ function deleteRow(i,rx)
 			tot = tot +parseFloat(tvalue);
 		}
 		document.getElementById('ntotal').value = Round(tot);
+		
+		var entryamount = parseFloat(document.getElementById('ConveyanceEntryAmount').value);  
+	    var limitamount = parseFloat(document.getElementById('ConveyanceLimitAmount').value);
+		var chkamount = entryamount+Round(tot);
+		if ( chkamount>limitamount ){
+			alert("Conveyance limit crossed  Limit:"+limitamount+"  Previous Amount::" +entryamount +" Claim Amount::"+chkamount);
+			document.getElementById("limitmessage").innerHTML = "Conveyance limit crossed  Limit:"+limitamount+"  Previous Amount::" +entryamount +" Claim Amount::"+chkamount;
+			submitdisable();	
+		} else {
+			submitenable();
+		}
+		  
+			
 	}
 	
 	
 	
-  
-  function mainPage()
-  {
-	    document.a.action="../Smart Attendance/iframeStaffMain.jsp";
-		document.a.submit();
-		return true;
-  }
+ 
   </script>
  <%@ include file="../JavaScript/dynamicStylesheet.jsp" %>
+ <style type="text/css">
+<!--
+.style1 {color: #FFFFFF}
+-->
+ </style>
 </head>
 <body  onpaste="return false;" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"  >
 <form  AUTOCOMPLETE = "off"   name="frm" method="post" action="../SmartLoginAuth" onSubmit="return Validate()" >
@@ -636,13 +692,13 @@ function deleteRow(i,rx)
 							<td width="22%"><font class="boldEleven"><font
 								color=#ffffff>Reporting To</font></font></td>
 							<td width="14%"><select id="repto" name="repto"
-								class="formText135"    style="width:200"  >
+								class="formText135" style="width:200"    >
 								<option value=0>Select</option>
 								<%
 
 								
-		   String rptodatas[][] =com.my.org.erp.common.CommonFunctions.QueryExecute("SELECT CHR_REPTO FROM com_m_staff  WHERE CHR_EMPID='"+emp+"'");
-		   String rptodata[][] =com.my.org.erp.common.CommonFunctions.QueryExecute("select CHR_EMPID,CHR_STAFFNAME from com_m_staff WHERE CHR_TYPE<>'T'  AND CHR_REP='Y' ");
+		   String rptodatas[][] = CommonFunctions.QueryExecute("SELECT CHR_REPTO FROM com_m_staff  WHERE CHR_EMPID='"+emp+"'");
+		   String rptodata[][] = CommonFunctions.QueryExecute("select CHR_EMPID,CHR_STAFFNAME from com_m_staff WHERE CHR_TYPE<>'T'  AND CHR_REP='Y' ");
 		   for(int c=0;c<rptodata.length;c++)
 		   		out.println("<option value='"+rptodata[c][0]+"'>"+rptodata[c][1]+"</option>");
 		   %>
@@ -650,13 +706,13 @@ function deleteRow(i,rx)
 						<script language="javascript">
 						setOptionValue('repto',"<%=rptodatas[0][0]%>") 
 						</script>							</td>
-						    <td width="14%"><span class="boldEleven style11">Division :</span></td>
+						    <td width="14%"><span class="boldEleven style1">Division</span></td>
 						    <td width="14%"><span class="boldEleven">
 						      <select name="division"
-								class="formText135" id="division" tabindex="1"  style="width:200" >
+								class="formText135" id="division" tabindex="1"  style="width:200"  >
                                 <option value="Select">Select</option>
                                 <%
-								String division[][] = com.my.org.erp.common.CommonFunctions.QueryExecute("Select INT_DIVIID,CHR_DIVICODE from inv_m_division");
+								String division[][] =  CommonFunctions.QueryExecute("Select INT_DIVIID,CHR_DIVICODE from inv_m_division");
 								for(int u=0; u<division.length; u++)
 								out.print("<option selected='selected' value='"+division[u][0]+"'>"+division[u][1]  +"</option>");
 							%>
@@ -668,20 +724,25 @@ function deleteRow(i,rx)
 					<TD noWrap bgColor=#ffffff colSpan=3>
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
-						  <td height="20" class="boldEleven"><img src="../Image/report/upload_red.png" width="48" height="48"><span class="boldgreen"><a   title="Clear Datas" href="javascript:UploadWindow('UploadConveyance.jsp')">Upload</a></span></td>
+						  <td align="center" valign="middle"><img src="../Image/report/upload_red.png" width="48" height="48"><span class="boldgreen"><a   title="Clear Datas" href="javascript:UploadWindow('UploadConveyance.jsp')">Upload</a></span></td>
+						  <td class="boldgreen">&nbsp;</td>
+						  <td class="boldEleven">                        
 						  <td class="boldEleven">&nbsp;</td>
-						  <td class="boldEleven">                 
-					  </tr>       
-						  <td class="boldEleven">&nbsp;</td>
+					  </tr>
 						<tr>
 							<td width="10%" height="20" class="boldEleven">Claim Date</td>
-							<td width="16%" class="boldEleven"><input name="opendate"
+							<td width="12%" class="boldEleven"><input name="opendate"
 								type="text" class="formText135" id="opendate"
-								  size="12"
-								maxlength="10" readonly>  
+								onKeyPress="numericHypenOnly('opendate',10)" size="12"
+								maxlength="10" readonly="readonly"> <!--<a
+								href="javascript:cal1.popup();"> <img
+								src="../JavaScript/img/cal.gif" width="16" height="16"
+								border="0" alt="Click here to Pick Up the Date" onClick="submitenable()"  
+								
+		 ></a> -->
 		 
 		 <%
-String date[][] = com.my.org.erp.common.CommonFunctions.QueryExecute("select date(now())");
+String date[][] =  CommonFunctions.QueryExecute("select date(now())");
 String dt[] = date[0][0].split("-");
 String d = dt[2]+"-"+dt[1]+"-"+dt[0];
 %>
@@ -738,39 +799,49 @@ function datevalid()
 
 
 <input name="serverdate" id="serverdate"  type="hidden" value="<%=d%>">
+<input name="ConveyanceEntryAmount" id="ConveyanceEntryAmount"  type="hidden" value="0">
+<input name="ConveyanceLimitAmount" id="ConveyanceLimitAmount"  type="hidden" value="0">
 
 
 <script language="javascript">
 	//alert(days_between('opendate', 'serverdate'));
 </script>				  </td>
-							<td width="73%" class="boldEleven">
+							<td width="76%" class="boldEleven">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
-									<td width="14%" class="boldEleven">For this date</td>
-								  <td width="34%" class="boldEleven"><input name=button_upd
+								  <td class="boldEleven">&nbsp;</td>
+								  <td class="boldEleven">&nbsp;</td>
+								  <td bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">&nbsp;</td>
+								  <td bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">&nbsp;</td>
+								  <td bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">&nbsp;</td>
+								  <td bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">&nbsp;</td>
+								  <td bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">&nbsp;</td>
+								  <td bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">&nbsp;</td>
+							  </tr>
+								<tr>
+									<td width="12%" class="boldEleven">For this date</td>
+									<td width="41%" class="boldEleven"><input name=button_upd
 										type=button class="wysiwyg" onClick="subformupdate()"
 										value=Modify></td>
 									<td width="5%" bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">From</td>
 								  <td width="16%" bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven"><input name="fromdate"
 										type="text" class="formText135" id="fromdate"
-										readonly="readonly" size="12">  </td>
-									<td width="3%" bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">To</td>
-								  <td width="17%" bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven"><input name="todate"
+										  size="12" readonly="readonly">  </td>
+									<td width="2%" bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">To</td>
+								  <td width="14%" bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven"><input name="todate"
 										type="text" class="formText135" id="todate"
-										readonly="readonly"size="12">   <script
-										language="JavaScript">			
+										  size="12"  readonly="readonly">  
+<script	language="JavaScript">			
  			 	
 			setCurrentDate('fromdate');
 			setCurrentDate('todate');			
-			
- 
-                          </script></td>
+</script></td>
 									<td width="1%" bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">&nbsp;</td>
-								  <td width="10%" bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven"><input name=button_upd3
-										type=button class="wysiwyg" onClick="subformlist()" value=List></td>
+								  <td width="9%" bordercolor="#0000FF" bgcolor="#D4D0C8" class="boldEleven">
+								  <input name=button_upd	type=button class="wysiwyg" onClick="subformlist()" value=List></td>
 								</tr>
 							</table>
-							<td width="1%" class="boldEleven">&nbsp;</td>
+						  <td width="2%" class="boldEleven">&nbsp;</td>
 						</tr>
 					</table>					</TD>
 				</TR>
@@ -781,7 +852,7 @@ function datevalid()
 
 
 				<TR>
-					<TD colspan="3" bgColor=#ffffff><!--<div id="divscroll"  style="OVERFLOW:auto;width:780px;height:150px">STAStaffConveyanceAdd-->
+					<TD colspan="3" bgColor=#ffffff><!--<div id="divscroll"  style="OVERFLOW:auto;width:780px;height:150px">-->
 					<input name="filename" type="hidden" id="filename"
 						value="Conveyance"> <input name="actionS" type="hidden"
 						id="actionS" value="STAStaffConveyanceAdd">
@@ -789,12 +860,15 @@ function datevalid()
 					<TABLE width="100%" border=0 cellPadding=3 cellSpacing=1
 						bgColor=#F0FFFF class=fontclass1 id="myTable">
 						<TR>
+							<Th bgColor=#ffffff class="boldEleven">Office</Th>
+							<Th bgColor=#ffffff class="boldEleven">Remote</Th>
+							<Th bgColor=#ffffff class="boldEleven">Customer</Th>
 							<Th bgColor=#ffffff class="boldEleven">From</Th>
 							<Th bgColor=#ffffff class="boldEleven">To</Th>
 							<Th align=middle bgColor=#ffffff class="boldEleven">Vehicle
 							No of Kms</Th>
 							<Th align=middle bgColor=#ffffff class="boldEleven">Call Number </Th>
-							<Th align=middle bgColor=#ffffff class="boldEleven">Train/Bus
+							<Th align=middle bgColor=#ffffff class="boldEleven">Train / Bus
 							Fare</Th>
 							<Th align=middle bgColor=#ffffff class="boldEleven">Auto
 							Fare</Th>
@@ -835,6 +909,12 @@ function datevalid()
 						class="boldEleven">&nbsp;</TD>
 			  </TR>
 				<TR id="ppf0">
+				  <TD bgColor=#ffffff>&nbsp;</TD>
+				  <TD class="ui-state-error-text"   bgColor="#ffffff" ><div align="center" id="limitmessage">&nbsp;</div></TD>
+				  <TD align=middle bgColor=#ffffff
+						class="boldEleven">&nbsp;</TD>
+			  </TR>
+				<TR id="ppf0">
 					<TD width="15%" bgColor=#ffffff>&nbsp;</TD>
 					<TD class="boldEleven"   bgColor="#ffffff" >
 					<div align="right">Net Amount&nbsp;</div>					</TD>
@@ -849,7 +929,7 @@ function datevalid()
 				      <input name="sub1" id="sub1" type=submit class="tfoot" value=Submit >
 			      <input
 						name="Button" type="button" class="tfoot"  value="Close"   accesskey="c" 
-						onClick="redirect('iframeStaffMain.jsp')"></TD>
+						onClick="redirect('Userframe.jsp')"></TD>
 				</TR>
 			</TBODY>
 		</TABLE>
